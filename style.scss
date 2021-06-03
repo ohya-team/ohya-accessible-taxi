@@ -1,0 +1,425 @@
+/* ==css 註解 ==*/
+// scss 註解
+//變數
+@import 'base/var';
+
+
+// function
+@import 'mixins/mixin';
+@import 'base/body';
+
+// 套件
+// @import 'node_modules/bootstrap-sass/assets/stylesheets/bootstrap';
+
+
+
+
+//layout
+@import 'layout/header';
+@import 'layout/nav';
+@import 'layout/login';
+@import 'layout/footer';
+
+//page 
+@import 'page/index/index';
+@import 'page/about/aboutus';
+
+
+
+
+
+
+
+// 按鈕
+
+@include btn('normal', 100px, #333);
+
+@include btn('large', 130px, #00d9ff) {
+    border: 1px solid #333;
+}
+
+;
+
+@include btn('xs', 60px, rgb(221, 255, 0));
+
+
+
+// ===  區塊  ====
+
+@include rectbox('#box', 600px) {
+    padding: 100px;
+    background-color: #f2ff00;
+}
+
+@include rectbox('.box_small', 300px, 200px) {
+    display: flex;
+    justify-content: center;
+}
+
+;
+
+@include rectbox('.box_large', 600px, 400px) {
+    @include font-large();
+}
+
+;
+
+
+//呼叫函式 @include name
+
+// 顏色函式
+＿＿ // lighten($color, $amount) 
+
+// darken($color, $amount)
+.box-light {
+    width: 400px;
+    height: 400px;
+    background-color: #f20;
+    color: rgb(255, 255, 255);
+
+    &:hover {
+        background-color: darken(#f20, 5%);
+        color: invert(rgb(255, 255, 255));
+        //  background-color: lighten(#f20 , 40%);
+    }
+}
+
+
+//運算
+$var1 : 10em;
+$var2 : 20;
+
+
+.font {
+    font-size: $var1 + $var2; // 加法
+    width: 130 - 10px; //減法
+    height: 10 * 10; // 乘 
+    font: (20 / 10) + px // 除法 ;   
+}
+
+
+@mixin font-title($fontsize) {
+    h1 {
+        font-size: $fontsize * 5;
+    }
+
+    h2 {
+        font-size: $fontsize * 4;
+    }
+
+    h3 {
+        font-size: $fontsize * 3;
+    }
+
+    h4 {
+        font-size: $fontsize * 2;
+    }
+
+    h5 {
+        font-size: round($fontsize * 1.2);
+    }
+}
+
+@include font-title($fontsize);
+
+// 判斷式 @if /  @else  / @else if
+
+$width : 99px;
+
+.boxs {
+    @if $width>=100px {
+        width: 100px;
+    }
+
+    @else {
+        width: (100px / 2)
+    }
+}
+
+
+@mixin fontdevice($device) {
+    .font_#{$device} {
+        @if $device==desktop {
+            font-size: 30px;
+            @content;
+        }
+
+        @else if $device==ipad {
+            font-size: 35px;
+            @content;
+        }
+
+        @else {
+            font-size: 40px;
+            @content;
+        }
+    }
+}
+
+@include fontdevice(ipad) {
+    font-weight: 200;
+}
+
+;
+
+// for 迴圈
+@for $i from 1 through 10 {
+    .box-#{$i} {
+        width: 1px * $i;
+    }
+}
+
+
+
+
+// @include push-left(left ,100);
+// @include push-left(top ,100);
+
+
+// grid
+
+// .col-1 {
+//     width: (1/12) * 100%;
+// }
+
+// .col-2 {
+//     width: (2/12) * 100%;
+// }
+
+// .col-3 {
+//     width: (3/12) * 100%;
+// }
+
+
+
+
+@include grid(12) {
+    background-color: rgb(244, 18, 18);
+}
+
+;
+
+// @each
+
+// $images : a1 a2 a3 a4 b1 b2 b3;
+
+
+
+.slider {
+    @include img(a1 a2 a3, png) {
+        background-size: cover;
+        width: 100%;
+    }
+
+    ;
+}
+
+@include img(b1 b2 b3, jpg);
+
+@include img(c1 c2 c3) {
+    background-size: cover;
+    width: 100vw;
+}
+
+;
+
+@include img(s1 s2, png);
+
+
+
+
+
+.box {
+    @include prefix(transition, all 4s ease);
+}
+
+.page {
+    @include prefix-val(display, flex);
+}
+
+//  h1 {font-size:30px; }
+//  h2 {font-size:20px; }
+//  h3 {font-size:10px; }
+
+
+
+$titlesize: ('h1' : 50px,
+    'h2' : 40px,
+    'h3' : 30px,
+    'h4' : 20px,
+    'h5' : 10px); //map 
+
+
+@each $title,
+$val in $titlesize {
+    #{$title} {
+        font-size: $val;
+    }
+}
+
+$btn_module: ('primary' : #924bc8,
+    'info' : green,
+    'warning' : yellow,
+    'error' : #f20,
+    'secondary' : #bdb8b8,
+    'light' : gray,
+    'dark' : #46285D);
+
+
+@each $class, $val in $btn_module {
+    //  .#{$class}-btn {
+    //      width: 120px;
+    //      padding: 10px;
+    //      text-align: center;
+    //      background-color: $val;
+    //      color: invert($val);
+    //  }
+    @include btn($class, 120px, $val);
+}
+
+.text {
+    color: map-get($btn_module, 'primary')
+}
+
+
+
+
+
+//respondsive module
+
+//第一種
+@include respond_each(large-desktop){
+    h2 {
+      font-size: 36px;
+    }
+}
+
+//第二種
+@include respond_each(xs-mobile){
+    h2 {
+      font-size: 36px;
+    }
+}
+
+
+
+// extend
+
+
+
+.yellow {
+    background-color: yellow;
+}
+
+%black {
+    color: #000;
+}
+
+@mixin box($w , $h){
+    width: $w;
+    height: $h;
+    @extend %black;
+}
+
+
+
+@mixin yellow {
+    background-color: yellow;
+}
+
+
+
+.box {
+   @include box(300px , 100px);  
+}
+.box-large {
+    width: 300px;
+    height: 400px;
+    @extend .yellow;
+    // @include yellow;   
+}
+
+.box-small {
+    width: 100px;
+    height: 100px;
+}
+
+.title-spec {
+   font-size: 30px;
+   font-weight: 300;
+}
+
+@mixin title() {
+    font-size: 30px;
+    font-weight: 300; 
+}
+
+
+
+h1.title {
+   @extend .title-spec; 
+//   @include title
+}
+
+.bb {
+    background-image: url('#{$path}/a1.jpg');
+}
+
+
+
+
+
+
+
+
+
+
+
+// %boderadius {
+//    border-radius:  10px;
+// }
+
+
+// .card_model {
+//   width:  300px;
+//   height : 400px;
+//   @extend %boderadius;
+//   box-shadow: 1px 1px 10px #e3e3e3;
+// }
+
+
+
+
+// .box {
+//     @extend .card_model;
+//     @extend .yellow
+// }
+
+// .box-large {
+//     @extend %black;  
+// }
+
+
+@include img(car , png){
+    width: 100%;
+    height: auto;
+};
+
+
+@include img(bus , gif )
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
