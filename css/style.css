@@ -2,14 +2,7 @@
 /* ==css 註解 ==*/
 body {
   margin: 0;
-
+  font-size: 16px;
+  color: #ffffff;
 }
-
-body .wrapper {
-  width: 1200px;
-  height: auto;
-  background-color: #fff;
-  /*置中*/
-  margin: 5px auto;
-}
-
+/*# sourceMappingURL=style.css.map */
