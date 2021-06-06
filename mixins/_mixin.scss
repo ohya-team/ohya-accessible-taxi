@@ -22,8 +22,8 @@
 }
 
 //mixin 二個變數 @include rect()
-@mixin rect($w:1200px, $h:100vh, $bgc:#ffffff){
-  width: $w;
-  height: $h;
-  background-color: $bgc;
-}
+// @mixin rect($w:1200px, $h:100vh, $bgc:#ffffff){
+//   width: $w;
+//   height: $h;
+//   background-color: $bgc;
+// }
