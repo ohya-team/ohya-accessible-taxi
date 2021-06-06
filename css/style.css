@@ -1,0 +1,384 @@
+@charset "UTF-8";
+/* ==css 註解 ==*/
+body {
+  margin: 0;
+  font-size: 15px;
+  color: #383838;
+  background-color: #3af73a;
+}
+
+body .wrapper {
+  width: 1200px;
+  height: auto;
+  background-color: #fff;
+  /*置中*/
+  margin: 5px auto;
+}
+
+body h1 {
+  font-size: 75px;
+  margin: 10px auto 0px;
+}
+
+body h2 {
+  font-size: 60px;
+}
+
+header {
+  width: 100%;
+  height: 120px;
+  background-color: #20a6ff;
+  /*置中*/
+  margin: 5px auto;
+}
+
+nav ul li {
+  width: 100px;
+  display: inline-block;
+  background-color: #ffc400;
+}
+
+.login {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+
+footer {
+  width: 100%;
+  height: 300px;
+  background-color: #0077c6;
+  /*置中*/
+  margin: 5px auto;
+  position: fixed;
+  bottom: 0;
+}
+
+.content {
+  width: 100%;
+  height: 800px;
+}
+
+.box_wide {
+  background-color: #f42f2f;
+  font-size: 50px;
+  color: #333;
+}
+
+.btn-normal {
+  width: 100px;
+  padding: 10px;
+  text-align: center;
+  vertical-align: middle;
+  color: #fff;
+  background-color: #333;
+  cursor: pointer;
+  margin: 10px;
+  border-radius: 5px;
+  transition: .2s all ease-in-out;
+}
+
+.btn-normal:hover {
+  background-color: black;
+  width: 200px;
+  padding: 20px;
+}
+
+.btn-large {
+  width: 130px;
+  padding: 10px;
+  text-align: center;
+  vertical-align: middle;
+  color: #fff;
+  background-color: #00d9ff;
+  cursor: pointer;
+  margin: 10px;
+  border-radius: 5px;
+  transition: .2s all ease-in-out;
+  border: 1px solid #333;
+}
+
+.btn-large:hover {
+  background-color: #008299;
+  width: 260px;
+  padding: 20px;
+}
+
+.btn-xs {
+  width: 60px;
+  padding: 10px;
+  text-align: center;
+  vertical-align: middle;
+  color: #fff;
+  background-color: #ddff00;
+  cursor: pointer;
+  margin: 10px;
+  border-radius: 5px;
+  transition: .2s all ease-in-out;
+}
+
+.btn-xs:hover {
+  background-color: #859900;
+  width: 120px;
+  padding: 20px;
+}
+
+#box {
+  width: 600px;
+  height: 600px;
+  padding: 100px;
+  background-color: #f2ff00;
+}
+
+.box_small {
+  width: 300px;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+}
+
+.box_large {
+  width: 600px;
+  height: 400px;
+  font-size: 30px;
+  color: #333;
+}
+
+.box-light {
+  width: 400px;
+  height: 400px;
+  background-color: #f20;
+  color: white;
+}
+
+.box-light:hover {
+  background-color: #e61f00;
+  color: black;
+}
+
+.font {
+  font-size: 30em;
+  width: 120px;
+  height: 100;
+  font: 2px;
+}
+
+h1 {
+  font-size: 75px;
+}
+
+h2 {
+  font-size: 60px;
+}
+
+h3 {
+  font-size: 45px;
+}
+
+h4 {
+  font-size: 30px;
+}
+
+h5 {
+  font-size: 18px;
+}
+
+.boxs {
+  width: 50px;
+}
+
+.font_small {
+  font-size: 40px;
+  font-weight: 400;
+}
+
+.box {
+  width: 1px;
+}
+
+.box {
+  width: 2px;
+}
+
+.box {
+  width: 3px;
+}
+
+.box {
+  width: 4px;
+}
+
+.box {
+  width: 5px;
+}
+
+.box {
+  width: 6px;
+}
+
+.box {
+  width: 7px;
+}
+
+.box {
+  width: 8px;
+}
+
+.box {
+  width: 9px;
+}
+
+.box {
+  width: 10px;
+}
+
+.push-left-1 {
+  position: relative;
+  left: 1px;
+}
+
+.push-left-2 {
+  position: relative;
+  left: 2px;
+}
+
+.push-left-3 {
+  position: relative;
+  left: 3px;
+}
+
+.push-left-4 {
+  position: relative;
+  left: 4px;
+}
+
+.push-left-5 {
+  position: relative;
+  left: 5px;
+}
+
+.push-left-6 {
+  position: relative;
+  left: 6px;
+}
+
+.push-left-7 {
+  position: relative;
+  left: 7px;
+}
+
+.push-left-8 {
+  position: relative;
+  left: 8px;
+}
+
+.push-left-9 {
+  position: relative;
+  left: 9px;
+}
+
+.push-left-10 {
+  position: relative;
+  left: 10px;
+}
+
+.push-left-11 {
+  position: relative;
+  left: 11px;
+}
+
+.push-left-12 {
+  position: relative;
+  left: 12px;
+}
+
+.push-left-13 {
+  position: relative;
+  left: 13px;
+}
+
+.push-left-14 {
+  position: relative;
+  left: 14px;
+}
+
+.push-left-15 {
+  position: relative;
+  left: 15px;
+}
+
+.push-left-16 {
+  position: relative;
+  left: 16px;
+}
+
+.push-left-17 {
+  position: relative;
+  left: 17px;
+}
+
+.push-left-18 {
+  position: relative;
+  left: 18px;
+}
+
+.push-left-19 {
+  position: relative;
+  left: 19px;
+}
+
+.push-left-20 {
+  position: relative;
+  left: 20px;
+}
+
+.push-left-21 {
+  position: relative;
+  left: 21px;
+}
+
+.push-left-22 {
+  position: relative;
+  left: 22px;
+}
+
+.push-left-23 {
+  position: relative;
+  left: 23px;
+}
+
+.push-left-24 {
+  position: relative;
+  left: 24px;
+}
+
+.push-left-25 {
+  position: relative;
+  left: 25px;
+}
+
+.push-left-26 {
+  position: relative;
+  left: 26px;
+}
+
+.push-left-27 {
+  position: relative;
+  left: 27px;
+}
+
+.push-left-28 {
+  position: relative;
+  left: 28px;
+}
+
+.push-left-29 {
+  position: relative;
+  left: 29px;
+}
+
+.push-left-30 {
+  position: relative;
+  left: 30px;
+}
+/*# sourceMappingURL=style.css.map */

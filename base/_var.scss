@@ -1,0 +1,28 @@
+//sass 數值型態
+
+//顏色
+$colorWhite: #ffffff;
+$colorB31: #313131;
+$colorY90: #ffd900;
+$colorY56: #ffe56e;
+$colorG9f: #9f9f9f;
+$colorGd6: #d6d6d6;
+$colorGf4: #f4f4f4;
+$colorB59: #59c3e1;
+
+$btnB31: $colorB31;
+$btnY90: $colorY90;
+
+$fontColor: $btnB31;
+
+//字型大小
+$font-m: 16px;
+$font-l: $font-m*1.2;
+$font-s: $font-m*0.8;
+
+// 斷點
+
+$desktop: 1200px;
+$laptop: 996px;
+$ipad: 768px;
+$mobile: 414px;
