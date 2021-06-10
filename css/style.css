@@ -47,6 +47,7 @@ h3{
 
 h4{
   font-size: 18px;
+  margin: 5px 0;
 }
 
 p{
@@ -118,6 +119,7 @@ p{
   border-radius: 23px;
   color: #313131;
   margin: 5px;
+  cursor: pointer;
 }
 
 /* .btn-m>span{
@@ -138,6 +140,8 @@ p{
   border-radius: 23px;
   color: #313131;
   border: solid 1px #313131;
+  margin: auto;
+  cursor: pointer;
 }
 
 .btn-l-w:hover, .btn-l-w>span:hover{
@@ -153,6 +157,7 @@ p{
   min-width: 100px;
   border-radius: 23px;
   color: #ffffff;
+  cursor: pointer;
 }
 
 .btn-l:hover, .btn-l>span:hover{
@@ -162,6 +167,7 @@ p{
 
 .btn-link{
   color: #9f9f9f;
+  cursor: pointer;
 }
 
 .btn-link:hover{
@@ -171,6 +177,7 @@ p{
 
 .btn-link-b{
   color: #69c3e1;
+  cursor: pointer;
 }
 
 .btn-link-b:hover{
@@ -188,6 +195,7 @@ p{
   padding: 10px 12px;
   border-radius: 5px;
   margin: 5px;
+  cursor: pointer;
 }
 
 .page-w{
@@ -197,6 +205,7 @@ p{
   border: 1px solid #313131;
   border-radius: 5px;
   margin: 5px;
+  cursor: pointer;
 }
 
 .page-w:hover{
@@ -244,11 +253,67 @@ input.success{
 label.success{
   color: #00cc1f;
 }
-.checkbox{
+.checkbox, .radio{
   height: auto;
 }
 
 input:checked{
   background-color: #313131;
   color: #ffffff;
+}
+
+/*TABLE STYLE*/
+
+.bk{
+  background-color: #313131;
+  color: #ffffff;
+}
+
+th,td{
+  padding: 15px;
+}
+
+table, th, td {
+  border: 1px solid #9f9f9f;
+  border-collapse: collapse;
+}
+
+/* CARD */
+
+.card{
+  border: 1px solid #9f9f9f;
+  max-width: 310px;
+  margin: 10px;
+  padding-bottom: 20px;
+  border-radius: 10px;
+}
+
+.card img{
+  width: 100%;
+}
+
+.card-text{
+  padding: 10px;
+  color: #313131;
+}
+
+.w-100{
+  width: 100px;
+}
+
+.w-600{
+  max-width: 600px;
+}
+
+.avatars{
+  width: 100px;
+  height: 100px;
+  background-color: #cccccc;
+  border: #9f9f9f;
+  border-radius: 50px;
+  overflow: hidden;
+}
+
+.avatars img{
+  width: 100%;
 }
