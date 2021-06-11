@@ -318,3 +318,21 @@ table, th, td {
   width: 100%;
   height: auto;
 }
+
+/*
+// 斷點
+$desktop: 1200px;
+$laptop: 996px;
+$ipad: 768px;
+$mobile: 414px;
+*/
+.container{
+  padding: 0 15px;
+}
+
+@media screen and (min-width: 1200px) {
+  .container{
+    width: 1200px;
+    padding: 0 15px;
+  }
+}
