@@ -310,7 +310,7 @@ table, th, td {
   height: 100px;
   background-color: #cccccc;
   border: #9f9f9f;
-  border-radius: 50px;
+  border-radius: 50%;
   overflow: hidden;
 }
 
