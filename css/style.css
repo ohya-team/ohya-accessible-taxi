@@ -7,17 +7,31 @@ body {
 }
 /*# sourceMappingURL=style.css.map */
 
-/* COLOR */
-/* $colorWhite: #ffffff;
-$colorB31: #313131;
-$colorY90: #ffd900;
-$colorY56: #ffe56e;
-$colorG9f: #9f9f9f;
-$colorGd6: #d6d6d6;
-$colorGf4: #f4f4f4;
-$colorB59: #59c3e1;
-$colorRFF: #FF0000; 
-$colorG00: #00cc1f*/
+
+/* 寬度設定 */
+.w-100{
+  width: 100px;
+}
+
+.w-600{
+  max-width: 600px;
+}
+
+.pd-50{
+  padding-bottom: 50px;
+}
+
+.pd-20{
+  padding-bottom: 20px;
+}
+
+.pt-20{
+  padding-top: 20px;
+}
+
+.pt-50{
+  padding-top: 50px;
+}
 
 /* FONTS */
 @font-face {
@@ -35,30 +49,50 @@ body{
 
 h1{
   font-size: 32px;
+  align-items: center;
+  display: block;
+  color: #313131;
 }
 
 h2{
   font-size: 28px;
+  color: #313131;
 }
 
 h3{
   font-size: 24px;
+  color: #313131;
 }
 
 h4{
   font-size: 18px;
+  color: #313131;
   margin: 5px 0;
 }
 
 p{
   font-size: 16px;
+  line-height: 1.5;
+  color: #313131;
 }
 
 .pbox{
   width: 300px;
 }
 
+
 /* COLOR */
+/* $colorWhite: #ffffff;
+$colorB31: #313131;
+$colorY90: #ffd900;
+$colorY56: #ffe56e;
+$colorG9f: #9f9f9f;
+$colorGd6: #d6d6d6;
+$colorGf4: #f4f4f4;
+$colorB59: #59c3e1;
+$colorRFF: #FF0000; 
+$colorG00: #00cc1f*/
+
 
 .cbox1{
   width: 100px;
@@ -109,6 +143,7 @@ p{
   background-color: #69c3e1;
 }
 
+
 /* BUTTON */
 
 .btn-m{
@@ -122,9 +157,6 @@ p{
   cursor: pointer;
 }
 
-/* .btn-m>span{
-  color: #313131;
-} */
 
 .btn-m:hover, .btn-m>span:hover{
   background-color: #313131;
@@ -132,7 +164,6 @@ p{
 }
 
 .btn-l-w{
-  /* background-color: #313131; */
   padding: 13px 26px;
   margin: 5px;
   text-align: center;
@@ -140,7 +171,7 @@ p{
   border-radius: 23px;
   color: #313131;
   border: solid 1px #313131;
-  margin: auto;
+  
   cursor: pointer;
 }
 
@@ -168,6 +199,7 @@ p{
 .btn-link{
   color: #9f9f9f;
   cursor: pointer;
+  padding: 5px
 }
 
 .btn-link:hover{
@@ -178,6 +210,7 @@ p{
 .btn-link-b{
   color: #69c3e1;
   cursor: pointer;
+  padding: 5px
 }
 
 .btn-link-b:hover{
@@ -217,6 +250,7 @@ p{
 label{
   display: block;
   margin-bottom: 6px;
+  text-align: left;
 }
 input{
   border: 1px solid #9f9f9f;
@@ -224,10 +258,20 @@ input{
   border-radius: 5px;
   padding: 0 20px;
   font-size: 16px;
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .input-g{
   padding: 8px 5px;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+form{
+  width: 300px;
+  margin: auto;
 }
 
 select{
@@ -236,7 +280,7 @@ select{
   border-radius: 5px;
   padding: 0 20px;
   font-size: 16px;
-  min-width: 150px;
+  width: 100%;
 }
 input.error{
   color: #ff0000;
@@ -255,12 +299,18 @@ label.success{
 }
 .checkbox, .radio{
   height: auto;
+  width: 20px;
+}
+
+.checkbox-g, .radio-g{
+  padding: 5px;
 }
 
 input:checked{
   background-color: #313131;
   color: #ffffff;
 }
+
 
 /*TABLE STYLE*/
 
@@ -278,14 +328,24 @@ table, th, td {
   border-collapse: collapse;
 }
 
+
 /* CARD */
+
+.card-g{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.card-p{
+  width: 50%;
+  box-sizing: border-box;
+  padding: 10px;
+}
 
 .card{
   border: 1px solid #9f9f9f;
-  max-width: 310px;
-  margin: 10px;
-  padding-bottom: 20px;
   border-radius: 10px;
+  padding-bottom: 20px;
 }
 
 .card img{
@@ -297,13 +357,24 @@ table, th, td {
   color: #313131;
 }
 
-.w-100{
-  width: 100px;
+.card-p.pt-40{
+  padding-top: 50px;
 }
 
-.w-600{
-  max-width: 600px;
+
+/* @media screen and (min-width: 768px) {
+  .card-p{
+    width: 33.33333%;
+  }
+} */
+
+@media screen and (min-width: 996px) {
+  .card-p{
+    width: 25%;
+  }
 }
+
+
 
 .avatars{
   width: 100px;
@@ -317,4 +388,42 @@ table, th, td {
 .avatars img{
   width: 100%;
   height: auto;
+}
+
+.avatars-t{
+  padding: 5px;
+  color: #313131;
+}
+
+/*
+// 斷點
+$desktop: 1200px;
+$laptop: 996px;
+$ipad: 768px;
+$mobile: 414px;
+*/
+.container{
+  padding: 0 15px;
+  margin: auto;
+}
+
+@media screen and (min-width: 1200px) {
+  .container{
+    width: 1200px;
+  }
+}
+
+.flex{
+  display: flex;
+}
+
+.wrap{
+  flex-wrap: wrap;
+}
+
+.center{
+  text-align: center;
+  align-items: center;
+  margin: auto;
+  justify-content: center;
 }
