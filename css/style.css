@@ -316,4 +316,5 @@ table, th, td {
 
 .avatars img{
   width: 100%;
+  height: auto;
 }
