@@ -407,20 +407,12 @@ $mobile: 414px;
 */
 .container{
   padding: 0 15px;
-<<<<<<< HEAD
-=======
   margin: auto;
->>>>>>> newDev
 }
 
 @media screen and (min-width: 1200px) {
   .container{
     width: 1200px;
-<<<<<<< HEAD
-    padding: 0 15px;
-  }
-}
-=======
   }
 }
 
@@ -438,4 +430,3 @@ $mobile: 414px;
   margin: auto;
   justify-content: center;
 }
->>>>>>> newDev
