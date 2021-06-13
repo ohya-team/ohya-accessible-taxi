@@ -1,0 +1,203 @@
+//base
+@import 'base/var';
+@import 'base/reset';/*以上reset*/
+@import 'base/extend';//%佔位符號 搭配@extend使用
+
+// mixin 搭配 @include使用
+@import 'mixins/mixin';
+
+.container{
+  @include container();
+}
+
+//以下文字相關標籤
+@for $i from 1 to 5 {
+  h#{$i}{
+  margin-bottom: $text-text;
+  font-weight: $font-bold;
+  @extend %black;
+  }
+}
+h1, h2{
+  font-size: $font-h2;
+}
+
+h3{
+  font-size: $font-h3;
+}
+
+h4{
+  font-size: $font-h4;
+}
+
+span, p{
+  margin-bottom: $ele-ele;
+  font-size: $font-base;
+  font-weight: $font-regular;
+  letter-spacing: $font-spacing;
+  line-height: $font-lineheight;
+  @extend %block, %black;
+}
+
+//只是顏色範例，無意義，可當複習for迴圈看
+.colorbox{
+  margin-bottom: $ele-ele;
+  @extend %flex-w;
+}
+
+@for $i from 1 to 9 {
+  .box#{$i}{
+    width: 100px;
+    height: 100px;
+    margin-right: $ele-ele;
+    font-weight: $font-bold;
+    @extend %flex-jc-ai;
+  }
+}
+
+.box1{
+  @extend %bg-yellow-first;
+}
+
+.box2{
+  @extend %bg-black;
+}
+
+.box3{
+  border: 0.5px solid $black;
+  @extend %bg-white;
+}
+
+.box4{
+  @extend %bg-yellow-second;
+}
+
+.box5{
+  @extend %bg-gray-first;
+}
+
+.box6{
+  @extend %bg-gray-second;
+}
+
+.box7{
+  @extend %bg-gray-third;
+}
+
+.box8{
+  @extend %bg-blue;
+}
+
+//以下按鈕+link+頁碼
+//一級按鈕
+@include btn(button, main, 150px, '%black', '%bg-yellow-first');
+//二級按鈕
+@include btn(button, second, 150px, '%white', '%bg-black');
+button.btn-second{
+  &:hover{
+    @extend %black, %bg-yellow-first;
+  }
+}
+//三級按鈕
+@include btn(button, third, 150px, '%black', '%bg-white');
+button.btn-third{
+  border: 2px solid $black;
+}
+
+//link
+a{
+  margin-right: $ele-ele;
+  font-size: $font-base;
+  @extend %gray-first;
+
+  &:hover{
+    @extend %blue;
+  }
+}
+
+//當前頁面
+@include page(main, '%white', '%bg-black');
+//非當前頁面
+@include page(else, '%black', '%bg-white');
+a.page-else{
+  &:hover{
+    @extend %white, %bg-black;
+  }
+}
+
+//以下form系列
+//lebel default
+@include label(def, '%black');
+//lebel error
+@include label(error, '%error');
+//lebel success
+@include label(success, '%blue');
+
+//input-text default
+@include input(def, 100%, $black);
+//input-text error
+@include input(error, 100%, $error);
+//input-text success
+@include input(success, 100%, $blue);
+
+//select
+@include select(def,100%);
+
+input.checkbox, input.radio{
+  margin-bottom: $ele-ele;
+  width: 20px;
+  height: auto;
+
+  @extend %blue;
+}
+
+input.checkbox:checked{
+  background-color: #313131;
+  color: #ffffff;
+}
+//input button
+@include btn(input, main, 150px, '%black', '%bg-yellow-first');
+
+//以下table(只限可設定寬度)
+@include table(300px);
+
+//以下卡片
+.cards{
+  @extend %flex-w, %flex-sb;
+}
+
+@include card(100%){
+  .card{
+    margin-bottom: $ele-ele;
+    @extend %flex-w, %flex-jc, %border-box;
+  }
+
+  .card h4{
+    @extend %block, %ta-center;
+  }  
+};
+
+//以下rwd斷點範例(用卡片) 需留意斷點不然吃重複的extend
+@include rwd_each(tablet){
+  @include card(46%){
+    .card{
+      margin-bottom: $ele-ele;
+      
+      @extend %flex-w, %flex-jc, %border-box;
+    }
+  };
+}
+
+@include rwd_each(desktop){
+  @include card(23%){
+    .card{
+      margin-bottom: $ele-ele;
+    }  
+  };
+}
+
+//以下人像圖形遮色片 over-flow
+.avatar{
+  @extend %flex-dir-colu, %flex-ai;
+}
+@include avatar(member, 100px);
