@@ -148,7 +148,7 @@ $colorG00: #00cc1f*/
 
 .btn-m{
   background-color: #ffd900;
-  padding: 13px 26px;
+  padding: 12px 16px;
   text-align: center;
   min-width: 100px;
   border-radius: 23px;
@@ -156,7 +156,6 @@ $colorG00: #00cc1f*/
   margin: 5px;
   cursor: pointer;
 }
-
 
 .btn-m:hover, .btn-m>span:hover{
   background-color: #313131;
@@ -171,7 +170,6 @@ $colorG00: #00cc1f*/
   border-radius: 23px;
   color: #313131;
   border: solid 1px #313131;
-  
   cursor: pointer;
 }
 
