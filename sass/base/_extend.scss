@@ -1,0 +1,122 @@
+//以下佔位排版位置
+%mar-auto{
+  margin: auto;
+}
+
+%block{
+  display: block;
+}
+
+%flex-w{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+%flex-jc{
+  display: flex;
+  justify-content: center;
+}
+
+%flex-sb{
+  display: flex;
+  justify-content: space-between;
+}
+
+%flex-ai{
+  display: flex;
+  align-items: center;
+}
+
+%flex-jc-ai{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+%flex-dir-colu{
+  display: flex;
+  flex-direction: column;
+}
+
+%ta-center{
+  text-align: center;
+}
+
+%border-box{
+  box-sizing: border-box;
+}
+
+//以下佔位color
+%black{
+  color: $black;
+}
+
+%white{
+  color: $white;
+}
+
+%yellow-first{
+  color: $yellow-first;
+}
+
+%yellow-second{
+  color: $yellow-second;
+}
+
+%gray-first{
+  color: $gray-first;
+}
+
+%gray-second{
+  color: $gray-second;
+}
+
+%gray-third{
+  color: $gray-third;
+}
+
+%blue{
+  color: $blue;
+}
+
+%error{
+  color: $error;
+}
+
+//以下佔位bg-color
+%bg-black{
+  background-color: $black;
+}
+
+%bg-white{
+  background-color: $white;
+}
+
+%bg-yellow-first{
+  background-color: $yellow-first;
+}
+
+%bg-yellow-second{
+  background-color: $yellow-second;
+}
+
+%bg-gray-first{
+  background-color: $gray-first;
+}
+
+%bg-gray-second{
+  background-color: $gray-second;
+}
+
+%bg-gray-third{
+  background-color: $gray-third;
+}
+
+%bg-blue{
+  background-color: $blue;
+}
+
+//以下其他
+%cursor-hand{
+  cursor: pointer;
+}

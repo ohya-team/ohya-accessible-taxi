@@ -1,0 +1,180 @@
+//container 每一個大區塊共用
+@mixin container {
+  margin-bottom: $mar-cont;
+  max-width: 1200px;
+  padding: 0 30px;
+
+  @content;
+  @extend %mar-auto;
+}
+
+//grid
+@mixin grid($num) {
+  @for $i from 1 through $num {
+    .col-#{$i}{
+      width: ($i / 12) * 100%;
+      @content;
+    }
+  }
+}
+
+//btn 按鈕組件 可改標籤、按鈕等級、寬度、字體顏色、背景色
+@mixin btn($ele, $level, $w, $c, $bgc) {
+  #{$ele}.btn-#{$level}{
+    margin-right: $ele-ele;
+    padding: 13px 26px;
+    width: $w;
+    font-size: $font-base;
+    font-weight: $font-medium;
+    border: none;
+    border-radius: $btn-radius;
+
+    @content;
+    @extend %cursor-hand, %ta-center, #{$c}, #{$bgc};
+
+    &:hover{
+      @extend %white, %bg-black;
+    }
+  }
+}
+
+//page 頁碼 可改屬性名稱、字體顏色、背景色
+@mixin page($name, $c, $bgc) {
+  .page-#{$name}{
+    padding: 10px 12px;
+    border: 1px solid $black;
+    border-radius: $page-radius;
+    margin: 5px;
+    text-decoration: none;
+  
+    @extend %cursor-hand, #{$c}, #{$bgc};
+  }
+}
+
+//label 可改屬性名稱、字體顏色
+@mixin label($name, $c) {
+  label.#{$name}{
+    margin-bottom: $label-input;
+    font-size: $font-base;
+  
+    @extend %block, #{$c};
+  }
+}
+
+//input-text 可改屬性名稱、寬度、border-color
+@mixin input($name, $w, $bdc) {
+  input.#{$name}{
+    margin-bottom: $ele-ele;
+    padding: 0 20px;
+    width: $w;
+    height: 42px;
+    border: 2px solid $bdc;
+    border-radius: 5px;
+    font-size: $font-base;
+
+    @extend %border-box, %black;
+
+    &:focus{
+      @extend %bg-gray-third;
+    }
+  }
+}
+
+//select 可改屬性名稱、寬度
+@mixin select($name, $w) {
+  select.#{$name}{
+    margin-bottom: $ele-ele;
+    width: $w;
+    height: 42px;
+    padding: 0 20px;
+    border: 2px solid $black;
+    border-radius: 5px;
+    font-size: $font-base;
+  }
+}
+
+//table 可改寬度
+@mixin table($w) {
+  table, th, td {
+    border: 1px solid $gray-first;
+    border-collapse: collapse;
+  
+    @extend %ta-center;
+  }
+  
+  th,td{
+    width: $w;
+    padding: 15px;
+  }
+  
+  th{
+    font-weight: $font-bold;
+    @extend %white, %bg-black;
+  }
+  @content;
+}
+
+//card 卡片 可改寬度
+@mixin card($w) {
+  .card{
+    width: $w;
+    padding: 20px;
+    border: 1px solid $black;
+    border-radius: $card-radius;
+  }
+  
+  .card img{
+    margin-bottom: $ele-ele;
+    width: 100%;
+  }
+  
+  .card section{
+    margin-bottom: $ele-ele;
+    width: 100%;
+  }
+  
+  .card ul{
+    list-style-type: square;
+    list-style-position: inside;
+  }
+  
+  .card ul li{
+    margin-bottom: $ele-ele;
+    font-size: $font-base;
+  }
+  
+  .card button{
+    margin-right: 0;
+    margin-bottom: $ele-ele;
+  }
+  @content;
+}
+
+//rwd斷點用 斷點設備:寬度
+@mixin rwd_each($res) {
+  @each $viewpoint, $num in $breakpoint{
+    @if $res==$viewpoint{
+      @media all and (min-width:$num){
+        @content;
+      }
+    }
+  }
+}
+
+//人像圖形遮色片 over-flow 可改屬性名稱、大小
+@mixin avatar($name, $w) {
+  .avatar-#{$name}{
+    margin-bottom: $ele-ele;
+    width: $w;
+    height: $w;
+    border: $gray-third;
+    border-radius: 50%;
+    background-color: $gray-third;
+    overflow: hidden;
+  }
+  
+  .avatar-#{$name} img{
+    width: 100%;
+    height: 100%;
+  }
+}
