@@ -90,7 +90,7 @@ function browser(done) {
 }
 
 // 執行指令
-exports.default = series(cleanfile, img_mv, html, css_mv, js_mv, browser);
+exports.default = series(cleanfile, img_mv, html, sass_style, css_mv, js_mv, browser);
 
 
 // +++++++++  打包上線用 +++++++

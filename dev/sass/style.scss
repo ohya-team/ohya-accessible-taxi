@@ -182,7 +182,7 @@ input.checkbox:checked{
   @include card(46%){
     .card{
       margin-bottom: $ele-ele;
-      
+
       // @extend %flex-w, %flex-jc, %border-box;
     }
   };
