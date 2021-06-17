@@ -66,7 +66,7 @@ function css_mv() {
 // ================ 清除舊檔案 ============ 
 
 function cleanfile() {
-    return src('dist', { read: false })
+    return src('dist', { read: false , allowEmpty: true })
         .pipe(clean({ force: true }))
 }
 
@@ -84,6 +84,7 @@ function browser(done) {
     watch(['dev/sass/**/*.css', 'dev/sass/*.scss'], sass_style).on('change', reload)
     watch(['dev/*.html', 'dev/**/*.html'], html).on('change', reload)
     watch(['dev/images/*.*', 'dev/images/**/*.*'], img_mv).on('change', reload)
+    watch('dev/css/*.css', css_mv).on('change', reload)
     watch('dev/js/*.js', js_mv).on('change', reload)
     done();
 }
