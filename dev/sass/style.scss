@@ -183,7 +183,7 @@ input.checkbox:checked{
     .card{
       margin-bottom: $ele-ele;
       
-      @extend %flex-w, %flex-jc, %border-box;
+      // @extend %flex-w, %flex-jc, %border-box;
     }
   };
 }
