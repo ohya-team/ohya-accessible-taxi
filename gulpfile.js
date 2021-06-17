@@ -53,7 +53,7 @@ function img_mv() {
     return src(['dev/images/*.*', 'dev/images/**/*.*'])
         .pipe(dest('dist/images'))
 }
-exports.img_mv=img_mv;
+
 function js_mv() {
     return src('dev/js/*.js')
         .pipe(dest('dist/js'))
@@ -84,6 +84,7 @@ function browser(done) {
     watch(['dev/sass/**/*.css', 'dev/sass/*.scss'], sass_style).on('change', reload)
     watch(['dev/*.html', 'dev/**/*.html'], html).on('change', reload)
     watch(['dev/images/*.*', 'dev/images/**/*.*'], img_mv).on('change', reload)
+    watch('dev/css/*.css', css_mv).on('change', reload)
     watch('dev/js/*.js', js_mv).on('change', reload)
     done();
 }
