@@ -44,7 +44,7 @@ blockquote, q {
 
 blockquote:before, blockquote:after,
 q:before, q:after {
-  content: "";
+  content: '';
   content: none;
 }
 
@@ -58,11 +58,11 @@ table {
   margin: auto;
 }
 
-.card h4, label.success, label.error, label.def, span, p {
+span, p, label.def, label.error, label.success, .card h4 {
   display: block;
 }
 
-.card, .cards, .colorbox {
+.colorbox, .cards, .card {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -97,7 +97,7 @@ table {
           align-items: center;
 }
 
-.box8, .box7, .box6, .box5, .box4, .box3, .box2, .box1 {
+.box1, .box2, .box3, .box4, .box5, .box6, .box7, .box8 {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -119,20 +119,20 @@ table {
           flex-direction: column;
 }
 
-.card h4, table, th, td, input.btn-main, button.btn-third, button.btn-second, button.btn-main {
+button.btn-main, button.btn-second, button.btn-third, input.btn-main, table, th, td, .card h4 {
   text-align: center;
 }
 
-.card, input.success, input.error, input.def {
+input.def, input.error, input.success, .card {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }
 
-input.btn-main, input.success, input.error, input.def, label.def, .page-else, button.btn-third, button.btn-second:hover, button.btn-main, span, p, h4, h3, h2, h1 {
+h1, h2, h3, h4, span, p, button.btn-main, button.btn-second:hover, button.btn-third, .page-else, label.def, input.def, input.error, input.success, input.btn-main {
   color: #313131;
 }
 
-th, input.btn-main:hover, a.page-else:hover, .page-main, button.btn-third:hover, button.btn-second:hover, button.btn-second, button.btn-main:hover {
+button.btn-main:hover, button.btn-second, button.btn-second:hover, button.btn-third:hover, .page-main, a.page-else:hover, input.btn-main:hover, th {
   color: #ffffff;
 }
 
@@ -140,7 +140,7 @@ a {
   color: #9f9f9f;
 }
 
-input.checkbox, input.radio, label.success, a:hover {
+a:hover, label.success, input.checkbox, input.radio {
   color: #59c3e1;
 }
 
@@ -148,15 +148,15 @@ label.error {
   color: #ff0000;
 }
 
-th, input.btn-main:hover, a.page-else:hover, .page-main, button.btn-third:hover, button.btn-second:hover, button.btn-second, button.btn-main:hover, .box2 {
+.box2, button.btn-main:hover, button.btn-second, button.btn-second:hover, button.btn-third:hover, .page-main, a.page-else:hover, input.btn-main:hover, th {
   background-color: #313131;
 }
 
-.page-else, button.btn-third, .box3 {
+.box3, button.btn-third, .page-else {
   background-color: #ffffff;
 }
 
-input.btn-main, button.btn-second:hover, button.btn-main, .box1 {
+.box1, button.btn-main, button.btn-second:hover, input.btn-main {
   background-color: #ffd900;
 }
 
@@ -172,7 +172,7 @@ input.btn-main, button.btn-second:hover, button.btn-main, .box1 {
   background-color: #d6d6d6;
 }
 
-input.success:focus, input.error:focus, input.def:focus, .box7 {
+.box7, input.def:focus, input.error:focus, input.success:focus {
   background-color: #f4f4f4;
 }
 
@@ -180,7 +180,7 @@ input.success:focus, input.error:focus, input.def:focus, .box7 {
   background-color: #59c3e1;
 }
 
-input.btn-main, .page-else, .page-main, button.btn-third, button.btn-second, button.btn-main {
+button.btn-main, button.btn-second, button.btn-third, .page-main, .page-else, input.btn-main {
   cursor: pointer;
 }
 
@@ -303,6 +303,7 @@ button.btn-main {
   border: none;
   border-radius: 23px;
 }
+
 button.btn-second {
   margin-right: 20px;
   padding: 13px 26px;
@@ -312,6 +313,7 @@ button.btn-second {
   border: none;
   border-radius: 23px;
 }
+
 button.btn-third {
   margin-right: 20px;
   padding: 13px 26px;
@@ -321,6 +323,7 @@ button.btn-third {
   border: none;
   border-radius: 23px;
 }
+
 button.btn-third {
   border: 2px solid #313131;
 }
@@ -329,6 +332,7 @@ a {
   margin-right: 20px;
   font-size: 18px;
 }
+
 .page-main {
   padding: 10px 12px;
   border: 1px solid #313131;
@@ -369,6 +373,7 @@ input.def {
   border-radius: 5px;
   font-size: 18px;
 }
+
 input.error {
   margin-bottom: 20px;
   padding: 0 20px;
@@ -378,6 +383,7 @@ input.error {
   border-radius: 5px;
   font-size: 18px;
 }
+
 input.success {
   margin-bottom: 20px;
   padding: 0 20px;
@@ -387,6 +393,7 @@ input.success {
   border-radius: 5px;
   font-size: 18px;
 }
+
 select.def {
   margin-bottom: 20px;
   width: 100%;
@@ -417,6 +424,7 @@ input.btn-main {
   border: none;
   border-radius: 23px;
 }
+
 table, th, td {
   border: 1px solid #9f9f9f;
   border-collapse: collapse;
@@ -474,36 +482,31 @@ th {
     border: 1px solid #313131;
     border-radius: 20px;
   }
-
   .card img {
     margin-bottom: 20px;
     width: 100%;
   }
-
   .card section {
     margin-bottom: 20px;
     width: 100%;
   }
-
   .card ul {
     list-style-type: square;
     list-style-position: inside;
   }
-
   .card ul li {
     margin-bottom: 20px;
     font-size: 18px;
   }
-
   .card button {
     margin-right: 0;
     margin-bottom: 20px;
   }
-
   .card {
     margin-bottom: 20px;
   }
 }
+
 @media all and (min-width: 1200px) {
   .card {
     width: 23%;
@@ -511,36 +514,31 @@ th {
     border: 1px solid #313131;
     border-radius: 20px;
   }
-
   .card img {
     margin-bottom: 20px;
     width: 100%;
   }
-
   .card section {
     margin-bottom: 20px;
     width: 100%;
   }
-
   .card ul {
     list-style-type: square;
     list-style-position: inside;
   }
-
   .card ul li {
     margin-bottom: 20px;
     font-size: 18px;
   }
-
   .card button {
     margin-right: 0;
     margin-bottom: 20px;
   }
-
   .card {
     margin-bottom: 20px;
   }
 }
+
 .avatar-member {
   margin-bottom: 20px;
   width: 100px;
