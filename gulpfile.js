@@ -53,7 +53,7 @@ function img_mv() {
     return src(['dev/images/*.*', 'dev/images/**/*.*'])
         .pipe(dest('dist/images'))
 }
-
+exports.img_mv=img_mv;
 function js_mv() {
     return src('dev/js/*.js')
         .pipe(dest('dist/js'))
@@ -66,7 +66,7 @@ function css_mv() {
 // ================ 清除舊檔案 ============ 
 
 function cleanfile() {
-    return src('dist', { read: false })
+    return src('dist', { read: false , allowEmpty: true })
         .pipe(clean({ force: true }))
 }
 
