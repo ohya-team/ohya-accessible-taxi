@@ -3,13 +3,14 @@
   margin: 0;
   box-sizing: border-box;
   line-height: 1;
+  font-family: 'Noto Sans TC', sans-serif;
 }
 
 /* Typography Design */
 
-* {
+/* * {
   color: #484848;
-}
+} */
 
 .bg-blue {
   background-color: #0078E9
