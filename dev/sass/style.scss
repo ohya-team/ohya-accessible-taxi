@@ -1,3 +1,4 @@
+
 //base
 @import 'base/var';
 @import 'base/reset';/*以上reset*/
@@ -9,6 +10,9 @@
 .container{
   @include container();
 }
+
+//import page
+@import 'page/header';
 
 //以下文字相關標籤
 @for $i from 1 to 5 {
@@ -194,3 +198,5 @@ input.checkbox:checked{
   @extend %flex, %flex-dir-colu, %flex-ai;
 }
 @include avatar(member, 100px);
+
+
