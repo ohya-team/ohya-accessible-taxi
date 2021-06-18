@@ -47,6 +47,7 @@
     margin: 5px;
     text-decoration: none;
   
+    @content;
     @extend %cursor-hand, #{$c}, #{$bgc};
   }
 }

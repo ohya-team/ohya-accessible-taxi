@@ -7,34 +7,32 @@
   display: block;
 }
 
-%flex-w{
+%flex{
   display: flex;
+}
+
+%flex-w{
   flex-wrap: wrap;
 }
 
 %flex-jc{
-  display: flex;
   justify-content: center;
 }
 
 %flex-sb{
-  display: flex;
   justify-content: space-between;
 }
 
 %flex-ai{
-  display: flex;
   align-items: center;
 }
 
 %flex-jc-ai{
-  display: flex;
   justify-content: center;
   align-items: center;
 }
 
 %flex-dir-colu{
-  display: flex;
   flex-direction: column;
 }
 

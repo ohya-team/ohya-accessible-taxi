@@ -42,7 +42,7 @@ span, p{
 //只是顏色範例，無意義，可當複習for迴圈看
 .colorbox{
   margin-bottom: $ele-ele;
-  @extend %flex-w;
+  @extend %flex, %flex-w;
 }
 
 @for $i from 1 to 9 {
@@ -51,7 +51,7 @@ span, p{
     height: 100px;
     margin-right: $ele-ele;
     font-weight: $font-bold;
-    @extend %flex-jc-ai;
+    @extend %flex, %flex-jc-ai;
   }
 }
 
@@ -116,14 +116,17 @@ a{
 }
 
 //當前頁面
-@include page(main, '%white', '%bg-black');
+@include page(main, '%white', '%bg-black'){
+  &:hover{
+    @extend %white;
+  }
+};
 //非當前頁面
-@include page(else, '%black', '%bg-white');
-a.page-else{
+@include page(else, '%black', '%bg-white'){
   &:hover{
     @extend %white, %bg-black;
   }
-}
+};
 
 //以下form系列
 //lebel default
@@ -163,13 +166,13 @@ input.checkbox:checked{
 
 //以下卡片
 .cards{
-  @extend %flex-w, %flex-sb;
+  @extend %flex, %flex-w, %flex-sb;
 }
 
 @include card(100%){
   .card{
     margin-bottom: $ele-ele;
-    @extend %flex-w, %flex-jc, %border-box;
+    @extend %flex, %flex-w, %flex-jc, %border-box;
   }
 
   .card h4{
@@ -179,25 +182,15 @@ input.checkbox:checked{
 
 //以下rwd斷點範例(用卡片) 需留意斷點不然吃重複的extend
 @include rwd_each(tablet){
-  @include card(46%){
-    .card{
-      margin-bottom: $ele-ele;
-
-      // @extend %flex-w, %flex-jc, %border-box;
-    }
-  };
+  @include card(46%);
 }
 
 @include rwd_each(desktop){
-  @include card(23%){
-    .card{
-      margin-bottom: $ele-ele;
-    }  
-  };
+  @include card(23%);
 }
 
 //以下人像圖形遮色片 over-flow
 .avatar{
-  @extend %flex-dir-colu, %flex-ai;
+  @extend %flex, %flex-dir-colu, %flex-ai;
 }
 @include avatar(member, 100px);
