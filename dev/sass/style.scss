@@ -1,12 +1,13 @@
 //base
 @import 'base/var';
-@import 'base/reset';/*以上reset*/
-@import 'base/extend';//%佔位符號 搭配@extend使用
+@import 'base/reset';
+/*以上reset*/
+@import 'base/extend'; //%佔位符號 搭配@extend使用
 
 // mixin 搭配 @include使用
 @import 'mixins/mixin';
 
-.container{
+.container {
   @include container();
 }
 
@@ -15,90 +16,97 @@
 @import 'page/booking';
 @import 'page/spotDetail';
 @import 'page/spotList';
+@import 'page/travelList';
 
 //import noto sans from google font
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap');
+
 //以下文字相關標籤
 @for $i from 1 to 5 {
-  h#{$i}{
-  margin-bottom: $text-text;
-  font-weight: $font-bold;
-  @extend %black;
+  h#{$i} {
+    margin-bottom: $text-text;
+    font-weight  : $font-bold;
+    @extend %black;
   }
 }
 
 //Font style
-body{
+body {
   font-family: 'Noto Sans TC', sans-serif;
 }
 
-h1, h2{
+h1,
+h2 {
   font-size: $font-h2;
 }
 
-h3{
+h3 {
   font-size: $font-h3;
 }
 
-h4{
+h4 {
   font-size: $font-h4;
 }
 
-span, p{
-  margin-bottom: $ele-ele;
-  font-size: $font-base;
-  font-weight: $font-regular;
+span,
+p {
+  margin-bottom : $ele-ele;
+  font-size     : $font-base;
+  font-weight   : $font-regular;
   letter-spacing: $font-spacing;
-  line-height: $font-lineheight;
-  @extend %block, %black;
+  line-height   : $font-lineheight;
+  @extend %block,
+  %black;
 }
 
 //只是顏色範例，無意義，可當複習for迴圈看
-.colorbox{
+.colorbox {
   margin-bottom: $ele-ele;
-  @extend %flex, %flex-w;
+  @extend %flex,
+  %flex-w;
 }
 
 @for $i from 1 to 9 {
-  .box#{$i}{
-    width: 100px;
-    height: 100px;
+  .box#{$i} {
+    width       : 100px;
+    height      : 100px;
     margin-right: $ele-ele;
-    font-weight: $font-bold;
-    @extend %flex, %flex-jc-ai;
+    font-weight : $font-bold;
+    @extend %flex,
+    %flex-jc-ai;
   }
 }
 
-.box1{
+.box1 {
   @extend %bg-yellow-first;
 }
 
-.box2{
+.box2 {
   @extend %bg-black;
 }
 
-.box3{
+.box3 {
   border: 0.5px solid $black;
   @extend %bg-white;
 }
 
-.box4{
+.box4 {
   @extend %bg-yellow-second;
 }
 
-.box5{
+.box5 {
   @extend %bg-gray-first;
 }
 
-.box6{
+.box6 {
   @extend %bg-gray-second;
 }
 
-.box7{
+.box7 {
   @extend %bg-gray-third;
 }
 
-.box8{
+.box8 {
   @extend %bg-blue;
 }
 
@@ -107,40 +115,50 @@ span, p{
 @include btn(button, main, 150px, '%black', '%bg-yellow-first');
 //二級按鈕
 @include btn(button, second, 150px, '%white', '%bg-black');
-button.btn-second{
-  &:hover{
-    @extend %black, %bg-yellow-first;
+
+button.btn-second {
+  &:hover {
+    @extend %black,
+    %bg-yellow-first;
   }
 }
+
 //三級按鈕
 @include btn(button, third, 150px, '%black', '%bg-white');
-button.btn-third{
+
+button.btn-third {
   border: 2px solid $black;
 }
 
 //link
-a{
+a {
   margin-right: $ele-ele;
-  font-size: $font-base;
+  font-size   : $font-base;
   @extend %blue;
-  
-  &:hover{
+
+  &:hover {
     @extend %gray-first;
   }
 }
 
 //當前頁面
-@include page(main, '%white', '%bg-black'){
-  &:hover{
+@include page(main, '%white', '%bg-black') {
+  &:hover {
     @extend %white;
   }
-};
+}
+
+;
+
 //非當前頁面
-@include page(else, '%black', '%bg-white'){
-  &:hover{
-    @extend %white, %bg-black;
+@include page(else, '%black', '%bg-white') {
+  &:hover {
+    @extend %white,
+    %bg-black;
   }
-};
+}
+
+;
 
 //以下form系列
 //lebel default
@@ -158,20 +176,22 @@ a{
 @include input(success, 100%, $blue);
 
 //select
-@include select(def,100%);
+@include select(def, 100%);
 
-input.checkbox, input.radio{
+input.checkbox,
+input.radio {
   margin-bottom: $ele-ele;
-  width: 20px;
-  height: auto;
+  width        : 20px;
+  height       : auto;
 
   @extend %blue;
 }
 
-input.checkbox:checked{
+input.checkbox:checked {
   background-color: #313131;
-  color: #ffffff;
+  color           : #ffffff;
 }
+
 //input button
 @include btn(input, main, 150px, '%black', '%bg-yellow-first');
 
@@ -179,119 +199,133 @@ input.checkbox:checked{
 @include table(300px);
 
 //以下卡片
-.cards{
-  @extend %flex, %flex-w, %flex-sb;
+.cards {
+  @extend %flex,
+  %flex-w,
+  %flex-sb;
 }
 
-@include card(100%){
-  .card{
+@include card(100%) {
+  .card {
     margin-bottom: $ele-ele;
-    @extend %flex, %flex-w, %flex-jc, %border-box;
+    @extend %flex,
+    %flex-w,
+    %flex-jc,
+    %border-box;
   }
 
-  .card h4{
-    @extend %block, %ta-center;
-  }  
-};
+  .card h4 {
+    @extend %block,
+    %ta-center;
+  }
+}
+
+;
 
 //以下rwd斷點範例(用卡片) 需留意斷點不然吃重複的extend
-@include rwd_each(tablet){
+@include rwd_each(tablet) {
   @include card(46%);
 }
 
-@include rwd_each(desktop){
+@include rwd_each(desktop) {
   @include card(23%);
 }
 
 //以下人像圖形遮色片 over-flow
-.avatar{
-  @extend %flex, %flex-dir-colu, %flex-ai;
+.avatar {
+  @extend %flex,
+  %flex-dir-colu,
+  %flex-ai;
 }
+
 @include avatar(member, 100px);
 
 
-h4.topic{
-color: #313131;
-text-align: center;
+h4.topic {
+  color     : #313131;
+  text-align: center;
 }
 
-.chinese-topic{
-font-size: 50px;
-letter-spacing: 8px;
-margin-top: -55px;
-text-align: center;
-z-index:100;
-text-indent: 8px;
+.chinese-topic {
+  font-size     : 50px;
+  letter-spacing: 8px;
+  margin-top    : -55px;
+  text-align    : center;
+  z-index       : 100;
+  text-indent   : 8px;
 }
 
-h4 i img{
+h4 i img {
   width: 20px;
   color: #ffe56e;
 }
 
-h4 span{
- display: inline-block;
- animation: animate 1.5s linear infinite;
- color: #ffe56e;
- font-size: 20px;
-//  letter-spacing: 1px;
- z-index:-10;
- position: relative;
+h4 span {
+  display           : inline-block;
+  animation         : animate 1.5s linear infinite;
+  color             : #ffe56e;
+  font-size         : 20px;
+  //  letter-spacing: 1px;
+  z-index           : -10;
+  position          : relative;
 }
 
-h4 span:nth-child(1){
-animation-delay: 0s;
+h4 span:nth-child(1) {
+  animation-delay: 0s;
 
- }
-h4 span:nth-child(2){
+}
+
+h4 span:nth-child(2) {
   animation-delay: 0.2s;
 }
-h4 span:nth-child(3){
+
+h4 span:nth-child(3) {
   animation-delay: 0.4s;
 }
-h4 span:nth-child(4){
+
+h4 span:nth-child(4) {
   animation-delay: 0.5s;
 }
-h4 span:nth-child(5){
+
+h4 span:nth-child(5) {
   animation-delay: 0s;
 }
 
-.topic-line{
-  background-color:black;
-  height: 4px;
-  width: 4em;
-  border-radius: 2px;
-  margin:auto;
-  margin-top: -10px;
+.topic-line {
+  background-color: black;
+  height          : 4px;
+  width           : 4em;
+  border-radius   : 2px;
+  margin          : auto;
+  margin-top      : -10px;
 }
 
-@keyframes animate{
-  0%
-  {
+@keyframes animate {
+  0% {
     transform: translateY(0px)
   }
-  25%
-  {
+
+  25% {
     transform: translateY(-6px)
   }
-  15%
-  {
+
+  15% {
     /* transform: translateY(-5px) */
   }
-  50%
-  {
+
+  50% {
     transform: translateY(-12px)
   }
-  60%
-  {
+
+  60% {
     transform: translateY(-12px)
   }
-  75%
-  {
+
+  75% {
     transform: translateY(-6px)
   }
-  100%
-  {
+
+  100% {
     transform: translateY(0px)
   }
 }
