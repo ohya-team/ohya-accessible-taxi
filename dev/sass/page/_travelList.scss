@@ -1,0 +1,214 @@
+.travel-hero{
+    width: 100%;
+    height: 600px;
+    overflow-y: hidden;
+    img{
+        width: 100%;
+    }
+}
+
+.travel-program {
+    @extend %border-box;
+
+    .title {
+        align-items: flex-end;
+        @extend %flex,
+        %flex-sb;
+        margin-bottom: $text-text;
+
+        h2 {
+            margin-bottom: 0;
+        }
+
+        a {
+            padding-bottom : 2px;
+            text-decoration: none;
+        }
+    }
+
+    .program-group {
+        display              : grid;
+        grid-template-columns: 1fr;
+        gap                  : $ele-ele;
+        font-size            : 26px;
+
+        @include rwd_each(desktop) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .main-program {
+            position: relative;
+
+            img {
+                width: 100%;
+            }
+
+            .intro {
+                position: absolute;
+                bottom  : 0;
+                left    : 0;
+                right   : 0;
+                @extend %ta-center;
+                background-color: rgba(49, 49, 49, .8);
+                padding         : 15px 0;
+
+                h3 {
+                    font-size    : $font-base;
+                    margin-bottom: 0;
+
+                    @include rwd_each(desktop) {
+                        font-size    : $font-h3;
+                        margin-bottom: 30px;
+                    }
+                }
+
+                p {
+                    display: none;
+
+                    @include rwd_each(desktop) {
+                        display: inline;
+                    }
+                }
+
+                h3,
+                p {
+                    color: $white;
+                }
+            }
+        }
+
+        .programs {
+            display              : grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap                  : $ele-ele;
+
+            .sub-program {
+                position: relative;
+
+                img {
+                    width: 100%;
+                }
+
+                .intro {
+                    position        : absolute;
+                    bottom          : 0;
+                    background-color: rgba(49, 49, 49, .8);
+                    left            : 0;
+                    right           : 0;
+                    padding         : 15px 0;
+                    @extend %ta-center;
+
+                    h3 {
+                        color        : $white;
+                        margin-bottom: 0px;
+                        font-size    : $font-base;
+
+                        @include rwd_each(desktop) {
+                            font-size: $font-h3;
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+}
+
+.travel-spot {
+    @extend %border-box;
+
+    .title {
+        align-items: flex-end;
+        @extend %flex,
+        %flex-sb;
+        margin-bottom: $text-text;
+
+        h2 {
+            margin-bottom: 0;
+        }
+
+        a {
+            padding-bottom : 2px;
+            text-decoration: none;
+        }
+    }
+
+
+    .main-spot {
+        position  : relative;
+        overflow-y: hidden;
+
+        img {
+            width: 100%;
+        }
+
+        .intro {
+            @extend %border-box;
+
+            position: absolute;
+            bottom  : 3px;
+            padding : 0 40px;
+            width   : 100%;
+
+            h3,
+            p {
+                color: $white;
+            }
+
+            p {
+                display: none;
+
+                @include rwd_each(desktop) {
+                    display: block;
+                }
+            }
+
+            h3 {
+                margin-bottom: 15px;
+                font-size    : $font-base;
+
+                @include rwd_each(desktop) {
+                    font-size: $font-h3;
+                }
+            }
+        }
+    }
+
+    .spots {
+        display              : grid;
+        grid-template-columns: repeat(2, 1fr);
+
+        @include rwd_each(desktop) {
+            grid-template-columns: repeat(4, 1fr);
+        }
+
+        .sub-spot {
+            position: relative;
+
+            img {
+                width: 100%;
+            }
+
+            .intro {
+                display : block;
+                position: absolute;
+                bottom  : 0;
+                left    : 0;
+                right   : 0;
+                @extend %ta-center;
+
+                h3 {
+                    font-size       : $font-base;
+                    color           : $white;
+                    margin-bottom   : 0;
+                    padding         : 10px 0;
+                    background-color: rgba(49, 49, 49, .8);
+
+                    @include rwd_each(desktop) {
+                        font-size: $font-h3;
+                    }
+                }
+            }
+        }
+    }
+}
