@@ -208,7 +208,7 @@ input.checkbox:checked{
 @include avatar(member, 100px);
 
 
-h1{
+h1.topic{
 color: #313131;
 text-align: center;
 }
@@ -217,7 +217,7 @@ text-align: center;
 font-size: 50px;
 letter-spacing: 12px;
 margin-top: -55px;
-margin-left:5px;
+text-align: center;
 z-index:100;
 }
 
