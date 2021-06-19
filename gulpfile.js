@@ -81,8 +81,9 @@ function browser(done) {
         },
         port: 3000
     });
-    watch(['dev/sass/**/*.scss', 'dev/sass/*.scss'], sass_style).on('change', reload)
+
     watch(['dev/*.html', 'dev/**/*.html'], html).on('change', reload)
+    watch(['dev/sass/**/*.scss', 'dev/sass/*.scss'], sass_style).on('change', reload)
     watch(['dev/images/*.*', 'dev/images/**/*.*'], img_mv).on('change', reload)
     watch('dev/css/*.css', css_mv).on('change', reload)
     watch('dev/js/*.js', js_mv).on('change', reload)

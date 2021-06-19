@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+  <title>Document</title>
+</head>
+<body class="animate-background">
+  <div class="forum-topic">
+    <h1>
+      <span>F</span>
+      <span>O</span>
+      <span>R</span>
+      <span>U</span>
+      <span>M</span>
+    </h1>
+    <h1 class="chinese-topic">討論區</h1>
+    <div class="topic-line"></div>
+    </div>
+  
+  
+  
+  
+  <div class="container">
+    <div class="container-category">
+
+      <div class="category">
+        <div class="category-detail">
+          <p class="category-detail-word">排序</p>
+          <button id="dropdown-list">
+          <p> 熱門</p>
+            <div class="triangle"></div>
+          </button>
+          <div class="sorts">
+            <ul class="dropdown-menu hide" id="dropdown-menu-order">
+              <li class="order">熱門</li>
+              <li class="order">最新</li>
+            </ul>
+          </div> 
+        </div>
+        <div class="category-detail">
+          <p class="category-detail-word">分類</p>
+          <button id="dropdown-list-sort">
+          <p>一般預約</p>
+            <div class="triangle"></div>
+          </button>
+          <div class="sorts">
+            <ul class="dropdown-menu hide" id="dropdown-menu-sort">
+              <li class="sort">一般預約</li>
+              <li class="sort">包車旅遊</li>
+              <li class="sort">優良司機</li>
+              <li class="sort">精選車種</li>
+            </ul>
+          </div> 
+        </div>
+      </div>
+      <button class="btn-forum">
+      我要發文
+      <i class="fa fa-pencil" aria-hidden="true"></i>
+      </button>
+    </div>
+    <div class="forum-content">
+      <div class="forum-card">
+        <div class="forum-avatar">
+          <img src="images/forum/member.jpg" alt="">
+          <span>董董</span>
+        </div>
+        <div class="card-group">
+          <img src="images/forum/forum-img.jpg" alt="">
+          <div class="card-content">
+            <div class="card-topic">
+            <h3>【包車旅遊】</h3>
+            <h4>耶喜歡這個旅遊行程~</h4>
+            </div>
+          <div class="card-functions">
+            <div class="people-amount">
+            <i class="fa fa-eye" aria-hidden="true"></i>
+            <p>150</p>
+           </div>
+           <button class="alert">
+            <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
+            <p>檢舉</p>
+           </button>
+           <div class="update-date">
+             <p>2021-06-10</p>
+           </div>
+          </div>
+          <div class="card-details">
+            <p>每個行程都安排得好用心，大推大家來試試看
+              這次去的地方是桃園的某處公園 ......</p>
+          </div>
+          <button>MORE</button>
+
+          </div>
+        </div>
+      </div>
+
+
+
+
+
+
+
+
+
+      
+    </div>
+  </div>
+
+
+
+  
+  <script>
+
+
+    function showHideMenuOrder(){
+    let menu = document.getElementById("dropdown-menu-order")
+      if(menu.classList.contains("hide")){
+        menu.classList.remove("hide");
+      }else{
+        menu.classList.add("hide"); 
+    }
+  }
+  function selectOrder(e){
+    let word = document.querySelector("#dropdown-list p");
+    word.textContent = e.target.innerHTML;
+    let menu = document.querySelectorAll("#dropdown-menu-order");
+    for(let i = 0;i< menu.length;i++){
+      menu[i].classList.add("hide");
+    }
+    // console.log(e.target.innerHTML);
+    // console.log(word.innerHTML); 
+  };
+
+  function showHideMenuSort(){
+    let menu = document.getElementById("dropdown-menu-sort")
+      if(menu.classList.contains("hide")){
+        menu.classList.remove("hide");
+      }else{
+        menu.classList.add("hide"); 
+    }
+  }
+  function selectSort(e){
+    let sort = document.querySelector("#dropdown-list-sort p");
+    sort.textContent = e.target.innerHTML;
+    let menu = document.querySelectorAll("#dropdown-menu-sort");
+    for(let i = 0;i< menu.length;i++){
+      menu[i].classList.add("hide");
+    }
+    // console.log(e.target.innerHTML);
+    // console.log(word.innerHTML); 
+  };
+
+
+
+
+
+  
+  function init(){
+   let list = document.getElementById("dropdown-list");
+   list.onclick = showHideMenuOrder; 
+   let order = document.querySelectorAll(".order");
+   for(let i = 0;i< order.length;i++){
+    order[i].onclick = selectOrder;
+   }
+   let listCategory = document.getElementById("dropdown-list-sort")
+   listCategory.onclick = showHideMenuSort;
+   let sort = document.querySelectorAll(".sort");
+   for(let i = 0;i< sort.length;i++){
+    sort[i].onclick = selectSort;
+   }
+
+  }
+  window.addEventListener("load",init,false);
+
+
+</script>
+
+  
+</body>
+</html>
