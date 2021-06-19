@@ -1,0 +1,107 @@
+.spot-list {
+    h2 {
+        @extend %ta-center;
+    }
+    .word-menu {
+        width                : 100%;
+        display              : grid;
+        grid-template-columns: repeat(2, 1fr);
+        @extend %ta-center;
+
+        @include rwd_each(desktop) {
+            grid-template-columns: repeat(4, 1fr);
+        }
+        li {
+            padding         : 1rem 0;
+            background-color: $gray-second;
+            font-size       : 20px;
+            position        : relative;
+            overflow        : hidden;
+            transition      : .5s;
+            font-weight     : $font-bold;
+            @extend %cursor-hand;
+
+            &.active {
+                background-color: $black;
+                color           : $white;
+            }
+
+            &:not(.active):hover {
+                background-color: $gray-first;
+
+                &:hover {
+                    color: $white;
+                }
+            }
+        }
+    }
+
+    .card-item {
+        display              : grid;
+        gap                  : $ele-ele;
+        margin-top           : 50px;
+        grid-template-columns: 1fr;
+
+        @include rwd_each(tablet) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @include rwd_each(desktop) {
+            grid-template-columns: repeat(4, 1fr);
+        }
+
+        .item {
+            border-radius: 6px;
+            overflow     : hidden;
+            box-shadow   : rgba(0, 0, 0, 0.4) 0.5px 0.5px 5px 0px;
+
+            .pic {
+                width: 100%;
+                overflow : hidden; 
+                img {
+                    width    : 100%;
+                    transform: scale(1);
+                    transition: .5s;
+
+                    &:hover {
+                        transform: scale(1.2);
+                    }
+                }
+
+            }
+
+            .title {
+                display        : flex;
+                justify-content: space-between;
+
+                a {
+                    margin         : 15px;
+                    color          : $black;
+                    font-weight    : $font-bold;
+                    text-decoration: none;
+
+                    &:hover {
+                        color: $blue;
+                    }
+                }
+
+                span {
+                    width           : 68px;
+                    display         : flex;
+                    align-items     : center;
+                    justify-content : center;
+                    background-color: $blue;
+                    border-radius   : 20px;
+                    margin          : 8px 15px;
+                    font-weight     : $font-bold;
+                }
+            }
+
+            .intro {
+                margin     : 15px;
+                line-height: 1.5;
+                color      : $black;
+            }
+        }
+    }
+}

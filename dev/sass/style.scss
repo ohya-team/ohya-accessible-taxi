@@ -12,6 +12,9 @@
 
 //import page
 @import 'page/header';
+@import 'page/booking';
+@import 'page/spotList';
+
 
 //以下文字相關標籤
 @for $i from 1 to 5 {
@@ -117,10 +120,10 @@ button.btn-third{
 a{
   margin-right: $ele-ele;
   font-size: $font-base;
-  @extend %gray-first;
-
+  @extend %blue;
+  
   &:hover{
-    @extend %blue;
+    @extend %gray-first;
   }
 }
 
@@ -204,6 +207,7 @@ input.checkbox:checked{
 }
 @include avatar(member, 100px);
 
+<<<<<<< HEAD
 
 h1{
 color: #313131;
@@ -288,3 +292,5 @@ h1 span:nth-child(5){
     transform: translateY(0px)
   }
 }
+=======
+>>>>>>> d2e7edaebeea646432434daef87914bda2f268d0
