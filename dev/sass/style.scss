@@ -13,7 +13,9 @@
 
 //import page
 @import 'page/header';
+@import 'page/booking';
 @import 'page/spotList';
+
 
 //以下文字相關標籤
 @for $i from 1 to 5 {
@@ -113,10 +115,10 @@ button.btn-third{
 a{
   margin-right: $ele-ele;
   font-size: $font-base;
-  @extend %gray-first;
-
+  @extend %blue;
+  
   &:hover{
-    @extend %blue;
+    @extend %gray-first;
   }
 }
 

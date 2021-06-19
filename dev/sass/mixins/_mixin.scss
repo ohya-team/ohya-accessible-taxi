@@ -108,7 +108,8 @@
     padding: 15px;
   }
   
-  th{
+  th,
+  th span{
     font-weight: $font-bold;
     @extend %white, %bg-black;
   }
