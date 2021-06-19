@@ -1,0 +1,114 @@
+.spot-d-hero {
+    position           : relative;
+    width              : 100%;
+    margin-bottom      : $mar-cont;
+    height             : calc(100vh - 180px);
+    background-position: bottom;
+    background-image   : linear-gradient(rgba(4, 9, 30, 0.3), rgba(4, 9, 30, 0.3)), url(../images/travel/spot/green_light_forest/green_light_forest_B.jpg);
+
+    @include rwd_each(tablet) {
+        background     : url(../images/travel/spot/green_light_forest/green_light_forest_B.jpg);
+        background-size: cover;
+    }
+
+    @include rwd_each(desktop) {
+        background: url(../images/travel/spot/green_light_forest/green_light_forest_B.jpg);
+    }
+
+    .title {
+        position: absolute;
+        bottom  : 0;
+        left    : 0;
+        right   : 0;
+        margin  : auto;
+        padding : 0 30px;
+
+        @include rwd_each(tablet) {}
+
+        @include rwd_each(desktop) {
+            max-width: 1200px;
+        }
+
+        p,
+        h2 {
+            color: white;
+        }
+
+        h2 {
+            position: relative;
+            height  : 32px;
+
+            &::before {
+                content         : "";
+                display         : inline-block;
+                width           : 10px;
+                height          : 100%;
+                background-color: $yellow-first;
+                margin-right    : 10px;
+            }
+        }
+    }
+}
+
+.spot-detail {
+    .intro {
+        display              : grid;
+        grid-template-columns: 1fr;
+        gap                  : $ele-ele;
+
+        @include rwd_each(desktop) {
+            grid-template-columns: 3fr 7fr;
+        }
+
+        img {
+            width: 100%;
+        }
+
+        .intro-detail {
+            display      : flex;
+            flex-wrap    : wrap;
+            align-content: space-between;
+
+            .intro-imgs {
+                display              : grid;
+                grid-template-columns: 1fr;
+                gap                  : 30px;
+
+                @include rwd_each(desktop) {
+                    grid-template-columns: repeat(3, 1fr);
+                }
+            }
+
+        }
+    }
+}
+
+.related {
+    .item-group {
+        display              : grid;
+        grid-template-columns: 1fr;
+        gap                  : $ele-ele;
+
+        @include rwd_each(desktop) {
+            grid-template-columns: repeat(5, 1fr);
+        }
+
+        .item {
+            text-decoration: none;
+            margin-right   : 0;
+
+            h5 {
+                margin     : 15px 0;
+                font-weight: $font-bold;
+                @extend %ta-center,
+                %black,
+                %block;
+            }
+
+            img {
+                width: 100%;
+            }
+        }
+
+    }
+}
