@@ -1,0 +1,264 @@
+
+.animate-background{
+  background-color: $gray-third;
+  background-image: url(../../images/forum/CLOUDS.png);
+  animation: animatedBackground 5500s linear infinite;
+  background-position: 0px 0px;
+  background-repeat: repeat-x;
+
+
+}
+.forum-body-rules{
+  box-sizing: border-box;
+}
+
+@keyframes animatedBackground {
+  from { background-position: 100000% -15%; }
+  to { background-position:0% -15%; }
+}
+
+.forum-topic{
+  padding: 30px;
+  h1{
+    text-align:center;
+    
+    
+    }
+  .chinese-topic{
+      /* font-size: 50px; */
+      letter-spacing: 12px;
+      margin-top: -55px;
+      margin-left:10px;
+      z-index:100;
+      }
+  h1 span{
+    display: inline-block;
+    animation: animate 1.5s linear infinite;
+    color: white;
+    font-size: 30px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    z-index:-10;
+    position: relative;
+    }
+    
+  h1 span:nth-child(1){
+  animation-delay: 0s;
+  
+  }
+  h1 span:nth-child(2){
+    animation-delay: 0.2s;
+  }
+  h1 span:nth-child(3){
+    animation-delay: 0.4s;
+  }
+  h1 span:nth-child(4){
+    animation-delay: 0.5s;
+  }
+  h1 span:nth-child(5){
+    animation-delay: 0s;
+  }
+  
+  .topic-line{
+    background-color: $black;
+    height: 4px;
+    width: 3em;
+    margin:auto;
+    margin-top: -20px;
+  }
+  @keyframes animate{
+    0%
+    {
+      transform: translateY(0px)
+  
+    }
+    25%
+    {
+      transform: translateY(-12px)
+  
+    }
+
+    50%
+    {
+      transform: translateY(-22px)
+  
+    }
+    60%
+    {
+      transform: translateY(-22px)
+  
+    }
+    75%
+    {
+      transform: translateY(-12px)
+  
+    }
+  
+    100%
+    {
+      transform: translateY(0px)
+  
+    }
+  }
+      
+    
+}
+.container-category{
+  display: flex;
+  align-items: flex-start;
+  .category{
+    position: relative;
+    background-color: #fff;
+    padding:  15px ;
+    display: flex;
+    border-radius: $btn-radius;
+    flex-grow: 2.5;
+    margin-right:30px;
+    
+
+    .category-detail{
+      flex-grow: 1;
+      .category-detail-word{
+        font-size: 18px;
+        font-weight: bold;
+        margin-bottom: 10px;
+        color:$gray-first;
+        letter-spacing:3px ;
+
+      }
+      button{
+        display: flex;
+        border: none;
+        background-color:transparent;
+        padding: 2px;
+        font-size: 20px;
+        p{
+          margin:0;
+        }
+
+        .triangle{
+          width: 0;
+          height: 0;
+          border-style: solid;
+          border-width: 10px 8px 10px 8px;
+          border-color: $black transparent transparent transparent;
+          margin-top: 9px;
+          margin-left: 4px;
+        }
+      }
+      .sorts{
+    
+
+        .dropdown-menu{
+          position: absolute;
+          display: flex;
+          flex-direction: row;
+          border: 3px solid $gray-first; 
+          border-radius: 15px;
+          padding: 8px 20px;
+          background-color:$white;
+          list-style:none;
+         
+          
+          
+        &.hide{
+          position: absolute;
+          display: none;
+        }
+          li{
+            font-size: 18px;
+            margin-right: 20px;
+            padding: 6px;
+            border-radius: 5px;
+          }
+          li:hover{
+            background-color: $yellow-second;
+          }
+
+        }
+      }
+
+
+    
+    }
+  }
+
+  @include btn(button, forum,  150px, '%black', '%bg-yellow-first',$black,$white){
+    margin: auto;
+
+    .fa-pencil{
+      font-size: 19px;
+    }
+  };
+} 
+.forum-content{
+  margin-top: 3%;
+}
+  .forum-card{
+    width: 23%;
+    .forum-avatar{
+      position: relative;
+      display: flex;
+      margin-bottom: -20px;
+      img{
+        width: 22%;
+        border-radius: 50%;
+        border: 3px solid $gray-third;
+      }
+      span{
+        margin-top:auto;
+        margin-left: 8px;
+        letter-spacing: 3px;
+      }
+    }
+     .card-group{
+     
+      background-color: $white;
+      border-radius: $card-radius;
+      img{
+        width: 100%;
+        margin-bottom: $ele-ele;
+      }
+      .card-content{
+      .card-topic{
+        display: flex;
+        h3{
+          font-size: 18px;
+        }
+        h4{
+          font-size: 17px;
+        
+      }
+     }
+     .card-functions{
+       display: flex;
+       font-size: 14px ;
+       .people-amount{
+        display: flex;
+        p{
+          font-size: 15px ;
+          margin-top:-2px
+        }
+        
+       }
+       .alert{
+         display: flex;
+       }
+     }
+    }
+
+    }
+   }
+ 
+  
+
+
+
+
+
+
+
+
+
+
+

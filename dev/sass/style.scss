@@ -6,6 +6,10 @@
 // mixin 搭配 @include使用
 @import 'mixins/mixin';
 
+// page
+@import 'page/forum.scss';
+
+
 .container{
   @include container();
 }
@@ -90,18 +94,14 @@ span, p{
 
 //以下按鈕+link+頁碼
 //一級按鈕
-@include btn(button, main, 150px, '%black', '%bg-yellow-first');
+@include btn(button, main, 150px, '%black', '%bg-yellow-first',$black,$white);
 //二級按鈕
-@include btn(button, second, 150px, '%white', '%bg-black');
-button.btn-second{
-  &:hover{
-    @extend %black, %bg-yellow-first;
-  }
-}
-//三級按鈕
-@include btn(button, third, 150px, '%black', '%bg-white');
+@include btn(button, second, 150px, '%white', '%bg-black',$yellow-first,$black);
+// //三級按鈕
+@include btn(button, third, 150px, '%black', '%bg-white',$black,$white);
 button.btn-third{
   border: 2px solid $black;
+
 }
 
 //link
@@ -156,7 +156,7 @@ input.checkbox:checked{
   color: #ffffff;
 }
 //input button
-@include btn(input, main, 150px, '%black', '%bg-yellow-first');
+@include btn(input, main, 150px, '%black', '%bg-yellow-first',$black,$white);
 
 //以下table(只限可設定寬度)
 @include table(300px);
