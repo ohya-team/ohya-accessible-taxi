@@ -208,25 +208,26 @@ input.checkbox:checked{
 @include avatar(member, 100px);
 
 
-h1.topic{
+h4.topic{
 color: #313131;
 text-align: center;
 }
 
 .chinese-topic{
 font-size: 50px;
-letter-spacing: 12px;
+letter-spacing: 8px;
 margin-top: -55px;
 text-align: center;
 z-index:100;
+text-indent: 8px;
 }
 
-h1 i img{
+h4 i img{
   width: 20px;
   color: #ffe56e;
 }
 
-h1 span{
+h4 span{
  display: inline-block;
  animation: animate 1.5s linear infinite;
  color: #ffe56e;
@@ -236,20 +237,20 @@ h1 span{
  position: relative;
 }
 
-h1 span:nth-child(1){
+h4 span:nth-child(1){
 animation-delay: 0s;
 
  }
-h1 span:nth-child(2){
+h4 span:nth-child(2){
   animation-delay: 0.2s;
 }
-h1 span:nth-child(3){
+h4 span:nth-child(3){
   animation-delay: 0.4s;
 }
-h1 span:nth-child(4){
+h4 span:nth-child(4){
   animation-delay: 0.5s;
 }
-h1 span:nth-child(5){
+h4 span:nth-child(5){
   animation-delay: 0s;
 }
 
@@ -257,6 +258,7 @@ h1 span:nth-child(5){
   background-color:black;
   height: 4px;
   width: 4em;
+  border-radius: 2px;
   margin:auto;
   margin-top: -10px;
 }
