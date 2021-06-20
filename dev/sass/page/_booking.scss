@@ -11,18 +11,22 @@ ul.weekdays{
 
 ul.weekdays li{
   margin: $ele-ele;
-  font-size: $font-base;
+  font-size: $font-base*1.2;
   font-weight: $font-bold;
 
   @extend %black;
 }
 
 .calenderDes{
+  margin-top: $ele-ele;
+  justify-content: flex-end;
+
   @extend %flex;
 }
 
 .calenderDes span.okay::before{
   content: '';
+  margin-right: 7px;
   width: 20px;
   height: 20px;
   border-radius: 50%;
@@ -32,9 +36,14 @@ ul.weekdays li{
 
 .calenderDes span.full::before{
   content: '';
+  margin-right: 7px;
   width: 20px;
   height: 20px;
   border-radius: 50%;
 
   @extend %in-bl, %bg-gray-second;
+}
+
+.calenderDes span{
+  margin:0 $ele-ele;
 }
