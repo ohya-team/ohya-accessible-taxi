@@ -29,7 +29,7 @@
 @for $i from 1 to 5 {
   h#{$i} {
     margin-bottom: $text-text;
-    font-weight  : $font-bold;
+    font-weight: $font-bold;
     @extend %black;
   }
 }
@@ -55,29 +55,26 @@ h4 {
 span,
 p {
   margin-bottom : $ele-ele;
-  font-size     : $font-base;
-  font-weight   : $font-regular;
+  font-size: $font-base;
+  font-weight: $font-regular;
   letter-spacing: $font-spacing;
-  line-height   : $font-lineheight;
-  @extend %block,
-  %black;
+  line-height: $font-lineheight;
+  @extend %block, %black;
 }
 
 //只是顏色範例，無意義，可當複習for迴圈看
 .colorbox {
   margin-bottom: $ele-ele;
-  @extend %flex,
-  %flex-w;
+  @extend %flex, %flex-w;
 }
 
 @for $i from 1 to 9 {
   .box#{$i} {
-    width       : 100px;
-    height      : 100px;
+    width: 100px;
+    height: 100px;
     margin-right: $ele-ele;
-    font-weight : $font-bold;
-    @extend %flex,
-    %flex-jc-ai;
+    font-weight: $font-bold;
+    @extend %flex, %flex-jc-ai;
   }
 }
 
@@ -116,14 +113,23 @@ p {
 
 //以下按鈕+link+頁碼
 //一級按鈕
-@include btn(button, main, 150px, '%black', '%bg-yellow-first',$black,$white);
+@include btn(button, main, 150px, '%black', '%bg-yellow-first');
 //二級按鈕
-
+@include btn(button, second, 150px, '%white', '%bg-black');
+button.btn-second:hover{
+  color: $black;
+  background-color: $yellow-first;
+}
+//三級按鈕
+@include btn(button, third, 150px, '%black', '%bg-white');
+button.btn-third{
+  border: 2px solid $black;
+}
 
 //link
 a {
   margin-right: $ele-ele;
-  font-size   : $font-base;
+  font-size: $font-base;
   @extend %blue;
 
   &:hover {
@@ -138,17 +144,12 @@ a {
   }
 }
 
-;
-
 //非當前頁面
 @include page(else, '%black', '%bg-white') {
   &:hover {
-    @extend %white,
-    %bg-black;
+    @extend %white, %bg-black;
   }
 }
-
-;
 
 //以下form系列
 //lebel default
@@ -171,46 +172,42 @@ a {
 input.checkbox,
 input.radio {
   margin-bottom: $ele-ele;
-  width        : 20px;
-  height       : auto;
+  width: 20px;
+  height: auto;
 
   @extend %blue;
 }
 
 input.checkbox:checked {
-  background-color: #313131;
-  color           : #ffffff;
+  background-color: $black;
+  color: $white;
 }
 
 //input button
-@include btn(input, main, 150px, '%black', '%bg-yellow-first',$black,$white);
+@include btn(input, main, 150px, '%black', '%bg-yellow-first');
+
+//以下pills
+@include pills(main, '%black', '%cursor-hand');
+@include pills(else, '%gray-first', '%cursor-def');
 
 //以下table(只限可設定寬度)
 @include table(300px);
 
 //以下卡片
 .cards {
-  @extend %flex,
-  %flex-w,
-  %flex-sb;
+  @extend %flex, %flex-w, %flex-sb;
 }
 
 @include card(100%) {
   .card {
     margin-bottom: $ele-ele;
-    @extend %flex,
-    %flex-w,
-    %flex-jc,
-    %border-box;
+    @extend %flex, %flex-w, %flex-jc, %border-box;
   }
 
   .card h4 {
-    @extend %block,
-    %ta-center;
+    @extend %block, %ta-center;
   }
 }
-
-;
 
 //以下rwd斷點範例(用卡片) 需留意斷點不然吃重複的extend
 @include rwd_each(tablet) {
@@ -223,16 +220,14 @@ input.checkbox:checked {
 
 //以下人像圖形遮色片 over-flow
 .avatar {
-  @extend %flex,
-  %flex-dir-colu,
-  %flex-ai;
+  @extend %flex, %flex-dir-colu, %flex-ai;
 }
 
 @include avatar(member, 100px);
 
 
 h4.topic {
-  color     : #313131;
+  color: $black;
   text-align: center;
 }
 

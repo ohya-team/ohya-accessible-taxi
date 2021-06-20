@@ -3,5 +3,38 @@ section.bookingInfo,
   @include container();
 }
 
-@include pills(main, '%black', '%cursor-hand');
-@include pills(else, '%gray-first', '%cursor-def');
+ul.weekdays{
+  margin-bottom: $ele-ele;
+
+  @extend %flex, %flex-jc, %flex-ai, %bg-gray-second;
+}
+
+ul.weekdays li{
+  margin: $ele-ele;
+  font-size: $font-base;
+  font-weight: $font-bold;
+
+  @extend %black;
+}
+
+.calenderDes{
+  @extend %flex;
+}
+
+.calenderDes span.okay::before{
+  content: '';
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+
+  @extend %in-bl, %bg-yellow-first;
+}
+
+.calenderDes span.full::before{
+  content: '';
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+
+  @extend %in-bl, %bg-gray-second;
+}
