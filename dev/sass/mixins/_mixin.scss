@@ -18,9 +18,8 @@
   }
 }
 
-//btn 按鈕組件 可改標籤、按鈕等級、寬度、字體顏色、背景色、hover 背景色、hover字體顏色
-//btn 按鈕組件 可改標籤、按鈕等級、寬度、字體顏色、背景色、hover 背景色、hover字體顏色
-@mixin btn($ele, $level, $w, $c, $bgc,$hover-bgc,$hover-c) {
+//btn 按鈕組件 可改標籤、按鈕等級、寬度、字體顏色、背景色、hover字體顏色、hover 背景色
+@mixin btn($ele, $level, $w, $c, $bgc) {
   #{$ele}.btn-#{$level}{
     margin-right: $ele-ele;
     padding: 13px 26px;
@@ -32,13 +31,12 @@
 
     @content;
     @extend %cursor-hand, %ta-center, #{$c}, #{$bgc};
+
     &:hover{
-      background-color:$hover-bgc;
-      color:$hover-c;
+      @extend %white, %bg-black;
     }
   }
 }
-
 
 //page 頁碼 可改屬性名稱、字體顏色、背景色
 @mixin page($name, $c, $bgc) {

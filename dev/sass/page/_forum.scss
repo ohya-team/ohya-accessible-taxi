@@ -183,7 +183,7 @@
     }
   }
 
-  @include btn(button, forum,  150px, '%black', '%bg-yellow-first',$black,$white){
+  @include btn(button, forum,  150px, '%black', '%bg-yellow-first'){
     margin: auto;
 
     .fa-pencil{
