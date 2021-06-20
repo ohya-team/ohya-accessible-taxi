@@ -8,9 +8,9 @@
 @import 'mixins/mixin';
 
 
-
-
-
+.container{
+  @include container();
+}
 
 
 //import page
