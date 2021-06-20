@@ -7,12 +7,6 @@
 // mixin 搭配 @include使用
 @import 'mixins/mixin';
 
-
-
-
-
-
-
 //import page
 @import 'layout/header';
 @import 'layout/footer';
@@ -26,6 +20,10 @@
 
 //import noto sans from google font
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap');
+
+.container{
+  @include container();
+}
 
 //以下文字相關標籤
 @for $i from 1 to 5 {

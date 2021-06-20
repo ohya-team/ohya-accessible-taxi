@@ -2,3 +2,6 @@ section.bookingInfo,
 .booking{
   @include container();
 }
+
+@include pills(main, '%black', '%cursor-hand');
+@include pills(else, '%gray-first', '%cursor-def');
