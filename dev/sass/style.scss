@@ -7,15 +7,6 @@
 // mixin 搭配 @include使用
 @import 'mixins/mixin';
 
-<<<<<<< HEAD
-
-.container{
-  @include container();
-}
-
-
-=======
->>>>>>> bookingCars
 //import page
 @import 'layout/header';
 @import 'layout/footer';
