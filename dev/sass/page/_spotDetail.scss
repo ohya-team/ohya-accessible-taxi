@@ -13,6 +13,7 @@
 
     @include rwd_each(desktop) {
         background: url(../images/travel/spot/green_light_forest/green_light_forest_B.jpg);
+        background-size: cover;
     }
 
     .title {
@@ -21,7 +22,7 @@
         left    : 0;
         right   : 0;
         margin  : auto;
-        padding : 0 30px;
+        padding : 2% 30px;
 
         @include rwd_each(tablet) {}
 

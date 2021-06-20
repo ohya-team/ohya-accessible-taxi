@@ -1,6 +1,6 @@
 .program-detail {
   @extend %border-box;
-
+  
   .title {
     padding         : 10px;
     background-color: $black;
@@ -12,6 +12,7 @@
       margin-bottom: 0;
       font-weight  : $font-regular;
       font-size    : $font-h4;
+      margin: 15px 15px;
     }
 
     button {
@@ -151,11 +152,15 @@
     padding         : $ele-ele 0;
     background-color: $black;
     color           : white;
+    font-weight  : $font-regular;
+    margin: 0;
   }
 
   .spot {
     display              : grid;
     grid-template-columns: 1fr 5fr 3fr;
+    padding: 30px;
+    border: 1px solid #9f9f9f;
 
     .order {
       width           : 50px;
@@ -173,10 +178,15 @@
       }
     }
 
+    .spot-info {
+      padding: 0 30px;
+    }
+
     .spot-img {
       width : 80%;
       margin: auto;
       display: grid;
+      margin-bottom: 150px;
       grid-template-areas:
         "f f"
         "f f"
