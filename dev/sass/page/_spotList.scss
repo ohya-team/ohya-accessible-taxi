@@ -2,6 +2,7 @@
     h2 {
         @extend %ta-center;
     }
+
     .word-menu {
         width                : 100%;
         display              : grid;
@@ -11,6 +12,7 @@
         @include rwd_each(desktop) {
             grid-template-columns: repeat(4, 1fr);
         }
+
         li {
             padding         : 1rem 0;
             background-color: $gray-second;
@@ -51,16 +53,17 @@
         }
 
         .item {
-            border-radius: 6px;
+            border-radius: $card-radius;
             overflow     : hidden;
-            box-shadow   : rgba(0, 0, 0, 0.4) 0.5px 0.5px 5px 0px;
+            @extend %bg-white;
 
             .pic {
-                width: 100%;
-                overflow : hidden; 
+                width   : 100%;
+                overflow: hidden;
+
                 img {
-                    width    : 100%;
-                    transform: scale(1);
+                    width     : 100%;
+                    transform : scale(1);
                     transition: .5s;
 
                     &:hover {
@@ -71,7 +74,8 @@
             }
 
             .title {
-                @extend %flex,%flex-sb;
+                @extend %flex,
+                %flex-sb;
 
                 a {
                     margin         : 15px;
@@ -90,9 +94,9 @@
                     align-items     : center;
                     justify-content : center;
                     background-color: $blue;
-                    border-radius   : 20px;
+                    border-radius   : $page-radius;
                     margin          : 8px 15px;
-                    font-weight     : $font-bold;
+                    @extend %white;
                 }
             }
 

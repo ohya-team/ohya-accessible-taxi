@@ -1,6 +1,11 @@
 .program-detail {
   @extend %border-box;
-  
+
+  .container {
+    padding         : 0;
+    background-color: $white;
+  }
+
   .title {
     padding         : 10px;
     background-color: $black;
@@ -12,7 +17,7 @@
       margin-bottom: 0;
       font-weight  : $font-regular;
       font-size    : $font-h4;
-      margin: 15px 15px;
+      margin       : 15px 15px;
     }
 
     button {
@@ -38,7 +43,7 @@
 
     .detail {
       .item-group {
-        background-color     : $gray-third;
+        background-color     : $gray-second;
         display              : grid;
         grid-template-columns: 1fr 4fr 3fr;
 
@@ -79,10 +84,10 @@
 
           .star {
             i {
-              color: $gray-second;
+              color: $gray-first;
 
               &.active {
-                color: $gray-first;
+                color: $yellow-first;
               }
             }
           }
@@ -151,23 +156,25 @@
     @extend %ta-center;
     padding         : $ele-ele 0;
     background-color: $black;
-    color           : white;
-    font-weight  : $font-regular;
-    margin: 0;
+    color           : $white;
+    font-weight     : $font-regular;
+    margin          : 0;
   }
 
   .spot {
     display              : grid;
     grid-template-columns: 1fr 5fr 3fr;
-    padding: 30px;
-    border: 1px solid #9f9f9f;
+    justify-items        : center;
+    padding              : 100px $ele-ele;
+    gap                  : $ele-ele;
+    background-color     : $white;
 
     .order {
+      position        : relative;
       width           : 50px;
       height          : 50px;
       background-color: $blue;
       border-radius   : 50%;
-      position        : relative;
 
       p {
         position : absolute;
@@ -175,18 +182,20 @@
         left     : 50%;
         transform: translate(-50%, -50%);
         font-size: $font-h4;
+        color    : $white;
       }
     }
 
     .spot-info {
-      padding: 0 30px;
+      width: 80%;
     }
 
+
     .spot-img {
-      width : 80%;
-      margin: auto;
-      display: grid;
-      margin-bottom: 150px;
+      width        : 80%;
+      margin       : auto;
+      display      : grid;
+      margin-bottom: $text-text;
       grid-template-areas:
         "f f"
         "f f"
