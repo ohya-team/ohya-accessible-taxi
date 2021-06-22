@@ -9,14 +9,75 @@
 </head>
 <body>
 
-
-
     <div class="wrapper">
-        @@include('layout/header.html');
+        @@include('layout/header.html')
         <img src="./images/img.jpg" alt="">
     </div>
 
-    
+    <section class="home-booking">
+        <h4 class="topic">
+            <span>
+                <i><img src="images/icon/Icon simple-hipchat.svg" alt=""></i>
+            </span>
+            <span>B</span>
+            <span>O</span>
+            <span>O</span>
+            <span>K</span>
+            <span>I</span>
+            <span>N</span>
+            <span>G</span>
+          </h4>
+          <h1 class="chinese-topic">預約日期</h1>
+          <div class="topic-line"></div>
+          <div class="home-calender">
+            <div class="container">
+                <table>
+                  <thead>
+                    <tr>
+                      <th></th>
+                      <th>7/1 <br> 星期一</th>
+                      <th>7/2 <br> 星期二</th>
+                      <th>7/3 <br> 星期三</th>
+                      <th>7/4 <br> 星期四</th>
+                      <th>7/5 <br> 星期五</th>
+                      <th>7/6 <br> 星期六</th>
+                      <th>7/7 <br> 星期日</th>
+                    </tr>
+                  </thead>
+                  <tr>
+                    <td>上午</td>
+                    <td><button class="tb btn-third ">立即預約</button></td>
+                    <td><button class="tb btn-third ">立即預約</button></td>
+                    <td><button class="tb btn-third disabled ">不可預約</button></td>
+                    <td><button class="tb btn-third ">立即預約</button></td>
+                    <td><button class="tb btn-third ">立即預約</button></td>
+                    <td><button class="tb btn-third ">立即預約</button></td>
+                    <td><button class="tb btn-third ">立即預約</button></td>
+                  </tr>
+                  <tr>
+                    <td>下午</td>
+                    <td><button class="tb btn-third ">立即預約</button></td>
+                    <td><button class="tb btn-third ">立即預約</button></td>
+                    <td><button class="tb btn-third ">立即預約</button></td>
+                    <td><button class="tb btn-third disabled ">不可預約</button></td>
+                    <td><button class="tb btn-third disabled ">不可預約</button></td>
+                    <td><button class="tb btn-third ">立即預約</button></td>
+                    <td><button class="tb btn-third ">立即預約</button></td>
+                  </tr>
+                  <tr>
+                    <td>晚上</td>
+                    <td><button class="tb btn-third ">立即預約</button></td>
+                    <td><button class="tb btn-third ">立即預約</button></td>
+                    <td><button class="tb btn-third ">立即預約</button></td>
+                    <td><button class="tb btn-third ">立即預約</button></td>
+                    <td><button class="tb btn-third ">立即預約</button></td>
+                    <td><button class="tb btn-third disabled ">不可預約</button></td>
+                    <td><button class="tb btn-third ">立即預約</button></td>
+                  </tr>
+                </table>
+              </div>
+          </div>
+    </section>
 
     <div class="">
         @@include('layout/footer.html')

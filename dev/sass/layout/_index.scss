@@ -1,0 +1,36 @@
+section{
+  padding: 100px 0;
+}
+
+.container{
+  width: 1200px;
+  margin: auto;
+  table{
+    margin: auto;
+  }
+}
+
+.home-calender{
+  padding: 60px;
+}
+
+.tb.btn-third{
+  padding: 10px 20px;
+  margin-right: 0px;
+  width: auto;
+  font-size: 16px;
+  font-weight: bold;
+  border-color: #d6d6d6;
+  
+}
+
+.tb.btn-third:hover{
+  border-color: #313131;
+}
+      
+.tb.btn-third.disabled{
+  border-color: rgba(255, 255, 255, 0);
+  background-color: #f4f4f4;
+  color: #d6d6d6;
+  cursor: default;
+}
