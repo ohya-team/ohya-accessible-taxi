@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,6 +8,7 @@
     <link rel="stylesheet" href="css/style.css">
     <title>index</title>
 </head>
+
 <body>
 
     <div class="wrapper">
@@ -14,7 +16,7 @@
         <img src="./images/img.jpg" alt="">
     </div>
 
-    <section class="home-booking">
+    <section class="home-section">
         <h4 class="topic">
             <span>
                 <i><img src="images/icon/Icon simple-hipchat.svg" alt=""></i>
@@ -26,58 +28,136 @@
             <span>I</span>
             <span>N</span>
             <span>G</span>
-          </h4>
-          <h1 class="chinese-topic">預約日期</h1>
-          <div class="topic-line"></div>
-          <div class="home-calender">
-            <div class="container">
+        </h4>
+        <h1 class="chinese-topic">預約日期</h1>
+        <div class="topic-line"></div>
+        <div class="home-calender">
+            <div class="container home">
                 <table>
-                  <thead>
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>7/1 <br> 星期一</th>
+                            <th>7/2 <br> 星期二</th>
+                            <th>7/3 <br> 星期三</th>
+                            <th>7/4 <br> 星期四</th>
+                            <th>7/5 <br> 星期五</th>
+                            <th>7/6 <br> 星期六</th>
+                            <th>7/7 <br> 星期日</th>
+                        </tr>
+                    </thead>
                     <tr>
-                      <th></th>
-                      <th>7/1 <br> 星期一</th>
-                      <th>7/2 <br> 星期二</th>
-                      <th>7/3 <br> 星期三</th>
-                      <th>7/4 <br> 星期四</th>
-                      <th>7/5 <br> 星期五</th>
-                      <th>7/6 <br> 星期六</th>
-                      <th>7/7 <br> 星期日</th>
+                        <td>上午</td>
+                        <td><button class="tb btn-third ">立即預約</button></td>
+                        <td><button class="tb btn-third ">立即預約</button></td>
+                        <td><button class="tb btn-third disabled ">不可預約</button></td>
+                        <td><button class="tb btn-third ">立即預約</button></td>
+                        <td><button class="tb btn-third ">立即預約</button></td>
+                        <td><button class="tb btn-third ">立即預約</button></td>
+                        <td><button class="tb btn-third ">立即預約</button></td>
                     </tr>
-                  </thead>
-                  <tr>
-                    <td>上午</td>
-                    <td><button class="tb btn-third ">立即預約</button></td>
-                    <td><button class="tb btn-third ">立即預約</button></td>
-                    <td><button class="tb btn-third disabled ">不可預約</button></td>
-                    <td><button class="tb btn-third ">立即預約</button></td>
-                    <td><button class="tb btn-third ">立即預約</button></td>
-                    <td><button class="tb btn-third ">立即預約</button></td>
-                    <td><button class="tb btn-third ">立即預約</button></td>
-                  </tr>
-                  <tr>
-                    <td>下午</td>
-                    <td><button class="tb btn-third ">立即預約</button></td>
-                    <td><button class="tb btn-third ">立即預約</button></td>
-                    <td><button class="tb btn-third ">立即預約</button></td>
-                    <td><button class="tb btn-third disabled ">不可預約</button></td>
-                    <td><button class="tb btn-third disabled ">不可預約</button></td>
-                    <td><button class="tb btn-third ">立即預約</button></td>
-                    <td><button class="tb btn-third ">立即預約</button></td>
-                  </tr>
-                  <tr>
-                    <td>晚上</td>
-                    <td><button class="tb btn-third ">立即預約</button></td>
-                    <td><button class="tb btn-third ">立即預約</button></td>
-                    <td><button class="tb btn-third ">立即預約</button></td>
-                    <td><button class="tb btn-third ">立即預約</button></td>
-                    <td><button class="tb btn-third ">立即預約</button></td>
-                    <td><button class="tb btn-third disabled ">不可預約</button></td>
-                    <td><button class="tb btn-third ">立即預約</button></td>
-                  </tr>
+                    <tr>
+                        <td>下午</td>
+                        <td><button class="tb btn-third ">立即預約</button></td>
+                        <td><button class="tb btn-third ">立即預約</button></td>
+                        <td><button class="tb btn-third ">立即預約</button></td>
+                        <td><button class="tb btn-third disabled ">不可預約</button></td>
+                        <td><button class="tb btn-third disabled ">不可預約</button></td>
+                        <td><button class="tb btn-third ">立即預約</button></td>
+                        <td><button class="tb btn-third ">立即預約</button></td>
+                    </tr>
+                    <tr>
+                        <td>晚上</td>
+                        <td><button class="tb btn-third ">立即預約</button></td>
+                        <td><button class="tb btn-third ">立即預約</button></td>
+                        <td><button class="tb btn-third ">立即預約</button></td>
+                        <td><button class="tb btn-third ">立即預約</button></td>
+                        <td><button class="tb btn-third ">立即預約</button></td>
+                        <td><button class="tb btn-third disabled ">不可預約</button></td>
+                        <td><button class="tb btn-third ">立即預約</button></td>
+                    </tr>
                 </table>
-              </div>
-          </div>
+            </div>
+        </div>
+        <div class="btn-act container">
+            <button class="btn-main">立即預約</button>
+        </div>
     </section>
+
+    <section class="home-section">
+        <h4 class="topic">
+            <span>
+                <!-- <i><img src="images/icon/Icon simple-hipchat.svg" alt=""></i> -->
+            </span>
+            <span>C</span>
+            <span>A</span>
+            <span>R</span>
+            <span>S</span>
+        </h4>
+        <h1 class="chinese-topic">車種介紹</h1>
+        <div class="topic-line"></div>
+        <div class="home-car-cards">
+            <div class="container">
+                <div class="cards">
+                    <div class="card">
+                        <img src="images/type2.png" alt="Avatar">
+                        <section>
+                            <h4>福泰 T5</h4>
+                            <ul>
+                                <li>一般乘客座位：6位</li>
+                                <li>輪椅座位：1位</li>
+                                <li>輪椅升降設備：有</li>
+                            </ul>
+                        </section>
+
+                        <button class="btn-third">立即預約</button>
+                    </div>
+                    <div class="card">
+                        <img src="images/type2.png" alt="Avatar">
+                        <section>
+                            <h4>福泰 T5</h4>
+                            <ul>
+                                <li>一般乘客座位：6位</li>
+                                <li>輪椅座位：1位</li>
+                                <li>輪椅升降設備：有</li>
+                            </ul>
+                        </section>
+
+                        <button class="btn-third">立即預約</button>
+                    </div>
+                    <div class="card">
+                        <img src="images/type2.png" alt="Avatar">
+                        <section>
+                            <h4>福泰 T5</h4>
+                            <ul>
+                                <li>一般乘客座位：6位</li>
+                                <li>輪椅座位：1位</li>
+                                <li>輪椅升降設備：有</li>
+                            </ul>
+                        </section>
+
+                        <button class="btn-third">立即預約</button>
+                    </div>
+                    <div class="card">
+                        <img src="images/type2.png" alt="Avatar">
+                        <section>
+                            <h4>福泰 T5</h4>
+                            <ul>
+                                <li>一般乘客座位：6位</li>
+                                <li>輪椅座位：1位</li>
+                                <li>輪椅升降設備：有</li>
+                            </ul>
+                        </section>
+
+                        <button class="btn-third">立即預約</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
 
     <div class="">
         @@include('layout/footer.html')
@@ -85,4 +165,5 @@
 
 
 </body>
+
 </html>

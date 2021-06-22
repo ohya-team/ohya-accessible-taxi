@@ -1,16 +1,20 @@
-section{
-  padding: 100px 0;
-}
+// section{
+//   padding: 100px 0;
+// }
 
 .container{
   width: 1200px;
   margin: auto;
   table{
-    margin: auto;
+    margin-top: 50px;
   }
 }
 
-.home-calender{
+.container.home{
+  margin-bottom: 0;
+}
+
+.home-section{
   padding: 60px;
 }
 
@@ -33,4 +37,34 @@ section{
   background-color: #f4f4f4;
   color: #d6d6d6;
   cursor: default;
+}
+
+.btn-act{
+  margin: auto;
+  display: flex;
+  
+}
+
+.btn-act>.btn-main{
+  margin: auto;
+}
+
+.btn-act.container{
+  padding: 50px;
+  margin: 0;
+}
+
+.home-car-cards{
+  margin-top: 50px;
+  .container .card{
+    border-color: #d6d6d6;
+    border-radius: 10px;
+    text-align: center;
+    
+    li{
+      list-style: none;
+      line-height: 0.5;
+    }
+    
+  }
 }
