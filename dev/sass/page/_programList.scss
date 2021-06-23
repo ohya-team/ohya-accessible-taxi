@@ -1,0 +1,129 @@
+.scheme-l-hero {
+    .title {
+        position           : relative;
+        width              : 100%;
+        margin-bottom      : $mar-cont;
+        height             : calc(100vh - 180px);
+        background-position: bottom;
+        background-image   : url(../images/travel/taxi_B2.jpg);
+        background-size    : cover;
+        margin-bottom      : 150px;
+
+        h2 {
+            position: absolute;
+            bottom  : 0;
+            left    : 18%;
+            color   : $white;
+        }
+    }
+
+}
+
+.filter-column {
+    .container {
+        margin-bottom: 0;
+
+        .box {
+            display         : flex;
+            background-color: $white;
+            margin-bottom   : 15px;
+
+            .word-menu {
+                margin : auto;
+                display: flex;
+
+                li {
+                    font-size: 28px;
+                    padding  : 30px;
+
+                    &.active {
+                        background-color: $gray-first;
+                        color           : $white;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.list-block {
+    .card-item {
+        display              : grid;
+        grid-template-columns: 1fr;
+        background-color     : $white;
+        margin               : auto;
+        margin-bottom        : $ele-ele;
+
+        @include rwd_each(tablet) {
+            grid-template-columns: 1fr 3fr;
+        }
+
+
+        .card-image {
+            width: 100%;
+
+            img {
+                width : 100%;
+                height: 100%;
+            }
+        }
+
+        .text {
+            @extend %border-box;
+            width          : 100%;
+            padding        : 30px;
+            display        : flex;
+            flex-wrap      : wrap;
+            justify-content: space-between;
+
+
+            button {
+                height          : 10%;
+                font-size       : 28px;
+                border          : 0;
+                background-color: #fff;
+                margin-left: auto;
+
+                i {
+                    color: $gray-second;
+                }
+            }
+
+            .star {
+                width    : 100%;
+                font-size: 30px;
+                color    : $yellow-first;
+
+                &:i {
+                    &:nth-child(5) {
+                        color: #9f9f9f;
+                    }
+                }
+            }
+
+            .l-tag {
+                width           : 60px;
+                height          : 30px;
+                background-color: #59c3e1;
+                margin-top      : 20px;
+                padding         : 10px;
+                text-align      : center;
+
+                p {
+                    color: $white;
+                }
+            }
+
+            .price {
+                width     : 100%;
+                text-align: right;
+                margin    : 10px 10px;
+
+                h4 {
+                    color: $error;
+                }
+            }
+
+        }
+    }
+}

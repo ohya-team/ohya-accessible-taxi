@@ -9,8 +9,12 @@
   .title {
     padding         : 10px;
     background-color: $black;
-    display         : flex;
-    justify-content : space-between;
+
+    @include rwd_each(tablet) {
+      display        : flex;
+      justify-content: space-between;
+    }
+
 
     h2 {
       color        : $white;
@@ -23,6 +27,11 @@
     button {
       display    : flex;
       align-items: center;
+      margin-left: auto;
+
+      @include rwd_each(tablet) {
+        margin-left: none;
+      }
 
       span,
       i {
@@ -35,7 +44,11 @@
 
   .info {
     display              : grid;
-    grid-template-columns: 1fr 2fr;
+    grid-template-columns: 1fr;
+
+    @include rwd_each(tablet) {
+      grid-template-columns: 1fr 2fr;
+    }
 
     img {
       width: 100%;
@@ -112,8 +125,12 @@
 
       .content {
         display              : grid;
-        grid-template-columns: 5fr 3fr;
+        grid-template-columns: 1fr;
         margin               : $ele-ele;
+
+        @include rwd_each(tablet) {
+          grid-template-columns: 5fr 3fr;
+        }
 
         span {
           color: $gray-first;
@@ -135,6 +152,7 @@
 
       .remarks {
         display: grid;
+
 
         ul,
         button {
@@ -161,59 +179,93 @@
     margin          : 0;
   }
 
-  .spot {
-    display              : grid;
-    grid-template-columns: 1fr 5fr 3fr;
-    justify-items        : center;
-    padding              : 100px $ele-ele;
-    gap                  : $ele-ele;
-    background-color     : $white;
-
-    .order {
-      position        : relative;
-      width           : 50px;
-      height          : 50px;
-      background-color: $blue;
-      border-radius   : 50%;
-
-      p {
-        position : absolute;
-        top      : 50%;
-        left     : 50%;
-        transform: translate(-50%, -50%);
-        font-size: $font-h4;
-        color    : $white;
-      }
+  .spot-group {
+    padding         : 30px $ele-ele;
+    background-color: $white;
+    @include rwd_each(tablet) {
+      padding         : 100px $ele-ele;
     }
 
-    .spot-info {
-      width: 80%;
-    }
+    .spot {
+      display              : grid;
+      grid-template-columns: 1fr;
+      grid-template-areas  :
+        'n'
+        'i';
+      gap: $ele-ele;
 
-
-    .spot-img {
-      width        : 80%;
-      margin       : auto;
-      display      : grid;
-      margin-bottom: $text-text;
-      grid-template-areas:
-        "f f"
-        "f f"
-        "s t";
-
-      .img-f {
-        width    : 100%;
-        grid-area: f;
+      @include rwd_each(tablet) {
+        justify-items        : center;
+        grid-template-columns: 1fr 5fr 3fr;
+        grid-template-areas  : 'o n i';
       }
 
-      .img-s {
-        width    : 100%;
-        grid-area: s;
+
+      .order {
+        display         : none;
+        position        : relative;
+        width           : 50px;
+        height          : 50px;
+        background-color: $blue;
+        border-radius   : 50%;
+        grid-area       : o;
+
+        @include rwd_each(tablet) {
+          display: block;
+        }
+
+        p {
+          position : absolute;
+          top      : 50%;
+          left     : 50%;
+          transform: translate(-50%, -50%);
+          font-size: $font-h4;
+          color    : $white;
+        }
       }
 
-      .img-t {
-        width    : 100%;
-        grid-area: t;
+      .spot-info {
+        grid-area: n;
+
+        @include rwd_each(tablet) {
+          width: 80%;
+        }
+
+        .spot-title {
+          text-align: center;
+
+          @include rwd_each(tablet) {
+            text-align: left;
+          }
+        }
+      }
+
+
+      .spot-img {
+        width        : 80%;
+        margin       : auto;
+        display      : grid;
+        margin-bottom: $text-text;
+        grid-area    : i;
+        grid-template-areas:
+          "f f"
+          "f f"
+          "s t";
+
+        .img-f {
+          width    : 100%;
+          grid-area: f;
+        }
+
+        .img-s {
+          width    : 100%;
+          grid-area: s;
+        }
+
+        .img-t {
+          width    : 100%;
+          grid-area: t;
+        }
       }
     }
   }
