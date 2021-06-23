@@ -103,6 +103,10 @@
       
     
 }
+.forum-container{
+  @include container();
+}
+
 .container-category{
   display: flex;
   align-items: flex-start;
@@ -172,7 +176,8 @@
             border-radius: 5px;
           }
           li:hover{
-            background-color: $yellow-second;
+            background-color: $blue;
+            color: $black;
           }
 
         }
