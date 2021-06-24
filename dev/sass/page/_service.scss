@@ -1,90 +1,88 @@
-
-
 //Title Animation
-.service-topic{
+.service-topic {
   padding: 30px;
-  h1{
-    text-align:center;
-    
-    
-    }
-  .chinese-topic{
-      letter-spacing: 12px;
-      margin-top: -55px;
-      margin-left:10px;
-      z-index:100;
-      }
-  h1 span{
-    display: inline-block;
-    animation: animate 1.5s linear infinite;
-    color: white;
-    font-size: 30px;
-    font-weight: 700;
+
+  h1 {
+    text-align: center;
+  }
+
+  .chinese-topic {
+    letter-spacing: 12px;
+    margin-top    : -55px;
+    margin-left   : 10px;
+    z-index       : 100;
+  }
+
+  h1 span {
+    display       : inline-block;
+    animation     : animate 1.5s linear infinite;
+    color         : white;
+    font-size     : 30px;
+    font-weight   : 700;
     letter-spacing: 3px;
-    z-index:-10;
-    position: relative;
-    }
-    
-  h1 span:nth-child(1){
-  animation-delay: 0s;
-  
+    z-index       : -10;
+    position      : relative;
   }
-  h1 span:nth-child(2){
-    animation-delay: 0.2s;
-  }
-  h1 span:nth-child(3){
-    animation-delay: 0.4s;
-  }
-  h1 span:nth-child(4){
-    animation-delay: 0.5s;
-  }
-  h1 span:nth-child(5){
+
+  h1 span:nth-child(1) {
     animation-delay: 0s;
   }
-  h1 span:nth-child(6){
+
+  h1 span:nth-child(2) {
     animation-delay: 0.2s;
   }
-  h1 span:nth-child(7){
+
+  h1 span:nth-child(3) {
     animation-delay: 0.4s;
   }
-  .topic-line{
-    background-color: $black;
-    height: 4px;
-    width: 3em;
-    margin:auto;
-    margin-top: -20px;
+
+  h1 span:nth-child(4) {
+    animation-delay: 0.5s;
   }
-  @keyframes animate{
-    0%
-    {
+
+  h1 span:nth-child(5) {
+    animation-delay: 0s;
+  }
+
+  h1 span:nth-child(6) {
+    animation-delay: 0.2s;
+  }
+
+  h1 span:nth-child(7) {
+    animation-delay: 0.4s;
+  }
+
+  .topic-line {
+    background-color: $black;
+    height          : 4px;
+    width           : 3em;
+    margin          : auto;
+    margin-top      : -20px;
+  }
+
+  @keyframes animate {
+    0% {
       transform: translateY(0px)
-  
-    }
-    25%
-    {
-      transform: translateY(-12px)
-  
     }
 
-    50%
-    {
-      transform: translateY(-22px)
-  
-    }
-    60%
-    {
-      transform: translateY(-22px)
-  
-    }
-    75%
-    {
+    25% {
       transform: translateY(-12px)
-  
     }
-  
-    100%
-    {
+
+    50% {
+      transform: translateY(-22px)
+    }
+
+    60% {
+      transform: translateY(-22px)
+    }
+
+    75% {
+      transform: translateY(-12px)
+    }
+
+    100% {
       transform: translateY(0px)
-  
     }
   }
+}
