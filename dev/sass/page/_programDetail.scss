@@ -9,6 +9,7 @@
   .title {
     padding         : 10px;
     background-color: $black;
+    margin-top: $text-text;
 
     @include rwd_each(tablet) {
       display        : flex;
