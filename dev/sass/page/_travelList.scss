@@ -1,239 +1,240 @@
 .travel-hero {
-    width     : 100%;
-    height    : 600px;
-    overflow-y: hidden;
+  width     : 100%;
+  height    : 600px;
+  overflow-y: hidden;
 
-    img {
-        width: 100%;
-    }
+  img {
+    width: 100%;
+  }
 
-    margin-bottom: 150px;
+  margin-bottom: 150px;
 }
 
 .travel-program {
-    @extend %border-box;
+  @extend %border-box;
 
-    .title {
-        align-items: flex-end;
-        @extend %flex,
-        %flex-sb;
-        margin-bottom: $text-text;
+  .title {
+    align-items: flex-end;
+    @extend %flex,
+    %flex-sb;
+    margin-bottom: $text-text;
 
-        h2 {
-            margin-bottom: 0;
-        }
-
-        a {
-            padding-bottom : 2px;
-            text-decoration: none;
-        }
+    h2 {
+      margin-bottom: 0;
     }
 
-    .program-group {
-        display              : grid;
-        grid-template-columns: 1fr;
-        gap                  : $ele-ele;
-        font-size            : 26px;
-
-        @include rwd_each(desktop) {
-            grid-template-columns: repeat(2, 1fr);
-        }
-
-        .main-program {
-            position     : relative;
-            border-radius: $card-radius;
-            overflow     : hidden;
-
-            img {
-                width : 100%;
-                height: 100%;
-            }
-
-            .intro {
-                position: absolute;
-                bottom  : 0;
-                left    : 0;
-                right   : 0;
-                @extend %ta-center;
-                background-color: rgba(49, 49, 49, .8);
-                padding         : 15px 0;
-
-                h3 {
-                    font-size    : $font-base;
-                    margin-bottom: 0;
-                    font-weight  : $font-medium;
-                    margin-bottom: 30px;
-                    text-align   : left;
-                    margin-left  : 30px;
-
-                    @include rwd_each(desktop) {
-                        font-size: $font-h4;
-                    }
-                }
-
-                p {
-                    display    : none;
-                    margin     : 0 15px;
-                    font-weight: $font-light;
-
-                    @include rwd_each(desktop) {
-                        display: inline;
-                    }
-                }
-
-                h3,
-                p {
-                    color: $white;
-                }
-            }
-        }
-
-        .programs {
-            display              : grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap                  : $ele-ele;
-
-            .sub-program {
-                position     : relative;
-                border-radius:$card-radius;
-                overflow     : hidden;
-
-                img {
-                    width : 100%;
-                    height: 100%;
-                }
-
-                .intro {
-                    position        : absolute;
-                    bottom          : 0;
-                    background-color: rgba(49, 49, 49, .8);
-                    left            : 0;
-                    right           : 0;
-                    padding         : 15px 0;
-                    @extend %ta-center;
-
-                    h3 {
-                        color        : $white;
-                        margin-bottom: 0px;
-                        font-size    : $font-base;
-
-                        @include rwd_each(desktop) {
-                            font-size  : $font-h4;
-                            font-weight: $font-medium;
-                        }
-                    }
-                }
-            }
-        }
-
+    a {
+      padding-bottom : 2px;
+      text-decoration: none;
     }
+  }
+
+  .program-group {
+    display              : grid;
+    grid-template-columns: 1fr;
+    gap                  : $ele-ele;
+    font-size            : 26px;
+
+    @include rwd_each(desktop) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .main-program {
+      position     : relative;
+      border-radius: $card-radius;
+      overflow     : hidden;
+
+      img {
+        width : 100%;
+        height: 100%;
+      }
+
+      .intro {
+        position: absolute;
+        bottom  : 0;
+        left    : 0;
+        right   : 0;
+        @extend %ta-center;
+        background-color: rgba(49, 49, 49, .8);
+        padding         : 15px 0;
+
+        h3 {
+          font-size    : $font-base;
+          margin-bottom: 0;
+          font-weight  : $font-medium;
+          margin-bottom: 30px;
+          text-align   : left;
+          margin-left  : 30px;
+
+          @include rwd_each(desktop) {
+            font-size: $font-h4;
+          }
+        }
+
+        p {
+          display    : none;
+          margin     : 0 15px;
+          font-weight: $font-light;
+
+          @include rwd_each(desktop) {
+            display: inline;
+          }
+        }
+
+        h3,
+        p {
+          color: $white;
+        }
+      }
+    }
+
+    .programs {
+      display              : grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap                  : $ele-ele;
+
+      .sub-program {
+        position     : relative;
+        border-radius: $card-radius;
+        overflow     : hidden;
+
+        img {
+          width : 100%;
+          height: 100%;
+        }
+
+        .intro {
+          position        : absolute;
+          bottom          : 0;
+          background-color: rgba(49, 49, 49, .8);
+          left            : 0;
+          right           : 0;
+          padding         : 15px 0;
+          @extend %ta-center;
+
+          h3 {
+            color        : $white;
+            margin-bottom: 0px;
+            font-size    : $font-base;
+
+            @include rwd_each(desktop) {
+              font-size  : $font-h4;
+              font-weight: $font-medium;
+            }
+          }
+        }
+      }
+    }
+
+  }
 }
 
 .travel-spot {
-    @extend %border-box;
+  @extend %border-box;
 
-    .title {
-        align-items: flex-end;
-        @extend %flex,
-        %flex-sb;
-        margin-bottom: $text-text;
+  .title {
+    align-items: flex-end;
+    @extend %flex,
+    %flex-sb;
+    margin-bottom: $text-text;
 
-        h2 {
-            margin-bottom: 0;
-        }
-
-        a {
-            padding-bottom : 2px;
-            text-decoration: none;
-        }
+    h2 {
+      margin-bottom: 0;
     }
 
-    .plural-spot {
-        display: grid;
-        gap    : $ele-ele;
+    a {
+      padding-bottom : 2px;
+      text-decoration: none;
+    }
+  }
 
-        .main-spot {
-            position  : relative;
-            border-radius: $card-radius;
-            overflow     : hidden;
+  .plural-spot {
+    display: grid;
+    gap    : $ele-ele;
 
-            img {
-                width: 100%;
-            }
+    .main-spot {
+      position     : relative;
+      border-radius: $card-radius;
+      overflow     : hidden;
 
-            .intro {
-                @extend %border-box;
+      img {
+        width: 100%;
+      }
 
-                position: absolute;
-                bottom  : 3px;
-                padding : 0 40px;
-                width   : 100%;
+      .intro {
+        @extend %border-box;
 
-                h3,
-                p {
-                    color: $white;
-                }
+        position: absolute;
+        bottom  : 3px;
+        padding : 0 40px;
+        width   : 100%;
 
-                p {
-                    display    : none;
-                    font-weight: $font-light;
-
-                    @include rwd_each(desktop) {
-                        display: block;
-                    }
-                }
-
-                h3 {
-                    margin-bottom: 15px;
-                    font-size    : $font-base;
-
-                    @include rwd_each(desktop) {
-                        font-size  : $font-h4;
-                        font-weight: $font-medium;
-                    }
-                }
-            }
+        h3,
+        p {
+          color: $white;
         }
 
-        .spots {
-            display              : grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap                  : $ele-ele;
+        p {
+          display    : none;
+          font-weight: $font-light;
+
+          @include rwd_each(desktop) {
+            display: block;
+          }
+        }
+
+        h3 {
+          margin-bottom: 15px;
+          font-size    : $font-base;
+
+          @include rwd_each(desktop) {
+            font-size  : $font-h4;
+            font-weight: $font-medium;
+          }
+        }
+      }
+    }
+
+    .spots {
+      display              : grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap                  : $ele-ele;
+
+      @include rwd_each(desktop) {
+        grid-template-columns: repeat(4, 1fr);
+      }
+
+      .sub-spot {
+        position     : relative;
+        border-radius: $card-radius;
+        overflow     : hidden;
+
+        img {
+          width: 100%;
+        }
+
+        .intro {
+          display : block;
+          position: absolute;
+          bottom  : 0;
+          left    : 0;
+          right   : 0;
+          @extend %ta-center;
+
+          h3 {
+            font-size       : $font-base;
+            color           : $white;
+            margin-bottom   : 0;
+            padding         : 10px 0;
+            background-color: rgba(49, 49, 49, .8);
 
             @include rwd_each(desktop) {
-                grid-template-columns: repeat(4, 1fr);
+              font-size  : $font-h4;
+              font-weight: $font-medium;
             }
-
-            .sub-spot {
-                position: relative;
-                border-radius: $card-radius;
-                overflow     : hidden;
-                img {
-                    width: 100%;
-                }
-
-                .intro {
-                    display : block;
-                    position: absolute;
-                    bottom  : 0;
-                    left    : 0;
-                    right   : 0;
-                    @extend %ta-center;
-
-                    h3 {
-                        font-size       : $font-base;
-                        color           : $white;
-                        margin-bottom   : 0;
-                        padding         : 10px 0;
-                        background-color: rgba(49, 49, 49, .8);
-
-                        @include rwd_each(desktop) {
-                            font-size  : $font-h4;
-                            font-weight: $font-medium;
-                        }
-                    }
-                }
-            }
+          }
         }
+      }
     }
+  }
 }

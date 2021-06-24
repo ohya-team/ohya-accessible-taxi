@@ -62,6 +62,10 @@ function css_mv() {
     return src('dev/css/*.css')
         .pipe(dest('dist/css'))
 }
+function php_mv() {
+    return src('dev/php/*.php')
+        .pipe(dest('dist/php'))
+}
 
 // ================ 清除舊檔案 ============ 
 
@@ -87,11 +91,12 @@ function browser(done) {
     watch(['dev/images/*.*', 'dev/images/**/*.*'], img_mv).on('change', reload)
     watch('dev/css/*.css', css_mv).on('change', reload)
     watch('dev/js/*.js', js_mv).on('change', reload)
+    watch('dev/php/*.php', php_mv).on('change', reload)
     done();
 }
 
 // 執行指令
-exports.default = series(cleanfile, img_mv, html, sass_style, css_mv, js_mv, browser);
+exports.default = series(cleanfile, img_mv, html, sass_style, css_mv, js_mv,php_mv, browser);
 
 
 // +++++++++  打包上線用 +++++++
@@ -131,7 +136,7 @@ function min_images() {
 
 exports.prod = series(
     cleanfile,
-    parallel(html, css_mv, cleancss, ugjs),
+    parallel(html, css_mv, cleancss, ugjs,php_mv),
     min_images
 );
 
