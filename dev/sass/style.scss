@@ -64,6 +64,11 @@ p {
   @extend %block, %black;
 }
 
+span.mini{
+  font-size: $font-mini;
+  @extend %gray-first;
+}
+
 //只是顏色範例，無意義，可當複習for迴圈看
 .colorbox {
   margin-bottom: $ele-ele;
@@ -159,14 +164,14 @@ a {
 //lebel error
 @include label(error, '%error');
 //lebel success
-@include label(success, '%blue');
+@include label(success, '%success');
 
 //input-text default
 @include input(def, 100%, $black);
 //input-text error
 @include input(error, 100%, $error);
 //input-text success
-@include input(success, 100%, $blue);
+@include input(success, 100%, $success);
 
 //select
 @include select(def, 100%);
@@ -227,92 +232,5 @@ input.checkbox:checked {
 
 @include avatar(member, 100px);
 
-
-h4.topic {
-  color: $black;
-  text-align: center;
-}
-
-.chinese-topic {
-  font-size     : 50px;
-  letter-spacing: 8px;
-  margin-top    : -55px;
-  text-align    : center;
-  z-index       : 100;
-  text-indent   : 8px;
-}
-
-h4 i img {
-  width: 20px;
-  color: #ffe56e;
-}
-
-h4 span {
-  display           : inline-block;
-  animation         : animate 1.5s linear infinite;
-  color             : #ffe56e;
-  font-size         : 20px;
-  //  letter-spacing: 1px;
-  z-index           : -10;
-  position          : relative;
-}
-
-h4 span:nth-child(1) {
-  animation-delay: 0s;
-
-}
-
-h4 span:nth-child(2) {
-  animation-delay: 0.2s;
-}
-
-h4 span:nth-child(3) {
-  animation-delay: 0.4s;
-}
-
-h4 span:nth-child(4) {
-  animation-delay: 0.5s;
-}
-
-h4 span:nth-child(5) {
-  animation-delay: 0s;
-}
-
-.topic-line {
-  background-color: black;
-  height          : 4px;
-  width           : 4em;
-  border-radius   : 2px;
-  margin          : auto;
-  margin-top      : -10px;
-}
-
-@keyframes animate {
-  0% {
-    transform: translateY(0px)
-  }
-
-  25% {
-    transform: translateY(-6px)
-  }
-
-  15% {
-    /* transform: translateY(-5px) */
-  }
-
-  50% {
-    transform: translateY(-12px)
-  }
-
-  60% {
-    transform: translateY(-12px)
-  }
-
-  75% {
-    transform: translateY(-6px)
-  }
-
-  100% {
-    transform: translateY(0px)
-  }
-}
+//以下主標
+@include topic();
