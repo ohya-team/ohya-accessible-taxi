@@ -13,7 +13,6 @@
 
     <div class="wrapper">
         @@include('layout/header.html')
-        <img src="./images/img.jpg" alt="">
     </div>
 
     <!-- BANNER START -->
@@ -62,8 +61,8 @@
 
     <section class="home-section">
         <div class="container">
-            <h4 class="topic">
-                <span><i><img src="images/icon/Icon simple-hipchat.svg" alt=""></i></span>
+            <div class="topic">
+                <span><img src="images/icon/Icon simple-hipchat.svg" alt=""></span>
                 <span>B</span>
                 <span>O</span>
                 <span>O</span>
@@ -71,7 +70,7 @@
                 <span>I</span>
                 <span>N</span>
                 <span>G</span>
-            </h4>
+            </div>
             <h2 class="chinese-topic">預約日期</h2>
         </div>
         <div class="home-calender">
@@ -128,16 +127,17 @@
     </section>
 
     <section class="home-section">
-        <h4 class="topic">
-            <span>
-                <!-- <i><img src="images/icon/Icon simple-hipchat.svg" alt=""></i> -->
-            </span>
-            <span>C</span>
-            <span>A</span>
-            <span>R</span>
-            <span>S</span>
-        </h4>
-        <h1 class="chinese-topic">車種介紹</h1>
+        <div class="container">
+            <div class="topic">
+                <span><img src="images/icon/Icon simple-hipchat.svg" alt=""></span>
+                <span>C</span>
+                <span>A</span>
+                <span>R</span>
+                <span>S</span>
+                
+            </div>
+            <h2 class="chinese-topic">車種介紹</h2>
+        </div>
         <div class="topic-line"></div>
         <div class="home-car-cards">
             <div class="container">
@@ -206,8 +206,8 @@
         @@include('layout/footer.html')
     </div>
 
-	<script src="js/anime.min.js" type="text/javascript"></script>
-	<script src="js/banner-slider.js"></script>
+    <script src="js/anime.min.js" type="text/javascript"></script>
+    <script src="js/banner-slider.js"></script>
 </body>
 
 </html>

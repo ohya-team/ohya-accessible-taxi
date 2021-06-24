@@ -20,12 +20,12 @@
 
 //topic 主標
 @mixin topic {
-  h4.topic {
+  .topic {
     @extend %black, %ta-center;
   }
   
   h2.chinese-topic {
-    margin-top    : -45px;
+    margin-top    : -20px;
     font-size     : 50px;
     letter-spacing: 8px;
     text-indent   : 8px;
@@ -45,13 +45,13 @@
     @extend %ta-center;
   }
   //待確認i標籤是否需要存在
-  h4.topic i img {
+  .topic img {
     width: 20px;
     
     @extend %yellow-first;
   }
   
-  h4.topic span {
+  .topic span {
     display: inline-block;
     position: relative;
     font-size: $font-base;
@@ -61,23 +61,23 @@
     @extend %yellow-first;
   }
   
-  h4.topic span:nth-child(1) {
+  .topic span:nth-child(1) {
     animation-delay: 0s;
   }
   
-  h4.topic span:nth-child(2) {
+  .topic span:nth-child(2) {
     animation-delay: 0.2s;
   }
   
-  h4.topic span:nth-child(3) {
+  .topic span:nth-child(3) {
     animation-delay: 0.4s;
   }
   
-  h4.topic span:nth-child(4) {
+  .topic span:nth-child(4) {
     animation-delay: 0.5s;
   }
   
-  h4.topic span:nth-child(5) {
+  .topic span:nth-child(5) {
     animation-delay: 0s;
   }
   
