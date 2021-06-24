@@ -26,18 +26,26 @@
         .box {
             display         : flex;
             background-color: $white;
-            margin-bottom   : 15px;
+            margin-bottom   : $text-text;
+            border-radius: $btn-radius;
 
             .word-menu {
                 margin : auto;
                 display: flex;
+                align-items: center;
+
+                span {
+                    font-size: $font-h4;
+                }
 
                 li {
-                    font-size: 28px;
-                    padding  : 30px;
+                    font-size: $font-h4;
+                    padding  : 1.5rem;
+                    display: flex;
+                    margin: 0 30px;
 
                     &.active {
-                        background-color: $gray-first;
+                        background-color: $black;
                         color           : $white;
                     }
                 }
