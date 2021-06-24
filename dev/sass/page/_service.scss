@@ -1,13 +1,32 @@
 //無障礙服務選擇器 service-selector
 .service-selector{
   display: flex;
-  width: 300px;
-  justify-content: space-evenly;
+  justify-content: center;
   margin: auto;
   text-align: center;
+  .selector-btn{
+    font-size: $font-base;
+    width: 110px;
+    padding: 15px;
+    margin: 10px;
+    text-align: center;
+    border: 1px solid #9f9f9f;
+    border-radius: 10px;
+    background-color: #fff;
+  }
 }
 .service-wrap{
   background-color: #fff;
   display: flex;
   margin: auto;
+}
+.service-context{
+  margin: 50px;
+}
+.service-pic img{
+  width: 350px;
+}
+.service-btn{
+  display: flex;
+  justify-content: center;
 }
