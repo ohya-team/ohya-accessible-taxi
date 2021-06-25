@@ -31,6 +31,9 @@
   @include container();
 }
 
+//以下body動畫
+@include bodyAnimated();
+
 //以下文字相關標籤
 @for $i from 1 to 5 {
   h#{$i} {
