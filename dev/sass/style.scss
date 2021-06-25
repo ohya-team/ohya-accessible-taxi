@@ -223,13 +223,47 @@ input.checkbox:checked {
   }
 }
 
+//以下圖文卡片 photo-card
+.photo-cards{
+  @extend %flex, %flex-w, %flex-sb;
+}
+
+@include photoCard(100%);
+
+.photo-card{
+  margin-bottom: $ele-ele*4;
+}
+
+.photo-card .card-member,
+.card-sort{
+  @extend %flex, %flex-ai;
+}
+
+.photo-card span.card-sort{
+  @extend %block, %ta-center, %white, %bg-blue;
+}
+
+.dateAndpeople{
+  @extend %flex, %flex-sb;
+}
+
+.dateAndpeople .people-amount{
+  @extend %flex;
+}
+
+.photo-card section button{
+  @extend %block;
+}
+  
 //以下rwd斷點範例(用卡片) 需留意斷點不然吃重複的extend
 @include rwd_each(tablet) {
   @include card(46%);
+  @include photoCard(46%);
 }
 
 @include rwd_each(desktop) {
   @include card(23%);
+  @include photoCard(23%);
 }
 
 //以下人像圖形遮色片 over-flow
