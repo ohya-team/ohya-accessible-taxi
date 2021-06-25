@@ -1,5 +1,5 @@
 //無障礙服務選擇器 service-selector
-.service-selector{
+#service-selector{
   display: flex;
   justify-content: center;
   margin: auto;
@@ -13,6 +13,17 @@
     border: 1px solid #9f9f9f;
     border-radius: 10px;
     background-color: #fff;
+  }
+  .selector-btn:hover{
+    color: #fff;
+    background-color: #313131;
+    cursor: pointer;
+
+  }
+  .choosen{
+    color: #fff;
+    background-color: #313131;
+    cursor: pointer;
   }
 }
 .service-wrap{

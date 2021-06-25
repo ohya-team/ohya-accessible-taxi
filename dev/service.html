@@ -29,12 +29,13 @@
     </h4>
     <h2 class="chinese-topic">無障礙服務</h2>
   </div>
-  <div class="service-selector">
-    <div class="selector-btn">服務介紹</div>
-    <div class="selector-btn">車型介紹</div>
-    <div class="selector-btn">司機介紹</div>
+  <div id="service-selector">
+    <div class="selector-btn choosen" id="service-intro">服務介紹</div>
+    <div class="selector-btn" id="car-intro">車型介紹</div>
+    <div class="selector-btn" id="driver-intro">司機介紹</div>
   </div>
-  <div class="container">
+
+  <div class="container service-detail">
     <div class="service-wrap">
       <div class="service-context">
         <h3>美好旅程，從心開始。</h3>
@@ -57,9 +58,119 @@
       </button>
     </div>
   </div>
+
+  <div class="container car-detail">
+    <div class="pic-wrap">
+      <div class="big-pic">
+        <img src="" alt="">
+      </div>
+      <div class="small-pic">
+        <img src="" alt="">
+      </div>
+      <div class="small-pic">
+        <img src="" alt="">
+      </div>
+      <div class="small-pic">
+        <img src="" alt="">
+      </div>
+      <div class="small-pic">
+        <img src="" alt="">
+      </div>
+    </div>
+
+    <div class="car-context">
+      <h3></h3>
+      <p></p>
+      <div class="service-btn">
+        <button class="btn-main">
+          <i class="fas fa-calendar-check"></i>
+          預約服務
+        </button>
+        <button class="btn-main">
+          <i class="fas fa-taxi"></i>
+          包車旅遊
+        </button>
+      </div>
+    </div>
+
+    <div class="car-context">
+      <h3></h3>
+      <p></p>
+      <div class="service-btn">
+        <button class="btn-main">
+          <i class="fas fa-calendar-check"></i>
+          預約服務
+        </button>
+        <button class="btn-main">
+          <i class="fas fa-taxi"></i>
+          包車旅遊
+        </button>
+      </div>
+    </div>
+
+    <div class="car-context">
+      <h3></h3>
+      <p></p>
+      <div class="service-btn">
+        <button class="btn-main">
+          <i class="fas fa-calendar-check"></i>
+          預約服務
+        </button>
+        <button class="btn-main">
+          <i class="fas fa-taxi"></i>
+          包車旅遊
+        </button>
+      </div>
+    </div>
+
+    <div class="car-context">
+      <h3></h3>
+      <p></p>
+      <div class="service-btn">
+        <button class="btn-main">
+          <i class="fas fa-calendar-check"></i>
+          預約服務
+        </button>
+        <button class="btn-main">
+          <i class="fas fa-taxi"></i>
+          包車旅遊
+        </button>
+      </div>
+    </div>
+
+  </div>
+
+
+  <div class="container driver-detail">
+
+  </div>
+
   <div class="">
     @@include('layout/footer.html')
   </div>
+
+
+  <script>
+      
+ 
+    
+    function choosen(e){
+      let choosenBtn = e.target;
+        choosenBtn.parentNode.childNodes[1].classList.remove("choosen");
+        choosenBtn.parentNode.childNodes[3].classList.remove("choosen");
+        choosenBtn.parentNode.childNodes[5].classList.remove("choosen");
+        choosenBtn.classList.add("choosen");
+        console.log(choosenBtn.parentNode.childNodes);
+    }
+
+    function init (){
+    let selectorBtn = document.getElementsByClassName("selector-btn");       
+        for(let i = 0 ; i < selectorBtn.length ; i++){
+          selectorBtn[i].onclick = choosen;
+        }
+    }
+    window.onload = init;
+  </script>
 </body>
 
 </html>
