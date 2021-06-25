@@ -9,11 +9,32 @@
         background-size    : cover;
         margin-bottom      : 150px;
 
-        h2 {
+        .item {
             position: absolute;
-            bottom  : 0;
-            left    : 18%;
-            color   : $white;
+            bottom: 0;
+            left: 20%;
+            margin-bottom: 3.5%;
+    
+            &::before{
+                content         : "";
+                display         : inline-block;
+                position: absolute;
+                left: -14%;
+                width           : 10px;
+                height          : 80%;
+                background-color: $yellow-first;
+                margin-right    : 10px;
+            }
+    
+            h2,
+            p {
+                color: $white;
+            }
+    
+            p {
+                margin-top: -20px;
+                font-size: 27px;
+            }
         }
     }
 
