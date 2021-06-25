@@ -21,22 +21,14 @@ const imagemin = require('gulp-imagemin');
 
 
 
-//========== sass
+//========== sass 編譯+壓縮
 
-// 沒有壓縮的  expanded   / compressed 
 function sass_style() {
-    return src('dev/sass/*.scss')
-        .pipe(sourcemaps.init())
-        .pipe(sass({ outputStyle: 'expanded' })
-            .on('error', sass.logError))
-        .pipe(sourcemaps.write())
-        //.pipe(cleanCSS({compatibility: 'ie10'}))
-        //     .pipe(rename({
-        //         extname: '.min.css'
-        //    })) // 改副檔名
-        .pipe(dest('dist/css'))
+    return src("dev/sass/*.scss")
+        .pipe(sass().on("error", sass.logError))
+        .pipe(cleanCSS({ compatibility: "ie10" }))
+        .pipe(dest("dist/css"));
 }
-
 //============= 合併 html
 
 function html() {
@@ -48,7 +40,7 @@ function html() {
         .pipe(dest('dist'))
 }
 
-//============= 圖片搬家 跟 js 搬家
+//============= 圖片、js 跟 php 搬家
 function img_mv() {
     return src(['dev/images/*.*', 'dev/images/**/*.*'])
         .pipe(dest('dist/images'))
@@ -58,19 +50,22 @@ function js_mv() {
     return src('dev/js/*.js')
         .pipe(dest('dist/js'))
 }
-function css_mv() {
-    return src('dev/css/*.css')
-        .pipe(dest('dist/css'))
-}
 function php_mv() {
     return src('dev/php/*.php')
         .pipe(dest('dist/php'))
+}
+//============= css搬家+壓縮
+
+function css_mv() {
+    return src('dev/css/*.css')
+        .pipe(cleanCSS({ compatibility: "ie10" }))
+        .pipe(dest('dist/css'))
 }
 
 // ================ 清除舊檔案 ============ 
 
 function cleanfile() {
-    return src('dist', { read: false , allowEmpty: true })
+    return src('dist', { read: false, allowEmpty: true })
         .pipe(clean({ force: true }))
 }
 
@@ -96,7 +91,7 @@ function browser(done) {
 }
 
 // 執行指令
-exports.default = series(cleanfile, img_mv, html, sass_style, css_mv, js_mv,php_mv, browser);
+exports.default = series(cleanfile, img_mv, html, sass_style, css_mv, js_mv, php_mv, browser);
 
 
 // +++++++++  打包上線用 +++++++
@@ -110,24 +105,10 @@ function ugjs() {
         .pipe(uglify()) // 壓縮js
         .pipe(dest('dist/js'))
 }
-
-// ========= css 壓縮 | autoprefix 跨瀏覽器
-
-function cleancss() {
-    return src('dist/css/*.css')
-        .pipe(cleanCSS({ compatibility: 'ie10' }))
-        .pipe(autoprefixer({
-            cascade: false
-        }))
-        .pipe(rename({
-            extname: '.min.css'
-        })) // 改副檔名
-        .pipe(dest('dist/css'))
-}
 // ======  images 壓縮
 
 function min_images() {
-    return src(['dev/images/*.*','dev/images/**/*.*'])
+    return src(['dev/images/*.*', 'dev/images/**/*.*'])
         .pipe(imagemin([
             imagemin.mozjpeg({ quality: 70, progressive: true }) // 壓縮品質 
         ]))
@@ -136,7 +117,7 @@ function min_images() {
 
 exports.prod = series(
     cleanfile,
-    parallel(html, css_mv, cleancss, ugjs,php_mv),
+    parallel(html, css_mv, sass_style, ugjs, php_mv),
     min_images
 );
 

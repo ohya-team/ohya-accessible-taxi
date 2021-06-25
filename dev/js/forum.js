@@ -1,17 +1,5 @@
-// function showHideMenu(){
-//   let menu = document.querySelectorAll(".hide");
-//   for(var i = 0; i< hide.length; i++ ){
-//     menu[i].classlist.toggle(".hide");
-//   }
-// }
-
-// function init(){
-//  let sort = document.querySelectorAll(".dropdown-menu");
-//  sort[i].onclick =  showHideMenu;
-// }
-// window.addEventListener("load",init,false);
 function showHideMenuOrder(){
-    let menu = document.getElementById("dropdown-menu-order")
+    let menu = document.getElementById("dropdown-menu-order");
       if(menu.classList.contains("hide")){
         menu.classList.remove("hide");
       }else{
@@ -47,6 +35,14 @@ function showHideMenuOrder(){
     // console.log(e.target.innerHTML);
     // console.log(word.innerHTML); 
   };
+  function invisibleDropdownMenu(e){
+    let sort = document.getElementById("dropdown-menu-sort")
+    if(!e.target.classList.contains("appear")){
+        sort.classList.remove("hide");
+        console.log(e.target);
+    }
+
+  }
 
 
 
@@ -66,6 +62,7 @@ function showHideMenuOrder(){
    for(let i = 0;i< sort.length;i++){
     sort[i].onclick = selectSort;
    }
+    // document.getElementById("hideDropdownMenu").onclick = invisibleDropdownMenu;
 
   }
   window.addEventListener("load",init,false);
