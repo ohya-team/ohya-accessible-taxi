@@ -18,9 +18,8 @@
     color: #fff;
     background-color: #313131;
     cursor: pointer;
-
   }
-  .choosen{
+  .chosen{
     color: #fff;
     background-color: #313131;
     cursor: pointer;
@@ -30,14 +29,20 @@
   background-color: #fff;
   display: flex;
   margin: auto;
-}
-.service-context{
-  margin: 50px;
-}
-.service-pic img{
-  width: 350px;
+  .service-context{
+    margin: 50px;
+  }
+  .service-pic img{
+    width: 350px;
+  }
 }
 .service-btn{
   display: flex;
   justify-content: center;
+}
+#car-content{
+  display: none;
+}
+#driver-content{
+  display: none;
 }
