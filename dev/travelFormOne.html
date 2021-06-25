@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,12 +8,9 @@
   <title>Document</title>
   <link rel="stylesheet" href="./css/style.css">
 </head>
+
 <body class="animate-background">
-
-  <div class="">
-    @@include('layout/header.html')
-  </div>
-
+  @@include('layout/header.html')
   <section class="subscriber-information">
     <div class="container">
       <h3>訂購人資訊</h3>
@@ -50,7 +48,7 @@
   <section class="remarks">
     <div class="container">
       <h3>備註</h3>
-      <textarea name="" id="" cols="30" rows="10"></textarea>
+      <textarea name="" id="" cols="30" rows="8" placeholder="吃素5個人，加購2份便當"></textarea>
     </div>
   </section>
 
@@ -60,18 +58,18 @@
       <div class="box">
         <label class="def" for="cars"></label>
         <select name="cars" id="cars" class="def">
-          <option value="volvo">優惠卷A</option>
-          <option value="saab">優惠卷B</option>
-          <option value="opel">優惠卷C</option>
-          <option value="audi">優惠卷D</option>
+          <option value="">選擇優惠券</option>
+          <option value="volvo">優惠卷編號 483283 九折優惠</option>
+          <option value="saab">優惠卷編號 483284 七折優惠</option>
+          <option value="opel">優惠卷編號 483286 七折優惠</option>
+          <option value="audi">優惠卷編號 483285 九折優惠</option>
         </select>
       </div>
     </div>
   </section>
+  @@include('layout/footer.html')
 
-  <div class="">
-    @@include('layout/footer.html')
-  </div>
-  
+
 </body>
+
 </html>
