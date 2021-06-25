@@ -25,7 +25,7 @@
   }
   
   h2.chinese-topic {
-    margin-top    : -20px;
+    margin-top    : -45px;
     font-size     : 50px;
     letter-spacing: 8px;
     text-indent   : 8px;
@@ -44,7 +44,7 @@
   
     @extend %ta-center;
   }
-  //待確認i標籤是否需要存在
+
   .topic img {
     width: 20px;
     
@@ -56,30 +56,38 @@
     position: relative;
     font-size: $font-base;
     z-index: -10;
-    animation: animate 1.5s linear infinite;
+    animation: animate 1.3s linear infinite;
   
     @extend %yellow-first;
   }
-  
-  .topic span:nth-child(1) {
+
+  .topic span:nth-child(odd) {
     animation-delay: 0s;
   }
   
-  .topic span:nth-child(2) {
-    animation-delay: 0.2s;
+  .topic span:nth-child(even) {
+    animation-delay: 0.3s;
   }
+
+  // .topic span:nth-child(1) {
+  //   animation-delay: 0s;
+  // }
   
-  .topic span:nth-child(3) {
-    animation-delay: 0.4s;
-  }
+  // .topic span:nth-child(2) {
+  //   animation-delay: 0.2s;
+  // }
   
-  .topic span:nth-child(4) {
-    animation-delay: 0.5s;
-  }
+  // .topic span:nth-child(3) {
+  //   animation-delay: 0.4s;
+  // }
   
-  .topic span:nth-child(5) {
-    animation-delay: 0s;
-  }
+  // .topic span:nth-child(4) {
+  //   animation-delay: 0.5s;
+  // }
+  
+  // .topic span:nth-child(5) {
+  //   animation-delay: 0s;
+  // }
   
   @keyframes animate {
     0% {
@@ -91,11 +99,11 @@
     }
   
     50% {
-      transform: translateY(-12px)
+      transform: translateY(-8px)
     }
   
     60% {
-      transform: translateY(-12px)
+      transform: translateY(-8px)
     }
   
     75% {
@@ -265,6 +273,63 @@
     margin-bottom: $ele-ele;
   }
   @content;
+}
+
+//圖文卡片photo-card 可改寬度
+@mixin photoCard($w) {
+  .photo-card{
+    position: relative;
+    width: $w;
+    border: 1px solid $black;
+    border-radius: $card-radius;
+  }
+  
+  .photo-card .card-member,
+  .card-sort{
+    position: absolute;
+  }
+  
+  .photo-card .card-member{
+    top: -45px;
+    left: $ele-ele;
+  }
+  
+  @include avatar(card, 60px);
+  .avatar-card{
+    margin-right: $ele-ele/2;
+    box-shadow: 0 0 0 4px $gray-second;
+  }
+  
+  .photo-card span.card-sort{
+    width: 90px;
+    top: $ele-ele/2;
+    right: $ele-ele/2;
+    padding: 5px;
+    border-radius: $page-radius;      
+  }
+  
+  .photo-card img:nth-child(2){
+    margin-bottom: $ele-ele;
+    width: 100%;
+  }
+  
+  .photo-card h3{
+    font-size: $font-h4;
+  }
+  
+  .photo-card section{
+    padding: $ele-ele;
+  }
+  
+  .dateAndpeople .people-amount{  
+    div{
+      margin-right: $ele-ele/4;
+    }
+  }
+  
+  .photo-card section button{
+    margin: auto;
+  }
 }
 
 //rwd斷點用 斷點設備:寬度
