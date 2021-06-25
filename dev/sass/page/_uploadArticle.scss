@@ -1,0 +1,86 @@
+
+
+.uploadArticle-container {
+    @include container;
+    padding      : 0;
+    border-radius: $ele-ele;
+    overflow     : hidden;
+    @extend %bg-white;
+
+    h3 {
+        color: $white;
+        @extend %bg-black;
+        padding   : 20px;
+        text-align: center;
+    }
+
+    .uploadArticle-content {
+        padding: 0px 30px;
+
+        .upload-picture {
+            margin-bottom: $text-text;
+
+            .upload-picture-btn {
+                @extend %flex,
+                %flex-dir-colu,
+                %flex-ai,
+                %mar-auto;
+            }
+        }
+
+        .upload-category {
+            @extend %flex;
+            margin-bottom: $text-text;
+
+            .upload-article-sort {
+                flex-grow: 1.4209;
+            }
+
+            .uplaod-article-topic {
+                flex-grow  : 1;
+                margin-left: 20px;
+            }
+        }
+
+        .upload-content {
+            width        : 100%;
+            margin-bottom: 10px;
+            border       : $black 2px solid;
+            border-radius: 5px;
+        }
+
+        .word-left {
+            font-size    : $font-base;
+            margin: 0 -22px $text-text;
+            text-align: right;
+
+        
+
+            input {
+                font-size: $font-base;
+                border   : none;
+        
+            }
+        }
+
+        @include btn(input, main, 25%, '%black', '%bg-yellow-first'){
+            @extend %flex, %flex-jc-ai;
+            margin: 0 auto $text-text;
+            border: 2px solid $yellow-first;
+        };
+        input.btn-main:hover {
+            color           : $white;
+            background-color: $black;
+            border: 2px solid $black;
+        }
+        @include btn(input, third, 25%, '%black', '%bg-white'){
+            @extend %flex, %flex-jc-ai;
+            margin: auto;
+        }
+        input.btn-third{
+          border: 2px solid $black;
+        }
+
+
+    }
+}
