@@ -14,34 +14,44 @@
   <section class="subscriber-information">
     <div class="container">
       <h3>訂購人資訊</h3>
-      <div class="box">
-        <label for="" class="def">
-          <input type="checkbox" name="" id="">同會員資料
-        </label>
-        <label class="def" for="nick-name">名字</label>
-        <input class="def" type="text" id="nick-name" placeholder="請填寫名">
-        <label class="def" for="last-name">姓氏</label>
-        <input class="def" type="text" id="last-name" placeholder="請填寫姓">
-        <label class="def" for="email">電子信箱</label>
-        <input class="def" type="text" id="email" placeholder="請填寫email">
-        <label class="def" for="phone">連絡電話</label>
-        <input class="def" type="text" id="phone" placeholder="請填寫連絡電話">
-      </div>
+      <form class="box">
+        <div class="input-box-one">
+          <label for="same" class="def">
+            <input type="checkbox" name="" id="same">同會員資料
+          </label>
+        </div>
+        <div class="input-box-two">
+          <div class="item">
+            <label class="def" for="first-name">名字</label>
+            <input class="def" type="text" id="first-name" placeholder="請填寫名">
+            <label class="def" for="last-name">姓氏</label>
+            <input class="def" type="text" id="last-name" placeholder="請填寫姓">
+          </div>
+          <div class="item">
+            <label class="def" for="email">電子信箱</label>
+            <input class="def" type="text" id="email" placeholder="請填寫email">
+            <label class="def" for="phone">連絡電話</label>
+            <input class="def" type="text" id="phone" placeholder="請填寫連絡電話">
+          </div>
+        </div>
+      </form>
     </div>
   </section>
 
   <section class="order-itinerary-information">
     <div class="container">
       <h3>訂購行程資訊</h3>
-      <div class="box">
-        <label class="def" for="cars"></label>
-        <select name="cars" id="cars" class="def">
-          <option value="volvo">旅遊方案A</option>
-          <option value="saab">旅遊方案B</option>
-          <option value="opel">旅遊方案C</option>
-          <option value="audi">旅遊方案D</option>
-        </select>
-      </div>
+      <label class="def" for="program">選擇旅遊方案</label>
+      <select name="program" id="program" class="def">
+        <option value="volvo">旅遊方案A</option>
+        <option value="saab">旅遊方案B</option>
+        <option value="opel">旅遊方案C</option>
+        <option value="audi">旅遊方案D</option>
+      </select>
+      <label class="def" for="people-num">人數</label>
+      <button id="subtraction">-</button>
+      <input type="number" value=1 id="people-num">
+      <button id="add">+</button>
     </div>
   </section>
 
@@ -55,20 +65,21 @@
   <section class="voucher">
     <div class="container">
       <h3>使用優惠卷</h3>
-      <div class="box">
-        <label class="def" for="cars"></label>
-        <select name="cars" id="cars" class="def">
-          <option value="">選擇優惠券</option>
-          <option value="volvo">優惠卷編號 483283 九折優惠</option>
-          <option value="saab">優惠卷編號 483284 七折優惠</option>
-          <option value="opel">優惠卷編號 483286 七折優惠</option>
-          <option value="audi">優惠卷編號 483285 九折優惠</option>
-        </select>
-      </div>
+      <label class="def" for="cars"></label>
+      <select name="cars" id="cars" class="def">
+        <option value="">選擇優惠券</option>
+        <option value="volvo">優惠卷編號 483283 九折優惠</option>
+        <option value="saab">優惠卷編號 483284 七折優惠</option>
+        <option value="opel">優惠卷編號 483286 七折優惠</option>
+        <option value="audi">優惠卷編號 483285 九折優惠</option>
+      </select>
+
     </div>
   </section>
+  <button type="submit">下一頁</button>
+  </form>
   @@include('layout/footer.html')
-
+  <script src="./js/travelForm.js"></script>
 
 </body>
 

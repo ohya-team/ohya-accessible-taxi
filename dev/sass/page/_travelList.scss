@@ -1,13 +1,42 @@
 .travel-hero {
-  width     : 100%;
-  height    : 600px;
-  overflow-y: hidden;
+  .title {
+    position           : relative;
+    width              : 100%;
+    margin-bottom      : $mar-cont;
+    height             : calc(100vh - 180px);
+    background-position: bottom;
+    background-image   : url(../images/travel/taxi_B1.jpg);
+    background-size    : cover;
+    margin-bottom      : 150px;
 
-  img {
-    width: 100%;
+    .item {
+        position: absolute;
+        bottom: 0;
+        left: 20%;
+        margin-bottom: 3.5%;
+
+        &::before{
+            content         : "";
+            display         : inline-block;
+            position: absolute;
+            left: -14%;
+            width           : 10px;
+            height          : 80%;
+            background-color: $yellow-first;
+            margin-right    : 10px;
+        }
+
+        h2,
+        p {
+            color: $white;
+        }
+
+        p {
+            margin-top: -20px;
+            font-size: 27px;
+        }
+    }
   }
-
-  margin-bottom: 150px;
 }
 
 .travel-program {

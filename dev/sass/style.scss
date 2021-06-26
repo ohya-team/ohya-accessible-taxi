@@ -12,6 +12,8 @@
 @import 'layout/index';
 @import 'page/booking';
 @import 'page/forum';
+@import 'page/forumDetail';
+@import 'page/uploadArticle';
 @import 'page/programList';
 @import 'page/programDetail';
 @import 'page/spotDetail';
@@ -19,7 +21,7 @@
 @import 'page/travelList';
 @import 'page/service';
 @import 'page/travelFormOne';
-@import 'page/forumDetail';
+
 
 
 
@@ -30,6 +32,9 @@
 .container{
   @include container();
 }
+
+//以下body動畫
+@include bodyAnimated();
 
 //以下文字相關標籤
 @for $i from 1 to 5 {
@@ -223,13 +228,47 @@ input.checkbox:checked {
   }
 }
 
+//以下圖文卡片 photo-card
+.photo-cards{
+  @extend %flex, %flex-w, %flex-sb;
+}
+
+@include photoCard(100%);
+
+.photo-card{
+  margin-bottom: $ele-ele*4;
+}
+
+.photo-card .card-member,
+.card-sort{
+  @extend %flex, %flex-ai;
+}
+
+.photo-card span.card-sort{
+  @extend %block, %ta-center, %white, %bg-blue;
+}
+
+.dateAndpeople{
+  @extend %flex, %flex-sb;
+}
+
+.dateAndpeople .people-amount{
+  @extend %flex;
+}
+
+.photo-card section button{
+  @extend %block;
+}
+  
 //以下rwd斷點範例(用卡片) 需留意斷點不然吃重複的extend
 @include rwd_each(tablet) {
   @include card(46%);
+  @include photoCard(46%);
 }
 
 @include rwd_each(desktop) {
   @include card(23%);
+  @include photoCard(23%);
 }
 
 //以下人像圖形遮色片 over-flow

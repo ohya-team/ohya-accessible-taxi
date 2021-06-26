@@ -8,7 +8,24 @@
     background-color: $gray-second;
     padding: 5%;
     margin-top: $text-text;
-    
+
+    .input-box-one {
+      width: 100%;
+      margin-bottom: $text-text;
+    }
+    .input-box-two {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      grid-column-gap: 8%;
+
+      @include rwd_each(desktop) {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .item {
+        width: 100%;
+      }
+    }
   }
 }
 
@@ -53,4 +70,9 @@
     margin-top: $text-text;
     
   }
+}
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
