@@ -1,6 +1,12 @@
 section.bookingInfo,
 .booking{
-  @include container();
+  @include container(){
+    margin-top: $mar-cont;
+  };
+}
+
+.booking table span.day{
+  margin-bottom: 0;
 }
 
 ul.weekdays{
@@ -47,3 +53,7 @@ ul.weekdays li{
 .calenderDes span{
   margin:0 $ele-ele;
 }
+
+@include rwd-each(tablet){
+  
+};

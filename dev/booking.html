@@ -9,9 +9,23 @@
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
 </head>
-<body>
+<body class="animate-background">
+
+  @@include('layout/header.html')
+
   <section class="bookingInfo">
-    <h2>預約租車</h2>
+    <h4 class="topic">
+      <span><img src="images/icon/Icon simple-hipchat.svg" alt=""></span>
+      <span>B</span>
+      <span>O</span>
+      <span>O</span>
+      <span>K</span>
+      <span>I</span>
+      <span>N</span>
+      <span>G</span>
+    </h4>
+    <h2 class="chinese-topic">一般預約</h2>
+
     <p>請教屬性設定台南沉默出口大大，表面策略有效夢幻版權所有期限優點第二章，鮮花醫院各項人大能力日本數字共有電力昨天，標籤藝術就好黑暗掌握阿宅人民共和國，確認彩色默認基本展開付款出版水晶立刻桌面行政一笑，表明便宜，在他更為祝福寫作聊天日本校園運行突然，的說不願意提升專門收益轎車，方式企業教學告知創建頁面一個有效全新上了我是只要權力論文，東京回事採購不要隨便會不會開放無派農村新型，藥品是由態度第二章，大。</p>
   </section>
 
@@ -25,41 +39,41 @@
 
     <div class="calender" id="step1">
       <ul class="weekdays">
-        <li><button>prev</button></li>
+        <li><button><img src="images/icon/Icon ionic-md-arrow-dropleft-circle.svg" alt=""></button></li>
         <li>05/30 2021 - 06/05 2021</li>
-        <li><button>next</button></li>
+        <li><button><img src="images/icon/Icon ionic-md-arrow-dropright-circle.svg" alt=""></button></li>
       </ul>
 
       <table>
         <tr>
           <th></th>
           <th>
-            <span></span>
             <span>星期一</span>
+            <span class="day">05/30</span>
           </th>
           <th>
-            <span></span>
             <span>星期二</span>
+            <span class="day">05/31</span>
           </th>
           <th>
-            <span></span>
             <span>星期三</span>
+            <span class="day">06/01</span>
           </th>
           <th>
-            <span></span>
             <span>星期四</span>
+            <span class="day">06/02</span>
           </th>
           <th>
-            <span></span>
             <span>星期五</span>
+            <span class="day">06/03</span>
           </th>
           <th>
-            <span></span>
             <span>星期六</span>
+            <span class="day">06/04</span>
           </th>
           <th>
-            <span></span>
             <span>星期日</span>
+            <span class="day">06/05</span>
           </th>
         </tr>
         <tr>
@@ -264,7 +278,7 @@
           <option value="">請選擇</option>
         </select>
         <label class="def" for="">其他需求</label>
-        <textarea name="" id="" width="100%"></textarea>
+        <textarea name="" id="" width="1200px"></textarea>
 
         <h3>請確認此次訂車資訊</h3>
         <label class="def" for="">確認車種</label>
@@ -294,5 +308,6 @@
 
   @@include('layout/footer.html')
 
+  <script src="js/booking.js"></script>
 </body>
 </html>
