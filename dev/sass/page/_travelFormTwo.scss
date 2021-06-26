@@ -18,11 +18,32 @@
 }
 
 .pop-up-box {
-  width: 40%;
-  height: 40%;
-  background-color: #963f3f;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50% ,-50%);
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.7);
+
+  .item {
+    width: 35%;
+    height: 40%;
+    background-color: $white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50% ,-50%);
+    text-align: center;
+
+    .icon {
+      font-size: 120px;
+      margin: $text-text 0;
+      
+
+      i {
+        color: $blue;
+      }
+    }
+  }
+  
 }
