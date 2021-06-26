@@ -39,11 +39,36 @@
     background-color: $gray-second;
     padding: 5%;
     margin-top: $text-text;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 8%;
+
+    .item:nth-child(2) {
+      margin: auto;
+    }
+
+    .item:nth-child(3) {
+
+      button {
+        font-size: $font-h4;
+      }
+
+      #people-num {
+        text-align: center;
+        width: 30px;
+        height: 30px;
+      }
+    }
+
+    .item:nth-child(4) {
+      margin: auto;
+    }
+    
     
   }
 }
 
-.remarks {
+.remarks-block {
 
   h3 {
     margin-top: $text-text;
@@ -58,7 +83,7 @@
 
 }
 
-.voucher {
+.voucher-block {
 
   h3 {
     margin-top: $text-text;
@@ -69,6 +94,11 @@
     padding: 5%;
     margin-top: $text-text;
     
+  }
+
+  .btn-main {
+    float: right;
+    margin-top: $text-text;
   }
 }
 input[type=number]::-webkit-outer-spin-button,

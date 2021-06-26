@@ -1,0 +1,28 @@
+.confirm-the-contents-of-the-travel-order {
+
+  .btn-main {
+    float: right;
+    margin-top: $text-text;
+  }
+
+  .box {
+    background-color: $gray-second;
+    padding: 5%;
+    margin-top: $text-text;
+
+    .text {
+      margin: auto;
+      width: 50%;
+    }
+  }    
+}
+
+.pop-up-box {
+  width: 40%;
+  height: 40%;
+  background-color: #963f3f;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  
+}

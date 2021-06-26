@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+        integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body class="animate-background">
+  @@include('layout/header.html')
+
+  <section class="confirm-the-contents-of-the-travel-order">
+    <div class="container">
+      <div class="box">
+        <div class="text">
+          <span>訂購人：林家輝</span>
+          <br>
+          <span>訂購人地址：33001桃園市桃園區縣府路1號</span>
+          <br>
+          <span>訂購人電話：0939888776</span>
+          <br>
+          <span>訂購人信箱：Aaa56@gmail.com.tw</span>
+          <br>
+          <span>旅遊方案名稱：大溪+八德埤塘自然生態公園+石門水庫一日遊</span>
+          <br>
+          <span>車種：福斯Caddy</span>
+          <br>
+          <span>總計的人數：6人</span>
+        </div>
+      </div>
+      <button class="btn-main" type="submit">完成送出</button>
+    </div>
+  </section>
+
+ 
+  <div class="pop-up-box">
+    <div class="icon">
+      <i class="fa fa-check-circle-o" aria-hidden="true"></i>
+    </div>
+    <h2>訂單完成</h2>
+    <p>請耐心等待訂單審核完成，審核成功後將會已寄信的方式通知，屆時請會員到信箱查看</p>
+    <button class="btn-main" type="submit">回首頁</button>
+  </div>
+
+
+  @@include('layout/footer.html')
+</body>
+</html>

@@ -1,25 +1,29 @@
 .spot-l-hero {
+    background-position: bottom;
+    background-image   : url(../images/travel/taxi_B3.jpg);
+    background-size    : cover;
+
     .title {
         position           : relative;
         width              : 100%;
         margin-bottom      : $mar-cont;
         height             : calc(100vh - 180px);
-        background-position: bottom;
-        background-image   : url(../images/travel/taxi_B3.jpg);
-        background-size    : cover;
-        margin-bottom      : 150px;
+
+        &.container {
+            @extend %border-box;
+        }
+
 
         .item {
             position: absolute;
             bottom: 0;
-            left: 20%;
-            margin-bottom: 3.5%;
+            margin-bottom: 5%;
     
             &::before{
                 content         : "";
                 display         : inline-block;
-                position: absolute;
-                left: -14%;
+                position        : absolute;
+                left            : -12%;
                 width           : 10px;
                 height          : 80%;
                 background-color: $yellow-first;
