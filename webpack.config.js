@@ -9,6 +9,7 @@ module.exports = {
         forum: './dev/js/forum.js',
         service: './dev/js/service.js',
         travelForm: './dev/js/travelForm.js',
+        spotList: './dev/js/spotList.js',
     },// 入口文件
     output: {
         path: path.resolve(__dirname, 'dist/js'),
@@ -27,5 +28,5 @@ module.exports = {
         alias: {
             vue: 'vue/dist/vue.js'
         }
-    }, 
+    },
 }
