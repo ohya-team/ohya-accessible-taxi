@@ -11,7 +11,7 @@
   <title>無障礙服務</title>
 </head>
 
-<body>
+<body class="animate-background">
   <div class="">
     @@include('layout/header.html')
   </div>
@@ -60,54 +60,87 @@
   </div>
 
   <div class="container car-detail content" id="car-content">
-    <div class="pic-wrap">
-      <div class="big-pic">
-        <img src="" alt="">
+    <div id="car-wrap">
+      <div class="pic-wrap">
+        <div id="big-pic">
+          <img src="./images/car/car1.png" alt="">
+          <div id="car-shadow"></div>
+        </div>
+        <div class="small-wrap">
+          <div class="small-pic">
+            <img src="./images/car/car1.png" alt="">
+          </div>
+          <div class="small-pic">
+            <img src="./images/car/car2.png" alt="">
+          </div>
+          <div class="small-pic">
+            <img src="./images/car/car3.png" alt="">
+          </div>
+          <div class="small-pic">
+            <img src="./images/car/car4.png" alt="">
+          </div>
+        </div>
       </div>
-      <div class="small-pic">
-        <img src="" alt="">
-      </div>
-      <div class="small-pic">
-        <img src="" alt="">
-      </div>
-      <div class="small-pic">
-        <img src="" alt="">
-      </div>
-      <div class="small-pic">
-        <img src="" alt="">
+
+      <div class="content-wrap">
+        <div class="car-context">
+          <h3>-福泰T6-</h3>
+          <p>福斯T6(車內設有6席一般乘客座位及1處輪椅座位區，輪椅升降設備)</p>
+          <div class="service-btn">
+            <button class="btn-main">
+              <i class="fas fa-calendar-check"></i>
+              預約服務
+            </button>
+            <button class="btn-main">
+              <i class="fas fa-taxi"></i>
+              包車旅遊
+            </button>
+          </div>
+        </div>
+        <div class="car-context">
+          <h3>-福特旅行家-</h3>
+          <p>福特旅行家(車內設有5席一般乘客座位及1處輪椅座位區，輪椅升降設備)</p>
+          <div class="service-btn">
+            <button class="btn-main">
+              <i class="fas fa-calendar-check"></i>
+              預約服務
+            </button>
+            <button class="btn-main">
+              <i class="fas fa-taxi"></i>
+              包車旅遊
+            </button>
+          </div>
+        </div>
+        <div class="car-context">
+          <h3>-福斯Caddy-</h3>
+          <p>福斯Caddy(車內設有4席一般乘客座位及1處輪椅座位專區，斜坡板)</p>
+          <div class="service-btn">
+            <button class="btn-main">
+              <i class="fas fa-calendar-check"></i>
+              預約服務
+            </button>
+            <button class="btn-main">
+              <i class="fas fa-taxi"></i>
+              包車旅遊
+            </button>
+          </div>
+        </div>
+        <div class="car-context">
+          <h3>-納智捷V7-</h3>
+          <p>納智捷V7(車內設有4席一般乘客座位及1處輪椅座位區，斜坡板)</p>
+          <div class="service-btn">
+            <button class="btn-main">
+              <i class="fas fa-calendar-check"></i>
+              預約服務
+            </button>
+            <button class="btn-main">
+              <i class="fas fa-taxi"></i>
+              包車旅遊
+            </button>
+          </div>
+        </div>
       </div>
     </div>
-
-    <div class="car-context">
-      <h3></h3>
-      <p></p>
-    </div>
-
-    <div class="car-context">
-      <h3></h3>
-      <p></p>
-    </div>
-
-    <div class="car-context">
-      <h3></h3>
-      <p></p>
-    </div>
-
-    <div class="car-context">
-      <h3></h3>
-      <p></p>
-      <div class="service-btn">
-        <button class="btn-main">
-          <i class="fas fa-calendar-check"></i>
-          預約服務
-        </button>
-        <button class="btn-main">
-          <i class="fas fa-taxi"></i>
-          包車旅遊
-        </button>
-      </div>
-    </div>
-
   </div>
 
 
@@ -119,49 +152,7 @@
     @@include('layout/footer.html')
   </div>
 
-
-  <script>
-    function $id(id) {
-      return document.getElementById(id);
-    }
-    let selectorBtn = document.getElementsByClassName("selector-btn");
-
-    let chosenClass = document.getElementsByClassName('content');
-
-
-    function showContent() {
-      console.log(selectorBtn);
-      console.log(selectorBtn[1].className);
-      console.log(chosenClass[1]);
-      for (let i = 0; i < selectorBtn.length; i++) {
-        if (selectorBtn[i].className == 'selector-btn chosen') {
-          //console.log(selectorBtn[i].className);
-          chosenClass[i].style.display = "block";
-        }else{
-          chosenClass[i].style.display = "none";
-        }
-      }
-    }
-
-    function chosen(e) {
-      let chosenBtn = e.target;
-      chosenBtn.parentNode.childNodes[1].classList.remove("chosen");
-      chosenBtn.parentNode.childNodes[3].classList.remove("chosen");
-      chosenBtn.parentNode.childNodes[5].classList.remove("chosen");
-      chosenBtn.classList.add("chosen");
-      //console.log(choosenBtn.parentNode.childNodes);
-
-      showContent();
-    }
-
-
-    window.addEventListener("load", function () {
-      for (let i = 0; i < selectorBtn.length; i++) {
-        selectorBtn[i].onclick = chosen;
-      }
-    })
-    //改看看
-  </script>
+  <script src="./js/service.js"></script>
 </body>
 
 </html>
