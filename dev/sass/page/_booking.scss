@@ -1,7 +1,7 @@
 section.bookingInfo,
 .booking{
   @include container(){
-    margin-top: $mar-cont;
+    margin-top: 65px;
   };
 }
 
@@ -12,7 +12,7 @@ section.bookingInfo,
 ul.weekdays{
   margin-bottom: $ele-ele;
 
-  @extend %flex, %flex-jc, %flex-ai, %bg-gray-second;
+  @extend %flex, %flex-jc-ai, %bg-gray-second;
 }
 
 ul.weekdays li{
@@ -21,6 +21,11 @@ ul.weekdays li{
   font-weight: $font-bold;
 
   @extend %black;
+}
+
+ul.weekdays li button{
+  margin-top: 9px;
+  @extend %block;
 }
 
 .calenderDes{
@@ -54,6 +59,43 @@ ul.weekdays li{
   margin:0 $ele-ele;
 }
 
-@include rwd-each(tablet){
+ul.booking-detail input{
+  border: none;
+  background-color: $gray-second;
+}
+
+@include rwd-each(desktop){
+  .booking-form{
+    display: flex;
+    flex-wrap: wrap;
+    
+  li.full{
+    width: 100%;
+  }
+
+  li.sbs{
+    width: 48%;
+  }
+  }
   
-};
+  ul.booking-info,
+  ul.booking-detail{
+    margin-bottom: $ele-ele;
+    width: 50%;
+    padding: $ele-ele;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    box-sizing: border-box;
+  }
+
+  ul.booking-info h3,
+  ul.booking-detail h3{
+    width: 100%;
+    display: block;
+  }
+
+  ul.booking-detail h3{
+    margin-bottom: $text-text;
+  }
+}
