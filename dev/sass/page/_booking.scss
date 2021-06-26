@@ -5,7 +5,11 @@ section.bookingInfo,
   };
 }
 
-.booking table span.day{
+.deskTable{
+  display: none;
+}
+
+.deskTable table span.day{
   margin-bottom: 0;
 }
 
@@ -40,9 +44,10 @@ ul.weekdays li button{
   margin-right: 7px;
   width: 20px;
   height: 20px;
+  border: 1px solid $black;
   border-radius: 50%;
 
-  @extend %in-bl, %bg-yellow-first;
+  @extend %in-bl, %bg-white;
 }
 
 .calenderDes span.full::before{
@@ -59,12 +64,39 @@ ul.weekdays li button{
   margin:0 $ele-ele;
 }
 
+.mobileTable{
+  @extend %flex, %flex-w, %flex-jc;
+}
+
+.mobileTable table{
+  margin-bottom: $ele-ele;
+}
+
+.mobileTable button{
+  flex-basis: 25%;
+  margin-bottom: $ele-ele;
+  @extend %block;
+}
+
+ul.booking-info,
+ul.booking-detail{
+  margin-bottom: $ele-ele;
+}  
+
 ul.booking-detail input{
   border: none;
   background-color: $gray-second;
 }
 
 @include rwd-each(desktop){
+  .deskTable{
+    display: initial;
+  }
+
+  .mobileTable{
+    display: none;
+  }
+
   .booking-form{
     display: flex;
     flex-wrap: wrap;
@@ -80,7 +112,6 @@ ul.booking-detail input{
   
   ul.booking-info,
   ul.booking-detail{
-    margin-bottom: $ele-ele;
     width: 50%;
     padding: $ele-ele;
     display: flex;
