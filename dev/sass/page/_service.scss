@@ -1,10 +1,10 @@
 //無障礙服務選擇器 service-selector
-#service-selector{
+#service-selector {
   display: flex;
   justify-content: center;
   margin: auto;
   text-align: center;
-  .selector-btn{
+  .selector-btn {
     font-size: $font-base;
     width: 110px;
     padding: 15px;
@@ -14,30 +14,44 @@
     border-radius: 10px;
     background-color: #fff;
   }
-  .selector-btn:hover{
+  .selector-btn:hover {
     color: #fff;
     background-color: #313131;
     cursor: pointer;
 
   }
-  .choosen{
+  .chosen {
+
     color: #fff;
     background-color: #313131;
     cursor: pointer;
   }
 }
-.service-wrap{
+.service-detail {
   background-color: #fff;
-  display: flex;
-  margin: auto;
+  border-radius: 10px;
+  .service-wrap {
+    display: flex;
+    margin: auto;
+    .service-context {
+      margin: 50px 20px;
+    }
+    .service-pic img {
+      width: 350px;
+    }
+  }
+  .service-btn {
+    padding-bottom: 60px;
+    display: flex;
+    justify-content: center;
+  }
 }
-.service-context{
-  margin: 50px;
+
+
+#car-content {
+  display: none;
 }
-.service-pic img{
-  width: 350px;
+#driver-content {
+  display: none;
 }
-.service-btn{
-  display: flex;
-  justify-content: center;
-}
+
