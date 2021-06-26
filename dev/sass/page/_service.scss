@@ -18,15 +18,21 @@
     color: #fff;
     background-color: #313131;
     cursor: pointer;
-
   }
   .chosen {
-
     color: #fff;
     background-color: #313131;
     cursor: pointer;
   }
 }
+.service-btn {
+  padding-left: 25px;
+  padding-bottom: 60px;
+  display: flex;
+  justify-content: center;
+
+}
+//服務介紹
 .service-detail {
   background-color: #fff;
   border-radius: 10px;
@@ -40,18 +46,58 @@
       width: 350px;
     }
   }
-  .service-btn {
-    padding-bottom: 60px;
-    display: flex;
-    justify-content: center;
-  }
 }
-
-
+//車種介紹
 #car-content {
   display: none;
 }
+#car-wrap {
+  display: flex;
+  justify-content: space-between;
+  .pic-wrap {
+    #big-pic{
+      width: 530px;
+      img{
+        width: 100%;
+        position: relative;
+        bottom: -30px;
+      }
+    }
+    #car-shadow{
+      width: 532px;
+      height: 51px;
+      background-color: #9f9f9f;
+      border-radius: 50%;
+    }
+    .small-wrap {
+      display: flex;
+      justify-content: center;
+      .small-pic {
+        width: 125px;
+        padding: 25px 10px;
+        margin: 5px;
+        border-radius: 5px;
+        background-color: #fff;
+        img {
+          width: 100%;
+        }
+      }
+    }
+  }
+  .car-context{
+    width: 500px;
+    height: 350px;
+    padding: 35px;
+    margin: 45px 0px;
+    background-color: #fff;
+    border-radius: 10px;
+    p{
+      margin: 10px 0px;
+      height: 160px;
+    }    
+  }
+}
+//司機介紹
 #driver-content {
   display: none;
 }
-
