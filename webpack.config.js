@@ -27,6 +27,5 @@ module.exports = {
         alias: {
             vue: 'vue/dist/vue.js'
         }
-    }, //解決vue jquery 路徑
-    // 服務器配置
+    }, 
 }
