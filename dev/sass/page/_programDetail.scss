@@ -236,14 +236,14 @@
           text-align: center;
 
           @include rwd_each(tablet) {
-            text-align: left;
+            grid-template-columns: 5fr 3fr;
           }
         }
       }
 
 
       .spot-img {
-        width        : 80%;
+        width        : 100%;
         margin       : auto;
         display      : grid;
         margin-bottom: $text-text;
@@ -252,7 +252,9 @@
           "f f"
           "f f"
           "s t";
-
+          @include rwd_each(tablet) {
+            width        : 80%;
+          }
         .img-f {
           width    : 100%;
           grid-area: f;

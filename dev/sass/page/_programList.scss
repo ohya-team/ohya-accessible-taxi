@@ -1,25 +1,27 @@
 .scheme-l-hero {
+    background-image   : url(../images/travel/taxi_B2.jpg);
+    background-size    : cover;
+    background-position: bottom;
+
     .title {
-        position           : relative;
-        width              : 100%;
-        margin-bottom      : $mar-cont;
-        height             : calc(100vh - 180px);
-        background-position: bottom;
-        background-image   : url(../images/travel/taxi_B2.jpg);
-        background-size    : cover;
-        margin-bottom      : 150px;
+        position     : relative;
+        width        : 100%;
+        margin-bottom: $mar-cont;
+        height       : calc(100vh - 180px);
+
+        &.container {
+            @extend %border-box;
+        }
 
         .item {
             position: absolute;
-            bottom: 0;
-            left: 20%;
-            margin-bottom: 3.5%;
+            bottom  : 3.5%;
 
-            &::before{
+            &::before {
                 content         : "";
                 display         : inline-block;
-                position: absolute;
-                left: -14%;
+                position        : absolute;
+                left            : -14%;
                 width           : 10px;
                 height          : 80%;
                 background-color: $yellow-first;
@@ -33,7 +35,7 @@
 
             p {
                 margin-top: -20px;
-                font-size: 27px;
+                font-size : 27px;
             }
         }
     }
@@ -48,12 +50,12 @@
             display         : flex;
             background-color: $white;
             margin-bottom   : $text-text;
-            border-radius: $btn-radius;
+            border-radius   : $btn-radius;
 
             .word-menu {
-                width: 100%;
-                margin : auto;
-                display: grid;
+                width                : 100%;
+                margin               : auto;
+                display              : grid;
                 grid-template-columns: repeat(2, 1fr);
 
                 @include rwd_each(desktop) {
@@ -63,8 +65,8 @@
                 li {
                     font-size: $font-h4;
                     padding  : 1.5rem;
-                    display: flex;
-                    margin: 0 30px;
+                    display  : flex;
+                    margin   : 0 30px;
 
                     &.active {
                         background-color: $black;
@@ -112,7 +114,7 @@
                 font-size       : 28px;
                 border          : 0;
                 background-color: #fff;
-                margin-left: auto;
+                margin-left     : auto;
 
                 i {
                     color: $gray-second;
