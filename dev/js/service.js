@@ -1,12 +1,12 @@
-function $id(id) {
-  return document.getElementById(id);
-}
+// function $id(id) {
+//   return document.getElementById(id);
+// }
 
 //var
 let selectorBtn = document.getElementsByClassName("selector-btn");
 let chosenClass = document.getElementsByClassName('content');
 let smallCar = document.getElementsByClassName("small-pic");
-let bigPic = document.getElementById('big-pic');
+//let bigPic = $id('big-pic');
 let carContent = document.getElementsByClassName('car-context');
 
 //show service content
@@ -39,9 +39,17 @@ function showCar (){
   }
 }
 function showLarge (e) {
-  bigPic.childNodes[1].src = e.target.src;
+  $('#bigPic')[0].children[0].src = e.target.src;
   showCar();
 }
+
+
+
+
+
+
+
+
 
 
 //init
