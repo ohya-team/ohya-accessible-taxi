@@ -10,6 +10,8 @@ module.exports = {
         service: './dev/js/service.js',
         travelForm: './dev/js/travelForm.js',
         spotList: './dev/js/spotList.js',
+        programList: './dev/js/programList.js',
+        travelFormTwo: './dev/js/travelFormTwo.js',
     },// 入口文件
     output: {
         path: path.resolve(__dirname, 'dist/js'),

@@ -17,6 +17,11 @@
             position     : absolute;
             bottom       : 0;
             margin-bottom: 5%;
+            left: 60px;
+
+            @include rwd_each(desktop) {
+            left: auto;
+            }
 
             &::before {
                 content         : "";
@@ -114,6 +119,10 @@
             display        : flex;
             flex-wrap      : wrap;
             justify-content: space-between;
+
+            a {
+                text-decoration: none;
+            }
 
 
             button {
