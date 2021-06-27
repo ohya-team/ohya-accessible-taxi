@@ -80,12 +80,18 @@ ul.weekdays li button{
 
 ul.booking-info,
 ul.booking-detail{
-  margin-bottom: $ele-ele;
+  margin-bottom: $ele-ele*1.5;
 }  
 
 ul.booking-detail input{
   border: none;
   background-color: $gray-second;
+}
+
+label.booking-notice{
+  padding: $ele-ele 0;
+  width: 100%;
+  display: block;
 }
 
 @include rwd-each(desktop){
@@ -100,6 +106,7 @@ ul.booking-detail input{
   .booking-form{
     display: flex;
     flex-wrap: wrap;
+    justify-content: flex-end;
     
   li.full{
     width: 100%;
@@ -113,7 +120,7 @@ ul.booking-detail input{
   ul.booking-info,
   ul.booking-detail{
     width: 50%;
-    padding: $ele-ele;
+    padding: $ele-ele*2;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -127,6 +134,10 @@ ul.booking-detail input{
   }
 
   ul.booking-detail h3{
-    margin-bottom: $text-text;
+    margin-bottom: $text-text+2;
+  }
+
+  label.booking-notice{
+    padding: $ele-ele;
   }
 }

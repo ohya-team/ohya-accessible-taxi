@@ -9,6 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
 </head>
+
 <body class="animate-background">
 
   @@include('layout/header.html')
@@ -367,21 +368,21 @@
             <label class="def" for="">實付金額</label>
             <input type="text" class="def" name="" id="" value="Test" disabled>
           </li>
-          <li class="full">
-            <label class="def" for="">
-              <input type="checkbox" name="" id="">我同意 <a href="">預約注意事項</a>
-            </label>
-          </li>                              
         </ul>
+        <label class="def booking-notice" for="">
+          <input type="checkbox" name="" id="" class="booking-notice">我同意 <a href="">預約注意事項</a>
+        </label>
 
-        <button class="btn-main">確認預約</button>
+        <input type="button" value="確認預約" class="btn-main bookingSub">
         <button class="btn-third">取消預約</button>
+
       </form>
     </div>
   </div>
+  
+  <script src="js/booking.js"></script>
 
   @@include('layout/footer.html')
 
-  <script src="js/booking.js"></script>
 </body>
 </html>
