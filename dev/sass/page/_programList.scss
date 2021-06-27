@@ -14,14 +14,20 @@
         }
 
         .item {
-            position: absolute;
-            bottom  : 3.5%;
+            position     : absolute;
+            bottom       : 0;
+            margin-bottom: 5%;
+            left: 60px;
+
+            @include rwd_each(desktop) {
+            left: auto;
+            }
 
             &::before {
                 content         : "";
                 display         : inline-block;
                 position        : absolute;
-                left            : -14%;
+                left            : -18%;
                 width           : 10px;
                 height          : 80%;
                 background-color: $yellow-first;
@@ -51,11 +57,13 @@
             background-color: $white;
             margin-bottom   : $text-text;
             border-radius   : $btn-radius;
+            overflow: hidden;
 
             .word-menu {
+                @extend %border-box;
                 width                : 100%;
-                margin               : auto;
                 display              : grid;
+                margin               : auto;
                 grid-template-columns: repeat(2, 1fr);
 
                 @include rwd_each(desktop) {
@@ -63,11 +71,15 @@
                 }
 
                 li {
-                    font-size: $font-h4;
                     padding  : 1.5rem;
                     display  : flex;
-                    margin   : 0 30px;
+                    margin   : 0 ;
+                    font-size: $font-base;
 
+                    @include rwd_each(desktop) {
+                        margin   : 0 30px;
+                        font-size: $font-h4;
+                    }
                     &.active {
                         background-color: $black;
                         color           : $white;
@@ -107,6 +119,10 @@
             display        : flex;
             flex-wrap      : wrap;
             justify-content: space-between;
+
+            a {
+                text-decoration: none;
+            }
 
 
             button {

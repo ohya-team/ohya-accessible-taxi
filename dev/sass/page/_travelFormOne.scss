@@ -6,17 +6,18 @@
 
   .box {
     background-color: $gray-second;
-    padding: 5%;
-    margin-top: $text-text;
+    padding         : 5%;
+    margin-top      : $text-text;
 
     .input-box-one {
-      width: 100%;
+      width        : 100%;
       margin-bottom: $text-text;
     }
+
     .input-box-two {
-      display: grid;
+      display              : grid;
       grid-template-columns: repeat(1, 1fr);
-      grid-column-gap: 8%;
+      grid-column-gap      : 8%;
 
       @include rwd_each(desktop) {
         grid-template-columns: repeat(2, 1fr);
@@ -36,14 +37,61 @@
   }
 
   .box {
-    background-color: $gray-second;
-    padding: 5%;
-    margin-top: $text-text;
-    
+    background-color     : $gray-second;
+    padding              : 5%;
+    margin-top           : $text-text;
+    display              : grid;
+    grid-template-columns: 1fr;
+    grid-column-gap      : 8%;
+
+    @include rwd_each(desktop) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .item {
+      span {
+        display: inline;
+
+        @include rwd_each(desktop) {
+          display: block;
+        }
+      }
+
+      &:nth-child(3) {
+        button {
+          font-size: $font-h4;
+        }
+
+        .def {
+          display: inline;
+
+          @include rwd_each(desktop) {
+            display: block;
+          }
+        }
+
+        #people-num {
+          text-align: center;
+          width     : 30px;
+          height    : 30px;
+        }
+      }
+
+      &:nth-child(4) {
+        @include rwd_each(desktop) {
+          margin: auto;
+        }
+      }
+
+    }
+
+
+
+
   }
 }
 
-.remarks {
+.remarks-block {
 
   h3 {
     margin-top: $text-text;
@@ -51,14 +99,14 @@
 
   textarea {
     @extend %border-box;
-    width: 100%;
-    padding: $ele-ele;
+    width    : 100%;
+    padding  : $ele-ele;
     font-size: $font-h4;
   }
 
 }
 
-.voucher {
+.voucher-block {
 
   h3 {
     margin-top: $text-text;
@@ -66,13 +114,19 @@
 
   .box {
     background-color: $gray-second;
-    padding: 5%;
+    padding         : 5%;
+    margin-top      : $text-text;
+
+  }
+
+  .btn-main {
+    float     : right;
     margin-top: $text-text;
-    
   }
 }
+
 input[type=number]::-webkit-outer-spin-button,
 input[type=number]::-webkit-inner-spin-button {
   -webkit-appearance: none;
-  margin: 0;
+  margin            : 0;
 }

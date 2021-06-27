@@ -5,9 +5,7 @@
 .container{
   max-width: 1200px;
   margin: auto;
-  table{
-    margin-top: 50px;
-  }
+  
 }
 
 .container.home{
@@ -19,6 +17,7 @@
 }
 
 .home-section>.container{
+  margin-top: 60px;
   margin-bottom: 50px;
 }
 
@@ -26,8 +25,7 @@
   padding: 10px 20px;
   margin-right: 0px;
   width: auto;
-  font-size: 16px;
-  font-weight: bold;
+  font-size: 14px;
   border-color: #d6d6d6;
   
 }
@@ -435,4 +433,15 @@ body #coidea {
 	100% {
 		background-position: 0% 50%;
 	}
+}
+
+// Slider
+
+
+.sp-layer sp-white sp-padding{
+  width: auto;
+}
+
+.home-calender{
+  overflow: auto;
 }

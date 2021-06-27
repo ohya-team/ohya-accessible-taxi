@@ -1,0 +1,64 @@
+.confirm-the-contents-of-the-travel-order {
+
+  .btn-main {
+    float: right;
+    margin-top: $text-text;
+  }
+
+  .box {
+    background-color: $gray-second;
+    padding: 5%;
+    margin-top: $text-text;
+
+    .text {
+      margin: auto;
+      width: 80%;
+
+      @include rwd_each(desktop) {
+        width: 50%;
+      }
+    }
+  }    
+}
+
+.pop-up-box {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.7);
+  display: none;
+
+  @include rwd_each(desktop) {
+  }
+
+  .item {
+    width: 90%;
+    height: 70%;
+    background-color: $white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50% ,-50%);
+    text-align: center;
+    padding: 0 2%;
+
+    @include rwd_each(desktop) {
+      width: 35%;
+      height: 40%;
+      padding: auto;
+    }
+
+    .icon {
+      font-size: 120px;
+      margin: $text-text 0;
+      
+
+      i {
+        color: $blue;
+      }
+    }
+    
+  }
+}

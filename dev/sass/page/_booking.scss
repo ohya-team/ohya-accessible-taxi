@@ -5,17 +5,21 @@ section.bookingInfo,
   };
 }
 
-.booking table span.day{
+.deskTable{
+  display: none;
+}
+
+.deskTable table span.day{
   margin-bottom: 0;
 }
 
-ul.weekdays{
+.weekdays{
   margin-bottom: $ele-ele;
 
   @extend %flex, %flex-jc-ai, %bg-gray-second;
 }
 
-ul.weekdays li{
+.weekdays span{
   margin: $ele-ele;
   font-size: $font-base*1.2;
   font-weight: $font-bold;
@@ -23,8 +27,10 @@ ul.weekdays li{
   @extend %black;
 }
 
-ul.weekdays li button{
-  margin-top: 9px;
+@include btn(button, booking, 100%, '%black', '%bg-white');
+button.btn-booking{
+  border: 1px solid $black;
+
   @extend %block;
 }
 
@@ -40,9 +46,10 @@ ul.weekdays li button{
   margin-right: 7px;
   width: 20px;
   height: 20px;
+  border: 1px solid $black;
   border-radius: 50%;
 
-  @extend %in-bl, %bg-yellow-first;
+  @extend %in-bl, %bg-white;
 }
 
 .calenderDes span.full::before{
@@ -59,15 +66,49 @@ ul.weekdays li button{
   margin:0 $ele-ele;
 }
 
+.mobileTable{
+  @extend %flex, %flex-w, %flex-jc;
+}
+
+.mobileTable table{
+  margin-bottom: $ele-ele;
+}
+
+.mobileTable button{
+  flex-basis: 25%;
+  margin-bottom: $ele-ele;
+  @extend %block;
+}
+
+ul.booking-info,
+ul.booking-detail{
+  margin-bottom: $ele-ele*1.5;
+}  
+
 ul.booking-detail input{
   border: none;
   background-color: $gray-second;
 }
 
+label.booking-notice{
+  padding: $ele-ele 0;
+  width: 100%;
+  display: block;
+}
+
 @include rwd-each(desktop){
+  .deskTable{
+    display: initial;
+  }
+
+  .mobileTable{
+    display: none;
+  }
+
   .booking-form{
     display: flex;
     flex-wrap: wrap;
+    justify-content: flex-end;
     
   li.full{
     width: 100%;
@@ -80,9 +121,8 @@ ul.booking-detail input{
   
   ul.booking-info,
   ul.booking-detail{
-    margin-bottom: $ele-ele;
     width: 50%;
-    padding: $ele-ele;
+    padding: $ele-ele*2;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -96,6 +136,10 @@ ul.booking-detail input{
   }
 
   ul.booking-detail h3{
-    margin-bottom: $text-text;
+    margin-bottom: $text-text+2;
+  }
+
+  label.booking-notice{
+    padding: $ele-ele;
   }
 }

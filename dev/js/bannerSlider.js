@@ -8,7 +8,7 @@
  * Copyright 2018, COIDEA
  * https://coidea.website
  */
-
+ import anime from 'animejs/lib/anime.es.js';
 class Slider {
   constructor(props) {
     this.rootElement = props.element;

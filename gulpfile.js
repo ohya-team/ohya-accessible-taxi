@@ -85,13 +85,13 @@ function browser(done) {
     watch(['dev/sass/**/*.scss', 'dev/sass/*.scss'], sass_style).on('change', reload)
     watch(['dev/images/*.*', 'dev/images/**/*.*'], img_mv).on('change', reload)
     watch('dev/css/*.css', css_mv).on('change', reload)
-    watch('dev/js/*.js', js_mv).on('change', reload)
+    // watch('dev/js/*.js', js_mv).on('change', reload)
     watch('dev/php/*.php', php_mv).on('change', reload)
     done();
 }
 
 // 執行指令
-exports.default = series(cleanfile, img_mv, html, sass_style, css_mv, js_mv, php_mv, browser);
+exports.default = series(cleanfile, img_mv, html, sass_style, css_mv,php_mv, browser);
 
 
 // +++++++++  打包上線用 +++++++
