@@ -12,6 +12,7 @@ module.exports = {
         spotList: './dev/js/spotList.js',
         programList: './dev/js/programList.js',
         travelFormTwo: './dev/js/travelFormTwo.js',
+        forumDetail:'./dev/js/forumDetail.js',
     },// 入口文件
     output: {
         path: path.resolve(__dirname, 'dist/js'),

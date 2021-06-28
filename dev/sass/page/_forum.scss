@@ -14,8 +14,8 @@
   padding      : 0 20px;
 
   .category {
-    position     : relative;
-    padding      : 15px 0;
+    position: relative;
+    padding : 15px 0;
     @extend %flex;
     border-radius: $btn-radius;
     flex-grow    : 2;
@@ -56,7 +56,7 @@
           border-style: solid;
           border-width: 10px 8px 10px 8px;
           border-color: $black transparent transparent transparent;
-          margin : 9px 0 0 4px;
+          margin      : 9px 0 0 4px;
         }
       }
 
@@ -96,7 +96,7 @@
 
             @include rwd_each(desktop) {
               justify-content: space-between;
-              padding     : 6px;
+              padding        : 6px;
             }
           }
 
@@ -112,21 +112,21 @@
 
   @include btn(button, forum, 150px, '%black', '%bg-yellow-first') {
     position: fixed;
-    z-index: 100;
-    bottom: 20px;
-    // right:10px;
-    margin: auto;
-    
+    z-index : 100;
+    bottom  : 20px;
+    right   : 10px;
 
     .fa-pencil {
       font-size: 19px;
-    } 
+    }
+
     @include rwd_each(tablet) {
-      position: relative;
-      padding: 13px 26px;
+      position: static;
+      padding : 13px 26px;
+      margin  : auto;
     }
   }
-  
+
 }
 
 .forum-content {

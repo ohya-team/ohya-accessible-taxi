@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,49 +11,55 @@
         <link rel="stylesheet" href="./css/style.css">
     </head>
 </head>
+
 <body class="animate-background">
-  
+    @@include('layout/header.html')
+
     <div class="uploadArticle-container">
-        <h3>發表新文章</h3>
-        <div class="uploadArticle-content">
-            <p>文章圖片</p>
-            <div class="upload-picture">
-            <img src="" alt=""> <!--預覽圖片--> 
-                <button class="upload-picture-btn">
-                    <img src="images/forum/Icon awesome-upload.jpg" alt="">
-                    <span class="mini">上傳圖片</span>
-                </button>
-            </div>
-            <div class="upload-category">
-               <div class="upload-article-sort">
-                    <label class="def" for="upload-article-sort">文章類別</label>
-                    <select name="upload-sort" id="upload-sort" class="def">
-                    <option value="一般預約">一般預約</option>
-                    <option value="包車旅遊">包車旅遊</option>
-                    <option value="優良司機">優良司機</option>
-                    <option value="精選車種">精選車種</option>
-                    </select>
-                </div> 
-                <div class="uplaod-article-topic">
-                <label class="def" for="upload-topic">文章標題</label>
-                <input class="def" type="text" id="default" placeholder="文章標題不得超過8個字" maxlength="8">
+        <form action="" class="uploadArticle-form">
+            <h3>發表新文章</h3>
+            <div class="uploadArticle-content">
+                <p>文章圖片</p>
+                <div class="upload-picture">
+                    <img src="" alt="">
+                    <!--預覽圖片-->
+                    <button class="upload-picture-btn">
+                        <img src="images/forum/Icon awesome-upload.jpg" alt="">
+                        <span class="mini">上傳圖片</span>
+                    </button>
+                </div>
+                <div class="upload-category">
+                    <div class="upload-article-sort">
+                        <label class="def" for="upload-article-sort">文章類別</label>
+                        <select name="upload-sort" id="upload-sort" class="def">
+                            <option value="一般預約">一般預約</option>
+                            <option value="包車旅遊">包車旅遊</option>
+                            <option value="優良司機">優良司機</option>
+                            <option value="精選車種">精選車種</option>
+                        </select>
+                    </div>
+                    <div class="uplaod-article-topic">
+                        <label class="def" for="upload-topic">文章標題</label>
+                        <input class="def" type="text" id="default" placeholder="文章標題不得超過13個字" maxlength="13">
+                    </div>
+                </div>
+                <label class="def" for="">文章內容</label>
+                <textarea name="upload-txt" id="" cols="30" rows="10" class="upload-txt">
+                </textarea>
+                <div class="word-left">
+                    剩餘字數 :<input name="remLen" type="text" value="500" size="3" readonly="readonly">
+                </div>
+                <div class="upload-btn">
+                    <input class="btn-main" type="button" name="" id="" value="送出">
+                    <a href="forum.html">
+                        <button class="btn-third">取消</button>
+                    </a>
                 </div>
             </div>
-            <label class="def" for="">文章內容</label>
-            <textarea name="upload-content" id="" cols="30" rows="10" class="upload-content">
-            </textarea>
-            <div class="word-left">
-                剩餘字數 :<input name="remLen" type="text" value="500" size="1" readonly="readonly">
-            </div> 
-            <div>
-                <input class="btn-main" type="button" name="" id="" value="送出">
-            </div>
-            <div>
-                <input class="btn-third" type="button" name="" id="" value="取消">
-            </div>
-        </div>
+        </form>
     </div>
-
+    @@include('layout/footer.html')
 
 </body>
+
 </html>

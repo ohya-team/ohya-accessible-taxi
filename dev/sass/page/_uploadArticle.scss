@@ -1,86 +1,124 @@
-
-
 .uploadArticle-container {
     @include container;
-    padding      : 0;
-    border-radius: $ele-ele;
-    overflow     : hidden;
-    @extend %bg-white;
+    margin-top: 30px;
 
-    h3 {
-        color: $white;
-        @extend %bg-black;
-        padding   : 20px;
-        text-align: center;
-    }
+    .uploadArticle-form {
+        border-radius: $ele-ele;
+        overflow     : hidden;
+        @extend %bg-white;
 
-    .uploadArticle-content {
-        padding: 0px 30px 30px;
+        h3 {
+            color: $white;
+            @extend %bg-black;
+            padding   : 20px;
+            text-align: center;
+        }
 
-        .upload-picture {
-            margin-bottom: $text-text;
+        .uploadArticle-content {
+            padding: 0px 30px 30px;
 
-            .upload-picture-btn {
+            .upload-picture {
+                margin-bottom: $text-text;
+
+                .upload-picture-btn {
+                    @extend %flex,
+                    %flex-dir-colu,
+                    %flex-ai,
+                    %mar-auto;
+                }
+            }
+
+            .upload-category {
+                margin-bottom: $text-text;
+
+                @include rwd_each(tablet) {
+                    display: flex;
+
+                }
+
+                .upload-article-sort {
+                    flex-grow: 1.4209;
+                }
+
+                .uplaod-article-topic {
+                    flex-grow: 1;
+
+                    @include rwd_each(tablet) {
+                        margin-left: 20px;
+
+                    }
+                }
+            }
+
+            .upload-txt {
+                width        : 100%;
+                margin-bottom: 10px;
+                border       : $black 2px solid;
+                border-radius: 5px;
+            }
+
+            .word-left {
+                font-size : $font-base;
+                margin    : 0 -22px $text-text;
+                text-align: right;
+
+
+
+                input {
+                    font-size: $font-base;
+                    border   : none;
+
+                }
+            }
+
+            .upload-btn {
                 @extend %flex,
-                %flex-dir-colu,
-                %flex-ai,
-                %mar-auto;
+                %flex-jc-ai;
+
+                @include btn(input, main, 120px, '%black', '%bg-yellow-first') {
+                    @extend %flex,
+                    %flex-jc-ai;
+                    border: 2px solid $yellow-first;
+                    margin: 0 8px 0 0;
+
+                    @include rwd_each(tablet) {
+                        margin: 0 auto $text-text;
+                        width : 25%;
+                    }
+                }
+
+                @include rwd_each(tablet) {
+                    display: block;
+                }
+
+                input.btn-main:hover {
+                    color           : $white;
+                    background-color: $black;
+                    border          : 2px solid $black;
+                }
+
+                a {
+                    margin         : 0px;
+                    text-decoration: none;
+
+                    @include btn(button, third, 120px, '%black', '%bg-white') {
+                        @extend %flex,
+                        %flex-jc-ai;
+                        margin: 0 0 0 8px;
+
+                        @include rwd_each(tablet) {
+                            margin: auto;
+                            width : 25%;
+
+                        }
+                    }
+
+                    button.btn-third {
+                        border: 2px solid $black;
+                    }
+                }
+
             }
         }
-
-        .upload-category {
-            @extend %flex;
-            margin-bottom: $text-text;
-
-            .upload-article-sort {
-                flex-grow: 1.4209;
-            }
-
-            .uplaod-article-topic {
-                flex-grow  : 1;
-                margin-left: 20px;
-            }
-        }
-
-        .upload-content {
-            width        : 100%;
-            margin-bottom: 10px;
-            border       : $black 2px solid;
-            border-radius: 5px;
-        }
-
-        .word-left {
-            font-size    : $font-base;
-            margin: 0 -22px $text-text;
-            text-align: right;
-
-        
-
-            input {
-                font-size: $font-base;
-                border   : none;
-        
-            }
-        }
-
-        @include btn(input, main, 25%, '%black', '%bg-yellow-first'){
-            @extend %flex, %flex-jc-ai;
-            margin: 0 auto $text-text;
-            border: 2px solid $yellow-first;
-        };
-        input.btn-main:hover {
-            color           : $white;
-            background-color: $black;
-            border: 2px solid $black;
-        }
-        @include btn(input, third, 25%, '%black', '%bg-white'){
-            @extend %flex, %flex-jc-ai;
-            margin: auto;
-        }
-        input.btn-third{
-          border: 2px solid $black;
-        }
-
-
     }
 }

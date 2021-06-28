@@ -1,25 +1,170 @@
-
 .forum-detail-container {
     @include container;
+
     .forum-detail-topic {
-        @extend %flex;
-        margin-bottom:15px;
+        margin-bottom: 15px;
+
+        @include rwd_each(tablet) {
+            display: flex;
+        }
+
         .forum-sort {
+            display         : inline-block;
             font-size       : $font-h3;
             font-weight     : $font-bold;
             background-color: $blue;
-            padding         : 5px;
-            margin-right:15px;
-            border-radius: 5px;
+            padding         : 8px 12px;
+            margin-right    : 15px;
+            margin-bottom   : 8px;
+            border-radius   : 5px;
+            @extend %white;
+
+            @include rwd_each(tablet) {
+                display   : block;
+                margin-top: -5px
+            }
         }
-        h3{
+
+        h3 {
             margin-top: 10px;
         }
     }
-    img{
-        width: 100%;
+
+    .card-info {
+        @extend %flex;
+
+        .info-color {
+            color: $gray-first;
+        }
+
+
+        .people-amount {
+            margin-right: 5px;
+            @extend %flex;
+
+            .info-color {
+                color: $gray-first;
+            }
+
+            .fa-eye {
+                font-size: 18px;
+                margin   : 5px 3px 0 0;
+                color    : $gray-first;
+            }
+        }
+
+        .alert {
+            @extend %flex,
+            %cursor-hand;
+            margin-right: 5px;
+
+            &:hover span {
+                color: $black;
+            }
+
+            &:hover .fa-exclamation-circle {
+                @extend %black;
+            }
+
+            .fa-exclamation-circle {
+                font-size: 18px;
+                margin   : 4px 5px 0 0;
+                color    : $gray-first;
+            }
+
+            span {
+                letter-spacing: 0.5px;
+            }
+        }
+    }
+
+    img {
+        width        : 100%;
         border-radius: 15px;
         margin-bottom: $text-text;
     }
+}
 
+.article-recommended {
+    margin-top: -50pxpx;
+    @include container;
+
+    h3 {
+        margin-bottom: -6px
+    }
+
+    h3:after {
+        content: "";
+        @extend %bg-black;
+        width     : 100%;
+        height    : 2px;
+        display   : block;
+        margin-top: 20px;
+
+
+    }
+}
+
+.alert-hide {
+    visibility: hidden;
+}
+
+.pop-up {
+    position        : fixed;
+    top             : 0;
+    left            : 0;
+    width           : 100%;
+    height          : 100vh;
+    z-index         : 1000;
+    background-color: rgba(0, 0, 0, .6);
+
+    .alert-detail {
+        position: absolute;
+        @extend %bg-white;
+        padding      : 40px 0 20px;
+        border-radius: $ele-ele;
+        top          : 50%;
+        left         : 50%;
+        transform    : translate(-50%, -50%);
+
+        @include rwd_each(tablet) {
+            padding: 70px 50px 50px;
+        }
+
+        .fa-times {
+            position : absolute;
+            font-size: 16px;
+            top      : 20px;
+            right    : 20px;
+        }
+
+        h2 {
+            letter-spacing: 1px;
+            font-size     : $font-h4;
+            text-align    : center;
+
+        }
+
+        .alert-content {
+            padding: 0 90px;
+
+            p {
+                margin-bottom: 5px;
+                text-align   : center;
+            }
+
+            .radio {
+                width : 15px;
+                height: 15px;
+                margin: 0 8px 0 -8px;
+            }
+
+            .btn-main {
+                @extend %flex,
+                %flex-jc-ai;
+                margin: 20px auto 0;
+            }
+
+        }
+    }
 }
