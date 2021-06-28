@@ -1,7 +1,7 @@
 //var
 let selectorBtn = document.getElementsByClassName("selector-btn");
 let chosenClass = document.getElementsByClassName('content');
-let smallCar = document.getElementsByClassName("small-pic");
+let smallCar = document.getElementsByClassName("smallPic");
 let carContent = document.getElementsByClassName('car-context');
 
 //show service content
@@ -33,11 +33,12 @@ function showCar (){
     }
   }
 }
-function showLarge (e) {
-  $('#bigPic')[0].children[0].src = e.target.src;
+$('.smallPic').click(function(){
+  $('#bigPic')[0].children[0].src = $(this)[0].childNodes[1].src;
+  $(this)[0].classList.add('chosen');
+  $('.smallPic').not(this).removeClass('chosen');
   showCar();
-}
-
+})
 
 //driver slider narrow move
 function moveLeft(){
@@ -81,13 +82,10 @@ function init(){
   for (let i = 0; i < selectorBtn.length; i++) {
     selectorBtn[i].onclick = chosen;
   }
-  for (let i = 0; i < smallCar.length; i++){
-    smallCar[i].onclick = showLarge;
-    showCar();   
-  }
   $('#narLeft')[0].onclick = moveLeft;
   $('#narRight')[0].onclick = moveRight;
   autoMove();
+  showCar();
 }
 
 window.onload = init;
