@@ -40,6 +40,6 @@
     "@babel/core": "^7.14.6",
     "@babel/preset-env": "^7.14.5",
     "gulp-babel": "^8.0.0",
-    "webpack": "^4.43.0"
+    "webpack": "^4.46.0"
   }
 }

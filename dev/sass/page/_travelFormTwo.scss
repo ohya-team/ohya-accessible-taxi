@@ -12,7 +12,11 @@
 
     .text {
       margin: auto;
-      width: 50%;
+      width: 80%;
+
+      @include rwd_each(desktop) {
+        width: 50%;
+      }
     }
   }    
 }
@@ -24,16 +28,27 @@
   width: 100vw;
   height: 100vh;
   background: rgba(0,0,0,0.7);
+  display: none;
+
+  @include rwd_each(desktop) {
+  }
 
   .item {
-    width: 35%;
-    height: 40%;
+    width: 90%;
+    height: 70%;
     background-color: $white;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50% ,-50%);
     text-align: center;
+    padding: 0 2%;
+
+    @include rwd_each(desktop) {
+      width: 35%;
+      height: 40%;
+      padding: auto;
+    }
 
     .icon {
       font-size: 120px;
@@ -44,6 +59,6 @@
         color: $blue;
       }
     }
+    
   }
-  
 }

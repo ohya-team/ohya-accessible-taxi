@@ -10,7 +10,6 @@
         integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="./css/style.css">
-
 </head>
 
 <body class="animate-background">
@@ -45,11 +44,44 @@
         <div class="container">
             <div class="card-item">
                 <div class="card-image">
-                    <img src="./images/travel/program/daxi_old_street_A.jpg" alt="">
+                    <a href="./programDetail.html">
+                        <img src="./images/travel/program/daxi_old_street_A.jpg" alt="">
+                    </a>
                 </div>
                 <div class="text">
                     <div class="project-name">
-                        <h3>大溪+埤塘自然生態公園+石門水庫一日遊</h3>
+                        <a href="./programDetail.html">
+                            <h3>大溪+埤塘自然生態公園+石門水庫一日遊</h3>
+                        </a>
+                    </div>
+                    <button><i class="fas fa-heart" id="heart"></i></button>
+                    <div class="star">
+                        <i class="fas fa-star active"></i>
+                        <i class="fas fa-star active"></i>
+                        <i class="fas fa-star active"></i>
+                        <i class="fas fa-star active"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="l-tag">
+                        <p>桃園</p>
+                    </div>
+                    <div class="price">
+                        <h4>$16000</h4>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card-item">
+                <div class="card-image">
+                    <a href="./programDetail.html">
+                        <img src="./images/travel/program/mazu_new_village_A.jpg" alt="">
+                    </a>
+                </div>
+                <div class="text">
+                    <div class="project-name">
+                        <a href="./programDetail.html">
+                            <h3>馬祖新村眷村+老街一日遊</h3>
+                        </a>
                     </div>
                     <button><i class="fas fa-heart"></i></button>
                     <div class="star">
@@ -70,36 +102,15 @@
 
             <div class="card-item">
                 <div class="card-image">
-                    <img src="./images/travel/program/mazu_new_village_A.jpg" alt="">
+                    <a href="./programDetail.html">
+                        <img src="./images/travel/program/yongan_fishing_port_A.jpg" alt="">
+                    </a>
                 </div>
                 <div class="text">
                     <div class="project-name">
-                        <h3>馬祖新村眷村+老街一日遊</h3>
-                    </div>
-                    <button><i class="fas fa-heart"></i></button>
-                    <div class="star">
-                        <i class="fas fa-star active"></i>
-                        <i class="fas fa-star active"></i>
-                        <i class="fas fa-star active"></i>
-                        <i class="fas fa-star active"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <div class="l-tag">
-                        <p>桃園</p>
-                    </div>
-                    <div class="price">
-                        <h4>$16000</h4>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card-item">
-                <div class="card-image">
-                    <img src="./images/travel/program/yongan_fishing_port_A.jpg" alt="">
-                </div>
-                <div class="text">
-                    <div class="project-name">
-                        <h3>永安漁港+三坑老街一日遊</h3>
+                        <a href="./programDetail.html">
+                            <h3>永安漁港+三坑老街一日遊</h3>
+                        </a>
                     </div>
                     <button><i class="fas fa-heart"></i></button>
                     <div class="star">
@@ -119,11 +130,15 @@
             </div>
             <div class="card-item">
                 <div class="card-image">
-                    <img src="./images/travel/program/jiaobanshan_hotel_A.jpg" alt="">
+                    <a href="./programDetail.html">
+                        <img src="./images/travel/program/jiaobanshan_hotel_A.jpg" alt="">
+                    </a>
                 </div>
                 <div class="text">
                     <div class="project-name">
-                        <h3>角板山一日遊</h3>
+                        <a href="./programDetail.html">
+                            <h3>角板山一日遊</h3>
+                        </a>
                     </div>
                     <button><i class="fas fa-heart"></i></button>
                     <div class="star">
@@ -143,11 +158,15 @@
             </div>
             <div class="card-item">
                 <div class="card-image">
-                    <img src="./images/travel/program/green_light_forest_A.jpg" alt="">
+                    <a href="./programDetail.html">
+                        <img src="./images/travel/program/green_light_forest_A.jpg" alt="">
+                    </a>
                 </div>
                 <div class="text">
                     <div class="project-name">
-                        <h3>綠光森林+大溪老街一日遊</h3>
+                        <a href="./programDetail.html">
+                            <h3>綠光森林+大溪老街一日遊</h3>
+                        </a>
                     </div>
                     <button><i class="fas fa-heart"></i></button>
                     <div class="star">
@@ -167,11 +186,10 @@
             </div>
         </div>
     </section>
-
-    
+  
     @@include('layout/footer.html')
     
-
+    <script src="./js/programList.js"></script>
 </body>
 
 </html>

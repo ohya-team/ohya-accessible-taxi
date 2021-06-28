@@ -9,6 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
 </head>
+
 <body class="animate-background">
 
   @@include('layout/header.html')
@@ -39,72 +40,21 @@
 
     <div class="calender" id="step1">
       <div class="deskTable">
-        <ul class="weekdays">
-          <li><button><img src="images/icon/Icon ionic-md-arrow-dropleft-circle.svg" alt=""></button></li>
-          <li>05/30 2021 - 06/05 2021</li>
-          <li><button><img src="images/icon/Icon ionic-md-arrow-dropright-circle.svg" alt=""></button></li>
-        </ul>
+        <div class="weekdays">
+          <span></span>
+        </div>
         <table>
           <tr>
             <th></th>
-            <th>
-              <span>星期一</span>
-              <span class="day">05/30</span>
-            </th>
-            <th>
-              <span>星期二</span>
-              <span class="day">05/31</span>
-            </th>
-            <th>
-              <span>星期三</span>
-              <span class="day">06/01</span>
-            </th>
-            <th>
-              <span>星期四</span>
-              <span class="day">06/02</span>
-            </th>
-            <th>
-              <span>星期五</span>
-              <span class="day">06/03</span>
-            </th>
-            <th>
-              <span>星期六</span>
-              <span class="day">06/04</span>
-            </th>
-            <th>
-              <span>星期日</span>
-              <span class="day">06/05</span>
-            </th>
           </tr>
           <tr>
-            <td>上午時段</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td>上午</td>
           </tr>
           <tr>
-            <td>下午時段</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td>下午</td>
           </tr>
           <tr>
-            <td>晚上時段</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td>晚上</td>
           </tr>
         </table>
         <div class="calenderDes">
@@ -367,21 +317,21 @@
             <label class="def" for="">實付金額</label>
             <input type="text" class="def" name="" id="" value="Test" disabled>
           </li>
-          <li class="full">
-            <label class="def" for="">
-              <input type="checkbox" name="" id="">我同意 <a href="">預約注意事項</a>
-            </label>
-          </li>                              
         </ul>
+        <label class="def booking-notice" for="">
+          <input type="checkbox" name="" id="" class="booking-notice">我同意 <a href="">預約注意事項</a>
+        </label>
 
-        <button class="btn-main">確認預約</button>
+        <input type="button" value="確認預約" class="btn-main bookingSub">
         <button class="btn-third">取消預約</button>
+
       </form>
     </div>
   </div>
+  
+  <script src="js/booking.js"></script>
 
   @@include('layout/footer.html')
 
-  <script src="js/booking.js"></script>
 </body>
 </html>

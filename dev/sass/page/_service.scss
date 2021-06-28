@@ -55,8 +55,9 @@
   display: flex;
   justify-content: space-between;
   .pic-wrap {
-    #big-pic{
+    #bigPic{
       width: 530px;
+      height: 300px;
       img{
         width: 100%;
         position: relative;
@@ -78,6 +79,7 @@
         margin: 5px;
         border-radius: 5px;
         background-color: #fff;
+        @extend %cursor-hand;
         img {
           width: 100%;
         }
@@ -86,11 +88,12 @@
   }
   .car-context{
     width: 500px;
-    height: 350px;
+    height: 360px;
     padding: 35px;
     margin: 45px 0px;
     background-color: #fff;
     border-radius: 10px;
+    display: none;
     p{
       margin: 10px 0px;
       height: 160px;

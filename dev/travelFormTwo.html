@@ -32,7 +32,7 @@
           <span>總計的人數：6人</span>
         </div>
       </div>
-      <button class="btn-main" type="submit">完成送出</button>
+      <button class="btn-main" id="popbox-btn" type="submit">完成送出</button>
     </div>
   </section>
 
@@ -42,11 +42,18 @@
       <i class="fa fa-check-circle-o" aria-hidden="true"></i>
     </div>
     <h2>訂單完成</h2>
-    <p>請耐心等待訂單審核完成，審核成功後將會已寄信的方式通知</p>
+    <p>請耐心等待訂單審核完成，審核成功後將會以寄信的方式通知</p>
     <button class="btn-main" type="submit">回首頁</button>
   </div>
  </div>
-  
+
+ <script>
+   document.getElementById("popbox-btn").addEventListener("click", function(){
+  document.querySelector(".pop-up-box").style.display = "flex";
+ });
+ </script>
+
+
   @@include('layout/footer.html')
 </body>
 </html>
