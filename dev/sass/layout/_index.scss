@@ -51,7 +51,7 @@
   margin: auto;
 }
 
-.btn-act.container{
+.btn-act.contain{
   padding: 50px;
   margin: 0;
 }
@@ -445,3 +445,45 @@ body #coidea {
 .home-calender{
   overflow: auto;
 }
+
+
+// home-Forum
+
+.home-section-forum{
+  background: url(../images/forum/home-Forum-bg.svg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  z-index: -1;
+  position: relative;
+  padding: 60px 20px;
+  margin-top: 90px;
+}
+.home-chats{
+  display: flex;
+}
+
+.home-chats-content{
+  margin: auto;
+  max-width: 1200px;
+  padding: 20px;
+  display: flex;
+}
+
+// .chat01, .chat02, .chat03{
+//   width: auto;
+// }
+
+
+.c01, .c02, .c03{
+  padding: 50px 20px;
+  background-color: #fff;
+  margin: 10px;
+  text-align: center;
+  flex-wrap: wrap;
+  margin-bottom: 50px;
+  border-radius: 10px;
+  justify-content: center;
+}
+
+
