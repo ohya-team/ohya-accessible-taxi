@@ -11,6 +11,34 @@
   <title>無障礙服務</title>
 </head>
 
+<div id="driverLightBox">
+  <div class="driverContent">
+    <div class="driverDetail">
+      <div class="driverDescribe">
+        <h3>郭阿民</h3>
+        <span>司機電話：0987806223</span>
+        <p>嚴肅外表下的他，帶著謹慎與關愛的心，守護每一位乘客。用心的服務與舒適的乘車空間，使每一位乘客都能開開心心的出門，平平安安的回家。</p>
+      </div>
+      <div class="driverPic">
+        <img src="./images/driver/01_driver.jpg" alt="">
+      </div>
+    </div>
+    <div class="driverCar">
+      <div class="carPic">
+        <img src="./images/car/car1.png" alt="">
+      </div>
+      <div class="carDescribe">
+        <span>車牌號碼：ABC-1234</span>
+        <ol>
+          <li>一般乘客座位：6位</li>
+          <li>輪椅座位：1位</li>
+          <li>輪椅升降設備：有</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</div>
+
 <body class="animate-background">
   @@include('layout/header.html')
   <br>
@@ -48,7 +76,7 @@
     <div class="service-btn">
       <button class="btn-main">
         <i class="fas fa-calendar-check"></i>
-        預約服務
+        立即預約
       </button>
       <button class="btn-main">
         <i class="fas fa-taxi"></i>
@@ -65,16 +93,16 @@
           <div id="car-shadow"></div>
         </div>
         <div class="small-wrap">
-          <div class="small-pic">
+          <div class="smallPic chosen">
             <img src="./images/car/car1.png" alt="">
           </div>
-          <div class="small-pic">
+          <div class="smallPic">
             <img src="./images/car/car2.png" alt="">
           </div>
-          <div class="small-pic">
+          <div class="smallPic">
             <img src="./images/car/car3.png" alt="">
           </div>
-          <div class="small-pic">
+          <div class="smallPic">
             <img src="./images/car/car4.png" alt="">
           </div>
         </div>
@@ -87,7 +115,7 @@
           <div class="service-btn">
             <button class="btn-main">
               <i class="fas fa-calendar-check"></i>
-              預約服務
+              立即預約
             </button>
             <button class="btn-main">
               <i class="fas fa-taxi"></i>
@@ -101,7 +129,7 @@
           <div class="service-btn">
             <button class="btn-main">
               <i class="fas fa-calendar-check"></i>
-              預約服務
+              立即預約
             </button>
             <button class="btn-main">
               <i class="fas fa-taxi"></i>
@@ -115,7 +143,7 @@
           <div class="service-btn">
             <button class="btn-main">
               <i class="fas fa-calendar-check"></i>
-              預約服務
+              立即預約
             </button>
             <button class="btn-main">
               <i class="fas fa-taxi"></i>
@@ -129,7 +157,7 @@
           <div class="service-btn">
             <button class="btn-main">
               <i class="fas fa-calendar-check"></i>
-              預約服務
+              立即預約
             </button>
             <button class="btn-main">
               <i class="fas fa-taxi"></i>
@@ -143,9 +171,76 @@
 
 
   <div class="container driver-detail content" id="driver-content">
-
+    <div id="sliderWrap">
+      <div class="nar" id="narLeft"><img src="./images/icon/caret-left-solid.svg" alt=""></div>
+      <div id="sliderBoard">
+        <div id="driverSlider">
+          <div class="image">
+            <ul>
+              <li>
+                <img src="./images/driver/01_driver.jpg">
+                <span>董美蕙</span>
+              </li>
+              <li>
+                <img src="./images/driver/02_driver.jpeg">
+                <span>郭阿民</span>
+              </li>
+              <li>
+                <img src="./images/driver/1624865802571.jpg">
+                <span>黃小霆</span>
+              </li>
+              <li>
+                <img src="./images/driver/04_driver.jpg">
+                <span>阿莫斯</span>
+              </li>
+              <li>
+                <img src="./images/driver/05_driver.jpg">
+                <span>黃小昕</span>
+              </li>
+              <li>
+                <img src="./images/driver/06_driver.jpg">
+                <span>沈阿華</span>
+              </li>
+            </ul>
+          </div>
+          <div class="image">
+            <ul>
+              <li>
+                <img src="./images/driver/07_driver.jpg">
+                <span>XXX</span>
+              </li>
+              <li>
+                <img src="./images/driver/08_driver.jpg">
+                <span>XXX</span>
+              </li>
+              <li>
+                <img src="./images/driver/09_driver.jpg">
+                <span>XXX</span>
+              </li>
+              <li>
+                <img src="./images/driver/10_driver.jpg">
+                <span>XXX</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="nar" id="narRight"><img src="./images/icon/caret-right-solid.svg" alt=""></div>
+    </div>
+    <div class="service-btn">
+      <button class="btn-main">
+        <i class="fas fa-calendar-check"></i>
+        立即預約
+      </button>
+      <button class="btn-main">
+        <i class="fas fa-taxi"></i>
+        包車旅遊
+      </button>
+    </div>
   </div>
-    @@include('layout/footer.html')
+
+
+  @@include('layout/footer.html')
 
 
   <script src="./js/service.js"></script>

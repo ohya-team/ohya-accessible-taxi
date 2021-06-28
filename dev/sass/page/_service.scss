@@ -73,7 +73,7 @@
     .small-wrap {
       display: flex;
       justify-content: center;
-      .small-pic {
+      .smallPic {
         width: 125px;
         padding: 25px 10px;
         margin: 5px;
@@ -83,6 +83,12 @@
         img {
           width: 100%;
         }
+      }
+      .smallPic:hover {
+        border: 2px solid #313131;
+      }
+      .chosen {
+        border: 2px solid #313131;        
       }
     }
   }
@@ -103,4 +109,125 @@
 //司機介紹
 #driver-content {
   display: none;
+  width: 50%;
+  // border: 1px solid #ccc;
+  #sliderWrap{
+    margin: auto;
+    text-align: center;
+    display: flex;
+    .nar{
+      color: black;
+      margin: auto;
+      cursor: pointer;
+      width: 50px;
+    }
+    #sliderBoard{
+      // border: 1px solid #ccc;
+      height: 550px;
+      overflow: hidden;
+      display: flex;
+      #driverSlider{	
+        position: relative;
+        display: flex;
+      }
+      #driverSlider ul{
+        float: left;
+      }
+      .image{
+        margin: 25px 0px;
+        ul{
+          width: 770px;
+          list-style: none;
+          display: flex;
+          flex-wrap: wrap;
+        }
+        li{
+          width: 180px;
+          margin: 10px 20px;
+          text-align: center;
+          span{
+            width: 150px;
+            padding: 5px 10px;
+            margin: auto;
+            color: white;
+            background-color: #313131;
+            border-radius: 5px;
+            position: relative;
+            top: -15px;
+          }
+        }
+        img{
+          border-radius: 10px;
+          width: 100%;
+        }
+        img:hover{
+          border: 3px solid #313131;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
+//司機燈箱
+#driverLightBox{
+  position: fixed;
+  z-index: 1001;
+  width: 100%;
+  height: 100%;
+  background: rgba(66,66,66,.6);
+  .driverContent{
+    width: 750px;
+    padding: 50px;
+    margin: auto;
+    background-color: #fff;
+    border-radius: 10px;
+    .driverDetail{
+      justify-content: space-between;
+      padding-bottom: 40px;
+      .driverDescribe{
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+        span{
+          font-weight: $font-bold;
+        }
+      }
+      .driverPic{
+        display: inline-block;
+        width: 300px;
+        img{
+          width: 100%;
+        }
+      }
+    }
+    .driverCar::before{
+      content: "";
+      background-color: #313131;
+      width: 650px;
+      height: 5px;
+      display: block;
+    }
+    .driverCar{
+      justify-content: space-between;
+      .carPic{
+        width: 250px;
+        margin: 25px;
+        display: inline-block;
+        img{
+          width: 100%;
+        }
+      }
+      .carDescribe{
+        display: inline-block;
+        margin-left: 60px;
+        span{
+          font-size: $font-base;
+          font-weight: $font-bold;
+        }
+        li{
+          line-height: 1.5;
+        }
+      }
+    }
+  }
 }

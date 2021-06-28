@@ -27,8 +27,8 @@ section.bookingInfo,
   @extend %black;
 }
 
-@include btn(button, booking, 100%, '%black', '%bg-white');
-button.btn-booking{
+@include btn(button, bookingTime, 100%, '%black', '%bg-white');
+button.btn-bookingTime{
   border: 1px solid $black;
 
   @extend %block;
