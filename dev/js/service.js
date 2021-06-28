@@ -1,12 +1,7 @@
-// function $id(id) {
-//   return document.getElementById(id);
-// }
-
 //var
 let selectorBtn = document.getElementsByClassName("selector-btn");
 let chosenClass = document.getElementsByClassName('content');
 let smallCar = document.getElementsByClassName("small-pic");
-//let bigPic = $id('big-pic');
 let carContent = document.getElementsByClassName('car-context');
 
 //show service content
@@ -44,6 +39,35 @@ function showLarge (e) {
 }
 
 
+//driver slider narrow move
+function moveLeft(){
+  $("#driverSlider").animate({
+    left: 0 
+  })
+}
+function moveRight(){
+  $("#driverSlider").animate({
+    left: $('.image').width() * -1
+  })
+}
+//driver slider auto move
+function autoMove() {
+  let imgCount = $('.image').length;
+  let i = 0;
+
+  setInterval(function () {
+      if (i == imgCount) {
+        i = 0;
+      };
+      $("#driverSlider").animate({
+          left: $('.image').width() * -1 *i,
+      });
+      i++;
+  }, 3000);
+};
+//driver lightBox
+
+
 
 
 
@@ -61,6 +85,9 @@ function init(){
     smallCar[i].onclick = showLarge;
     showCar();   
   }
+  $('#narLeft')[0].onclick = moveLeft;
+  $('#narRight')[0].onclick = moveRight;
+  autoMove();
 }
 
 window.onload = init;
