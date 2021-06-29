@@ -17,7 +17,7 @@ module.exports = {
         jquerySliderPro:'./dev/js/jquerySliderPro.js',
         bootstrapMin: '/dev/js/bootstrapMin.js',
         metisMenuMin: '/dev/js/metisMenuMin.js',
-        starmin: '/dev/js/starmin.js'
+        startmin: '/dev/js/startmin.js'
 
     },// 入口文件
     output: {
