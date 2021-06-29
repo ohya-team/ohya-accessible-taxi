@@ -109,6 +109,57 @@ a.btn-cancel{
   @extend %border-box;
 }
 
+.pop-up-box {
+  display: flex;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.7);
+  visibility: hidden;
+  z-index: 1002;
+
+  &.active {
+    visibility: visible;
+
+    .item {
+      transform: scale(1);
+    }
+  }
+
+  .item {
+    @extend %border-box;
+    width: 90%;
+    margin: auto;
+    background-color: $white;
+    transform: scale(0);
+    transition: .5s;
+    text-align: center;
+    padding: 10% 3%;
+
+    @include rwd_each(desktop) {
+      width: 35%;
+      padding: 3% 0;
+    }
+
+    .icon {
+      font-size: 120px;
+      margin: $text-text 0;
+
+      i {
+        color: $blue;
+      }
+    }
+
+    #close-button{
+      margin-right: 0;
+    }
+  }
+}
+
+@include avatar(bookingDriver, 200px);
+
 @include rwd-each(desktop){
   .deskTable{
     display: initial;

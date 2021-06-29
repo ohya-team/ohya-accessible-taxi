@@ -74,7 +74,7 @@ function step1(){//步驟一
   //deskTable table button.btn-bookingTime ->跳下一步
   var bookingBtn = $('.btn-bookingTime');
   
-  bookingBtn.on('click',function(){
+  bookingBtn.on('click', () => {
     //重置按鈕顏色
     bookingBtn.css({
       color: '#313131',
@@ -82,7 +82,7 @@ function step1(){//步驟一
     });
 
     //跳轉步驟div
-    $('.pills li:nth-child(1)').on('click', function(){
+    $('.pills li:nth-child(1)').on('click', () => {
       $('#step1').css('display','initial');
       $('#step2').css('display','none');
       $('#step3').css('display','none');
@@ -102,7 +102,7 @@ function step1(){//步驟一
   //mobileTable table button.btn-bookingTime ->跳下一步
   var dayMobileBtn = $('td.dayMobile');
 
-  dayMobileBtn.on('click', function(){
+  dayMobileBtn.on('click', () => {
     //重置按鈕顏色
     dayMobileBtn.css({
       color: '#313131',
@@ -118,7 +118,7 @@ function step1(){//步驟一
     //要先按日期 時段按鈕才可以按
     var dayTimeMobileBtn = $('.mobileTable>button');
   
-    dayTimeMobileBtn.on('click', function(){
+    dayTimeMobileBtn.on('click', () => {
       //重置按鈕顏色
       dayTimeMobileBtn.css({
         color: '#313131',
@@ -126,7 +126,7 @@ function step1(){//步驟一
       });
   
       //跳轉步驟div
-      $('.pills li:nth-child(1)').on('click', function(){
+      $('.pills li:nth-child(1)').on('click', () => {
         $('#step1').css('display','initial');
         $('#step2').css('display','none');
         $('#step3').css('display','none');
@@ -168,7 +168,7 @@ function step2(){
   // carChoosing button.btn-bookingCar ->跳下一步
   var bookingCarBtn = $('.btn-bookingCar');
   
-  bookingCarBtn.on('click',function(){
+  bookingCarBtn.on('click',() => {
     //重置按鈕顏色
     bookingCarBtn.css({
       color: '#313131',
@@ -176,7 +176,7 @@ function step2(){
     });
 
     //跳轉步驟div
-    $('.pills li:nth-child(2)').on('click', function(){
+    $('.pills li:nth-child(2)').on('click',() => {
       $('#step1').css('display','none');
       $('#step2').css('display','initial');
       $('#step3').css('display','none');
@@ -197,26 +197,22 @@ function step2(){
 function step3(){
   for(i=0; i<5; i++){
     $('#step3 .cards').append(`
-      <div class="card">
-        <img src="images/type2.png" alt="Avatar">
-        <section>
-          <h4>福泰 T5</h4>
-          <ul>
-            <li>一般乘客座位：6位</li>
-            <li>輪椅座位：1位</li>
-            <li>輪椅升降設備：有</li>
-          </ul>
-        </section>
-    
-        <button class="btn-third btn-bookingDriver">選擇</button>
+    <div class="card">
+      <div class="avatar">
+        <div class="avatar-bookingDriver">
+          <img src="images/driver/01_driver.jpg" alt="">
+        </div>
       </div>
+      <h4>郭阿明</h4>
+      <button class="btn-third btn-bookingDriver">選擇</button>
+    </div>
     `);
   }
   
   // driverChoosing button.btn-bookingDriver ->跳下一步
   var bookingDriverBtn = $('.btn-bookingDriver');
   
-  bookingDriverBtn.on('click',function(){
+  bookingDriverBtn.on('click', () => {
     //重置按鈕顏色
     bookingDriverBtn.css({
       color: '#313131',
@@ -224,7 +220,7 @@ function step3(){
     });    
 
     //跳轉步驟div
-    $('.pills li:nth-child(3)').on('click', function(){
+    $('.pills li:nth-child(3)').on('click', () => {
       $('#step1').css('display','none');
       $('#step2').css('display','none');
       $('#step3').css('display','initial');
@@ -266,9 +262,16 @@ function formChecking(){
   })
 } 
 
+var bookingSub = $('#bookingSub');
+var popUpBox = $('.pop-up-box');
+
+bookingSub.on("click", () => {
+  popUpBox.addClass('active');
+});
 
 $(function(){
   step1();
   step2();
   step3();
+  formChecking();
 });
