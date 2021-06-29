@@ -167,7 +167,7 @@ class Slider {
         x = 0
       }
       this.goTo(x, 1);
-     }, 5000);
+     }, 3000);
   }
 
   
