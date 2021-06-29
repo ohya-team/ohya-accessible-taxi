@@ -2,7 +2,7 @@
 let selectorBtn = document.getElementsByClassName("selector-btn");
 let chosenClass = document.getElementsByClassName('content');
 let smallCar = document.getElementsByClassName("smallPic");
-let carContent = document.getElementsByClassName('car-context');
+let carContent = document.getElementsByClassName('carContext');
 
 //show service content
 function showContent() {
@@ -39,6 +39,30 @@ $('.smallPic').click(function(){
   $('.smallPic').not(this).removeClass('chosen');
   showCar();
 })
+//car slider
+ let j = 1;
+  $('.carSlider #narRight').click( function () {
+
+    if( j > 4){
+      j = 0;
+      carContent[j].style.display = "none";
+    }else{
+      carContent[j].style.display = "block";
+      carContent[j-1].style.display = "none";
+    }
+    j+=1;
+    $('#carImage img')[0].src = `./images/car/car${j}.png`
+    console.log(`./images/car/car${j}.png`);
+    console.log(carContent[j-1]);
+  })
+  $('.carSlider #narLeft').click( function () {
+    j-=1;
+    if( j < 1){
+      j = 4;
+     } 
+    $('#carImage img')[0].src = `./images/car/car${j}.png` 
+  })
+
 
 //driver slider narrow move
 function moveLeft(){
@@ -64,7 +88,7 @@ function autoMove() {
           left: $('.image').width() * -1 *i,
       });
       i++;
-  }, 3000);
+  }, 4000);
 };
 //driver lightBox
 function showLightBox(){
@@ -79,21 +103,13 @@ function closeLightBox(){
   })
 }
 
-
-
-
-
-
-
-
-
 //init
 function init(){
   for (let i = 0; i < selectorBtn.length; i++) {
     selectorBtn[i].onclick = chosen;
   }
-  $('#narLeft')[0].onclick = moveLeft;
-  $('#narRight')[0].onclick = moveRight;
+  $('#driver-content #narLeft')[0].onclick = moveLeft;
+  $('#driver-content #narRight')[0].onclick = moveRight;
   autoMove();
   showCar();
   showLightBox();
