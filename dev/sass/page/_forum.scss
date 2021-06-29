@@ -191,7 +191,7 @@
     }
 
     .card-content {
-      padding: 15px 15px 0px;
+      padding: 15px;
 
       .card-topic {
         font-weight   : $font-bold;
@@ -199,6 +199,12 @@
         margin-bottom : 15px;
         letter-spacing: 0.35px;
       }
+      a{
+        text-decoration: none;
+        display: block;
+        margin-right:0px;
+      }
+    
     }
 
     .card-info {
@@ -238,7 +244,3 @@
   padding-bottom : 70px;
 }
 
-a{
-  text-decoration: none;
-  display: block;
-}
