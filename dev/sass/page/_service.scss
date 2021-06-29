@@ -145,6 +145,7 @@
           width: 180px;
           margin: 10px 20px;
           text-align: center;
+          cursor: pointer;
           span{
             width: 150px;
             padding: 5px 10px;
@@ -162,7 +163,6 @@
         }
         img:hover{
           border: 3px solid #313131;
-          cursor: pointer;
         }
       }
     }
@@ -177,23 +177,30 @@
   background: rgba(66,66,66,.6);
   .driverContent{
     width: 750px;
-    padding: 50px;
-    margin: auto;
+    margin: 50px auto;
     background-color: #fff;
     border-radius: 10px;
+    position: relative;
+    .closeIcon{
+      position: absolute;
+      top: 0px;
+      right: 0px;
+      margin-left: auto;
+      border: 1px solid #ccc;
+      cursor: pointer;
+    }
     .driverDetail{
       justify-content: space-between;
-      padding-bottom: 40px;
+      padding: 40px;
+      display: flex;
       .driverDescribe{
-        display: inline-block;
         vertical-align: top;
-        width: 50%;
+         width: 50%;
         span{
           font-weight: $font-bold;
         }
       }
       .driverPic{
-        display: inline-block;
         width: 300px;
         img{
           width: 100%;
@@ -206,9 +213,11 @@
       width: 650px;
       height: 5px;
       display: block;
+      margin: auto;
     }
     .driverCar{
       justify-content: space-between;
+      padding: 0px 40px 40px 40px;
       .carPic{
         width: 250px;
         margin: 25px;

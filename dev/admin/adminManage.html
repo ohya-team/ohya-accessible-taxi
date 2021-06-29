@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>後台管理員</title>
+
+  <!-- Bootstrap Core CSS -->
+  <link href="../css/bootstrap.css" rel="stylesheet">
+
+  <!-- MetisMenu CSS -->
+  <link href="../css/metisMenuMin.css" rel="stylesheet">
+
+  <!-- Timeline CSS -->
+  <link href="../css/timeline.css" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link href="../css/startmin.css" rel="stylesheet">
+
+  <!-- Morris Charts CSS -->
+  <link href="../css/morris.css" rel="stylesheet">
+
+  <!-- Custom Fonts -->
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+    integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+  <div id="wrapper">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#"><img src="../images/logo/ohya_logo_main.svg" alt="Ohya"></a>
+      </div>
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <!-- Top Navigation: Right Menu -->
+      <ul class="nav navbar-right navbar-top-links">
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+            <i class="fa fa-user fa-fw"></i> adminid <b class="caret"></b>
+          </a>
+          <ul class="dropdown-menu dropdown-user">
+            <!-- <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
+            </li>
+            <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+            </li>
+            <li class="divider"></li> -->
+            <li><a href="adminLogin.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+
+      <!-- Sidebar -->
+      <div class="navbar-default sidebar" role="navigation">
+        <div class="sidebar-nav navbar-collapse">
+          <ul class="nav" id="side-menu">
+            
+            <li>
+              <a href="adminStartmin.html" class="active"> 管理員權限 </a>
+            </li>
+            <li>
+              <a href="adminMember.html"> 會員管理</a>
+            </li>
+            <li>
+              <a href="adminTravel.html"> 旅遊資訊 </a>
+            </li>
+            <li>
+              <a href="adminForum.html"> 文章管理 </a>
+            </li>
+            <li>
+              <a href="adminCupon.html"> 折扣管理 </a>
+            </li>
+        
+          </ul>
+        </div>
+      </div>
+
+    </nav>
+
+    <!-- Page Content -->
+    <div id="page-wrapper">
+      <div class="container-fluid">
+
+        <!-- <div class="row">
+          <div class="col-lg-12">
+            <h1 class="page-header">管理員</h1>
+          </div>
+        </div> -->
+        <div class="container-lg">
+          <div class="table-responsive">
+            <div class="table-wrapper">
+              <div class="table-title">
+                <div class="row">
+                  <div class="col-sm-8">
+                    <h2>管理員帳號 </h2>
+                  </div>
+                  <div class="col-sm-4">
+                    <button type="button" class="btn btn-info add-new"><i class="fa fa-plus"></i> Add New</button>
+                  </div>
+                </div>
+              </div>
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th>管理員帳號</th>
+                    <th>管理員名稱</th>
+                    <th>建立時間</th>
+                    <th>修改時間</th>
+                    <th>密碼</th>
+                    <th>動作</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>gordon888</td>
+                    <td>Gordon</td>
+                    <td>6/29</td>
+                    <td>6/29</td>
+                    <td>root</td>
+                    <td>
+                      <a class="add" title="Add" data-toggle="tooltip"><i class="fas fa-plus"></i></a>
+                      <a class="edit" title="Edit" data-toggle="tooltip"><i class="fas fa-edit"></i></a>
+                      <a class="delete" title="Delete" data-toggle="tooltip"><i class="fas fa-trash-alt"></i></a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>eric888</td>
+                    <td>Eric</td>
+                    <td>6/29</td>
+                    <td>6/29</td>
+                    <td>root</td>
+
+                    <td>
+                      <a class="add" title="Add" data-toggle="tooltip"><i class="fas fa-plus"></i></a>
+                      <a class="edit" title="Edit" data-toggle="tooltip"><i class="fas fa-edit"></i></a>
+                      <a class="delete" title="Delete" data-toggle="tooltip"><i class="fas fa-trash-alt"></i></a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>penny888</td>
+                    <td>Penny</td>
+                    <td>6/29</td>
+                    <td>6/29</td>
+                    <td>root</td>
+
+                    <td>
+                      <a class="add" title="Add" data-toggle="tooltip"><i class="fas fa-plus"></i></a>
+                      <a class="edit" title="Edit" data-toggle="tooltip"><i class="fas fa-edit"></i></a>
+                      <a class="delete" title="Delete" data-toggle="tooltip"><i class="fas fa-trash-alt"></i></a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>robin888</td>
+                    <td>Robin</td>
+                    <td>6/29</td>
+                    <td>6/29</td>
+                    <td>root</td>
+
+                    <td>
+                      <a class="add" title="Add" data-toggle="tooltip"><i class="fas fa-plus"></i></a>
+                      <a class="edit" title="Edit" data-toggle="tooltip"><i class="fas fa-edit"></i></a>
+                      <a class="delete" title="Delete" data-toggle="tooltip"><i class="fas fa-trash-alt"></i></a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>grace888</td>
+                    <td>Grace</td>
+                    <td>6/29</td>
+                    <td>6/29</td>
+                    <td>root</td>
+
+                    <td>
+                      <a class="add" title="Add" data-toggle="tooltip"><i class="fas fa-plus"></i></a>
+                      <a class="edit" title="Edit" data-toggle="tooltip"><i class="fas fa-edit"></i></a>
+                      <a class="delete" title="Delete" data-toggle="tooltip"><i class="fas fa-trash-alt"></i></a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>jessie888</td>
+                    <td>Jessie</td>
+                    <td>6/29</td>
+                    <td>6/29</td>
+                    <td>root</td>
+
+                    <td>
+                      <a class="add" title="Add" data-toggle="tooltip"><i class="fas fa-plus"></i></a>
+                      <a class="edit" title="Edit" data-toggle="tooltip"><i class="fas fa-edit"></i></a>
+                      <a class="delete" title="Delete" data-toggle="tooltip"><i class="fas fa-trash-alt"></i></a>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+
+  <!-- jQuery -->
+  <script src="../js/jqueryMin.js"></script>
+
+  <!-- Bootstrap Core JavaScript -->
+  <script src="../js/bootstrapMin.js"></script>
+
+  <!-- Metis Menu Plugin JavaScript -->
+  <script src="../js/metisMenuMin.js"></script>
+
+  <!-- Custom Theme JavaScript -->
+  <script src="../js/startmin.js"></script>
+
+</body>
+
+</html>

@@ -67,7 +67,17 @@ function autoMove() {
   }, 3000);
 };
 //driver lightBox
-
+function showLightBox(){
+  $('.image li').click( function(){
+    $('#driverLightBox').css("display","block");
+    closeLightBox();
+  })
+}
+function closeLightBox(){
+  $('.closeIcon').click( function(){
+    $('#driverLightBox').css("display","none");
+  })
+}
 
 
 
@@ -86,6 +96,7 @@ function init(){
   $('#narRight')[0].onclick = moveRight;
   autoMove();
   showCar();
+  showLightBox();
 }
 
 window.onload = init;
