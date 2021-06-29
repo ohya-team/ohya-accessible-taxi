@@ -45,7 +45,7 @@ function step1(){//步驟一
   
     $('.deskTable>table').find('tr').first().append(`
       <th>
-        <span>${curweekDays[curweekDay+j-1]}</span>
+        <span>${curweekDays[j]}</span>
         <span class="day">${leftMonth+1}/${leftDay+i}</span>
       </th>
     `);
@@ -141,36 +141,6 @@ function step3(){
     $('#step4').css('display','initial');
   })
 }
-
-$(`.pills li.pills-main:nth-child(1)`).on('click', function(){
-  $(`#step1`).css('display','initial');
-  $(`#step2`).css('display','none');
-  $(`#step3`).css('display','none');
-  $(`#step4`).css('display','none');
-});
-
-$(`.pills li.pills-main:nth-child(2)`).on('click', function(){
-  $(`#step1`).css('display','none');
-  $(`#step2`).css('display','initial');
-  $(`#step3`).css('display','none');
-  $(`#step4`).css('display','none');
-});
-
-$(`.pills li.pills-main:nth-child(3)`).on('click', function(){
-  $(`#step1`).css('display','none');
-  $(`#step2`).css('display','none');
-  $(`#step3`).css('display','initial');
-  $(`#step4`).css('display','none');
-});
-
-$(`.pills li.pills-main:nth-child(4)`).on('click', function(){
-  $(`#step1`).css('display','none');
-  $(`#step2`).css('display','none');
-  $(`#step3`).css('display','none');
-  $(`#step4`).css('display','initial');
-});
-
-
 
 $(function(){
   step1();
