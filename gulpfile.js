@@ -40,7 +40,12 @@ function html() {
         .pipe(dest('dist'))
 }
 
-//============= 圖片、js 跟 php 搬家
+//=============會員 圖片、js 跟 php 搬家
+function adminHtml() {
+    return src('dev/admin/*.html')
+        .pipe(dest('dist/admin'))
+}
+
 function img_mv() {
     return src(['dev/images/*.*', 'dev/images/**/*.*'])
         .pipe(dest('dist/images'))
@@ -91,7 +96,7 @@ function browser(done) {
 }
 
 // 執行指令
-exports.default = series(cleanfile, img_mv, html, sass_style, css_mv,php_mv, browser);
+exports.default = series(cleanfile, img_mv, html, adminHtml, sass_style, css_mv, php_mv, browser);
 
 
 // +++++++++  打包上線用 +++++++
@@ -117,7 +122,7 @@ function min_images() {
 
 exports.prod = series(
     cleanfile,
-    parallel(html, css_mv, sass_style, ugjs, php_mv),
+    parallel(html, adminHtml, css_mv, sass_style, php_mv),
     min_images
 );
 
