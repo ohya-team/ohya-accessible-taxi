@@ -4,6 +4,7 @@ $('#step3').css('display','none');
 $('#step4').css('display','none');
 
 function step1(){//步驟一
+
   //時段選擇 ->需顯示今天後8-14天
   var curDate = new Date();
   var curMonth = curDate.getMonth();//index: 5+1月
@@ -62,7 +63,17 @@ function step1(){//步驟一
   var bookingBtn = $('.btn-bookingTime');
   
   bookingBtn.on('click',function(){
-    $('.pills li:nth-child(2)').removeClass('pills-else').addClass('pills-main');
+    bookingBtn.css({
+      color: '#313131',
+      background: 'white'
+    });
+
+    $('.pills li:nth-child(1)').on('click', function(){
+      $('#step1').css('display','initial');
+      $('#step2').css('display','none');
+      $('#step3').css('display','none');
+      $('#step4').css('display','none');
+    });
 
     $(this).css({
       color: 'white',
@@ -96,7 +107,17 @@ function step2(){
   var bookingCarBtn = $('.btn-bookingCar');
   
   bookingCarBtn.on('click',function(){
-    $('.pills li:nth-child(3)').removeClass('pills-else').addClass('pills-main');
+    bookingCarBtn.css({
+      color: '#313131',
+      background: 'white'
+    });
+
+    $('.pills li:nth-child(2)').on('click', function(){
+      $('#step1').css('display','none');
+      $('#step2').css('display','initial');
+      $('#step3').css('display','none');
+      $('#step4').css('display','none');
+    });
   
     $(this).css({
       color: 'white',
@@ -130,7 +151,17 @@ function step3(){
   var bookingDriverBtn = $('.btn-bookingDriver');
   
   bookingDriverBtn.on('click',function(){
-    $('.pills li:nth-child(4)').removeClass('pills-else').addClass('pills-main');
+    bookingDriverBtn.css({
+      color: '#313131',
+      background: 'white'
+    });    
+
+    $('.pills li:nth-child(3)').on('click', function(){
+      $('#step1').css('display','none');
+      $('#step2').css('display','none');
+      $('#step3').css('display','initial');
+      $('#step4').css('display','none');
+    });
   
     $(this).css({
       color: 'white',
