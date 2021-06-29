@@ -74,7 +74,7 @@ function step1(){//步驟一
   //deskTable table button.btn-bookingTime ->跳下一步
   var bookingBtn = $('.btn-bookingTime');
   
-  bookingBtn.on('click', () => {
+  bookingBtn.on('click', function(){
     //重置按鈕顏色
     bookingBtn.css({
       color: '#313131',
@@ -82,7 +82,7 @@ function step1(){//步驟一
     });
 
     //跳轉步驟div
-    $('.pills li:nth-child(1)').on('click', () => {
+    $('.pills li:nth-child(1)').on('click', function(){
       $('#step1').css('display','initial');
       $('#step2').css('display','none');
       $('#step3').css('display','none');
@@ -102,7 +102,7 @@ function step1(){//步驟一
   //mobileTable table button.btn-bookingTime ->跳下一步
   var dayMobileBtn = $('td.dayMobile');
 
-  dayMobileBtn.on('click', () => {
+  dayMobileBtn.on('click', function(){
     //重置按鈕顏色
     dayMobileBtn.css({
       color: '#313131',
@@ -118,7 +118,7 @@ function step1(){//步驟一
     //要先按日期 時段按鈕才可以按
     var dayTimeMobileBtn = $('.mobileTable>button');
   
-    dayTimeMobileBtn.on('click', () => {
+    dayTimeMobileBtn.on('click', function(){
       //重置按鈕顏色
       dayTimeMobileBtn.css({
         color: '#313131',
@@ -168,7 +168,7 @@ function step2(){
   // carChoosing button.btn-bookingCar ->跳下一步
   var bookingCarBtn = $('.btn-bookingCar');
   
-  bookingCarBtn.on('click',() => {
+  bookingCarBtn.on('click',function(){
     //重置按鈕顏色
     bookingCarBtn.css({
       color: '#313131',
@@ -176,7 +176,7 @@ function step2(){
     });
 
     //跳轉步驟div
-    $('.pills li:nth-child(2)').on('click',() => {
+    $('.pills li:nth-child(2)').on('click',function(){
       $('#step1').css('display','none');
       $('#step2').css('display','initial');
       $('#step3').css('display','none');
@@ -202,8 +202,8 @@ function step3(){
         <div class="avatar-bookingDriver">
           <img src="images/driver/01_driver.jpg" alt="">
         </div>
+        <h4>郭阿明</h4>
       </div>
-      <h4>郭阿明</h4>
       <button class="btn-third btn-bookingDriver">選擇</button>
     </div>
     `);
@@ -212,7 +212,7 @@ function step3(){
   // driverChoosing button.btn-bookingDriver ->跳下一步
   var bookingDriverBtn = $('.btn-bookingDriver');
   
-  bookingDriverBtn.on('click', () => {
+  bookingDriverBtn.on('click',function(){
     //重置按鈕顏色
     bookingDriverBtn.css({
       color: '#313131',
@@ -220,7 +220,7 @@ function step3(){
     });    
 
     //跳轉步驟div
-    $('.pills li:nth-child(3)').on('click', () => {
+    $('.pills li:nth-child(3)').on('click',function(){
       $('#step1').css('display','none');
       $('#step2').css('display','none');
       $('#step3').css('display','initial');
@@ -265,7 +265,7 @@ function formChecking(){
 var bookingSub = $('#bookingSub');
 var popUpBox = $('.pop-up-box');
 
-bookingSub.on("click", () => {
+bookingSub.on("click",function(){
   popUpBox.addClass('active');
 });
 
