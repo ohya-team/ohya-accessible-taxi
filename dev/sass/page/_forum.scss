@@ -112,18 +112,26 @@
 
   @include btn(button, forum, 150px, '%black', '%bg-yellow-first') {
     position: fixed;
-    z-index : 100;
-    bottom  : 20px;
-    right   : 10px;
+    z-index: 100;
+    bottom: 20px;
+    right:10px;
+    border-radius: 50%;
+    padding: 55px 0px;
+    letter-spacing: 2px;
 
+    margin:0;
+    
     .fa-pencil {
       font-size: 19px;
-    }
-
+      margin-left:-3px;
+    } 
     @include rwd_each(tablet) {
       position: static;
-      padding : 13px 26px;
-      margin  : auto;
+      padding: 13px 26px;
+      border-radius: $btn-radius;
+      letter-spacing: 0px;
+      margin: auto 0 ;
+
     }
   }
 

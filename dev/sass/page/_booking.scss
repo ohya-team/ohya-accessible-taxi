@@ -101,6 +101,14 @@ label.booking-notice{
   display: block;
 }
 
+@include btn(a, cancel, 150px, '%black', '%bg-white');
+a.btn-cancel{
+  border: 2px solid $black;
+  font-weight: $font-regular;
+  text-decoration: none;
+  @extend %border-box;
+}
+
 @include rwd-each(desktop){
   .deskTable{
     display: initial;

@@ -242,6 +242,31 @@ function step3(){
   })
 }
 
+function formChecking(){
+  var memInfo = {
+    noText: '',
+    lastName : '粥',
+    FirstName: '四瓶',
+    email: '123@gmail.com',
+    phone: '0912345678',
+  };
+  
+  $('#memId').on('change', function(){
+    if(this.checked){
+      $('#b-lastName').attr('value', memInfo.lastName);
+      $('#b-FirstName').attr('value', memInfo.FirstName );
+      $('#b-email').attr('value' , memInfo.email);
+      $('#b-phone').attr('value', memInfo.phone);
+    }else{
+      $('#b-lastName').removeAttr('value');
+      $('#b-FirstName').removeAttr('value');
+      $('#b-email').removeAttr('value');
+      $('#b-phone').removeAttr('value');
+    }
+  })
+} 
+
+
 $(function(){
   step1();
   step2();
