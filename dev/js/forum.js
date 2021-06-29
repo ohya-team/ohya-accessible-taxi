@@ -45,10 +45,6 @@ function showHideMenuOrder(){
   }
 
 
-
-
-
-
   function init(){
    let list = document.getElementById("dropdown-list");
    list.onclick = showHideMenuOrder; 
@@ -62,7 +58,6 @@ function showHideMenuOrder(){
    for(let i = 0;i< sort.length;i++){
     sort[i].onclick = selectSort;
    }
-    // document.getElementById("hideDropdownMenu").onclick = invisibleDropdownMenu;
 
   }
   window.addEventListener("load",init,false);

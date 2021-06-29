@@ -109,7 +109,6 @@
     }
   }
 
-
   @include btn(button, forum, 150px, '%black', '%bg-yellow-first') {
     position: fixed;
     z-index: 100;
@@ -130,7 +129,7 @@
       padding: 13px 26px;
       border-radius: $btn-radius;
       letter-spacing: 0px;
-      margin: auto 0 ;
+      margin-top: 25px;
 
     }
   }
@@ -192,7 +191,7 @@
     }
 
     .card-content {
-      padding: 15px;
+      padding: 15px 15px 0px;
 
       .card-topic {
         font-weight   : $font-bold;
@@ -222,6 +221,7 @@
     @extend %flex;
     margin   : auto;
     font-size: 16px;
+
   }
 
   button.btn-forum-card:hover {
@@ -236,4 +236,9 @@
   justify-content: center;
   margin-top     : -70px;
   padding-bottom : 70px;
+}
+
+a{
+  text-decoration: none;
+  display: block;
 }

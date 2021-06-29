@@ -1,6 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="334.841" height="354.002" viewBox="0 0 334.841 354.002">
-  <g id="slotmachine-body" transform="translate(2.203 0)">
-    <ellipse id="Ellipse_4" data-name="Ellipse 4" cx="167.42" cy="19.691" rx="167.42" ry="19.691" transform="translate(-2.203 314.619)" fill="#ccc"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="342.437" height="354.002" viewBox="0 0 342.437 354.002">
+  <g id="slotmachine-body" transform="translate(0 0)">
+    <ellipse id="Ellipse_4" data-name="Ellipse 4" cx="167.42" cy="19.691" rx="167.42" ry="19.691" transform="translate(3.797 314.619)" fill="#ccc"/>
     <g id="Group_1072" data-name="Group 1072" transform="translate(0 0)">
       <g id="Group_965" data-name="Group 965" transform="translate(58.847)">
         <ellipse id="Ellipse_5" data-name="Ellipse 5" cx="108.755" cy="108.755" rx="108.755" ry="108.755" fill="#f2ad00"/>
@@ -14,6 +14,8 @@
       <rect id="Rectangle_2153" data-name="Rectangle 2153" width="271.879" height="12.589" rx="6.294" transform="translate(26.348 302.204)" fill="#313131"/>
       <rect id="Rectangle_2154" data-name="Rectangle 2154" width="271.879" height="12.589" rx="6.294" transform="translate(26.348 317.519)" fill="#3f3f3f"/>
       <rect id="Rectangle_2155" data-name="Rectangle 2155" width="271.658" height="74.339" rx="6.405" transform="translate(25.808 198.237)" fill="#313131"/>
+      <path id="Rectangle_2156" data-name="Rectangle 2156" d="M0,0H14.466a4.807,4.807,0,0,1,4.807,4.807V85.021a4.807,4.807,0,0,1-4.807,4.807H0a0,0,0,0,1,0,0V0A0,0,0,0,1,0,0Z" transform="translate(323.164 152.859)" fill="#ffc100"/>
+      <path id="Rectangle_2157" data-name="Rectangle 2157" d="M0,0H14.466a4.807,4.807,0,0,1,4.807,4.807V38.735a4.807,4.807,0,0,1-4.807,4.807H0a0,0,0,0,1,0,0V0A0,0,0,0,1,0,0Z" transform="translate(323.164 198.747)" fill="#d39c13"/>
       <rect id="Rectangle_2160" data-name="Rectangle 2160" width="75.17" height="111.004" rx="6.405" transform="translate(40.988 143.171)" fill="#fff"/>
       <rect id="Rectangle_2161" data-name="Rectangle 2161" width="75.17" height="111.004" rx="6.405" transform="translate(123.382 143.171)" fill="#fff"/>
       <rect id="Rectangle_2162" data-name="Rectangle 2162" width="75.17" height="111.004" rx="6.405" transform="translate(205.776 143.171)" fill="#fff"/>

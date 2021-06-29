@@ -1,3 +1,7 @@
+.slot-hide {
+    display: none;
+}
+
 .slotmachine-container {
     position: fixed;
     @extend %bg-white;
@@ -5,42 +9,75 @@
     top          : 50%;
     left         : 50%;
     transform    : translate(-50%, -50%);
-    padding      : 30px 80px ;
+    padding      : 10px 10px;
+    box-sizing   : border-box;
 
+    @include rwd_each(tablet) {
+        padding: 30px 80px;
+        width  : 493px;
+        height : 670px;
 
-    .topic span {
-        z-index: 1000
+    }
+
+    @include rwd_each(desktop) {
+        padding: 30px 60px 0 70px;
+        width  : 848px;
+        height : 650px;
+
+    }
+
+    .fa-times {
+        position: absolute;
+        right   : 20px;
+        top     : 20px;
+        @extend %cursor-hand;
+    }
+
+    .slotmachine-topic {
+        margin-top: 20px;
+
+        .topic span {
+            margin-top: 10px;
+            z-index   : 1000;
+        }
     }
 
     .slotmachine-content {
         display    : flex;
         align-items: flex-start;
 
+
         .rules {
+            display: none;
             @extend %bg-gray-third;
             border       : 2px solid $gray-second;
-            padding      : 30px 80px;
+            padding      : 25px;
             margin       : 20px 20px 50px 20px;
             border-radius: $ele-ele;
+            box-sizing   : border-box;
+            width        : 300px;
+            height       : 320px;
 
-
-
-
+            @include rwd_each(desktop) {
+                display: block;
+            }
 
             h3 {
-                font-size: $font-h4;
+                font-size    : $font-h4;
+                text-align   : center;
+                margin-bottom: 20px
             }
 
             .rule-details {
                 @extend %flex;
                 align-items: flex-start;
-
-                // justify-content: center;
+                margin-left: 32px;
 
                 .free {
                     font-size : $font-h4;
                     color     : $yellow-first;
                     margin-top: -8px;
+
                 }
 
                 p {
@@ -57,30 +94,9 @@
 
         .slotmachine {
             background-image: url('../../images/slotmachine/slotMachine-body.svg');
-            width           : 385.14px;
-            height          : 398.14px;
-
-        }
-
-        .handler {
-            margin: 40px 0 0 380px;
-
-        }
-
-        .slot-machine-items {
-         width: 10px;
-         height: 10px;
-         overflow: hidden;
-           
-            .slot {
-                width   : 69px;
-                height: 68px;
-                overflow: hidden;
-
-                img {
-                    margin-bottom: 10px;
-                }
-            }
+            width           : 334.84px;
+            height          : 354px;
+            z-index         : -10;
 
         }
 
@@ -88,15 +104,110 @@
 
     }
 
+    .handler {
+        margin : -330px 0 0 665px;
+        display: none;
+        z-index: 1000;
+        @extend %cursor-hand;
+
+        @include rwd_each(desktop) {
+            display: block;
+
+        }
+    }
+
+    #randomize {
+        width       : 250px;
+        margin-top  : -230px;
+        margin-right: 35px;
+        float       : right;
+        z-index     : 1000;
+
+        @include rwd_each(desktop) {
+            margin-top  : -120px;
+            margin-right: 80px;
+
+        }
+
+        .slot-wrap {
+            padding-top   : 50px;
+            padding-bottom: 50px;
+
+            .slot-group {
+                @extend %flex;
+                justify-content: flex-start;
+
+                .slot-items {
+                    margin-right: 22px;
+
+                    .randomizeMachine {
+                        width   : 60.55px;
+                        height  : 53.39px;
+                        overflow: hidden;
+
+                        img {
+                            width   : 60.55px;
+                            height  : 54px;
+                            overflow: hidden;
+
+                        }
+                    }
+
+                    .machineResult {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+
+    button.btn-main {
+        width: 150px;
+        @extend %flex,
+        %flex-jc-ai;
+        margin: 10px auto;
+
+        @include rwd_each(desktop) {
+            display: none;
+        }
+    }
+
+    .animation-trigger {
+        display  : none;
+        position : absolute;
+        right    : 38px;
+        top      : 200px;
+        animation: animation-trigger 1.3s linear infinite;
+
+        .animation-trigger-sign {
+            margin-left: 33px;
+            margin-top: -16px;
+            .fa-angle-double-down {
+                color      : $gray-first;
+                font-size  : 17px;
+               
+            }
+        }
+
+        @include rwd_each(desktop) {
+            display: block;
+        }
+
+    }
+
+    @keyframes animation-trigger {
+        0% {
+            transform: translateY(0px);
+        }
+
+        50% {
+            transform: translateY(10px);
+        }
+
+        100% {
+            transform: translateY(0px);
+        }
+
+    }
 
 }
-
-// .slotmachine-pop-up{
-//     width:100%;
-// 	height:100%;
-// 	background-color:rgba(0, 0, 0, 0.5);
-// 	z-index:1000;
-// 	display:none;
-// 	position:absolute;
-// 	box-shadow:0px 0px 5px black;
-// }

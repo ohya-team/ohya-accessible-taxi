@@ -19,7 +19,7 @@ module.exports = {
         metisMenuMin: '/dev/js/metisMenuMin.js',
         startmin: '/dev/js/startmin.js',
         slotmachine1:'./dev/js/slotmachine.js',
-        slotmachine1:'./dev/js/jquery.slotmachine.js',
+        slotmachine2:'./dev/js/jquery.slotmachine.js',
     },// 入口文件
     output: {
         path: path.resolve(__dirname, 'dist/js'),

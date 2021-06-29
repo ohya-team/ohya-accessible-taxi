@@ -7,7 +7,7 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
+        <title>新增文章</title>
         <link rel="stylesheet" href="./css/style.css">
     </head>
 </head>
@@ -50,7 +50,7 @@
                     剩餘字數 :<input name="remLen" type="text" value="500" size="3" readonly="readonly">
                 </div>
                 <div class="upload-btn">
-                    <input class="btn-main" type="button" name="" id="" value="送出">
+                    <input class="btn-main" type="button" name="" id="popbox-btn" value="送出">
                     <a href="forum.html">
                         <button class="btn-third">取消</button>
                     </a>
@@ -58,7 +58,29 @@
             </div>
         </form>
     </div>
+    <div class="pop-up-box">
+        <div class="item">
+            <div class="icon">
+                <i class="fa fa-check-circle-o" aria-hidden="true"></i>
+            </div>
+            <h2>文章新增成功</h2>
+            <p>可以至討論區查看您的文章</p>
+            <button class="btn-main" type="submit" id="pop-up-slot">確定</button>
+        </div>
+    </div>
     @@include('layout/footer.html')
+    @@include('layout/slotmachine2.html')
+    <script>
+        document.getElementById("popbox-btn").addEventListener("click", function () {
+            document.querySelector(".pop-up-box").classList.add('active')
+        });
+        document.getElementById("pop-up-slot").addEventListener("click",function () {
+            document.getElementById("slotmachine-pop-up").classList.remove('slot-hide');
+            document.querySelector(".pop-up-box").classList.remove('active');
+
+        })
+
+    </script>
 
 </body>
 
