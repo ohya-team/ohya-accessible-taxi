@@ -35,13 +35,6 @@
   </section>
 
   <div class="booking">
-    <!-- <ul class="pills">
-      <li class="pills-main">確認時間</li>
-      <li class="pills-else">確認車種</li>
-      <li class="pills-else">確認司機</li>
-      <li class="pills-else">訂單確認</li>
-    </ul> -->
-
     <div class="calender" id="step1">
       <ul class="pills">
         <li class="pills-main">確認時間</li>
@@ -54,6 +47,7 @@
         <div class="weekdays">
           <span></span>
         </div>
+
         <table>
           <tr>
             <th></th>
@@ -75,35 +69,20 @@
       </div>
 
       <div class="mobileTable">
+        <div class="weekdays">
+          <span></span>
+        </div>
+
         <table>
-          <caption>
-            <ul class="weekdays">
-              <li>5月</li>
-            </ul>
-          </caption>
           <tr>
-            <th>一</th>
-            <th>二</th>
-            <th>三</th>
-            <th>四</th>
-            <th>五</th>
-            <th>六</th>
-            <th>日</th>
           </tr>
           <tr>
-            <td>30</td>
-            <td>31</td>
-            <td>01</td>
-            <td>02</td>
-            <td>03</td>
-            <td>04</td>
-            <td>05</td>
           </tr>
         </table>
         
-        <button class="btn-second">早上時段</button>
-        <button class="btn-second">下午時段</button>
-        <button class="btn-second">晚上時段</button>
+        <button class="btn-third">早上</button>
+        <button class="btn-third">下午</button>
+        <button class="btn-third">晚上</button>
       </div>
     </div>
 
@@ -140,37 +119,37 @@
         <ul class="booking-info">
           <h3>請填寫訂單明細</h3>
           <li class="full">
-            <label for="" class="def">
-              <input type="checkbox" name="" id="">同會員資料
+            <label for="memId" class="def">
+              <input type="checkbox" name="memId" id="memId">同會員資料
             </label>
           </li>
           <li class="sbs">
-            <label class="def" for="">姓氏</label>
-            <input class="def" type="text" name="b-lastName" id="">
+            <label class="def" for="b-lastName">姓氏</label>
+            <input class="def" type="text" name="b-lastName" id="b-lastName">
           </li>
           <li class="sbs">
-            <label class="def" for="">名字</label>
-            <input class="def" type="text" name="b-FirstName" id="">
+            <label class="def" for="b-FirstName">名字</label>
+            <input class="def" type="text" name="b-FirstName" id="b-FirstName">
           </li>
           <li>
-            <label class="def" for="">信箱</label>
-            <input class="def" type="email" name="b-email" id="">
+            <label class="def" for="b-email">信箱</label>
+            <input class="def" type="email" name="b-email" id="b-email">
           </li>
           <li class="sbs">
-            <label class="def" for="">連絡電話</label>
-            <input class="def" type="text" name="b-phone" id="">
+            <label class="def" for="b-phone">連絡電話</label>
+            <input class="def" type="text" name="b-phone" id="b-phone">
           </li>
           <li class="sbs">
-            <label class="def" for="">上車地點</label>
-            <input class="def" type="text" name="b-startLoa" id="">
+            <label class="def" for="b-startLoa">上車地點</label>
+            <input class="def" type="text" name="b-startLoa" id="b-startLoa">
           </li>
           <li class="sbs">
-            <label class="def" for="">下車地點</label>
-            <input class="def" type="text" name="b-endLoa" id="">
+            <label class="def" for="b-endLoa">下車地點</label>
+            <input class="def" type="text" name="b-endLoa" id="b-endLoa">
           </li>
           <li class="sbs">
-            <label class="def" for="">乘坐人數</label>
-            <select class="def" name="b-passenger" id="">
+            <label class="def" for="b-passenger">乘坐人數</label>
+            <select class="def" name="b-passenger" id="b-passenger">
               <option value="">1位</option>
               <option value="">2位</option>
               <option value="">3位</option>
@@ -178,22 +157,22 @@
             </select>
           </li>
           <li class="sbs">
-            <label class="def" for="">付款方式</label>
-            <select class="def" name="b-paying" id="">
+            <label class="def" for="b-paying">付款方式</label>
+            <select class="def" name="b-paying" id="b-paying">
               <option value="">請選擇</option>
               <option value="">現金</option>
               <option value="">匯款</option>
             </select>
           </li>
           <li class="sbs">
-            <label class="def" for="">使用優惠券</label>
+            <label class="def" for="b-coopon">使用優惠券</label>
             <select class="def" name="b-coopon" id="">
-              <option value="">請選擇</option>
+              <option value="b-coopon">請選擇</option>
             </select>
           </li>
           <li class="full">
-            <label class="def" for="">其他需求</label>
-            <textarea name="b-else" id="" style="width: 100%; height: 100px;"></textarea>
+            <label class="def" for="b-else">其他需求</label>
+            <textarea name="b-else" id="b-else" style="width: 100%; height: 100px;"></textarea>
           </li>                                      
         </ul>
 

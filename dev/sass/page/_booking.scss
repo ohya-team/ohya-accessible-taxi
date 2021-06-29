@@ -14,6 +14,7 @@ section.bookingInfo,
 }
 
 .weekdays{
+  width: 100%;
   margin-bottom: $ele-ele;
 
   @extend %flex, %flex-jc-ai, %bg-gray-second;

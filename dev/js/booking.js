@@ -33,17 +33,24 @@ function step1(){//步驟一
     rightMonth = curMonth+1;
   }
   
+  //deskTable weekdays
   $('.deskTable>.weekdays').find('span').append(`${leftMonth+1}/${leftDay} ${curYear} ~ ${rightMonth+1}/${rightDay} ${curYear}`);//5/30 2021 ~ 6/05 2021
+
+  //mobileTable weekdays
+  $('.mobileTable>.weekdays').find('span').append(`${curYear}年 ${leftMonth+1}月`);//2021年 7月
   
-  //deskTable table th+td
+  
+  //deskTable & mobileTable table th+td
   var curweekDay = curDate.getDay();
   var curweekDays = ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'];
+  var curweekDaysMobile = ['日', '一', '二', '三', '四', '五', '六'];
   
   for(i=0; i<curweekDays.length; i++){
   
     var leftWeekday = curweekDay+i;
     var j = leftWeekday % 7;
-  
+    
+    //deskTable
     $('.deskTable>table').find('tr').first().append(`
       <th>
         <span>${curweekDays[j]}</span>
@@ -57,17 +64,24 @@ function step1(){//步驟一
       </td>
     `);
     }
+
+    //mobileTable
+    $('.mobileTable>table').find('tr').first().append(`<th>${curweekDaysMobile[j]}</th>`);
+
+    $('.mobileTable>table').find('tr:nth-child(2)').append(`<td class="dayMobile">${leftDay+i}</td>`);
   }
   
   //deskTable table button.btn-bookingTime ->跳下一步
   var bookingBtn = $('.btn-bookingTime');
   
   bookingBtn.on('click',function(){
+    //重置按鈕顏色
     bookingBtn.css({
       color: '#313131',
       background: 'white'
     });
 
+    //跳轉步驟div
     $('.pills li:nth-child(1)').on('click', function(){
       $('#step1').css('display','initial');
       $('#step2').css('display','none');
@@ -75,6 +89,7 @@ function step1(){//步驟一
       $('#step4').css('display','none');
     });
 
+    //選定後的按鈕顏色
     $(this).css({
       color: 'white',
       background: '#313131'
@@ -83,6 +98,25 @@ function step1(){//步驟一
     $('#step1').css('display','none');
     $('#step2').css('display','initial');
   })
+
+  //mobileTable table button.btn-bookingTime ->跳下一步
+  var dayMobileBtn = $('td.dayMobile');
+
+  dayMobileBtn.on('click', function(){
+    //重置按鈕顏色
+    dayMobileBtn.css({
+      color: '#313131',
+      background: 'white'
+    });
+
+    //選定後的按鈕顏色
+    $(this).css({
+      color: '#313131',
+      background: '#ffd900'
+    });
+  });
+
+  
 }
 
 function step2(){
@@ -104,14 +138,17 @@ function step2(){
     `);
   }
   
+  // carChoosing button.btn-bookingCar ->跳下一步
   var bookingCarBtn = $('.btn-bookingCar');
   
   bookingCarBtn.on('click',function(){
+    //重置按鈕顏色
     bookingCarBtn.css({
       color: '#313131',
       background: 'white'
     });
 
+    //跳轉步驟div
     $('.pills li:nth-child(2)').on('click', function(){
       $('#step1').css('display','none');
       $('#step2').css('display','initial');
@@ -119,6 +156,7 @@ function step2(){
       $('#step4').css('display','none');
     });
   
+    //選定後的按鈕顏色
     $(this).css({
       color: 'white',
       background: '#313131'
@@ -148,21 +186,25 @@ function step3(){
     `);
   }
   
+  // driverChoosing button.btn-bookingDriver ->跳下一步
   var bookingDriverBtn = $('.btn-bookingDriver');
   
   bookingDriverBtn.on('click',function(){
+    //重置按鈕顏色
     bookingDriverBtn.css({
       color: '#313131',
       background: 'white'
     });    
 
+    //跳轉步驟div
     $('.pills li:nth-child(3)').on('click', function(){
       $('#step1').css('display','none');
       $('#step2').css('display','none');
       $('#step3').css('display','initial');
       $('#step4').css('display','none');
     });
-  
+    
+    //選定後的按鈕顏色
     $(this).css({
       color: 'white',
       background: '#313131'
