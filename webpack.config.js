@@ -13,17 +13,13 @@ module.exports = {
         programList: './dev/js/programList.js',
         travelFormTwo: './dev/js/travelFormTwo.js',
         forumDetail:'./dev/js/forumDetail.js',
-<<<<<<< HEAD
         jqueryMin:'./dev/js/jqueryMin.js',
         jquerySliderPro:'./dev/js/jquerySliderPro.js',
         bootstrapMin: '/dev/js/bootstrapMin.js',
         metisMenuMin: '/dev/js/metisMenuMin.js',
-        startmin: '/dev/js/startmin.js'
-
-=======
+        startmin: '/dev/js/startmin.js',
         slotmachine1:'./dev/js/slotmachine.js',
         slotmachine1:'./dev/js/jquery.slotmachine.js',
->>>>>>> origin/jes
     },// 入口文件
     output: {
         path: path.resolve(__dirname, 'dist/js'),
