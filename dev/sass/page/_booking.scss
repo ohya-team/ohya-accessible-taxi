@@ -75,6 +75,10 @@ button.btn-bookingTime{
   margin-bottom: $ele-ele;
 }
 
+.dayMobile{
+  @extend %cursor-hand;
+}
+
 .mobileTable button{
   flex-basis: 25%;
   margin-bottom: $ele-ele;

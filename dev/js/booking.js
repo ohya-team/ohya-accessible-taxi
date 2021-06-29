@@ -114,9 +114,36 @@ function step1(){//步驟一
       color: '#313131',
       background: '#ffd900'
     });
+
+    //要先按日期 時段按鈕才可以按
+    var dayTimeMobileBtn = $('.mobileTable>button');
+  
+    dayTimeMobileBtn.on('click', function(){
+      //重置按鈕顏色
+      dayTimeMobileBtn.css({
+        color: '#313131',
+        background: 'white'
+      });
+  
+      //跳轉步驟div
+      $('.pills li:nth-child(1)').on('click', function(){
+        $('#step1').css('display','initial');
+        $('#step2').css('display','none');
+        $('#step3').css('display','none');
+        $('#step4').css('display','none');
+      });
+  
+      //選定後的按鈕顏色
+      $(this).css({
+        color: 'white',
+        background: '#313131'
+      });
+    
+      $('#step1').css('display','none');
+      $('#step2').css('display','initial');
+    })
   });
 
-  
 }
 
 function step2(){
