@@ -8,7 +8,7 @@
 }
 
 body{
-  overflow-x:hidden;
+  overflow-x: hidden;
 }
 
 @media screen and (max-width: 596px) {
@@ -53,13 +53,24 @@ body{
 }
 
 .btn-act{
-  margin: auto;
+  // margin: auto;
+  margin-left: 0;
   display: flex;
-  
+    a{
+      margin-right: 0;
+      margin: auto;
+    }
 }
 
 .btn-act>.btn-main{
-  margin: auto;
+  margin: 0;
+}
+
+.btn-act button.btn-main{
+  margin-right: 0;
+   a{
+     margin-right: 0;
+   }
 }
 
 .btn-act.contain{
@@ -73,6 +84,7 @@ body{
 
 .cards .card{
     border-color: #d6d6d6;
+    border-radius: 10px;
 }
 
 
@@ -82,6 +94,11 @@ body{
     li{
       list-style: none;
     }
+}
+
+.card2{
+  margin-top: 30px;
+  margin-bottom: 0;
 }
 
 .home-car-cards{
@@ -113,7 +130,7 @@ body{
 
 body #coidea {
   font-family: 'Open Sans Condensed', sans-serif;
-  background-image: url('../images/step/banner-bg1700.svg');
+  background-image: url('../images/step/banner-bg1700.png');
   /* background: #fff;  fallback for old browsers */
   /* background: #fff;  Chrome 10-25, Safari 5.1-6 */
   /* background: linear-gradient(to right, #fff, #fff); W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
@@ -149,7 +166,7 @@ body #coidea {
   transform: translateX( -50% );
   border-radius: 90px;
   text-align: center;
-  background: #dde3e6;
+  background: #fff;
   z-index: 100;
 }
 .slider__arrow {
@@ -173,7 +190,7 @@ body #coidea {
   background-image: url(../images/step/arrow__left-white.png);
   background-repeat: no-repeat;
   background-position: center center;
-  background-size: auto 64px;
+  background-size: auto 40px;
 }
 .slider__arrow_next {
   right: 16px;
@@ -182,7 +199,7 @@ body #coidea {
   background-image: url(../images/step/arrow__right-white.png);
   background-repeat: no-repeat;
   background-position: center center;
-  background-size: auto 64px;
+  background-size: auto 40px;
 }
 .nav-control {
   position: relative;
@@ -484,8 +501,18 @@ body #coidea {
   background-repeat: no-repeat;
   // width: 100%;
   position: relative;
-  padding: 60px 20px;
+  padding: 90px 15px 20px 15px;
   margin-top: 90px;
+    @media screen and(max-width:596px) {
+      .chinese-topic{
+      font-size: 32px;
+      }
+    }  
+}
+
+.topic{
+  position: relative;
+  z-index: 9;
 }
 
 .home-section-forum .container{
@@ -511,7 +538,7 @@ body #coidea {
 }
 
 .c01, .c02, .c03{
-  padding: 30px 20px;
+  padding: 20px 10px;
   line-height: 1.1;
   background-color: #fff;
   margin: 10px;
@@ -522,6 +549,12 @@ body #coidea {
   justify-content: center;
     a{
       text-decoration: none;
+      line-height: 1.5;
+      margin-right: 0;
+    }
+    a:hover{
+      text-decoration: underline;
+      color: #59c3e1;
     }
 }
 

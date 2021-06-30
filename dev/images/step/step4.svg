@@ -1,5 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="802" height="623" viewBox="0 0 802 623">
-  <g id="Group_1034" data-name="Group 1034" transform="translate(-6967 3524)">
+<svg xmlns="http://www.w3.org/2000/svg" width="802" height="630" viewBox="0 0 802 630">
+  <g id="Group_1151" data-name="Group 1151" transform="translate(-6967 3531)">
     <rect id="Rectangle_2396" data-name="Rectangle 2396" width="802" height="623" transform="translate(6967 -3524)" fill="#fff" opacity="0"/>
     <g id="Group_1024" data-name="Group 1024" transform="translate(164 -1487.932)">
       <g id="Group_1020" data-name="Group 1020" transform="translate(952.521)">
@@ -10,10 +10,10 @@
         <path id="Path_2284" data-name="Path 2284" d="M388.272,242.17a9.3,9.3,0,1,1-9.3-9.3A9.3,9.3,0,0,1,388.272,242.17Z" transform="translate(5564.23 -1968.987)" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="3"/>
         <path id="Path_2285" data-name="Path 2285" d="M720.673,235.89a9.3,9.3,0,1,1-9.3-9.3A9.3,9.3,0,0,1,720.673,235.89Z" transform="translate(5869.432 -1974.755)" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="3"/>
       </g>
-      <g id="Group_1023" data-name="Group 1023" transform="translate(7116.32 -2071)">
-        <text id="完成預約" transform="translate(41.678 85.932)" fill="#4d4d4d" font-size="30" font-family="'jf-openhuninn-1\.1'"><tspan x="0" y="0">完成預約</tspan></text>
-        <rect id="Rectangle_2101" data-name="Rectangle 2101" width="70" height="4" transform="translate(51.506 100.574)" fill="#ffe56e"/>
-        <path id="Icon_awesome-clipboard-check" data-name="Icon awesome-clipboard-check" d="M20.8,3.962H15.847a3.962,3.962,0,1,0-7.924,0H2.971A2.972,2.972,0,0,0,0,6.933v21.79a2.972,2.972,0,0,0,2.971,2.971H20.8a2.972,2.972,0,0,0,2.971-2.971V6.933A2.972,2.972,0,0,0,20.8,3.962ZM11.885,2.476A1.486,1.486,0,1,1,10.4,3.962,1.482,1.482,0,0,1,11.885,2.476Zm7.5,14.349L10.536,25.6A.744.744,0,0,1,9.483,25.6L4.37,20.44a.744.744,0,0,1,.006-1.052l1.758-1.746a.744.744,0,0,1,1.052.006l2.848,2.872L16.6,14.009a.744.744,0,0,1,1.052.006l1.746,1.758A.743.743,0,0,1,19.388,16.825Z" transform="translate(11.334 58.932)" fill="#4d4d4d"/>
+      <g id="Group_1023" data-name="Group 1023" transform="translate(7097.095 -2058)">
+        <text id="完成預約" transform="translate(41.678 85.932)" fill="#313131" font-size="40" font-family="'jf-openhuninn-1\.1'"><tspan x="0" y="0">完成預約</tspan></text>
+        <rect id="Rectangle_2101" data-name="Rectangle 2101" width="60" height="3" rx="1.5" transform="translate(76.333 100.574)" fill="#313131"/>
+        <path id="Icon_awesome-clipboard-check" data-name="Icon awesome-clipboard-check" d="M20.8,3.962H15.847a3.962,3.962,0,1,0-7.924,0H2.971A2.972,2.972,0,0,0,0,6.933v21.79a2.972,2.972,0,0,0,2.971,2.971H20.8a2.972,2.972,0,0,0,2.971-2.971V6.933A2.972,2.972,0,0,0,20.8,3.962ZM11.885,2.476A1.486,1.486,0,1,1,10.4,3.962,1.482,1.482,0,0,1,11.885,2.476Zm7.5,14.349L10.536,25.6A.744.744,0,0,1,9.483,25.6L4.37,20.44a.744.744,0,0,1,.006-1.052l1.758-1.746a.744.744,0,0,1,1.052.006l2.848,2.872L16.6,14.009a.744.744,0,0,1,1.052.006l1.746,1.758A.743.743,0,0,1,19.388,16.825Z" transform="translate(11.334 55.932)" fill="#313131"/>
       </g>
       <ellipse id="Ellipse_166" data-name="Ellipse 166" cx="133" cy="25" rx="133" ry="25" transform="translate(7040 -1557.78)" fill="#b2a13a"/>
       <g id="Group_1022" data-name="Group 1022" transform="translate(7007.063 -1930.413)">
@@ -57,7 +57,7 @@
           </g>
         </g>
       </g>
-      <text id="Step4" transform="translate(7177 -2019.068)" fill="#9f9f9f" font-size="20" font-family="'jf-openhuninn-1\.1'"><tspan x="0" y="0">Step4</tspan></text>
+      <text id="Step4" transform="translate(7165.428 -2019.068)" fill="#313131" font-size="28" font-family="'jf-openhuninn-1\.1'"><tspan x="0" y="0">Step4</tspan></text>
     </g>
   </g>
 </svg>

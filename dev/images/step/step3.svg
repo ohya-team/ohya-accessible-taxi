@@ -1,5 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="802" height="623" viewBox="0 0 802 623">
-  <g id="Group_1033" data-name="Group 1033" transform="translate(-5993 3524)">
+<svg xmlns="http://www.w3.org/2000/svg" width="802" height="629" viewBox="0 0 802 629">
+  <g id="Group_1150" data-name="Group 1150" transform="translate(-5993 3530)">
     <rect id="Rectangle_2395" data-name="Rectangle 2395" width="802" height="623" transform="translate(5993 -3524)" fill="#fff" opacity="0"/>
     <g id="Group_1021" data-name="Group 1021" transform="translate(141 -1487.932)">
       <g id="Group_1019" data-name="Group 1019" transform="translate(27)">
@@ -176,12 +176,12 @@
           </g>
         </g>
       </g>
-      <g id="Group_1018" data-name="Group 1018" transform="translate(6167.319 -2071)">
-        <text id="確認車種及司機" transform="translate(2.464 87.932)" fill="#4d4d4d" font-size="30" font-family="'jf-openhuninn-1\.1'"><tspan x="0" y="0">確認車種及司機</tspan></text>
-        <rect id="Rectangle_1837" data-name="Rectangle 1837" width="70" height="4" transform="translate(51.506 100.574)" fill="#ffe56e"/>
-        <path id="Icon_awesome-car-side" data-name="Icon awesome-car-side" d="M5.35,11.167h.892L12.3,3.589A3.568,3.568,0,0,1,15.089,2.25H27.01a3.566,3.566,0,0,1,3.311,2.242l2.67,6.8a3.558,3.558,0,0,1,2.675,3.441v6.242a.891.891,0,0,1-.892.892H32.1a5.35,5.35,0,0,1-10.7,0H14.266a5.35,5.35,0,0,1-10.7,0H.892A.891.891,0,0,1,0,20.975V16.516A5.35,5.35,0,0,1,5.35,11.167Zm21.4,13.375a2.675,2.675,0,1,0-2.675-2.675A2.678,2.678,0,0,0,26.75,24.541ZM22.737,11.167H29.15l-2.14-5.35H22.737Zm-2.675,0V5.817H15.089l-4.28,5.35ZM8.917,24.541a2.675,2.675,0,1,0-2.675-2.675A2.678,2.678,0,0,0,8.917,24.541Z" transform="translate(-39.451 61.682)" fill="#4d4d4d"/>
+      <g id="Group_1018" data-name="Group 1018" transform="translate(6167.452 -2060)">
+        <text id="確認車種及司機" transform="translate(-32.537 87.932)" fill="#313131" font-size="40" font-family="'jf-openhuninn-1\.1'"><tspan x="0" y="0">確認車種及司機</tspan></text>
+        <rect id="Rectangle_1837" data-name="Rectangle 1837" width="60" height="3" rx="1.5" transform="translate(51.506 103.574)" fill="#313131"/>
+        <path id="Icon_awesome-car-side" data-name="Icon awesome-car-side" d="M5.35,11.167h.892L12.3,3.589A3.568,3.568,0,0,1,15.089,2.25H27.01a3.566,3.566,0,0,1,3.311,2.242l2.67,6.8a3.558,3.558,0,0,1,2.675,3.441v6.242a.891.891,0,0,1-.892.892H32.1a5.35,5.35,0,0,1-10.7,0H14.266a5.35,5.35,0,0,1-10.7,0H.892A.891.891,0,0,1,0,20.975V16.516A5.35,5.35,0,0,1,5.35,11.167Zm21.4,13.375a2.675,2.675,0,1,0-2.675-2.675A2.678,2.678,0,0,0,26.75,24.541ZM22.737,11.167H29.15l-2.14-5.35H22.737Zm-2.675,0V5.817H15.089l-4.28,5.35ZM8.917,24.541a2.675,2.675,0,1,0-2.675-2.675A2.678,2.678,0,0,0,8.917,24.541Z" transform="translate(-71.452 59.682)" fill="#313131"/>
       </g>
-      <text id="Step3" transform="translate(6226 -2019.068)" fill="#9f9f9f" font-size="20" font-family="'jf-openhuninn-1\.1'"><tspan x="0" y="0">Step3</tspan></text>
+      <text id="Step3" transform="translate(6217 -2019.068)" fill="#313131" font-size="27" font-family="'jf-openhuninn-1\.1'"><tspan x="0" y="0">Step3</tspan></text>
     </g>
   </g>
 </svg>
