@@ -21,7 +21,7 @@
 //body動畫
 @mixin bodyAnimated {  
   .animate-background {
-    background-image   : url(../../images/forum/CLOUDS.png);
+    background-image   : url(../images/forum/clouds.png);
     animation          : animatedBackground 5500s linear infinite;
     background-position: 0px 0px;
     background-repeat  : repeat-x;
