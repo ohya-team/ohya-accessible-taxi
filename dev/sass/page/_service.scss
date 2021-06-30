@@ -123,7 +123,7 @@ a{
   .pic-wrap {
     #bigPic{
       display: none;
-      @include  rwd_each(tablet) {
+      @include  rwd_each(desktop) {
         width: 530px;
         height: 300px;
         margin: auto;
