@@ -43,24 +43,51 @@ $('.smallPic').click(function(){
  let j = 1;
   $('.carSlider #narRight').click( function () {
 
-    if( j > 4){
+    if( j > 3){
       j = 0;
-      carContent[j].style.display = "none";
+      carContent[j].style.display = "block";
+      carContent[3].style.display = "none";
     }else{
       carContent[j].style.display = "block";
       carContent[j-1].style.display = "none";
+      console.log(carContent[j]);
     }
     j+=1;
     $('#carImage img')[0].src = `./images/car/car${j}.png`
     console.log(`./images/car/car${j}.png`);
-    console.log(carContent[j-1]);
   })
   $('.carSlider #narLeft').click( function () {
     j-=1;
-    if( j < 1){
-      j = 4;
-     } 
-    $('#carImage img')[0].src = `./images/car/car${j}.png` 
+    console.log(j);
+    if( j == 1){
+      carContent[0].style.display = "block";
+      carContent[1].style.display = "none";
+      carContent[3].style.display = "none";
+      $('#carImage img')[0].src = `./images/car/car${1}.png`
+    }else if( j == 2 ){
+      carContent[1].style.display = "block";
+      carContent[0].style.display = "none";
+      carContent[2].style.display = "none";
+      $('#carImage img')[0].src = `./images/car/car${2}.png`
+    }else if( j == 3){
+      carContent[2].style.display = "block";
+      carContent[1].style.display = "none";
+      carContent[3].style.display = "none";
+      $('#carImage img')[0].src = `./images/car/car${3}.png`
+    }else if( j == 4 ){
+      carContent[3].style.display = "block";
+      carContent[0].style.display = "none";
+      carContent[2].style.display = "none";
+      $('#carImage img')[0].src = `./images/car/car${4}.png`
+    }else{
+      j = 1;
+      console.log(j);
+      carContent[0].style.display = "block";
+      carContent[1].style.display = "none";
+      carContent[3].style.display = "none";
+      $('#carImage img')[0].src = `./images/car/car${1}.png`
+    }
+    console.log(`./images/car/car${j}.png`) ;
   })
 
 

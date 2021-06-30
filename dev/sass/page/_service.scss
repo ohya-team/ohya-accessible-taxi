@@ -1,3 +1,6 @@
+a{
+  text-decoration: none;
+}
 //無障礙服務選擇器 service-selector
 #service-selector {
   display: flex;  
@@ -95,6 +98,9 @@
       width: 25px;
       margin: auto;
     }
+    .nar:hover{
+      @extend %cursor-hand;
+    }
     #carImage{
       li{
         width: 300px;
@@ -171,6 +177,14 @@
     margin: auto;
     background-color: #fff;
     border-radius: 10px;
+    .service-btn{
+      @include  rwd_each(desktop) {
+        justify-content: space-between;
+      }
+      .btn-main{
+        margin: auto;
+      }
+    }
     @include  rwd_each(tablet) {
       display: block;
       width: 500px;
@@ -182,7 +196,7 @@
     }
     p{
       margin: 10px 0px;
-      height: 230px;
+      height: 180px;
       @include  rwd_each(tablet) {
         height: 130px;
       }
