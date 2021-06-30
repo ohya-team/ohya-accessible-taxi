@@ -93,8 +93,8 @@ header .container {
 }
 .btn-y {
   display: inline-block;
-  padding: 15px 25px;
-  border-radius: 2rem;
+  padding: 10px 20px;
+  border-radius: 10px;
   font-size: 16px;
   color: #313131;
   background-color: #ffd900;
@@ -272,12 +272,7 @@ header .container {
     transform: translateX(100%);
     transition: .65s;
   }
-  .btn-y{
-    background-color: #ffd900;
-    color: #313131;
-    padding: 8px 20px;
-    font-size: 16px;
-  }
+
   #check:checked~.nav-btn {
     transform: translateX(0);
   }
