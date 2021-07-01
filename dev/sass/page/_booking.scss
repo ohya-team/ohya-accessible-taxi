@@ -116,6 +116,15 @@ a.btn-cancel{
   @extend %border-box;
 }
 
+@include btn(button, cancel, 150px, '%black', '%bg-white');
+button.btn-cancel{
+  margin-right: 0;
+  border: 2px solid $black;
+  font-weight: $font-regular;
+  text-decoration: none;
+  @extend %border-box;
+}
+
 .pop-up-box {
   display: flex;
   position: sticky;

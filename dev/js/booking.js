@@ -284,9 +284,15 @@ function formChecking(){
 
 var bookingSub = $('#bookingSub');
 var popUpBox = $('.pop-up-box');
+var goGame = $('#goGame');
 
-bookingSub.on("click",function(){
+bookingSub.on("click", function(){
   popUpBox.addClass('active');
+});
+
+goGame.on("click", function(){
+  popUpBox.removeClass('active');
+  $("#slotmachine-pop-up").removeClass('slot-hide');
 });
 
 $(function(){
