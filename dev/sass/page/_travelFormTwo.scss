@@ -36,19 +36,20 @@
     visibility: visible;
 
     .item {
+      transition      : .5s;
       transform: scale(1);
     }
   }
-
+  
   @include rwd_each(desktop) {}
-
+  
   .item {
     @extend %border-box;
     width           : 90%;
     margin          : auto;
     background-color: $white;
     transform       : scale(0);
-    transition      : .5s;
+    transition:none;
     text-align      : center;
     padding         : 10% 3%;
 
