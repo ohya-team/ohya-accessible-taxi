@@ -26,11 +26,15 @@ function step1(){//步驟一
   if(leftDay>fulldays[curMonth]){
     leftDay = leftDay-fulldays[curMonth];
     leftMonth = curMonth+1;
+  }else{
+    leftMonth = curMonth;
   }
   
   if(rightDay>fulldays[curMonth]){
     rightDay = rightDay-fulldays[curMonth];
     rightMonth = curMonth+1;
+  }else{
+    rightMonth = curMonth;
   }
   
   //deskTable weekdays
