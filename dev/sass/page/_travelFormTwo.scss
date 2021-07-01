@@ -52,6 +52,7 @@
     transition:none;
     text-align      : center;
     padding         : 10% 3%;
+    border-radius: $card-radius;
 
     @include rwd_each(desktop) {
       width  : 35%;
