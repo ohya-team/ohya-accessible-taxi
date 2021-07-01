@@ -5,6 +5,10 @@ section.bookingInfo,
   };
 }
 
+.pills-main i.far{
+  @extend %success;
+}
+
 .deskTable{
   display: none;
 }
@@ -30,9 +34,12 @@ section.bookingInfo,
 
 @include btn(button, bookingTime, 100%, '%black', '%bg-white');
 button.btn-bookingTime{
-  border: 1px solid $black;
-
+  border: 2px solid $yellow-first;
   @extend %block;
+
+  &:hover{
+    border: 2px solid $black;
+  }
 }
 
 .calenderDes{
@@ -47,7 +54,7 @@ button.btn-bookingTime{
   margin-right: 7px;
   width: 20px;
   height: 20px;
-  border: 1px solid $black;
+  border: 1px solid $yellow-first;
   border-radius: 50%;
 
   @extend %in-bl, %bg-white;

@@ -136,15 +136,18 @@ span.mini{
 //一級按鈕
 @include btn(button, main, 150px, '%black', '%bg-yellow-first');
 //二級按鈕
-@include btn(button, second, 150px, '%white', '%bg-black');
+@include btn(button, second, 150px, '%white', '%bg-yellow-first');
 button.btn-second:hover{
-  color: $black;
-  background-color: $yellow-first;
+  color: $white;
+  background-color: $black;
 }
 //三級按鈕
 @include btn(button, third, 150px, '%black', '%bg-white');
 button.btn-third{
-  border: 2px solid $black;
+  border: 2px solid $yellow-first;
+  &:hover{
+    border: 2px solid $black;
+  }
 }
 
 //link
@@ -208,7 +211,7 @@ input.checkbox:checked {
 @include btn(input, main, 150px, '%black', '%bg-yellow-first');
 
 //以下pills
-@include pills(main, '%black', '%cursor-hand');
+@include pills(main, '%yellow-first', '%cursor-hand');
 @include pills(else, '%gray-first', '%cursor-def');
 
 //以下table(只限可設定寬度)

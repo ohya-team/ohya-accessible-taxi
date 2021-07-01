@@ -82,7 +82,8 @@ function step1(){//步驟一
     //重置按鈕顏色
     bookingBtn.css({
       color: '#313131',
-      background: 'white'
+      background: 'white',
+      border: '2px solid #ffd900'
     });
 
     //跳轉步驟div
@@ -96,11 +97,14 @@ function step1(){//步驟一
     //選定後的按鈕顏色
     $(this).css({
       color: 'white',
-      background: '#313131'
+      background: '#313131',
+      border: '2px solid #313131'
     });
   
     $('#step1').css('display','none');
     $('#step2').css('display','initial');
+
+    $('.pills-main:nth-child(1)').append(' <i class="far fa-check-circle" aria-hidden="true"></i>');
   })
 
   //mobileTable table button.btn-bookingTime ->跳下一步
@@ -110,13 +114,13 @@ function step1(){//步驟一
     //重置按鈕顏色
     dayMobileBtn.css({
       color: '#313131',
-      background: 'white'
+      background: 'white',
     });
 
     //選定後的按鈕顏色
     $(this).css({
       color: '#313131',
-      background: '#ffd900'
+      background: '#ffd900',
     });
 
     //要先按日期 時段按鈕才可以按
@@ -126,7 +130,8 @@ function step1(){//步驟一
       //重置按鈕顏色
       dayTimeMobileBtn.css({
         color: '#313131',
-        background: 'white'
+        background: 'white',
+        border: '2px solid #ffd900'
       });
   
       //跳轉步驟div
@@ -140,11 +145,14 @@ function step1(){//步驟一
       //選定後的按鈕顏色
       $(this).css({
         color: 'white',
-        background: '#313131'
+        background: '#313131',
+        border: '2px solid #313131'
       });
     
       $('#step1').css('display','none');
       $('#step2').css('display','initial');
+
+      $('.pills-main:nth-child(1)').append(' <i class="far fa-check-circle" aria-hidden="true"></i>');
     })
   });
 
@@ -176,7 +184,8 @@ function step2(){
     //重置按鈕顏色
     bookingCarBtn.css({
       color: '#313131',
-      background: 'white'
+      background: 'white',
+      border: '2px solid #ffd900'
     });
 
     //跳轉步驟div
@@ -190,11 +199,14 @@ function step2(){
     //選定後的按鈕顏色
     $(this).css({
       color: 'white',
-      background: '#313131'
+      background: '#313131',
+      border: '2px solid #313131'
     });
   
     $('#step2').css('display','none');
     $('#step3').css('display','initial');
+    
+    $('.pills-main:nth-child(2)').append(' <i class="far fa-check-circle" aria-hidden="true"></i>');
   })
 }
 
@@ -220,7 +232,8 @@ function step3(){
     //重置按鈕顏色
     bookingDriverBtn.css({
       color: '#313131',
-      background: 'white'
+      background: 'white',
+      border: '2px solid #ffd900'
     });    
 
     //跳轉步驟div
@@ -234,11 +247,14 @@ function step3(){
     //選定後的按鈕顏色
     $(this).css({
       color: 'white',
-      background: '#313131'
+      background: '#313131',
+      border: '2px solid #313131'
     });
   
     $('#step3').css('display','none');
     $('#step4').css('display','initial');
+    
+    $('.pills-main:nth-child(3)').append(' <i class="far fa-check-circle" aria-hidden="true"></i>');
   })
 }
 

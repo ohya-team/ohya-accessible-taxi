@@ -145,7 +145,7 @@
 @mixin btn($ele, $level, $w, $c, $bgc) {
   #{$ele}.btn-#{$level}{
     margin-right: $ele-ele;
-    padding: 13px 26px;
+    padding: 10px 20px;
     width: $w;
     font-size: $font-base;
     font-weight: $font-medium;
@@ -259,7 +259,7 @@
   th,
   th span{
     font-weight: $font-bold;
-    @extend %white, %bg-black;
+    @extend %black, %bg-yellow-first;
   }
   @content;
 }
