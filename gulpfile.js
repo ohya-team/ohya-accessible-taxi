@@ -43,6 +43,10 @@ function html() {
 //=============會員 圖片、js 跟 php 搬家
 function adminHtml() {
     return src('dev/admin/*.html')
+        .pipe(fileinclude({
+            prefix: '@@',
+            basepath: '@file'
+        }))
         .pipe(dest('dist/admin'))
 }
 
@@ -51,10 +55,6 @@ function img_mv() {
         .pipe(dest('dist/images'))
 }
 
-function js_mv() {
-    return src('dev/js/*.js')
-        .pipe(dest('dist/js'))
-}
 function php_mv() {
     return src('dev/php/*.php')
         .pipe(dest('dist/php'))
@@ -91,10 +91,10 @@ function browser(done) {
     });
 
     watch(['dev/*.html', 'dev/**/*.html'], html).on('change', reload)
+    watch(['dev/admin/*.html','dev/**/*.html'], adminHtml).on('change', reload)
     watch(['dev/sass/**/*.scss', 'dev/sass/*.scss'], sass_style).on('change', reload)
     watch(['dev/images/*.*', 'dev/images/**/*.*'], img_mv).on('change', reload)
     watch('dev/css/*.css', css_mv).on('change', reload)
-    // watch('dev/js/*.js', js_mv).on('change', reload)
     watch('dev/php/*.php', php_mv).on('change', reload)
     watch('dev/*.php', phpConnect_mv).on('change', reload)
     done();

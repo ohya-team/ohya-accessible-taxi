@@ -10,6 +10,7 @@ module.exports = {
         service: './dev/js/service.js',
         travelForm: './dev/js/travelForm.js',
         spotList: './dev/js/spotList.js',
+        adminTravel: './dev/js/adminTravel.js',
         programList: './dev/js/programList.js',
         travelFormTwo: './dev/js/travelFormTwo.js',
         forumDetail:'./dev/js/forumDetail.js',
