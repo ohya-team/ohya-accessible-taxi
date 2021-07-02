@@ -96,6 +96,7 @@ function browser(done) {
     watch('dev/css/*.css', css_mv).on('change', reload)
     // watch('dev/js/*.js', js_mv).on('change', reload)
     watch('dev/php/*.php', php_mv).on('change', reload)
+    watch('dev/*.php', phpConnect_mv).on('change', reload)
     done();
 }
 
