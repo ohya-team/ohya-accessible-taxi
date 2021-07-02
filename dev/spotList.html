@@ -7,7 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>旅遊景點</title>
     <link rel="stylesheet" href="./css/style.css">
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
 </head>
 
 <body class="animate-background">
@@ -15,190 +16,44 @@
 
     @@include('layout/header.html')
 
-
-    <section class="spot-l-hero">
-        <div class="title container">
-            <div class="item">
-                <h2>旅遊景點</h2>
-                <p>Tourist Attraction</p>
+    <div id="app">
+        <section class="spot-l-hero">
+            <div class="title container">
+                <div class="item">
+                    <h2>旅遊景點</h2>
+                    <p>Tourist Attraction</p>
+                </div>
             </div>
+        </section>
+
+        <section class="container spot-list">
+
+            <ul class="word-menu">
+                <li v-for="item in typeList" @click="changeList(item)" :class='(item)== type? "active": ""'>{{item}}
+                </li>
+            </ul>
+
+            <div class="card-item">
+                <div class="item" v-for="item in filterData" :key="item.SPOT_NO">
+                    <div class="pic">
+                        <img :src="item.SPOT_PIC_3" alt="">
+                    </div>
+
+                    <div class="title">
+                        <a href="./spotDetail.html">{{item.SPOT_NAME}}</a><span>{{item.SPOT_CAT}}</span>
+                    </div>
+                    <div class="intro">
+                        {{item.SPOT_SLOGAN}}
+                    </div>
+                </div>
+            </div>
+
+        </section>
+        <div class="pagination">
+            <a href="#" class="page-main">1</a>
+            <a href="#" class="page-else">2</a>
+            <a href="#" class="page-else">3</a>
         </div>
-    </section>
-
-    <section class="container spot-list">
-
-        <ul class="word-menu">
-            <li class="active">所有景點</li>
-            <li>風景區 </li>
-            <li>商圈 </li>
-            <li>藝文區 </li>
-        </ul>
-
-        <div class="card-item">
-            <div class="item">
-                <div class="pic">
-                    <img src="./images/travel/spot/sankeng_old_street/sankeng_old_street_03.jpg" alt="">
-                </div>
-
-                <div class="title">
-                    <a href="./spotDetail.html">三坑老街</a><span>商圈</span>
-                </div>
-                <div class="intro">
-                    來到龍潭第一街就要大嗑古早味客家小吃﹔菜包
-                    、牛汶水、草仔粿，可都別放過，吃飽喝足再去
-                    永福宮、青錢第，來個復古三連拍。
-                </div>
-            </div>
-            <div class="item">
-                <div class="pic">
-                    <img src="./images/travel/spot/daxi_old_street/daxi_old_street_03.jpg" alt="">
-                </div>
-                <div class="title">
-                    <a href="./spotDetail.html">大溪老街</a><span>商圈</span>
-                </div>
-                <div class="intro">
-                    玩味巴洛克建築語彙、來老商行體驗傳統木藝、
-                    古廟參拜關聖帝君、品味老字號豆干…，要認識
-                    大溪老城區文化，就從百年街屋開始。
-                </div>
-            </div>
-            <div class="item">
-                <div class="pic">
-                    <img src="./images/travel/spot/shimen_reservoir/shimen_reservoir_03.jpg" alt="">
-                </div>
-                <div class="title">
-                    <a href="./spotDetail.html">石門水庫</a><span>風景區</span>
-                </div>
-                <div class="intro">
-                    早期以吃活魚聞名的石門水庫，近來增加了｢楓半馬｣
-                    和｢熱氣球嘉年華｣兩大旅遊熱門標籤，老景點新玩法
-                    ，等你一一來發掘。
-                </div>
-            </div>
-            <div class="item">
-                <div class="pic">
-                    <img src="./images/travel/spot/zhuwei_fishing_port/zhuwei_fishing_port_03.jpg" alt="">
-                </div>
-                <div class="title">
-                    <a href="./spotDetail.html">竹圍漁港</a><span>商圈</span>
-                </div>
-                <div class="intro">
-                    幾乎沒有人能抵擋新鮮海鮮的美味逆襲，跟港口賞
-                    夕陽、看飛機同樣需列入行程清單的逛漁市，讓荷
-                    包君不必哭泣就能滿足吃貨的胃。
-                </div>
-            </div>
-            <div class="item">
-                <div class="pic">
-                    <img src="./images/travel/spot/houcihu/houcihu_03.jpg" alt="">
-                </div>
-                <div class="title">
-                    <a href="./spotDetail.html">後慈湖</a><span>風景區</span>
-                </div>
-                <div class="intro">
-                    昔日的軍事禁地不再，轉而是保有原始生態的忘憂
-                    秘境，想放風想放鬆，就來後慈湖欣賞天寬地闊，
-                    悠哉感受大自然的綠色療癒力。
-                </div>
-            </div>
-            <div class="item">
-                <div class="pic">
-                    <img src="./images/travel/spot/jiaobanshan_hotel/jiaobanshan_hotel_02.jpg" alt="">
-                </div>
-                <div class="title">
-                    <a href="./spotDetail.html">角板山行館</a><span>風景區</span>
-                </div>
-                <div class="intro">
-                    不管是帶有神秘色彩的戰備隧道或是記錄蔣家日常
-                    的行館，都令人充滿十足想像，秋冬時節，園中櫻
-                    梅盛開，更為旅行增添不少驚艷。
-                </div>
-            </div>
-            <div class="item">
-                <div class="pic">
-                    <img src="./images/travel/spot/yongan_fishing_port/yongan_fishing_port_02.jpg" alt="">
-                </div>
-                <div class="title">
-                    <a href="./spotDetail.html">永安漁港</a><span>商圈</span>
-                </div>
-                <div class="intro">
-                    總讓旅人念念不忘的濱海夕陽美景，幻彩天光水色
-                    一上傳就瘋狂吸讚，同樣是旅程亮點的美味現撈海
-                    鮮，吮指鮮甜，一嚐就對味。
-                </div>
-            </div>
-            <div class="item">
-                <div class="pic">
-                    <img src="./images/travel/spot/new_house_green_corridor/new_house_green_corridor_04.jpg" alt="">
-                </div>
-                <div class="title">
-                    <a href="./spotDetail.html">新屋綠色走廊</a><span>風景區</span>
-                </div>
-                <div class="intro">
-                    沿途坡道平緩、綠蔭滿佈，旅行的意義不再是騎乘公
-                    里數，而是全家大小一起踩著四輪、迎著徐徐海風、
-                    談天說地的快樂時光。
-                </div>
-            </div>
-            <div class="item">
-                <div class="pic">
-                    <img src="./images/travel/spot/sankeng_natural_ecological_park/sankeng_natural_ecological_park_02.jpg"
-                        alt="">
-                </div>
-                <div class="title">
-                    <a href="./spotDetail.html">三坑生態公園</a><span>風景區</span>
-                </div>
-                <div class="intro">
-                    翠綠山色倒映在湖心，步上木棧道靜賞這片如詩風景，
-                    心也跟著悠然，途中想歇息，園裡的涼亭和遼闊草坪都
-                    是推薦的舒心去處。
-                </div>
-            </div>
-            <div class="item">
-                <div class="pic">
-                    <img src="./images/travel/spot/bade_pond_ecological_park/bade_pond_ecological_park_02.jpg" alt="">
-                </div>
-                <div class="title">
-                    <a href="./spotDetail.html">八德埤塘公園</a><span>風景區</span>
-                </div>
-                <div class="intro">
-                    超大草皮加上和煦陽光就能成就一場美好的湖畔野餐約會
-                    ，除了享受美景美食之外，一旁還有水鳥野鴨優雅經過，
-                    打造濃濃鄉村風。
-                </div>
-            </div>
-            <div class="item">
-                <div class="pic">
-                    <img src="./images/travel/spot/mazu_new_village/mazu_new_village_02.jpg" alt="">
-                </div>
-                <div class="title">
-                    <a href="./spotDetail.html">馬祖新村眷村</a><span>藝文區</span>
-                </div>
-                <div class="intro">
-                    乘載軍眷日常的屋舍，隨著歲月更迭，成了推廣質感生活
-                    的創意基地﹔不定期舉辦的市集、名人講座、選物分享，
-                    帶你走進諸般好時光。
-                </div>
-            </div>
-            <div class="item">
-                <div class="pic">
-                    <img src="./images/travel/spot/green_light_forest/green_light_forest_03.jpg" alt="">
-                </div>
-                <div class="title">
-                    <a href="./spotDetail.html">綠光森林</a><span>藝文圈</span>
-                </div>
-                <div class="intro">
-                    挑張彩色椅，坐看雲海彩霞落羽松、園裡餵食小綿羊，療癒
-                    你的心、三五好友BBQ，歡樂無極限…，不一會兒的時間你就
-                    會戀上這片山。
-                </div>
-            </div>
-        </div>
-    </section>
-    <div class="pagination">
-        <a href="#" class="page-main">1</a>
-        <a href="#" class="page-else">2</a>
-        <a href="#" class="page-else">3</a>
     </div>
     @@include('layout/footer.html')
     <script src="./js/spotList.js"></script>

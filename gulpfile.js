@@ -59,6 +59,10 @@ function php_mv() {
     return src('dev/php/*.php')
         .pipe(dest('dist/php'))
 }
+function phpConnect_mv() {
+    return src('dev/*.php')
+        .pipe(dest('dist'))
+}
 //============= css搬家+壓縮
 
 function css_mv() {
@@ -96,7 +100,7 @@ function browser(done) {
 }
 
 // 執行指令
-exports.default = series(cleanfile, img_mv, html, adminHtml, sass_style, css_mv, php_mv, browser);
+exports.default = series(cleanfile, img_mv, html, adminHtml, sass_style, css_mv, php_mv, phpConnect_mv, browser);
 
 
 // +++++++++  打包上線用 +++++++
@@ -122,7 +126,7 @@ function min_images() {
 
 exports.prod = series(
     cleanfile,
-    parallel(html, adminHtml, css_mv, sass_style, php_mv),
+    parallel(html, adminHtml, css_mv, sass_style, php_mv, phpConnect_mv),
     min_images
 );
 
