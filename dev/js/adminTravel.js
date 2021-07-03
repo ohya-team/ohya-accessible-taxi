@@ -8,7 +8,7 @@ let vue = new Vue({
         }
     },
     mounted() {
-        axios.get('../php/spotManage.php')
+        axios.get('../php/spot.php')
             .then(response => (this.info = response.data))
             .catch(function (error) { // 请求失败处理
                 console.log(error);
