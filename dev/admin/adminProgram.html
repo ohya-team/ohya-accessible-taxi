@@ -61,6 +61,7 @@
                                             <th>方案編號</th>
                                             <th>方案名稱</th>
                                             <th>車種</th>
+                                            <th>方案列表狀態</th>
                                             <th>精選方案狀態</th>
                                             <th>主要精選方案狀態</th>
                                             <th>動作</th>
@@ -71,14 +72,15 @@
                                             <td>{{info.PROGRAM_NO}}</td>
                                             <td>{{info.PROGRAM_NAME}}</td>
                                             <td>{{info.VEHICLE_TYPE}}</td>
+                                            <td>{{info.PROGRAM_STATUS_S_M}}</td>
                                             <td>{{info.PROGRAM_STATUS}}</td>
                                             <td>{{info.PROGRAM_STATUS_S}}</td>
                                             <td>
-                                                <a class="add" title="Add" data-toggle="tooltip"><i
-                                                        class="fas fa-plus"></i></a>
-                                                <a class="edit" title="Edit" data-toggle="tooltip"><i
+                                                <a class="text-primary" style="margin: 0px;" title="Add" data-toggle="tooltip"><i
+                                                        class="fas fa-search"></i></a>
+                                                <a class="edit" style="margin: 0px;" title="Edit" data-toggle="tooltip"><i
                                                         class="fas fa-edit"></i></a>
-                                                <a class="delete" title="Delete" data-toggle="tooltip"><i
+                                                <a class="delete" style="margin: 0px;" title="Delete" data-toggle="tooltip"><i
                                                         class="fas fa-trash-alt"></i></a>
                                             </td>
                                         </tr>
