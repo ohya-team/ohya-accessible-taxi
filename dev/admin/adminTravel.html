@@ -71,8 +71,8 @@
                                             <td>{{info.SPOT_NO}}</td>
                                             <td>{{info.SPOT_NAME}}</td>
                                             <td>{{info.SPOT_CAT}}</td>
-                                            <td>{{info.SPOT_STATUS}}</td>
-                                            <td>{{info.SPOT_STATUS_S}}</td>
+                                            <td>{{info.SPOT_STATUS == 1 ? '開啟': '關閉'}}</td>
+                                            <td>{{info.SPOT_STATUS_S == 1 ? '開啟': '關閉'}}</td>
                                             <td>
                                                 <a class="add" title="Add" data-toggle="tooltip"><i
                                                         class="fas fa-plus"></i></a>
