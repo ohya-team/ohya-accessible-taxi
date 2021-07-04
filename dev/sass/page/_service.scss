@@ -11,7 +11,6 @@ a{
   .selector-btn {
     font-size: $font-base;
     width: 90px;
-    height: 90px;
     padding: 25px;
     margin: 5px 5px 15px 5px;
     text-align: center;
@@ -20,7 +19,6 @@ a{
     background-color: #fff;
     @include  rwd_each(tablet) {
       width: 120px;
-      height: 45px;
       margin: 10px;
       padding: 10px;
       font-size: $font-base;
@@ -40,6 +38,9 @@ a{
 .service-btn {
   display: block;
   padding-bottom: 20px;
+  @include  rwd_each(desktop) {
+    justify-content: space-between;
+  }
   .btn-main{
     margin: 20px auto;
     display: block;
@@ -50,7 +51,6 @@ a{
     margin: auto;
     display: flex;
   }
-
 }
 //服務介紹
 .service-detail {
@@ -206,65 +206,90 @@ a{
 //司機介紹
 #driver-content {
   display: none;
-  width: 50%;
   // border: 1px solid #ccc;
   #sliderWrap{
-    margin: auto;
-    text-align: center;
-    display: flex;
+    display: none;
+    @include  rwd_each(tablet) {
+      display: flex;
+      margin: auto;
+      text-align: center;
+    }
     .nar{
       color: black;
       margin: auto;
       @extend %cursor-hand;
-      width: 50px;
+      width: 25px;
     }
     #sliderBoard{
       // border: 1px solid #ccc;
-      height: 550px;
       overflow: hidden;
-      display: flex;
+      width: 50%;
       #driverSlider{	
         position: relative;
         display: flex;
-      }
-      #driverSlider ul{
-        float: left;
+        flex-wrap: wrap;
       }
       .image{
-        margin: 25px 0px;
         ul{
-          width: 770px;
           list-style: none;
           display: flex;
-          flex-wrap: wrap;
-        }
-        li{
-          width: 180px;
-          margin: 10px 20px;
-          text-align: center;
-          @extend %cursor-hand;
-          span{
-            width: 150px;
-            padding: 5px 10px;
-            margin: auto;
-            color: white;
-            background-color: $black;
-            border-radius: 5px;
-            position: relative;
-            top: -15px;
+          float: left;
+          li{
+            width: 50%;
+            margin: 10px 20px;
+            text-align: center;
+            @extend %cursor-hand;
+            img{
+              border-radius: 10px;
+              width: 100%;
+            }
+            img:hover{
+              border: 3px solid $black;
+            }
+            span{
+              width: 100px;
+              padding: 5px 10px;
+              margin: auto;
+              color: white;
+              background-color: $black;
+              border-radius: 5px;
+              position: relative;
+              top: -15px;
+            }
           }
-        }
-        img{
-          border-radius: 10px;
-          width: 100%;
-        }
-        img:hover{
-          border: 3px solid $black;
         }
       }
     }
   }
 }
+//司機介紹 rwd
+#smallSlider{
+  display: flex;
+  justify-content: center;
+  .nar{
+    width: 15px;
+    margin: auto;
+  }
+  .smallBoard{
+    width: 50%;
+    overflow: hidden;
+    .smallImage{
+      display: flex;
+      justify-content: center;
+      ul{
+        display: flex;
+        justify-content: space-evenly;
+        li{
+          margin: 5px;
+        }
+        img{
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
 //司機燈箱
 #driverLightBox{
   position: fixed;

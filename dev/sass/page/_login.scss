@@ -1,0 +1,127 @@
+#LoginLightBox{
+  position: fixed;
+  z-index: 1001;
+  width: 100%;
+  height: 100%;
+  background: rgba(66,66,66,.6);
+  .LoginContent{
+    width: 60%;
+    padding: 25px;
+    margin: auto;
+    background-color: #fff;
+    border-radius: 20px;
+    position: relative;
+    @include  rwd_each(tablet) {
+      width: 40%;
+    }
+    @include  rwd_each(desktop) {
+      width: 30%;
+    }
+    .closeIcon{
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      margin-left: auto;
+      @extend %cursor-hand;
+    }
+    .LoginWrap{
+      .selector{
+        display: flex;
+        justify-content: space-evenly;
+        span{
+          color: $gray-first;
+          font-size: $font-h3;
+          @include  rwd_each(desktop) {
+            font-size: $font-h2;
+          }
+        }
+        .chosen{
+          span{
+            color: $black;
+          }
+        }
+        span:hover{
+          color: #313131;
+          cursor: pointer;
+        }
+        span::after{
+          content: " ";
+          width: 2em;
+          height: 2px;
+          background-color: #ffd900;
+          display: none;
+        }
+      }
+      #signupDetail{
+        .name{
+          font-size: $font-mini;
+          justify-content: space-between;
+          @include  rwd_each(tablet) {
+            display: flex;
+            font-size: $font-base;
+          }
+          #last,#first{
+            margin: 0px 10px;
+          }
+          input{
+            margin: 5px auto;
+            width: 100%;
+          }
+        }
+        .passward{
+          margin: auto;
+          font-size: $font-mini;
+          @include  rwd_each(tablet) {
+            font-size: $font-base;
+          }
+          #signPsw,#rePsw{
+            margin: 5px 10px;
+            input{
+              margin: 5px auto;
+              width: 100%;
+            }
+          }
+        }
+        .checkInfo{
+          text-align: center;
+          font-size: $font-mini;
+          @include  rwd_each(desktop) {
+            font-size: $font-base;
+          }
+        }
+        .btn-main{
+          margin: 20px 0 0 50%;
+          transform: translateX(-50%);
+        }
+      }
+    }
+    #LoginDetail{
+      display: none;
+      margin: 10px;
+      .number, .passward{
+        input{
+          margin: 5px auto;
+          width: 100%;
+        }
+      }
+      .checkBox{
+        text-align: center;
+      }
+      .btn-main{
+        margin: 20px 0 0 50%;
+        transform: translateX(-50%);
+      }
+      .loginSpan{
+        display: flex;
+        justify-content: flex-end;
+        margin-top: 20px;
+        span{
+          color: #9f9f9f;
+          font-size: $font-mini;
+          cursor: pointer;
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+}

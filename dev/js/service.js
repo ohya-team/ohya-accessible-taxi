@@ -39,7 +39,7 @@ $('.smallPic').click(function(){
   $('.smallPic').not(this).removeClass('chosen');
   showCar();
 })
-//car slider
+//car slider rwd
  let j = 1;
   $('.carSlider #narRight').click( function () {
 
@@ -94,12 +94,12 @@ $('.smallPic').click(function(){
 //driver slider narrow move
 function moveLeft(){
   $("#driverSlider").animate({
-    left: 0 
+    left: 0
   })
 }
 function moveRight(){
   $("#driverSlider").animate({
-    left: $('.image').width() * -1
+    left: $('.image').width() * -0.5
   })
 }
 //driver slider auto move
@@ -112,11 +112,26 @@ function autoMove() {
         i = 0;
       };
       $("#driverSlider").animate({
-          left: $('.image').width() * -1 *i,
+          left: $('.image').width() * -0.5 *i,
       });
       i++;
   }, 4000);
 };
+//driver slider resize
+// $(window).resize( function(){
+//   let win_w = $(window).width();
+//   let win_h = $(window).height();
+//   let w = $('.image li').width();
+//   if ( win_w < 1200) {
+//     $('.image li').each( function(){
+//       $('.image li').css("width", w * (win_h/win_w) );
+//     })
+//   }
+// })
+
+//driver smallSlider
+
+
 //driver lightBox
 function showLightBox(){
   $('.image li').click( function(){
