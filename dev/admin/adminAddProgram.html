@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新增方案</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="../css/bootstrap.css" rel="stylesheet">
+
+    <!-- MetisMenu CSS -->
+    <link href="../css/metisMenuMin.css" rel="stylesheet">
+
+    <!-- Timeline CSS -->
+    <link href="../css/timeline.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="../css/startmin.css" rel="stylesheet">
+
+    <!-- Morris Charts CSS -->
+    <link href="../css/morris.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+</head>
+
+</head>
+
+<body>
+
+    <div id="wrapper">
+        @@include('../layout/adminSideBar.html')
+        <!-- Page Content -->
+        <div id="page-wrapper">
+            <div class="container-fluid">
+                <div class="container-lg">
+                    <div class="table-responsive">
+                        <div class="table-wrapper">
+                            <div class="table-title">
+                                <div class="row">
+                                    <div class="col-sm-8">
+                                        <h2>新增方案</h2>
+                                    </div>
+                                </div>
+                            </div>
+                            <form action="../php/" method="POST" enctype="multipart/form-data">
+                                <div class="form-group">
+                                    <label for="name">方案名稱</label>
+                                    <input class="form-control" id="name" name="program_name" type="text">
+                                </div>
+                                <div class="form-group">
+                                    <label for="people">最多出團人數</label>
+                                    <select class="form-control" id="people" name="program_people">
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="car">車種</label>
+                                    <select class="form-control" id="car" name="program_car">
+                                        <option value="納智捷V7">納智捷V7</option>
+                                        <option value="福斯Caddy">福斯Caddy</option>
+                                        <option value="福特旅行家">福特旅行家</option>
+                                        <option value="福泰T6">福泰T6</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                  <label for="info">方案內容</label>
+                                  <textarea class="form-control" id="info" name="program_info" rows="3"></textarea>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="program_status" id="statusClose"
+                                        value="0" checked>
+                                    <label class="form-check-label" for="statusClose">
+                                        方案狀態關閉
+                                    </label>
+                                    <input class="form-check-input" type="radio" name="program_status" id="statusOpen"
+                                        value="1">
+                                    <label class="form-check-label" for="statusOpen">
+                                        方案狀態開啟
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="program_status_s" id="statusSClose"
+                                        value="0" checked>
+                                    <label class="form-check-label" for="statusSClose">
+                                        精選方案狀態關閉
+                                    </label>
+                                    <input class="form-check-input" type="radio" name="program_status_s" id="statusSOpen"
+                                        value="1">
+                                    <label class="form-check-label" for="statusSOpen">
+                                        精選方案狀態開啟
+                                    </label>
+                                </div>
+                                <div class="form-group">
+                                  <label for="score">方案評價</label>
+                                  <input class="form-control" id="score" name="program_score" type="text">
+                                </div>
+                                <div class="form-group">
+                                    <label for="pic" class="form-label">方案圖片</label>
+                                    <input class="form-control" type="file" name="program_pic" id="pic">
+                                </div>
+                                <div class="form-group">
+                                  <label for="feature">方案特色一</label>
+                                  <input class="form-control" id="feature" name="program_feature_1" type="text">
+                                </div>
+                                <div class="form-group">
+                                  <label for="feature">方案特色二</label>
+                                  <input class="form-control" id="feature" name="program_feature_2" type="text">
+                                </div>
+                                <div class="form-group">
+                                  <label for="feature">方案特色三</label>
+                                  <input class="form-control" id="feature" name="program_feature_3" type="text">
+                                </div>
+                                <div class="form-group">
+                                  <label for="remarks">方案備註</label>
+                                  <textarea class="form-control" id="remarks" name="program_remarks" rows="3"></textarea>
+                                </div>
+                                <div class="form-group">
+                                  <label for="money">方案金額</label>
+                                  <input class="form-control" id="money" name="program_money" type="text">
+                                </div>
+                                <div class="btn-group" style="display:flex ;justify-content:flex-end">
+                                    <button class="btn btn-success">新增完成</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- jQuery -->
+    <script src="../js/jqueryMin.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="../js/bootstrapMin.js"></script>
+
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="../js/metisMenuMin.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="../js/startmin.js"></script>
+    <script src="../js/adminTravel.js"></script>
+</body>
+
+</html>
