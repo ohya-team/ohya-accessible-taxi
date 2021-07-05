@@ -67,39 +67,54 @@
           @include  rwd_each(tablet) {
             display: flex;
           }
-          #last,#first{
-            margin: 0px 10px;
+          #last{
+            margin-right: 0px;
+            @include  rwd_each(tablet) {
+              margin-right: 10px;
+            }
           }
         }
-        .account{
-          margin: 0px 10px;
-        }
-        .passward{
-          margin: 0px 10px;
-        }
         .checkInfo{
-          text-align: center;
+          display: flex;
+          justify-content: center;
           input{
             width: 20px;
+            margin: 2.5px 5px;
+            @include  rwd_each(desktop) {
+              margin: 5px;
+            }
           }
         }
         .btn-main{
           margin: 20px 0 0 50%;
           transform: translateX(-50%);
+          width: 150px;
         }
       }
     }
     #LoginDetail{
       display: none;
       margin: 10px;
+      font-size: $font-mini;
+      @include  rwd_each(desktop) {
+        font-size: $font-base;
+      }
       .number, .passward{
         input{
           margin: 5px auto;
           width: 100%;
         }
       }
-      .checkBox{
-        text-align: center;
+      .checkInfo{
+        display: flex;
+        justify-content: center;
+        input{
+          width: 20px;
+          margin: 2.5px 5px;
+          @include  rwd_each(desktop) {
+            margin: 5px;
+          }
+        }
       }
       .btn-main{
         margin: 20px 0 0 50%;
