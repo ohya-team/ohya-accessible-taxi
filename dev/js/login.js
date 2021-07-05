@@ -24,6 +24,12 @@ function returnTo(){
     $('.selector span')[1].style.color = "#9f9f9f";
   })
 }
+//關閉燈箱
+function closeLightBox(){
+  $('.closeIcon').click( function(){
+    $('#LoginLightBox').css("display","none");
+  })
+}
 
 //檢查註冊表單
 function checkSignup(e){
@@ -60,8 +66,8 @@ function checkSignup(e){
 
 function init(){
   change();
+  closeLightBox();
   document.getElementById('signupDetail').onsubmit = checkSignup;
-  console.log(document.getElementById('signupDetail'));
 }
 
 window.onload = init;
