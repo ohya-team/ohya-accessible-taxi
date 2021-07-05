@@ -40,7 +40,7 @@
                     </div>
 
                     <div class="title">
-                        <a href="./spotDetail.html">{{item.SPOT_NAME}}</a><span>{{item.SPOT_CAT}}</span>
+                        <a :href="'./spotDetail.html?SPOT_NO=' + item.SPOT_NO">{{item.SPOT_NAME}}</a><span>{{item.SPOT_CAT}}</span>
                     </div>
                     <div class="intro">
                         {{item.SPOT_SLOGAN}}

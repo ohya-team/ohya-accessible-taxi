@@ -4,17 +4,17 @@
     margin-bottom      : $mar-cont;
     height             : calc(100vh - 180px);
     background-position: bottom;
-    background-image   : linear-gradient(rgba(4, 9, 30, 0.3), rgba(4, 9, 30, 0.3)), url(../images/travel/spot/green_light_forest/green_light_forest_B.jpg);
 
-    @include rwd_each(tablet) {
-        background     : url(../images/travel/spot/green_light_forest/green_light_forest_B.jpg);
-        background-size: cover;
+    img {
+        position  : absolute;
+        top       : 0;
+        left      : 0;
+        height    : 100%;
+        width     : 100%;
+        object-fit: cover;
     }
 
-    @include rwd_each(desktop) {
-        background: url(../images/travel/spot/green_light_forest/green_light_forest_B.jpg);
-        background-size: cover;
-    }
+
 
     .title {
         position: absolute;

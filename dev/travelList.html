@@ -61,7 +61,7 @@
                     <div class="main-spot">
                         <img :src=mainSpotStatusOpen[0].SPOT_PIC_B alt="">
                         <div class="intro">
-                            <a href="./spotDetail.html">
+                            <a :href="'./spotDetail.html?SPOT_NO=' + mainSpotStatusOpen[0].SPOT_NO">
                              {{mainSpotStatusOpen[0].SPOT_NAME}}
                             </a>
                             <p>{{mainSpotStatusOpen[0].SPOT_SLOGAN}}</p>
@@ -72,7 +72,7 @@
                             <div class="sub-spot">
                                 <img :src=item.SPOT_PIC_3 alt="">
                                 <div class="intro">
-                                    <a href="./spotDetail.html">
+                                    <a :href="'./spotDetail.html?SPOT_NO=' + item.SPOT_NO">
                                       {{item.SPOT_NAME}}
                                     </a>
                                 </div>
