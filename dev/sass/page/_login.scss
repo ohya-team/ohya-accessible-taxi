@@ -53,40 +53,34 @@
         }
       }
       #signupDetail{
+        margin: 5px 10px;
+        font-size: $font-mini;
+        @include  rwd_each(desktop) {
+          font-size: $font-base;
+        }
+        input{
+          margin: 5px auto;
+          width: 100%; 
+        }
         .name{
-          font-size: $font-mini;
           justify-content: space-between;
           @include  rwd_each(tablet) {
             display: flex;
-            font-size: $font-base;
           }
           #last,#first{
             margin: 0px 10px;
           }
-          input{
-            margin: 5px auto;
-            width: 100%;
-          }
+        }
+        .account{
+          margin: 0px 10px;
         }
         .passward{
-          margin: auto;
-          font-size: $font-mini;
-          @include  rwd_each(tablet) {
-            font-size: $font-base;
-          }
-          #signPsw,#rePsw{
-            margin: 5px 10px;
-            input{
-              margin: 5px auto;
-              width: 100%;
-            }
-          }
+          margin: 0px 10px;
         }
         .checkInfo{
           text-align: center;
-          font-size: $font-mini;
-          @include  rwd_each(desktop) {
-            font-size: $font-base;
+          input{
+            width: 20px;
           }
         }
         .btn-main{

@@ -2,7 +2,7 @@
 let signUp = $('#signupDetail')[0];
 let logIn = $('#LoginDetail')[0];
 function change(){
-    $('.selector span').click( function(){
+    $('.selector span').on( 'click',function(){
     $(this).css('color','#313131');
     $('.selector span').not(this).css('color','#9f9f9f');
     if( $(this)[0].innerText == '註冊'){
@@ -17,7 +17,7 @@ function change(){
 }
 //返回至註冊
 function returnTo(){
-  $('.loginSpan span').click( function(){
+  $('.loginSpan span').on('click', function(){
     signUp.style.display = "block";
     logIn.style.display = "none";
     $('.selector span')[0].style.color = "#313131";
@@ -26,7 +26,7 @@ function returnTo(){
 }
 //關閉燈箱
 function closeLightBox(){
-  $('.closeIcon').click( function(){
+  $('.closeIcon').on('click', function(){
     $('#LoginLightBox').css("display","none");
   })
 }
@@ -59,7 +59,6 @@ function checkSignup(e){
     e.preventDefault();
     return;
   }
-
 }
 
 //console.log($('#last')[0].lastChild);
