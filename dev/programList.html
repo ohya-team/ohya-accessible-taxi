@@ -10,7 +10,8 @@
         integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="./css/style.css">
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
 </head>
 
 <body class="animate-background">
@@ -18,199 +19,89 @@
 
     @@include('layout/header.html')
 
-
-    <section class="scheme-l-hero">
-        <div class="title container">
-            <div class="item ">
-                <h2>旅遊方案</h2>
-                <p>Travel Plan</p>
+    <div id="app">
+        <section class="scheme-l-hero">
+            <div class="title container">
+                <div class="item ">
+                    <h2>旅遊方案</h2>
+                    <p>Travel Plan</p>
+                </div>
             </div>
+        </section>
+
+        <section class="filter-column">
+            <div class="container">
+                <div class="box">
+                    <ul class="word-menu">
+                        <li>排序</li>
+                        <li class="active">
+                            精選評分
+                            <ul class="dropdown">
+                                <li>最高評分</li>
+                                <li>最低評分</li>
+                            </ul>
+                        </li>
+                        <li>
+                            價格
+                            <ul class="dropdown">
+                                <li>最高價格</li>
+                                <li>最低價格</li>
+                            </ul>
+                        </li>
+                        <li>
+                            人數
+                            <ul class="dropdown">
+                                <li>最多人數</li>
+                                <li>最少人數</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="list-block">
+            <div class="container">
+                <div class="card-item" v-for="item in info">
+                    <div class="card-image">
+                        <a href="./programDetail.html">
+                            <img :src=item.PROGRAM_PIC alt="">
+                        </a>
+                    </div>
+                    <div class="text">
+                        <div class="project-name">
+                            <a href="./programDetail.html">
+                                <h3>{{item.PROGRAM_NAME}}</h3>
+                            </a>
+                        </div>
+                        <button><i class="fas fa-heart heart"></i></button>
+                        <div class="star">
+                            <star-rating :rating="item.PROGRAM_RATING" :read-only="true" :increment="0.01"
+                                :show-rating=false active-color="#ffd900" inactive-color="#9f9f9f" :star-size="25">
+                            </star-rating>
+                        </div>
+                        <div class="tag-group">
+                            <div class="tag">
+                                最多{{item.CAR_MAXNUM}}人
+                            </div>
+                            <div class="tag">
+                           {{item.CAR_TYPE}}
+                            </div>
+                        </div>
+
+                        <div class="price">
+                            <h4>${{item.PROGRAM_PRICE}}</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="pagination">
+            <a href="#" class="page-main">1</a>
+            <a href="#" class="page-else">2</a>
+            <a href="#" class="page-else">3</a>
         </div>
-    </section>
-
-    <section class="filter-column">
-        <div class="container">
-            <div class="box">
-                <ul class="word-menu">
-                    <li>排序</li>
-                    <li class="active">
-                        精選評分
-                        <ul class="dropdown">
-                            <li>最高評分</li>
-                            <li>最低評分</li>
-                        </ul>
-                    </li>
-                    <li>
-                        價格
-                        <ul class="dropdown">
-                            <li>最高價格</li>
-                            <li>最低價格</li>
-                        </ul>
-                    </li>
-                    <li>
-                        人數
-                        <ul class="dropdown">
-                            <li>最多人數</li>
-                            <li>最少人數</li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <section class="list-block">
-        <div class="container">
-            <div class="card-item">
-                <div class="card-image">
-                    <a href="./programDetail.html">
-                        <img src="./images/travel/program/daxi_old_street_A.jpg" alt="">
-                    </a>
-                </div>
-                <div class="text">
-                    <div class="project-name">
-                        <a href="./programDetail.html">
-                            <h3>大溪+埤塘自然生態公園+石門水庫一日遊</h3>
-                        </a>
-                    </div>
-                    <button><i class="fas fa-heart heart"></i></button>
-                    <div class="star">
-                        <i class="fas fa-star active"></i>
-                        <i class="fas fa-star active"></i>
-                        <i class="fas fa-star active"></i>
-                        <i class="fas fa-star active"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <div class="l-tag">
-                        <p>桃園</p>
-                    </div>
-                    <div class="price">
-                        <h4>$16000</h4>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card-item">
-                <div class="card-image">
-                    <a href="./programDetail.html">
-                        <img src="./images/travel/program/mazu_new_village_A.jpg" alt="">
-                    </a>
-                </div>
-                <div class="text">
-                    <div class="project-name">
-                        <a href="./programDetail.html">
-                            <h3>馬祖新村眷村+老街一日遊</h3>
-                        </a>
-                    </div>
-                    <button><i class="fas fa-heart heart" ></i></button>
-                    <div class="star">
-                        <i class="fas fa-star active"></i>
-                        <i class="fas fa-star active"></i>
-                        <i class="fas fa-star active"></i>
-                        <i class="fas fa-star active"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <div class="l-tag">
-                        <p>桃園</p>
-                    </div>
-                    <div class="price">
-                        <h4>$16000</h4>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card-item">
-                <div class="card-image">
-                    <a href="./programDetail.html">
-                        <img src="./images/travel/program/yongan_fishing_port_A.jpg" alt="">
-                    </a>
-                </div>
-                <div class="text">
-                    <div class="project-name">
-                        <a href="./programDetail.html">
-                            <h3>永安漁港+三坑老街一日遊</h3>
-                        </a>
-                    </div>
-                    <button><i class="fas fa-heart heart"></i></button>
-                    <div class="star">
-                        <i class="fas fa-star active"></i>
-                        <i class="fas fa-star active"></i>
-                        <i class="fas fa-star active"></i>
-                        <i class="fas fa-star active"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <div class="l-tag">
-                        <p>桃園</p>
-                    </div>
-                    <div class="price">
-                        <h4>$16000</h4>
-                    </div>
-                </div>
-            </div>
-            <div class="card-item">
-                <div class="card-image">
-                    <a href="./programDetail.html">
-                        <img src="./images/travel/program/jiaobanshan_hotel_A.jpg" alt="">
-                    </a>
-                </div>
-                <div class="text">
-                    <div class="project-name">
-                        <a href="./programDetail.html">
-                            <h3>角板山一日遊</h3>
-                        </a>
-                    </div>
-                    <button><i class="fas fa-heart heart"></i></button>
-                    <div class="star">
-                        <i class="fas fa-star active"></i>
-                        <i class="fas fa-star active"></i>
-                        <i class="fas fa-star active"></i>
-                        <i class="fas fa-star active"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <div class="l-tag">
-                        <p>桃園</p>
-                    </div>
-                    <div class="price">
-                        <h4>$16000</h4>
-                    </div>
-                </div>
-            </div>
-            <div class="card-item">
-                <div class="card-image">
-                    <a href="./programDetail.html">
-                        <img src="./images/travel/program/green_light_forest_A.jpg" alt="">
-                    </a>
-                </div>
-                <div class="text">
-                    <div class="project-name">
-                        <a href="./programDetail.html">
-                            <h3>綠光森林+大溪老街一日遊</h3>
-                        </a>
-                    </div>
-                    <button><i class="fas fa-heart heart" ></i></button>
-                    <div class="star">
-                        <i class="fas fa-star active"></i>
-                        <i class="fas fa-star active"></i>
-                        <i class="fas fa-star active"></i>
-                        <i class="fas fa-star active"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <div class="l-tag">
-                        <p>桃園</p>
-                    </div>
-                    <div class="price">
-                        <h4>$16000</h4>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <div class="pagination">
-        <a href="#" class="page-main">1</a>
-        <a href="#" class="page-else">2</a>
-        <a href="#" class="page-else">3</a>
     </div>
-
     @@include('layout/footer.html')
 
     <script src="./js/programList.js"></script>

@@ -36,6 +36,7 @@
     "jquery": "^3.6.0",
     "slider-pro": "^1.6.0",
     "vue": "^2.6.12",
+    "vue-star-rating": "^1.7.0",
     "webpack-cli": "^3.3.12"
   },
   "devDependencies": {
