@@ -9,7 +9,7 @@
   .title {
     padding         : 10px;
     background-color: $black;
-    margin-top: $text-text;
+    margin-top      : $text-text;
 
     @include rwd_each(tablet) {
       display        : flex;
@@ -154,8 +154,11 @@
       .remarks {
         display: grid;
 
-
-        ul,
+        .text {
+          white-space: pre-line;
+          text-align: left;
+          line-height: 1.5em;
+        }
         button {
           margin: auto;
         }
@@ -183,8 +186,9 @@
   .spot-group {
     padding         : 30px $ele-ele;
     background-color: $white;
+
     @include rwd_each(tablet) {
-      padding         : 100px $ele-ele;
+      padding: 100px $ele-ele;
     }
 
     .spot {
@@ -252,9 +256,11 @@
           "f f"
           "f f"
           "s t";
-          @include rwd_each(tablet) {
-            width        : 80%;
-          }
+
+        @include rwd_each(tablet) {
+          width: 80%;
+        }
+
         .img-f {
           width    : 100%;
           grid-area: f;

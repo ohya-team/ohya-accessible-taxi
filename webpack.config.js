@@ -13,6 +13,7 @@ module.exports = {
         spotDetail: './dev/js/spotDetail.js',
         adminTravel: './dev/js/adminTravel.js',
         programList: './dev/js/programList.js',
+        programDetail: './dev/js/programDetail.js',
         travelFormTwo: './dev/js/travelFormTwo.js',
         forumDetail: './dev/js/forumDetail.js',
         jqueryMin: './dev/js/jqueryMin.js',

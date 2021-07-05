@@ -21,7 +21,7 @@ let vue = new Vue({
             if (this.type === '所有景點') {
                 return this.info
             } else {             
-                return this.info.filter(item => item.spot_cat == this.type)
+                return this.info.filter(item => item.SPOT_CAT == this.type)
             }
         }
     },

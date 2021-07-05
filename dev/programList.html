@@ -64,17 +64,16 @@
             <div class="container">
                 <div class="card-item" v-for="item in info">
                     <div class="card-image">
-                        <a href="./programDetail.html">
+                        <a :href="'./programDetail.html?program_no=' + item.PROGRAM_NO">
                             <img :src=item.PROGRAM_PIC alt="">
                         </a>
                     </div>
                     <div class="text">
                         <div class="project-name">
-                            <a href="./programDetail.html">
+                            <a :href="'./programDetail.html?program_no=' + item.PROGRAM_NO">
                                 <h3>{{item.PROGRAM_NAME}}</h3>
                             </a>
                         </div>
-                        <button><i class="fas fa-heart heart"></i></button>
                         <div class="star">
                             <star-rating :rating="item.PROGRAM_RATING" :read-only="true" :increment="0.01"
                                 :show-rating=false active-color="#ffd900" inactive-color="#9f9f9f" :star-size="25">

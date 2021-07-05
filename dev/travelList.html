@@ -32,7 +32,7 @@
                     <div class="main-program">
                         <img :src=mainProgramStatusOpen[0].PROGRAM_PIC alt="">
                         <div class="intro">
-                            <a href="./programDetail.html">
+                            <a :href="'./programDetail.html?program_no=' + mainProgramStatusOpen[0].PROGRAM_NO">
                               {{mainProgramStatusOpen[0].PROGRAM_NAME}}
                             </a>
                             <p>{{mainProgramStatusOpen[0].PROGRAM_FEATURE_1}}</p>
@@ -42,7 +42,7 @@
                         <div class="sub-program" v-for="item in programStatusOpen.slice(0,4)" :key="item.id">
                             <img :src=item.PROGRAM_PIC alt="">
                             <div class="intro">
-                                <a href="./programDetail.html">
+                                <a :href="'./programDetail.html?program_no=' + item.PROGRAM_NO">
                                    {{item.PROGRAM_NAME}}
                                 </a>
                             </div>

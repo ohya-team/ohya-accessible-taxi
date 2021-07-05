@@ -10,141 +10,92 @@
         integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="./css/style.css">
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
 </head>
 
 <body class="animate-background">
 
-    
+
     @@include('layout/header.html')
-    
 
-    <section class="program-detail">
-        <div class="container">
-            <div class="title">
-                <h2>大溪一日遊~大溪老街+埤塘生態公園+石門水庫</h2>
-                <button><i class="fas fa-heart"></i><span>收藏</span> </button>
-            </div>
-            <div class="info">
-                <img src="./images/travel/spot/daxi_old_street/daxi_old_street_02.jpg" alt="">
-                <div class="detail">
-                    <div class="item-group">
-                        <div class="stroke">
-                            <span>最多人數</span>
-                            <p>6</p>
-                        </div>
-                        <div class="location-and-star">
-                            <div class="location">
-                                <span>旅遊地點</span>
-                                <p>桃園</p>
+    <div id="app">
+        <section class="program-detail">
+            <div class="container">
+                <div class="title">
+                    <h2>{{DetailInfo[0].PROGRAM_NAME}}</h2>
+                </div>
+                <div class="info">
+                    <img :src="DetailInfo[0].PROGRAM_PIC" alt="">
+                    <div class="detail">
+                        <div class="item-group">
+                            <div class="stroke">
+                                <span>最多人數</span>
+                                <p>{{DetailInfo[0].CAR_MAXNUM}}</p>
                             </div>
-                            <div class="star">
-                                <i class="fas fa-star active"></i>
-                                <i class="fas fa-star active"></i>
-                                <i class="fas fa-star active"></i>
-                                <i class="fas fa-star active"></i>
-                                <i class="fas fa-star"></i>
+                            <div class="location-and-star">
+                                <div class="location">
+                                    <span>搭乘車種</span>
+                                    <p>{{DetailInfo[0].CAR_TYPE}}</p>
+                                </div>
+                                <star-rating :rating="DetailInfo[0].PROGRAM_RATING" :read-only="true" :increment="0.01"
+                                    active-color="#ffd900" inactive-color="#9f9f9f" :show-rating=false :star-size="25">
+                                </star-rating>
+                            </div>
+                            <div class="price">
+                                <span>價格</span>
+                                <p>${{DetailInfo[0].PROGRAM_PRICE}}</p>
                             </div>
                         </div>
-                        <div class="price">
-                            <span>價格</span>
-                            <p>$15000</p>
-                        </div>
-                    </div>
-                    <div class="content">
-                        <div class="spec">
-                            <span>行程特色</span>
-                            <ul>
-                                <li><i class="fas fa-check-square"></i>豆干、花生糖、碗粿、豆花，必吃古早味</li>
-                                <li><i class="fas fa-check-square"></i>大草皮野餐、大埤塘賞鴨，踏青必勝</li>
-                                <li><i class="fas fa-check-square"></i>各國好手齊聚，熱血馬拉松壯遊水庫風光</li>
-                            </ul>
-                        </div>
-                        <div class="remarks">
-                            <span>備註</span>
-                            <ul>
-                                <li>可選素食</li>
-                                <li>額外加購午餐每份200元</li>
-                                <li>門票加購每人150元</li>
-                            </ul>
-                            <button class="btn-main" onclick="location.href='./travelFormOne.html'">立即下單</button>
+                        <div class="content">
+                            <div class="spec">
+                                <span>行程特色</span>
+                                <ul>
+                                    <li><i class="fas fa-check-square"></i>{{DetailInfo[0].PROGRAM_FEATURE_1}}</li>
+                                    <li><i class="fas fa-check-square"></i>{{DetailInfo[0].PROGRAM_FEATURE_2}}</li>
+                                    <li><i class="fas fa-check-square"></i>{{DetailInfo[0].PROGRAM_FEATURE_3}}</li>
+                                </ul>
+                            </div>
+                            <div class="remarks">
+                                <span>備註</span>
+                                <p class="text"> {{DetailInfo[0].PROGRAM_REMARKS}}</p>
+                                <button class="btn-main" onclick="location.href='./travelFormOne.html'">立即下單</button>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-    <section class="program-spot">
-        <div class="container">
-            <h3 class="title">行程介紹</h3>
-            <div class="spot-group">
+        </section>
+        <section class="program-spot">
+            <div class="container">
+                <h3 class="title">行程介紹</h3>
+                <div class="spot-group">
 
-                <div class="spot">
-                    <div class="order">
-                        <p>1</p>
-                    </div>
-                    <div class="spot-info">
-                        <h3 class="spot-title">
-                            大溪老街
-                        </h3>
-                        <p class="spot-text">
-                            大溪是桃園最早發展的地方，透過大漢溪小帆船行駛淡水河，與大陸貿易興盛，造就了許多商號與商賈。大溪老街週邊有大溪橋、李騰芳古宅、寺廟古蹟、武德殿文化古蹟及大溪木藝生態博物館等知名景點，當然更要品嚐老街上傳統的台灣古早味小吃、體驗台灣童玩，尤其是大溪豆干、月光餅、花生糖、豆花、碗粿、湯圓等，都是不容錯過的台灣道地美食！絕對是來到桃園，感受道地台灣味必去的景點之一！
-                        </p>
-                    </div>
-                    <div class="spot-img">
-                        <img src="./images/travel/spot/daxi_old_street/daxi_old_street_02.jpg" alt="" class="img-f">
-                        <img src="./images/travel/spot/daxi_old_street/daxi_old_street_03.jpg" class="img-s" alt="">
-                        <img src="./images/travel/spot/daxi_old_street/daxi_old_street_04.jpg" alt="" class="img-t">
-                    </div>
-                </div>
-
-                <div class="spot">
-                    <div class="order">
-                        <p>2</p>
-                    </div>
-                    <div class="spot-info">
-                        <h3 class="spot-title">
-                            八德埤塘自然生態公園
-                        </h3>
-                        <p class="spot-text">
-                            佔地5公頃的八德埤塘自然生態公園像是一艘綠色方舟，讓人們遠離興豐路上的喧鬧車聲，聆聽最天然的｢動植物奏鳴曲｣和享受貼近大自然的無比愜意。沿著步道行經公園管理中心，設有一間景觀咖啡屋，木造房的溫潤質感搭配手工麵包、餅乾和手沖咖啡堪為絕配，行程中的留白用一頓下午茶來填滿。滿足了味蕾後，帶著好奇心持續探索園區內的豐富生態。
-                        </p>
-                    </div>
-                    <div class="spot-img">
-                        <img src="./images/travel/spot/bade_pond_ecological_park/bade_pond_ecological_park_02.jpg"
-                            alt="" class="img-f">
-                        <img src="./images/travel/spot/bade_pond_ecological_park/bade_pond_ecological_park_03.jpg"
-                            class="img-s" alt="">
-                        <img src="./images/travel/spot/bade_pond_ecological_park/bade_pond_ecological_park_04.jpg"
-                            alt="" class="img-t">
-                    </div>
-                </div>
-                <div class="spot">
-                    <div class="order">
-                        <p>3</p>
-                    </div>
-                    <div class="spot-info">
-                        <h3 class="spot-title">
-                            石門水庫
-                        </h3>
-                        <p class="spot-text">
-                            石門水庫曾經是遠東最大的水庫，目前亦是台灣北部的重要水庫之一，一年四季，湖光山色，風景秀麗。石門水庫對外可連接十幾個旅遊景點，園區大小公園綠樹成林，有自行車步道，也有環湖遊艇，提供旅客多元的休閒樂趣。
-                        </p>
-                    </div>
-                    <div class="spot-img">
-                        <img src="./images/travel/spot/shimen_reservoir/shimen_reservoir_02.jpg" alt="" class="img-f">
-                        <img src="./images/travel/spot/shimen_reservoir/shimen_reservoir_03.jpg" class="img-s" alt="">
-                        <img src="./images/travel/spot/shimen_reservoir/shimen_reservoir_04.jpg" alt="" class="img-t">
+                    <div class="spot" v-for="(item,index) in spotDetailInfo" :key="item.id">
+                        <div class="order">
+                            <p>{{index+1}}</p>
+                        </div>
+                        <div class="spot-info">
+                            <h3 class="spot-title">
+                                {{item.SPOT_NAME}}
+                            </h3>
+                            <p class="spot-text">
+                                {{item.SPOT_MIN_INFO}}
+                            </p>
+                        </div>
+                        <div class="spot-img">
+                            <img :src="item.SPOT_PIC_2" alt="" class="img-f">
+                            <img :src="item.SPOT_PIC_3" class="img-s" alt="">
+                            <img :src="item.SPOT_PIC_4" alt="" class="img-t">
+                        </div>
                     </div>
                 </div>
             </div>
+        </section>
+    </div>
 
-        </div>
-    </section>
-
-    
     @@include('layout/footer.html')
-    
+    <script src="./js/programDetail.js"></script>
 
 </body>
 
