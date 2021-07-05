@@ -18,34 +18,35 @@
 
     <div id="app">
         <section class="spot-d-hero">
-            <img :src=DetailInfo[0].SPOT_PIC_B alt="">
+            <img :src=detailInfo[0].SPOT_PIC_B alt="">
             <div class="title">
-                <h2>{{DetailInfo[0].SPOT_NAME}}</h2>
-                <p>{{DetailInfo[0].SPOT_SLOGAN}}</p>
+                <h2>{{detailInfo[0].SPOT_NAME}}</h2>
+                <p>{{detailInfo[0].SPOT_SLOGAN}}</p>
             </div>
         </section>
         <section class="spot-detail">
             <div class="intro container">
-                <img :src=DetailInfo[0].SPOT_PIC_1 alt="">
+                <img :src=detailInfo[0].SPOT_PIC_1 alt="">
                 <div class="intro-detail">
-                    <p>{{DetailInfo[0].SPOT_INFO}}
+                    <p>{{detailInfo[0].SPOT_INFO}}
                     <div class="intro-imgs">
-                        <img :src=DetailInfo[0].SPOT_PIC_2 alt="">
-                        <img :src=DetailInfo[0].SPOT_PIC_3 alt="">
-                        <img :src=DetailInfo[0].SPOT_PIC_4 alt="">
+                        <img :src=detailInfo[0].SPOT_PIC_2 alt="">
+                        <img :src=detailInfo[0].SPOT_PIC_3 alt="">
+                        <img :src=detailInfo[0].SPOT_PIC_4 alt="">
                     </div>
                 </div>
             </div>
         </section>
+
         </section>
         <section class="related container">
             <h2>相關旅遊方案</h2>
-            <div class="item-group">
-                <a href="./programDetail.html" class="item" v-for="item in ProgramDetailInfo" :key="item.PROGRAM_NO">
+            <Div class="item-group" >
+                <a href="./programDetail.html" class="item" v-for="item in programDetailInfo" :key="item.PROGRAM_NO"> 
                     <img :src="item.PROGRAM_PIC" alt="">
                     <h5>{{item.PROGRAM_NAME}}</h5>
                 </a>
-            </div>
+            </Div>
         </section>
 
     </div>

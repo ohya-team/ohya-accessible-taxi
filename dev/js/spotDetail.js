@@ -23,14 +23,14 @@ let vue = new Vue({
         });
     },
     computed: {
-        DetailInfo(){
+        detailInfo(){
             if (this.info != null) {
                 return this.info.filter(item => item.SPOT_NO == this.targetPageId)
             }
         },
-        ProgramdetailInfo(){
-            if (this.info != null) {
-                return this.info.filter(item => item.SPOT_NO == this.targetPageId)
+        programDetailInfo(){
+            if (this.programInfo != null) {
+                return this.programInfo.filter(item => item.SPOT_NO == this.targetPageId)
             }
         }
     },
