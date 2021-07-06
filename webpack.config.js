@@ -14,6 +14,7 @@ module.exports = {
         adminTravel: './dev/js/adminTravel.js',
         programList: './dev/js/programList.js',
         programDetail: './dev/js/programDetail.js',
+        adminProgram: './dev/js/adminProgram.js',
         travelFormTwo: './dev/js/travelFormTwo.js',
         forumDetail: './dev/js/forumDetail.js',
         jqueryMin: './dev/js/jqueryMin.js',
