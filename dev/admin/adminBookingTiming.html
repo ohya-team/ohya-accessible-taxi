@@ -29,17 +29,38 @@
     @@include('../layout/adminSideBar.html')
     <!-- Page Content -->
     <div id="page-wrapper">
-        <div class="container-fluid">
-          <div class="row">
-            <div class="col-lg-12">
-                <h2 class="page-header">預約時段管理</h2>
-            </div>
-          </div>
-
-          <div class="row">
-            
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-lg-12">
+              <h2 class="page-header">預約時段管理</h2>
           </div>
         </div>
+
+        <div class="row">
+          <div class="form-group">
+            <p class="form-control-static">距離已開放預約日期結束，倒數 <span id="dayline">3天</span></p>
+          </div>
+          <div class="col-lg-6">
+            <div class="form-group">
+              <label>新增可預約日期：</label>
+              <div class="form-group">
+              <input class="form-control" id="disabledInput" type="text" placeholder="7/15" disabled="">
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="form-group">
+              <label>至</label>
+              <select class="form-control">
+                  <option>7/20</option>
+                  <option>7/21</option>
+                  <option>7/22</option>
+              </select>
+            </div>
+          </div>
+          <button class="btn btn-default">新增時段</button>
+        </div>
+      </div>
     </div>
   </div>
 </body>
