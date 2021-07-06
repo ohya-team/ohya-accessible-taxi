@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>司機排班管理</title>
+
+  <!-- Bootstrap Core CSS -->
+  <link href="../css/bootstrap.css" rel="stylesheet">
+
+  <!-- MetisMenu CSS -->
+  <link href="../css/metisMenuMin.css" rel="stylesheet">
+
+  <!-- Timeline CSS -->
+  <link href="../css/timeline.css" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link href="../css/startmin.css" rel="stylesheet">
+
+  <!-- Morris Charts CSS -->
+  <link href="../css/morris.css" rel="stylesheet">
+
+  <!-- Custom Fonts -->
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+      integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+</head>
+<body>
+  <div id="wrapper">
+    @@include('../layout/adminSideBar.html')
+    <!-- Page Content -->
+    <div id="page-wrapper">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-lg-12">
+              <h2 class="page-header">司機排班管理</h2>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-12">
+            <form role="form">
+              <div class="form-group">
+                <label>司機姓名</label>
+                <input class="form-control">
+              </div>
+              <div class="form-group">
+                <label>司機手機</label>
+                <input class="form-control">
+              </div>
+              <div class="form-group">
+                <label>司機車牌號</label>
+                <input class="form-control">
+              </div>
+              <button type="submit" class="btn btn-success">查詢</button>
+            </form>
+          </div>
+        </div>
+        <br>
+
+        <div class="row">
+          <div class="col-lg-12">
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th>司機</th>
+                  <th>聯繫手機</th>
+                  <th>車牌</th>
+                  <th>排班設定</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>郭阿明</td>
+                  <td>0912345678</td>
+                  <td>AA1234</td>
+                  <td>
+                    <a href="#"><button type="button" class="btn btn-default">排班</button></a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+  </div>
+
+
+<!-- jQuery -->
+<script src="../js/jqueryMin.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="../js/bootstrapMin.js"></script>
+
+<!-- Metis Menu Plugin JavaScript -->
+<script src="../js/metisMenuMin.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="../js/startmin.js"></script>
+<script src="../js/adminTravel.js"></script>
+</body>
+</html>

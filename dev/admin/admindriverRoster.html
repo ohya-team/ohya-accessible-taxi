@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>司機個人排班表</title>
+
+  <!-- Bootstrap Core CSS -->
+  <link href="../css/bootstrap.css" rel="stylesheet">
+
+  <!-- MetisMenu CSS -->
+  <link href="../css/metisMenuMin.css" rel="stylesheet">
+
+  <!-- Timeline CSS -->
+  <link href="../css/timeline.css" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link href="../css/startmin.css" rel="stylesheet">
+
+  <!-- Morris Charts CSS -->
+  <link href="../css/morris.css" rel="stylesheet">
+
+  <!-- Custom Fonts -->
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+      integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+</head>
+<body>
+  <div id="wrapper">
+    @@include('../layout/adminSideBar.html')
+    <!-- Page Content -->
+    <div id="page-wrapper">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-lg-12">
+              <h2 class="page-header">司機個人排班表</h2>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-12">
+            <form action="#">
+              <div class="form-group">
+                <label>郭阿明</label>
+              </div>
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th>日期</th>
+                    <th>時段</th>
+                    <th>上班/休假</th>
+                    <th>預約狀態</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>7/1</td>
+                    <td>早上</td>
+                    <td>
+                      <select class="form-control">
+                        <option>上班</option>
+                        <option>休假</option>
+                      </select>
+                    </td>
+                    <td>
+                      未有預約
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>7/1</td>
+                    <td>下午</td>
+                    <td>
+                      <select class="form-control">
+                        <option>上班</option>
+                        <option>休假</option>
+                      </select>
+                    </td>
+                    <td>
+                      未有預約
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>7/1</td>
+                    <td>晚上</td>
+                    <td>
+                      <select class="form-control">
+                        <option>上班</option>
+                        <option>休假</option>
+                      </select>
+                    </td>
+                    <td>
+                      未有預約
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <button type="submit" class="btn btn-default">完成</button>
+              <button type="reset" class="btn btn-default">取消</button>
+            </form>
+          </div>
+        </div>
+      </div>
+  </div>
+
+
+<!-- jQuery -->
+<script src="../js/jqueryMin.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="../js/bootstrapMin.js"></script>
+
+<!-- Metis Menu Plugin JavaScript -->
+<script src="../js/metisMenuMin.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="../js/startmin.js"></script>
+<script src="../js/adminTravel.js"></script>
+</body>
+</html>
