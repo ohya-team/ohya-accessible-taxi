@@ -35,6 +35,3 @@ btn1.addEventListener('click', () => {
     ,3000)
 });
 
-document.getElementById("close-slot").addEventListener('click', () => {
-    document.getElementById("slotmachine-pop-up").classList.add("slot-hide");
-})
