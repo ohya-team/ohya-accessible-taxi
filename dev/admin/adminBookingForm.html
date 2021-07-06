@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>預約訂單管理</title>
+
+  <!-- Bootstrap Core CSS -->
+  <link href="../css/bootstrap.css" rel="stylesheet">
+
+  <!-- MetisMenu CSS -->
+  <link href="../css/metisMenuMin.css" rel="stylesheet">
+
+  <!-- Timeline CSS -->
+  <link href="../css/timeline.css" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link href="../css/startmin.css" rel="stylesheet">
+
+  <!-- Morris Charts CSS -->
+  <link href="../css/morris.css" rel="stylesheet">
+
+  <!-- Custom Fonts -->
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+      integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+</head>
+<body>
+  <div id="wrapper">
+    @@include('../layout/adminSideBar.html')
+    <!-- Page Content -->
+    <div id="page-wrapper">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-lg-12">
+                <h2 class="page-header">預約訂單管理</h2>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-lg-12">
+              <form role="form">
+                <div class="form-group">
+                  <label>客戶姓名</label>
+                  <input class="form-control">
+                </div>
+                <div class="form-group">
+                  <label>客戶手機</label>
+                  <input class="form-control">
+                </div>
+                <div class="form-group">
+                  <label>客戶流水號</label>
+                  <input class="form-control">
+                </div>
+                <div class="form-group">
+                  <label>訂單編號</label>
+                  <input class="form-control">
+                </div>
+                <button type="submit" class="btn btn-default">查詢</button>
+              </form>
+            </div>
+          </div>
+          <br>
+
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                    訂單進行中
+                </div>
+                <!-- /.panel-heading -->
+                <div class="panel-body">
+                  <form role="form">
+                    <div class="col-lg-6">
+                      <div class="form-group">
+                        <label>訂單編號：</label>
+                        <p class="form-control-static">12593249832431093</p>
+                      </div>
+                      <div class="form-group">
+                        <label>客戶姓名：</label>
+                        <p class="form-control-static">郭阿明</p>
+                      </div>
+                      <div class="form-group">
+                        <label>訂單金額：</label>
+                        <p class="form-control-static">6000</p>
+                      </div>
+                      <div class="form-group">
+                        <label>起始地點：</label>
+                        <p class="form-control-static">桃園市中壢區某某路某某街 771門口</p>
+                      </div>
+                      <div class="form-group">
+                        <label>預約時段：</label>
+                        <p class="form-control-static">7/14 上午時段</p>
+                      </div>
+                      <div class="form-group">
+                        <label>預約車牌號：</label>
+                        <p class="form-control-static">FF1235</p>
+                      </div>
+                      <div class="form-group">
+                        <label>搭乘人數：</label>
+                        <p class="form-control-static">4位</p>
+                      </div>
+                    </div>
+
+                    <div class="col-lg-6">
+                      <div class="form-group">
+                        <label>客戶流水號：</label>
+                        <p class="form-control-static">12593</p>
+                      </div>
+                      <div class="form-group">
+                        <label>客戶手機：</label>
+                        <p class="form-control-static">0912346578</p>
+                      </div>
+                      <div class="form-group">
+                        <label>優惠券：</label>
+                        <p class="form-control-static">9折</p>
+                      </div>
+                      <div class="form-group">
+                        <label>前往目的地：</label>
+                        <p class="form-control-static">桃園市中壢區某某路某某街 771門口</p>
+                      </div>
+                      <div class="form-group">
+                        <label>預約車種：</label>
+                        <p class="form-control-static">福泰T6</p>
+                      </div>                    
+                      <div class="form-group">
+                        <label>預約司機：</label>
+                        <p class="form-control-static">郭阿明</p>
+                      </div>
+                      <div class="form-group">
+                        <label>其他需求：</label>
+                        <p class="form-control-static"></p>
+                      </div>
+                    </div>                                                                       
+                  </form>
+                </div>
+                <!-- /.panel-body -->
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                    訂單已完成
+                </div>
+                <!-- /.panel-heading -->
+                <div class="panel-body">
+                  <form role="form">
+                    <div class="col-lg-6">
+                      <div class="form-group">
+                        <label>訂單編號：</label>
+                        <p class="form-control-static">12593249832431093</p>
+                      </div>
+                      <div class="form-group">
+                        <label>客戶姓名：</label>
+                        <p class="form-control-static">郭阿明</p>
+                      </div>
+                      <div class="form-group">
+                        <label>訂單金額：</label>
+                        <p class="form-control-static">6000</p>
+                      </div>
+                      <div class="form-group">
+                        <label>起始地點：</label>
+                        <p class="form-control-static">桃園市中壢區某某路某某街 771門口</p>
+                      </div>
+                      <div class="form-group">
+                        <label>預約時段：</label>
+                        <p class="form-control-static">7/14 上午時段</p>
+                      </div>
+                      <div class="form-group">
+                        <label>預約車牌號：</label>
+                        <p class="form-control-static">FF1235</p>
+                      </div>
+                      <div class="form-group">
+                        <label>搭乘人數：</label>
+                        <p class="form-control-static">4位</p>
+                      </div>
+                    </div>
+
+                    <div class="col-lg-6">
+                      <div class="form-group">
+                        <label>客戶流水號：</label>
+                        <p class="form-control-static">12593</p>
+                      </div>
+                      <div class="form-group">
+                        <label>客戶手機：</label>
+                        <p class="form-control-static">0912346578</p>
+                      </div>
+                      <div class="form-group">
+                        <label>優惠券：</label>
+                        <p class="form-control-static">9折</p>
+                      </div>
+                      <div class="form-group">
+                        <label>前往目的地：</label>
+                        <p class="form-control-static">桃園市中壢區某某路某某街 771門口</p>
+                      </div>
+                      <div class="form-group">
+                        <label>預約車種：</label>
+                        <p class="form-control-static">福泰T6</p>
+                      </div>                    
+                      <div class="form-group">
+                        <label>預約司機：</label>
+                        <p class="form-control-static">郭阿明</p>
+                      </div>
+                      <div class="form-group">
+                        <label>其他需求：</label>
+                        <p class="form-control-static"></p>
+                      </div>
+                    </div>                                                                       
+                  </form>
+                </div>
+                <!-- /.panel-body -->
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- jQuery -->
+<script src="../js/jqueryMin.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="../js/bootstrapMin.js"></script>
+
+<!-- Metis Menu Plugin JavaScript -->
+<script src="../js/metisMenuMin.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="../js/startmin.js"></script>
+<script src="../js/adminTravel.js"></script>
+</body>
+</html>
