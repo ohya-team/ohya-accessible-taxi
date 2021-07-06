@@ -5,6 +5,17 @@ $('#step4').css('display','none');
 
 function step1(){//步驟一
 
+  //跳轉步驟div
+  $('.pills li:nth-child(1)').on('click', function(){
+      
+    $('#step1').css('display','initial');
+    $('#step2').css('display','none');
+    $('#step3').css('display','none');
+    $('#step4').css('display','none');
+
+    $('.pills-main:nth-child(1)').empty().append('確認時間');
+  });
+
   //時段選擇 ->需顯示今天後8-14天
   var curDate = new Date();
   var curMonth = curDate.getMonth();//index: 5+1月
@@ -79,19 +90,13 @@ function step1(){//步驟一
   var bookingBtn = $('.btn-bookingTime');
   
   bookingBtn.on('click', function(){
+    $('.pills-main:nth-child(2)').empty().append('確認車種');
+
     //重置按鈕顏色
     bookingBtn.css({
       color: '#313131',
       background: 'white',
       border: '2px solid #ffd900'
-    });
-
-    //跳轉步驟div
-    $('.pills li:nth-child(1)').on('click', function(){
-      $('#step1').css('display','initial');
-      $('#step2').css('display','none');
-      $('#step3').css('display','none');
-      $('#step4').css('display','none');
     });
 
     //選定後的按鈕顏色
@@ -127,19 +132,13 @@ function step1(){//步驟一
     var dayTimeMobileBtn = $('.mobileTable>button');
   
     dayTimeMobileBtn.on('click', function(){
+      $('.pills-main:nth-child(2)').empty().append('確認車種');
+
       //重置按鈕顏色
       dayTimeMobileBtn.css({
         color: '#313131',
         background: 'white',
         border: '2px solid #ffd900'
-      });
-  
-      //跳轉步驟div
-      $('.pills li:nth-child(1)').on('click', () => {
-        $('#step1').css('display','initial');
-        $('#step2').css('display','none');
-        $('#step3').css('display','none');
-        $('#step4').css('display','none');
       });
   
       //選定後的按鈕顏色
@@ -148,10 +147,12 @@ function step1(){//步驟一
         background: '#313131',
         border: '2px solid #313131'
       });
-    
+      
+      //轉第二步驟區塊
       $('#step1').css('display','none');
       $('#step2').css('display','initial');
 
+      //加入完成icon
       $('.pills-main:nth-child(1)').append(' <i class="far fa-check-circle" aria-hidden="true"></i>');
     })
   });
@@ -159,6 +160,17 @@ function step1(){//步驟一
 }
 
 function step2(){
+
+  //跳轉步驟div
+  $('.pills li:nth-child(2)').on('click',function(){
+    $('#step1').css('display','none');
+    $('#step2').css('display','initial');
+    $('#step3').css('display','none');
+    $('#step4').css('display','none');
+
+    $('.pills-main:nth-child(2)').empty().append('確認車種');
+  });
+
   for(i=0; i<4; i++){
     $('#step2 .cards').append(`
       <div class="card">
@@ -181,19 +193,13 @@ function step2(){
   var bookingCarBtn = $('.btn-bookingCar');
   
   bookingCarBtn.on('click',function(){
+    $('.pills-main:nth-child(3)').empty().append('確認司機');
+
     //重置按鈕顏色
     bookingCarBtn.css({
       color: '#313131',
       background: 'white',
       border: '2px solid #ffd900'
-    });
-
-    //跳轉步驟div
-    $('.pills li:nth-child(2)').on('click',function(){
-      $('#step1').css('display','none');
-      $('#step2').css('display','initial');
-      $('#step3').css('display','none');
-      $('#step4').css('display','none');
     });
   
     //選定後的按鈕顏色
@@ -211,6 +217,17 @@ function step2(){
 }
 
 function step3(){
+
+  //跳轉步驟div
+  $('.pills li:nth-child(3)').on('click',function(){
+    $('#step1').css('display','none');
+    $('#step2').css('display','none');
+    $('#step3').css('display','initial');
+    $('#step4').css('display','none');
+
+    $('.pills-main:nth-child(3)').empty().append('確認司機');
+  });
+
   for(i=0; i<5; i++){
     $('#step3 .cards').append(`
     <div class="card">
@@ -229,20 +246,13 @@ function step3(){
   var bookingDriverBtn = $('.btn-bookingDriver');
   
   bookingDriverBtn.on('click',function(){
+
     //重置按鈕顏色
     bookingDriverBtn.css({
       color: '#313131',
       background: 'white',
       border: '2px solid #ffd900'
     });    
-
-    //跳轉步驟div
-    $('.pills li:nth-child(3)').on('click',function(){
-      $('#step1').css('display','none');
-      $('#step2').css('display','none');
-      $('#step3').css('display','initial');
-      $('#step4').css('display','none');
-    });
     
     //選定後的按鈕顏色
     $(this).css({
@@ -280,20 +290,21 @@ function formChecking(){
       $('#b-phone').removeAttr('value');
     }
   })
+
+  var bookingSub = $('#bookingSub');
+  var popUpBox = $('.pop-up-box');
+  var goGame = $('#goGame');
+  
+  bookingSub.on("click", function(){
+    popUpBox.addClass('active');
+  });
+  
+  goGame.on("click", function(){
+    popUpBox.removeClass('active');
+    $("#slotmachine-pop-up").removeClass('slot-hide');
+  });
 } 
 
-var bookingSub = $('#bookingSub');
-var popUpBox = $('.pop-up-box');
-var goGame = $('#goGame');
-
-bookingSub.on("click", function(){
-  popUpBox.addClass('active');
-});
-
-goGame.on("click", function(){
-  popUpBox.removeClass('active');
-  $("#slotmachine-pop-up").removeClass('slot-hide');
-});
 
 $(function(){
   step1();
