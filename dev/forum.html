@@ -38,12 +38,10 @@
             <p> 熱門</p>
             <div class="triangle"></div>
           </button>
-          <div class="sorts">
-            <ul class="dropdown-menu hide appear" id="dropdown-menu-order">
+            <ul class="dropdown-menu hide appear " id="dropdown-menu-order">
               <li class="order">熱門</li>
               <li class="order">最新</li>
             </ul>
-          </div>
         </div>
         <div class="category-detail">
           <p class="category-detail-word">分類</p>
@@ -51,14 +49,12 @@
             <p>一般預約</p>
             <div class="triangle"></div>
           </button>
-          <div class="sorts appear">
-            <ul class="dropdown-menu hide appear" id="dropdown-menu-sort">
+            <ul class="dropdown-menu hide " id="dropdown-menu-sort">
               <li class="sort">一般預約</li>
               <li class="sort">包車旅遊</li>
               <li class="sort">優良司機</li>
               <li class="sort">精選車種</li>
             </ul>
-          </div>
         </div>
       </div>
       <a href="uploadArticle.html">
@@ -88,7 +84,7 @@
             </div>
             <p>每個行程都安排得好用心，大推大家來試試看
               這次去的地...</p>
-            <a href="forumDetail.html"><button class="btn-forum-card">MORE</button></a>
+            <a href="forumDetail.html"><button class="btn-second">MORE</button></a>
           </section>
         </div>
       </div>
@@ -112,7 +108,7 @@
             </div>
             <p>每個行程都安排得好用心，大推大家來試試看
               這次去的地...</p>
-            <a href="forumDetail.html"><button class="btn-forum-card">MORE</button></a>
+            <a href="forumDetail.html"><button class="btn-second">MORE</button></a>
           </section>
         </div>
       </div>
@@ -136,7 +132,7 @@
             </div>
             <p>每個行程都安排得好用心，大推大家來試試看
               這次去的地...</p>
-            <a href="forumDetail.html"><button class="btn-forum-card">MORE</button></a>
+            <a href="forumDetail.html"><button class="btn-second">MORE</button></a>
           </section>
         </div>
       </div>
@@ -160,7 +156,7 @@
             </div>
             <p>每個行程都安排得好用心，大推大家來試試看
               這次去的地...</p>
-            <a href="forumDetail.html"><button class="btn-forum-card">MORE</button></a>
+            <a href="forumDetail.html"><button class="btn-second">MORE</button></a>
           </section>
         </div>
       </div>
@@ -186,7 +182,7 @@
             </div>
             <p>每個行程都安排得好用心，大推大家來試試看
               這次去的地...</p>
-            <a href="forumDetail.html"><button class="btn-forum-card">MORE</button></a>
+            <a href="forumDetail.html"><button class="btn-second">MORE</button></a>
           </section>
         </div>
       </div>
@@ -210,7 +206,7 @@
             </div>
             <p>每個行程都安排得好用心，大推大家來試試看
               這次去的地...</p>
-            <a href="forumDetail.html"><button class="btn-forum-card">MORE</button></a>
+            <a href="forumDetail.html"><button class="btn-second">MORE</button></a>
           </section>
         </div>
       </div>
@@ -234,7 +230,7 @@
             </div>
             <p>每個行程都安排得好用心，大推大家來試試看
               這次去的地...</p>
-            <a href="forumDetail.html"><button class="btn-forum-card">MORE</button></a>
+            <a href="forumDetail.html"><button class="btn-second">MORE</button></a>
           </section>
         </div>
       </div>
@@ -258,7 +254,7 @@
             </div>
             <p>每個行程都安排得好用心，大推大家來試試看
               這次去的地...</p>
-            <a href="forumDetail.html"><button class="btn-forum-card">MORE</button></a>
+            <a href="forumDetail.html"><button class="btn-second">MORE</button></a>
           </section>
         </div>
       </div>
@@ -273,76 +269,8 @@
 
   <script src="./js/forum.js"></script>
 
-  <!-- <script>
-    function showHideMenuOrder(){
-    let menu = document.getElementById("dropdown-menu-order");
-      if(menu.classList.contains("hide")){
-        menu.classList.remove("hide");
-      }else{
-        menu.classList.add("hide"); 
-    }
-  }
-  function selectOrder(e){
-    let word = document.querySelector("#dropdown-list p");
-    word.textContent = e.target.innerHTML;
-    let menu = document.querySelectorAll("#dropdown-menu-order");
-    for(let i = 0;i< menu.length;i++){
-      menu[i].classList.add("hide");
-    }
-    // console.log(e.target.innerHTML);
-    // console.log(word.innerHTML); 
-  };
 
-  function showHideMenuSort(){
-    let menu = document.getElementById("dropdown-menu-sort")
-      if(menu.classList.contains("hide")){
-        menu.classList.remove("hide");
-      }else{
-        menu.classList.add("hide"); 
-    }
-  }
-  function selectSort(e){
-    let sort = document.querySelector("#dropdown-list-sort p");
-    sort.textContent = e.target.innerHTML;
-    let menu = document.querySelectorAll("#dropdown-menu-sort");
-    for(let i = 0;i< menu.length;i++){
-      menu[i].classList.add("hide");
-    }
-    // console.log(e.target.innerHTML);
-    // console.log(word.innerHTML); 
-  };
-  function invisibleDropdownMenu(e){
-    let sort = document.getElementById("dropdown-menu-sort")
-    if(!e.target.classList.contains("appear")){
-        sort.classList.remove("hide");
-        console.log(e.target);
-    }
-
-  }
-
-
-
-
-
-
-  function init(){
-   let list = document.getElementById("dropdown-list");
-   list.onclick = showHideMenuOrder; 
-   let order = document.querySelectorAll(".order");
-   for(let i = 0;i< order.length;i++){
-    order[i].onclick = selectOrder;
-   }
-   let listCategory = document.getElementById("dropdown-list-sort")
-   listCategory.onclick = showHideMenuSort;
-   let sort = document.querySelectorAll(".sort");
-   for(let i = 0;i< sort.length;i++){
-    sort[i].onclick = selectSort;
-   }
-    // document.getElementById("hideDropdownMenu").onclick = invisibleDropdownMenu;
-
-  }
-  window.addEventListener("load",init,false);
-  </script> -->
+ 
 </body>
 
 </html>

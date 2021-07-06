@@ -19,12 +19,37 @@
 
             .upload-picture {
                 margin-bottom: $text-text;
+                position: relative;
 
                 .upload-picture-btn {
-                    @extend %flex,
-                    %flex-dir-colu,
-                    %flex-ai,
-                    %mar-auto;
+                    position:absolute;
+                    top:50%;
+                    left:50%;
+                    transform: translate(-50%,-50%);
+                    @extend %cursor-hand;
+
+                }
+                .uploadImg{
+                    width: 285px;
+                    height: 159.39px;
+                    position: relative;
+                    #uploadImg{
+                        width: 285px;
+                        height: 159.39px;
+                        opacity: 0;
+                    }
+                }
+                input{
+                    position: absolute;
+                    top:50%;
+                    transform: translate(0%,-50%);
+                    width: 100%;
+                    height: 159.39px;
+                    border: 1px solid black;
+                    opacity: 0;
+                    z-index:100;
+                    @extend %cursor-hand;
+                 
                 }
             }
 

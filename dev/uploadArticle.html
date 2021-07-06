@@ -22,10 +22,16 @@
             <div class="uploadArticle-content">
                 <p>文章圖片</p>
                 <div class="upload-picture">
-                    <img src="" alt="">
                     <!--預覽圖片-->
+                    <div class="uploadImg">
+
+                        <img id="uploadImg" src="" alt="">
+                    </div>
+                    <form>
+                        <input type="file" name="image" />
+                    </form>
                     <button class="upload-picture-btn">
-                        <img src="images/forum/Icon awesome-upload.jpg" alt="">
+                        <img src="images/forum/upload.jpg" alt="">
                         <span class="mini">上傳圖片</span>
                     </button>
                 </div>
@@ -44,11 +50,11 @@
                         <input class="def" type="text" id="default" placeholder="文章標題不得超過13個字" maxlength="13">
                     </div>
                 </div>
-                <label class="def" for="">文章內容</label>
-                <textarea name="upload-txt" id="" cols="30" rows="10" class="upload-txt">
-                </textarea>
+                <label class="def">文章內容</label>
+                <textarea name="message" cols="30" rows="10" class="upload-txt"
+                    onKeyUp="textCounter(message,remLen,500)" onKeyDown="textCounter(message,remLen,500)"></textarea>
                 <div class="word-left">
-                    剩餘字數 :<input name="remLen" type="text" value="500" size="3" readonly="readonly">
+                    剩餘字數 :<input name="remLen" type="text" value="500" size="5" readonly="readonly">
                 </div>
                 <div class="upload-btn">
                     <input class="btn-main" type="button" name="" id="popbox-btn" value="送出">
@@ -71,17 +77,7 @@
     </div>
     @@include('layout/footer.html')
     @@include('layout/slotmachine2.html')
-    <script>
-        document.getElementById("popbox-btn").addEventListener("click", function () {
-            document.querySelector(".pop-up-box").classList.add('active')
-        });
-        document.getElementById("pop-up-slot").addEventListener("click",function () {
-            document.getElementById("slotmachine-pop-up").classList.remove('slot-hide');
-            document.querySelector(".pop-up-box").classList.remove('active');
-
-        })
-
-    </script>
+    <script src="./js/uploadArticle.js"></script>
 
 </body>
 
