@@ -23,8 +23,8 @@
 
     <div class="pop-up slot-hide" id="slotmachine-pop-up">
 
-        <section class="slotmachine-container">
-            <i id="close-slot" class="fa fa-times" aria-hidden="true"></i>
+        <section class="slotmachine-container ">
+            <a href="index.html"><i id="close-slot" class="fa fa-times" aria-hidden="true"></i></a>
             <div class="slotmachine-topic">
                 <h4 class="topic">
                     <span><img src="images/icon/Icon simple-hipchat.svg" alt=""></span>
@@ -118,50 +118,14 @@
                 <div class="animation-trigger-sign"><i class="fa fa-angle-double-down" aria-hidden="true"></i></div>
             </div>
         </section>
+        <section class="slot-result slot-result-hide" >
+            <p>AWESOME!!!</p>
+            <p>恭喜得到<span id="slotDiscount">9折</span>優惠</p>
+            <a href="index.html"><button class="btn-third">確定</button></a>
+        </section>
+
     </div>
-
-
-
-
-
-
-
-    <script id="codeScript2">
-        const btn = document.querySelector('#randomizeButton');
-        const btn1 = document.querySelector('#randomizeButton1');
-        const results = {
-            machine1: document.querySelector('#machine1Result'),
-            machine2: document.querySelector('#machine2Result'),
-            machine3: document.querySelector('#machine3Result')
-        };
-        const el1 = document.querySelector('#machine1');
-        const el2 = document.querySelector('#machine2');
-        const el3 = document.querySelector('#machine3');
-        const machine1 = new SlotMachine(el1, { active: 1 }, { delay: 1000 });
-        const machine2 = new SlotMachine(el2, { active: 1 }, { delay: 1000 });
-        const machine3 = new SlotMachine(el3, { active: 1 }, { delay: 1000 });
-
-        function onComplete(active) {
-            results[this.element.id].innerText = `Index: ${this.active}`;
-        }
-
-        btn.addEventListener('click', () => {
-            machine1.shuffle(8, onComplete);
-            setTimeout(() => machine2.shuffle(8, onComplete), 500);
-            setTimeout(() => machine3.shuffle(8, onComplete), 1000);
-        });
-        btn1.addEventListener('click', () => {
-            machine1.shuffle(8, onComplete);
-            setTimeout(() => machine2.shuffle(8, onComplete), 500);
-            setTimeout(() => machine3.shuffle(8, onComplete), 1000);
-        });
-
-        document.getElementById("close-slot").addEventListener('click', () => {
-            document.getElementById("slotmachine-pop-up").classList.add("slot-hide");
-        })
-
-    </script>
-
+    <script src="../js/slotmachine3.js"></script>
 </body>
 
 </html>

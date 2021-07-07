@@ -14,6 +14,7 @@ module.exports = {
         adminTravel: './dev/js/adminTravel.js',
         programList: './dev/js/programList.js',
         programDetail: './dev/js/programDetail.js',
+        adminProgram: './dev/js/adminProgram.js',
         travelFormTwo: './dev/js/travelFormTwo.js',
         forumDetail: './dev/js/forumDetail.js',
         jqueryMin: './dev/js/jqueryMin.js',
@@ -25,6 +26,9 @@ module.exports = {
         slotmachine1:'./dev/js/slotmachine.js',
         slotmachine2:'./dev/js/jquery.slotmachine.js',
         login: './dev/js/login.js',
+        uploadArticle:'./dev/js/uploadArticle.js',
+        slotmachine3:'./dev/js/slotmachine3.js',
+        member: './dev/js/member.js',
     },// 入口文件
     output: {
         path: path.resolve(__dirname, 'dist/js'),

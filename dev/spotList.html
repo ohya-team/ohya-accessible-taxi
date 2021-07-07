@@ -34,13 +34,16 @@
             </ul>
 
             <div class="card-item">
-                <div class="item" v-for="item in filterData" :key="item.SPOT_NO">
+                <div class="item"
+                    v-for="item in filterData.slice((this.targetPageId - 1)* this.perPage,this.targetPageId * this.perPage)"
+                    :key="item.SPOT_NO">
                     <div class="pic">
                         <img :src="item.SPOT_PIC_3" alt="">
                     </div>
 
                     <div class="title">
-                        <a :href="'./spotDetail.html?SPOT_NO=' + item.SPOT_NO">{{item.SPOT_NAME}}</a><span>{{item.SPOT_CAT}}</span>
+                        <a
+                            :href="'./spotDetail.html?SPOT_NO=' + item.SPOT_NO">{{item.SPOT_NAME}}</a><span>{{item.SPOT_CAT}}</span>
                     </div>
                     <div class="intro">
                         {{item.SPOT_SLOGAN}}
@@ -50,9 +53,8 @@
 
         </section>
         <div class="pagination">
-            <a href="#" class="page-main">1</a>
-            <a href="#" class="page-else">2</a>
-            <a href="#" class="page-else">3</a>
+            <a :href="'./spotList.html?page=' + n" :class=" n == targetPageId? 'page-main' : 'page-else' "
+                v-for='n in totalPage'>{{n}}</a>
         </div>
     </div>
     @@include('layout/footer.html')

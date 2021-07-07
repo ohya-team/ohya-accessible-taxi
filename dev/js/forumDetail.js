@@ -1,14 +1,15 @@
-var i = document.getElementById
 function hideAlert(){
-    i("pop-up").classList.add("alert-hide");
+    document.getElementById("pop-up").classList.add("alert-hide");
  }
 
  function appearAlert(){
-    if(i("pop-up").classList.contains("alert-hide")){
-        i("pop-up").classList.remove("alert-hide");
+    if(document.getElementById("pop-up").classList.contains("alert-hide")){
+        document.getElementById("pop-up").classList.remove("alert-hide");
     }
  }
+
  function init(){
-     i("forum-alert").onclick = appearAlert;
+    document.getElementById("forum-alert").onclick = appearAlert;
+    document.getElementById("forum-alert-close").onclick=hideAlert;
  }
  window.addEventListener("load",init,false);

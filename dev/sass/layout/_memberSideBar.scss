@@ -1,0 +1,76 @@
+#memWrap{
+  display: none;
+  background-color: $black;
+  @include  rwd_each(tablet) {
+    width: 35vh;
+    height: 100%;
+    position: fixed;
+    z-index: 1001;
+    top:68px;
+    left: 0;
+    display: block;
+  }
+}
+.memProfile{
+  padding-top: 5vh;
+  margin-bottom: 5vh;
+  display: block;
+  span{
+    font-size: $font-mini;
+    color: #fff;
+    margin: 0px 50px;
+    padding: 10px;
+    text-align: center;
+  }
+  .memPic{
+    display: flex;
+    justify-content: center;
+    img{
+      width: 150px;
+      border-radius: 50%;
+    }
+  }
+}
+.memLinkLarge{
+  display: none;
+  @include  rwd_each(mobile) {
+    display: block;
+    background-color: $black;
+    justify-content: center;      
+  }
+  span{
+      font-size: $font-mini;
+      color: #fff;
+      margin: 0px 50px;
+      padding: 10px;
+      text-align: center;
+      @extend %cursor-hand;        
+  }
+  span:hover{
+      text-decoration: underline 2px $yellow-first;  
+  }
+  #logout{
+    margin-top: 5vh;
+    span:hover{
+    text-decoration: none;
+    }
+  }
+}
+.memLinkSmall{
+  display: block;
+  background-color: $black;
+  text-align: center;
+  cursor: pointer;
+  @include  rwd_each(tablet) {
+    display: none;
+  }
+  span{
+    color: $white;
+  }
+}
+.memLinkSmall li:hover{
+  background-color: $yellow-first;
+  span{
+    color: $black;
+  }
+}

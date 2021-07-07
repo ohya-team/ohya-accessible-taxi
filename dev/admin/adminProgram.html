@@ -71,10 +71,10 @@
                                         <tr v-for ="info in info" :key="info.PROGRAM_NO">
                                             <td>{{info.PROGRAM_NO}}</td>
                                             <td>{{info.PROGRAM_NAME}}</td>
-                                            <td>{{info.VEHICLE_TYPE}}</td>
-                                            <td>{{info.PROGRAM_STATUS_S_M}}</td>
-                                            <td>{{info.PROGRAM_STATUS}}</td>
-                                            <td>{{info.PROGRAM_STATUS_S}}</td>
+                                            <td>{{info.CAR_TYPE}}</td>
+                                            <td>{{info.PROGRAM_STATUS == 1 ? "開啟":"關閉"}}</td>
+                                            <td>{{info.PROGRAM_STATUS_S == 1 ? "開啟":"關閉"}}</td>
+                                            <td>{{info.PROGRAM_STATUS_S_M == 1 ? "開啟":"關閉"}}</td>
                                             <td>
                                                 <a class="text-primary" style="margin: 0px;" title="Add" data-toggle="tooltip"><i
                                                         class="fas fa-search"></i></a>
@@ -107,7 +107,7 @@
 
     <!-- Custom Theme JavaScript -->
     <script src="../js/startmin.js"></script>
-    <script src="../js/adminTravel.js"></script>
+    <script src="../js/adminProgram.js"></script>
 </body>
 
 </html>
