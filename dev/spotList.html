@@ -12,10 +12,7 @@
 </head>
 
 <body class="animate-background">
-
-
     @@include('layout/header.html')
-
     <div id="app">
         <section class="spot-l-hero">
             <div class="title container">
@@ -27,12 +24,10 @@
         </section>
 
         <section class="container spot-list">
-
             <ul class="word-menu">
                 <li v-for="item in typeList" @click="changeList(item)" :class='(item)== type? "active": ""'>{{item}}
                 </li>
             </ul>
-
             <div class="card-item">
                 <div class="item"
                     v-for="item in filterData.slice((this.targetPageId - 1)* this.perPage,this.targetPageId * this.perPage)"

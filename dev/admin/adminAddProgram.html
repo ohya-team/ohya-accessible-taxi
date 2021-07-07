@@ -55,7 +55,8 @@
                                     <div class="form-group">
                                         <label for="car">車種</label>
                                         <select class="form-control" id="car" name="car_no">
-                                            <option :value="item.CAR_NO" v-for="item in carInfo" :key=item.CAR_NO>{{item.CAR_TYPE}}</option>
+                                            <option :value="item.CAR_NO" v-for="item in carInfo" :key=item.CAR_NO>
+                                                {{item.CAR_TYPE}}</option>
                                         </select>
                                     </div>
                                     <div class="form-check">
@@ -123,8 +124,20 @@
                                         <label for="price">方案金額</label>
                                         <input class="form-control" id="price" name="program_price" type="text">
                                     </div>
+                                    <div class="form-group" v-for="n in spotNum" :key="n.id">
+                                        <label :for="'spot'+n">景點</label>
+                                        <div style="display: flex;">
+                                            <select class="form-control" :id="'spot'+n" name="spot[]">
+                                                <option :value="item.SPOT_NO" v-for="item in spotInfo"
+                                                    :key=item.SPOT_NO>
+                                                    {{item.SPOT_NAME}}</option>
+                                            </select>
+                                            <input type="button" @click='subtractSpot' value="-"></input>
+                                            <input type="button" @click='addSpot' value="+"></input>
+                                        </div>
+                                    </div>
                                     <div class="btn-group" style="display:flex ;justify-content:flex-end">
-                                        <button class="btn btn-success">新增完成</button>
+                                        <button type="submit" class="btn btn-success">新增完成</button>
                                     </div>
                                 </form>
                             </div>
