@@ -33,7 +33,7 @@ function showCar (){
     }
   }
 }
-$('.smallPic').click(function(){
+$('.smallPic').on('click',function(){
   $('#bigPic')[0].children[0].src = $(this)[0].childNodes[1].src;
   $(this)[0].classList.add('chosen');
   $('.smallPic').not(this).removeClass('chosen');
@@ -41,7 +41,7 @@ $('.smallPic').click(function(){
 })
 //car slider rwd
  let j = 1;
-  $('.carSlider #narRight').click( function () {
+  $('.carSlider #narRight').on('click', function () {
 
     if( j > 3){
       j = 0;
@@ -134,13 +134,13 @@ function autoMove() {
 
 //driver lightBox
 function showLightBox(){
-  $('.image li').click( function(){
+  $('.image li').on('click', function(){
     $('#driverLightBox').css("display","block");
     closeLightBox();
   })
 }
 function closeLightBox(){
-  $('.closeIcon').click( function(){
+  $('.closeIcon').on('click', function(){
     $('#driverLightBox').css("display","none");
   })
 }

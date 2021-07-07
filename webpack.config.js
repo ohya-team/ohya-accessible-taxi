@@ -28,7 +28,7 @@ module.exports = {
         login: './dev/js/login.js',
         uploadArticle:'./dev/js/uploadArticle.js',
         slotmachine3:'./dev/js/slotmachine3.js',
-        
+        member: './dev/js/member.js',
     },// 入口文件
     output: {
         path: path.resolve(__dirname, 'dist/js'),

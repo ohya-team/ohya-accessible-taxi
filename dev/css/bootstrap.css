@@ -1390,6 +1390,26 @@ img {
 .img-circle {
   border-radius: 50%
 }
+#member{
+  width: 150px;
+}
+#memberImage{
+  margin-top: 5vh;
+  display: flex;
+  justify-content: center;
+}
+#userName{
+  color: #ffffff;
+  text-align: center;
+  line-height: 2;
+}
+#editUser{
+  margin-bottom: 5vh;
+  color: #ffffff;
+  text-align: center;
+  line-height: 2;
+  cursor: pointer;
+}
 
 hr {
   margin-top: 20px;
@@ -3964,6 +3984,9 @@ select[multiple].input-group-sm>.form-control, select[multiple].input-group-sm>.
   display: block;
   padding: 10px 15px
 }
+.nav>.memberLink{
+  text-align: center;
+}
 
 .nav>li>a:focus, .nav>li>a:hover {
   text-decoration: none;
@@ -3993,9 +4016,8 @@ select[multiple].input-group-sm>.form-control, select[multiple].input-group-sm>.
   overflow: hidden;
   background-color: #e5e5e5
 }
-
 .nav>li>a>img {
-  max-width: none
+  max-width: none;
 }
 
 .nav-tabs {
@@ -4617,6 +4639,19 @@ select[multiple].input-group-sm>.form-control, select[multiple].input-group-sm>.
   background-color: #fff;
   /* border-color: #080808 */
 }
+.userProfileMin{
+  background-color: #313131;
+  display: none;
+}
+@media (max-width : 768px){
+  .userProfile{
+    display: none;
+  }
+  .userProfileMin{
+    display: block;
+  }
+}
+
 
 .navbar-inverse .navbar-brand {
   color: #9d9d9d
