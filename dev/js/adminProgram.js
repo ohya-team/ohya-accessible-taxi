@@ -5,7 +5,9 @@ let vue = new Vue({
     data() {
         return {
             info: null,
-            carInfo: null
+            carInfo: null,
+            spotInfo: null,
+            spotNum: 1,
         }
     },
     mounted() {
@@ -19,5 +21,20 @@ let vue = new Vue({
             .catch(function (error) { // 请求失败处理
                 console.log(error);
             });
+        axios.get('../php/spot.php')
+            .then(response => (this.spotInfo = response.data))
+            .catch(function (error) {
+                console.log(error);
+            });
     },
+    methods: {
+        addSpot() {
+            this.spotNum++;
+        },
+        subtractSpot() {
+            if (this.spotNum > 1) {
+                this.spotNum--;
+            }
+        }
+    }
 })
