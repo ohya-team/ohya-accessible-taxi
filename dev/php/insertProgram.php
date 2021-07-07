@@ -48,7 +48,6 @@ switch ($_FILES["program_pic"]['error']) {
 $program->bindValue(":program_pic", $_POST["program_pic"]);
 $program->execute();
 $last = $pdo->lastInsertId();
-echo $last;
 
 for ($i = 0; $i < count($_POST["spot"]); $i++) {
     $sql = "INSERT INTO `program_item`(PROGRAM_NO,SPOT_NO) values (:program_no,:spot)";
