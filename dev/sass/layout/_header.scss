@@ -7,6 +7,7 @@ header {
   z-index: 1000;
   // box-shadow: 0px 5px 5px 0px #ffffff91;
 }
+
 header .container {
   max-width: 1200px;
   display: flex;
@@ -28,7 +29,9 @@ header .container {
   // padding-right: 20px;
   max-width: 100%;
 }
-
+button.btn-login{
+  border-right: 1px solid $gray-second;
+}
 .nav-btn {
   display: flex;
   flex: 3;
@@ -242,6 +245,13 @@ header .container {
     align-items: center;
     justify-content: space-between;
     transition: .5s;
+  }
+  .header-s{
+    position: absolute;
+    top: 0;
+    width: 100vw;
+    overflow-x: hidden;
+    height: 100vh;
   }
   .nav-logo a img {
     width: 80%;
