@@ -82,7 +82,8 @@
                                                         <span @click='deleteSpot'
                                                             style="color: #e34724; font-size: 19px;" title="Delete"
                                                             data-toggle="tooltip">
-                                                            <i :id="'data' +info.SPOT_NO" class="fas fa-trash-alt"></i></span>
+                                                            <i :id="'data' +info.SPOT_NO"
+                                                                class="fas fa-trash-alt"></i></span>
                                                         <form action="../php/deleteSpot.php"
                                                             :id="'deletedata' + info.SPOT_NO" method="post">
                                                             <input type="hidden" name="delete_no" :value="info.SPOT_NO">
@@ -92,7 +93,7 @@
                                                 <div :id="info.SPOT_NO" class="panel-collapse collapse"
                                                     aria-expanded="false" style="height: 0px;">
                                                     <div class="panel-body" style="margin: 0 6%; border: none;">
-                                                        <ul>
+                                                        <ul style=" overflow-x: auto;">
                                                             <li class="list-unstyled" style="margin-top: 20px;">
                                                                 <p>景點編號 : {{info.SPOT_NO}}</p>
                                                             </li>
@@ -106,7 +107,8 @@
                                                                 style="line-height: 2em; margin-top: 20px;">
                                                                 <p>景點內容: <br> {{info.SPOT_INFO}}</p>
                                                             </li>
-                                                            <li class="list-unstyled" style="margin-top: 20px;">
+                                                            <li class="list-unstyled"
+                                                                style="margin-top: 20px;">
                                                                 <table class="table table-bordered">
                                                                     <thead>
                                                                         <tr>

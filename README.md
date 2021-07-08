@@ -17,8 +17,8 @@
 ![範例圖片](/dev/images/mdEx1.png)
 
 ## 額外說明
-### 1.參考範例 test.html scripts.js
-### 2.jquery是全域皆可使用，想要用vue的請先加
+### 1.jquery是全域皆可使用，想要用vue的請先加
+### 2.後臺參考模板:http://secondtruth.github.io/startmin/pages/panels-wells.html
 ``` 
 import Vue  from 'vue';
 ``` 

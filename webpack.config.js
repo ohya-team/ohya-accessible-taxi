@@ -3,7 +3,6 @@ const webpack = require('webpack');
 
 module.exports = {
     entry: {
-        index: './dev/js/scripts.js',
         bannerSlider: './dev/js/bannerSlider.js',
         booking: './dev/js/booking.js',
         forum: './dev/js/forum.js',
