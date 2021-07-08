@@ -51,4 +51,4 @@ $spot->bindValue(":spot_pic_4",$_POST["spot_pic_4"]);
 $spot->bindValue(":spot_pic_b",$_POST["spot_pic_b"]);
 
 $spot->execute();
-header('Location:../admin/adminTravel.html');
+header('Location:../admin/adminSpot.html');
