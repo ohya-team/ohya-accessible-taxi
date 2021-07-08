@@ -43,47 +43,89 @@
                             <div class="table-wrapper">
                                 <div class="table-title">
                                     <div class="row">
-                                        <div class="col-sm-8">
-                                            <h2>景點管理 </h2>
-                                        </div>
+                                        <div class="col-sm-8"> </div>
                                         <div class="col-sm-4">
                                             <a href="./adminAddSpot.html">
-                                                  <button type="button" class="btn btn-info add-new"><i class="fa fa-plus"></i>
-                                                Add New</button>
+                                                <button type="button" class="btn btn-info add-new"><i
+                                                        class="fa fa-plus"></i>
+                                                    Add New</button>
                                             </a>
-                                          
+
                                         </div>
                                     </div>
                                 </div>
-                                <table class="table table-bordered">
-                                    <thead>
-                                        <tr>
-                                            <th>景點編號</th>
-                                            <th>景點名稱</th>
-                                            <th>景點種類</th>
-                                            <th>精選景點狀態(4個)</th>
-                                            <th>主要精選景點狀態(1個)</th>
-                                            <th>動作</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr v-for ="info in info" :key="info.SPOT_NO">
-                                            <td>{{info.SPOT_NO}}</td>
-                                            <td>{{info.SPOT_NAME}}</td>
-                                            <td>{{info.SPOT_CAT}}</td>
-                                            <td>{{info.SPOT_STATUS == 1 ? '開啟': '關閉'}}</td>
-                                            <td>{{info.SPOT_STATUS_S == 1 ? '開啟': '關閉'}}</td>
-                                            <td>
-                                                <a class="text-primary" style="margin: 0px;" title="Add" data-toggle="tooltip"><i
-                                                        class="fas fa-search"></i></a>
-                                                <a class="edit" style="margin: 0px;" title="Edit" data-toggle="tooltip"><i
-                                                        class="fas fa-edit"></i></a>
-                                                <a class="delete" style="margin: 0px;" title="Delete" data-toggle="tooltip"><i
-                                                        class="fas fa-trash-alt"></i></a>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <h4>景點管理</h4>
+                                    </div>
+                                    <!-- .panel-heading -->
+                                    <div class="panel-body">
+                                        <div class="panel-group" id="accordion">
+                                            <div class="panel panel-primary" v-for="info in info" :key="info.SPOT_NO">
+                                                <div class="panel-heading"
+                                                    style="display: grid ; grid-template-columns: repeat(3,5fr) 1fr;">
+                                                    <h4 class="panel-title">
+                                                        <a data-toggle="collapse" data-parent="#accordion"
+                                                            :href="'#' + info.SPOT_NO" aria-expanded="false"
+                                                            class="collapsed">{{info.SPOT_NAME}}</a>
+                                                    </h4>
+                                                    <p style="margin: 0;">景點狀態: {{info.SPOT_STATUS == 1 ? '開啟':'關閉'}}</h4>
+                                                    <p style="margin: 0;">精選景點狀態: {{info.SPOT_STATUS_S == 1 ? '開啟':'關閉'}}</p>
+                                                    <div style="justify-content:flex-end;display:flex">
+                                                        <a class="edit" style="color: #ffc107; font-size: 19px; margin-right: 10px;" title="Edit"
+                                                            data-toggle="tooltip"><i class="fas fa-edit"></i></a>
+                                                        <a style="color: #e34724; font-size: 19px;" title="Delete"
+                                                            data-toggle="tooltip"><i class="fas fa-trash-alt"></i></a>
+                                                    </div>
+                                                </div>
+                                                <div :id="info.SPOT_NO" class="panel-collapse collapse"
+                                                    aria-expanded="false" style="height: 0px;">
+                                                    <div class="panel-body">
+                                                        <ul>
+                                                            <li class="list-unstyled">
+                                                                <p>景點編號 : {{info.SPOT_NO}}</p>
+                                                            </li>
+                                                            <li class="list-unstyled">
+                                                                <p>景點名稱: {{info.SPOT_NAME}}</p>
+                                                            </li>
+                                                            <li class="list-unstyled">
+                                                                <p>景點標語: {{info.SPOT_SLOGAN}}</p>
+                                                            </li>
+                                                            <li class="list-unstyled">
+                                                                <p>景點內容: {{info.SPOT_INFO}}</p>
+                                                            </li>
+                                                            <li class="list-unstyled">
+                                                                <table class="table table-bordered">
+                                                                    <thead>
+                                                                        <tr>
+                                                                            <th style="width:120px;">景點圖片1</th>
+                                                                            <th style="width: 200px;">景點圖片2</th>
+                                                                            <th style="width: 200px;">景點圖片3</th>
+                                                                            <th style="width: 200px;">景點圖片4</th>
+                                                                            <th style="width: 350px;">橫幅景點圖片</th>
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody>
+                                                                        <td><img :src="'.'+ info.SPOT_PIC_1" alt=""
+                                                                                style="height: 120px;"></td>
+                                                                        <td><img :src="'.'+ info.SPOT_PIC_2" alt=""
+                                                                                style="height: 120px;"></td>
+                                                                        <td><img :src="'.'+ info.SPOT_PIC_3" alt=""
+                                                                                style="height: 120px;"></td>
+                                                                        <td><img :src="'.'+ info.SPOT_PIC_4" alt=""
+                                                                                style="height: 120px;"></td>
+                                                                        <td><img :src="'.'+ info.SPOT_PIC_B" alt=""
+                                                                                style="height: 120px;"></td>
+                                                                    </tbody>
+                                                                </table>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
