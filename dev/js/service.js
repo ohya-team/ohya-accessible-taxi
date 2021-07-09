@@ -56,7 +56,7 @@ $('.smallPic').on('click',function(){
     $('#carImage img')[0].src = `./images/car/car${j}.png`
     console.log(`./images/car/car${j}.png`);
   })
-  $('.carSlider #narLeft').click( function () {
+  $('.carSlider #narLeft').on( 'click', function () {
     j-=1;
     console.log(j);
     if( j == 1){
@@ -117,17 +117,21 @@ function autoMove() {
       i++;
   }, 4000);
 };
-//driver slider resize
-// $(window).resize( function(){
-//   let win_w = $(window).width();
-//   let win_h = $(window).height();
-//   let w = $('.image li').width();
-//   if ( win_w < 1200) {
-//     $('.image li').each( function(){
-//       $('.image li').css("width", w * (win_h/win_w) );
-//     })
-//   }
-// })
+// driver slider resize
+
+$(window).resize( function(){
+  let win_w = $(window).width();
+  let win_h = $(window).height();
+  let w = $('.image li').width();
+  console.log(win_w);
+  console.log(win_h);
+  console.log(w);
+  // if ( win_w < 1200) {
+  //   $('.image li').each( function(){
+  //     $('.image li').css("width", w * (win_h/win_w) );
+  //   })
+  // }
+})
 
 //driver smallSlider
 

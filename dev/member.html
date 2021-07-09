@@ -2,18 +2,38 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css">
-  <link rel="stylesheet" href="./css/style.css">
-  <title>會員中心</title>
-</head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
+    <title>服務資訊管理</title>
+    <!-- style scss -->
+    <!-- <link rel="stylesheet" href="./css/style.css"> -->
+
+    <!-- Bootstrap Core CSS -->
+    <link href="../css/bootstrap.css" rel="stylesheet">
+
+    <!-- MetisMenu CSS -->
+    <link href="../css/metisMenuMin.css" rel="stylesheet">
+
+    <!-- Timeline CSS -->
+    <link href="../css/timeline.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="../css/startmin.css" rel="stylesheet">
+
+    <!-- Morris Charts CSS -->
+    <link href="../css/morris.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+</head>
 <body>
 
-  @@include('layout/header.html')
+  @@include('layout/usercenterSidebar.html')
   <div id="memPswbox" style="display: none;">
     <div class="memPswboxWrap">
       <div class="closeIcon">
@@ -53,8 +73,19 @@
       </div>
     </div>
   </div>
-  @@include('layout/memberSideBar.html')
-  <script src="./js/member.js"></script>
+
+    <script src="./js/member.js"></script>
+    <!-- jQuery -->
+    <script src="../js/jqueryMin.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="../js/bootstrapMin.js"></script>
+
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="../js/metisMenuMin.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="../js/startmin.js"></script>
 </body>
 
 </html>

@@ -1,3 +1,14 @@
+<?php
+try{
+	require_once("../connect_cfd101g2.php");
+	$sql = "select * from car";
+	$products = $pdo->query($sql);
+	$carInfos = $products->fetchAll(PDO::FETCH_ASSOC);
+	echo json_encode($carInfos);
+}catch(PDOException $e){
+	//echo $e->getMessage();
+	exit("系統暫時不能提供服務");}
+	?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -61,9 +72,15 @@
                       </tr>
                     </thead>
                     <tbody>
-                      <tr v-for = "car in carInfo" :key = "car.CAR_NO">
-                        <td>{{car.CAR_NO}}</td>
-                        <td>{{car.CAR_TYPE}}</td>
+                    <?php
+                        foreach(
+                          $prodRows as $i => $carInfo)
+                        {
+                      ?>
+
+                      <tr>
+                        <td><?=$carInfo['CAR_NO']?></td>
+                        <td><?=$carInfo['CAR_TYPE']?></td>
                         <td>{{car.CAR_STATUS == 1 ? '啟用' : '關閉'}}</td>
                         <td>
                           <a class="add" title="Add" data-toggle="tooltip"><i class="fas fa-plus"></i></a>
@@ -71,6 +88,9 @@
                           <a class="delete" title="Delete" data-toggle="tooltip"><i class="fas fa-trash-alt"></i></a>
                         </td>
                       </tr>
+                      <?php
+                        }
+                      ?>
                     </tbody>
                   </table>
                 </div>
@@ -93,6 +113,5 @@
 
     <!-- Custom Theme JavaScript -->
     <script src="../js/startmin.js"></script>
-    <script src="../js/adminCar.js"></script>
 </body>
 </html>
