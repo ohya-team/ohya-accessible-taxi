@@ -42,7 +42,7 @@
         <section class="related container">
             <h2>相關旅遊方案</h2>
             <Div class="item-group" >
-                <a href="./programDetail.html" class="item" v-for="item in programDetailInfo" :key="item.PROGRAM_NO"> 
+                <a :href="'./programDetail.html?program_no=' + item.PROGRAM_NO" class="item" v-for="item in programDetailInfo" :key="item.PROGRAM_NO"> 
                     <img :src="item.PROGRAM_PIC" alt="">
                     <h5>{{item.PROGRAM_NAME}}</h5>
                 </a>

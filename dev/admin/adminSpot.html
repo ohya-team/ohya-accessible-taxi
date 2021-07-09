@@ -79,9 +79,9 @@
                                                             title="Edit" data-toggle="tooltip"
                                                             :href="'./adminUpdateSpot.html?spot_no=' + info.SPOT_NO"><i
                                                                 class="fas fa-edit"></i></a>
-                                                        <span @click='deleteSpot'
-                                                            style="color: #e34724; font-size: 19px;" title="Delete"
-                                                            data-toggle="tooltip">
+                                                        <span @click='deleteSpot '
+                                                            style="cursor: pointer;color: #e34724; font-size: 19px;"
+                                                            title="Delete" data-toggle="tooltip">
                                                             <i :id="'data' +info.SPOT_NO"
                                                                 class="fas fa-trash-alt"></i></span>
                                                         <form action="../php/deleteSpot.php"
@@ -107,8 +107,7 @@
                                                                 style="line-height: 2em; margin-top: 20px;">
                                                                 <p>景點內容: <br> {{info.SPOT_INFO}}</p>
                                                             </li>
-                                                            <li class="list-unstyled"
-                                                                style="margin-top: 20px;">
+                                                            <li class="list-unstyled" style="margin-top: 20px;">
                                                                 <table class="table table-bordered">
                                                                     <thead>
                                                                         <tr>

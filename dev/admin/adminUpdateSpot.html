@@ -47,10 +47,11 @@
                                         </div>
                                     </div>
                                 </div>
-                                <form action="../php/updateSpot.php" method="POST">
+                                <form action="../php/updateSpot.php" method="POST" enctype="multipart/form-data">
                                     <div class="form-group">
                                         <label for="spot_no">景點編號</label>
-                                        <input class="form-control" id="spot_no" name="spot_no" type="text"                                            :value="detailInfo[0].SPOT_NO" disabled>
+                                        <input class="form-control" id="spot_no" name="spot_no" type="text"
+                                            :value="detailInfo[0].SPOT_NO" disabled>
                                     </div>
                                     <div class="form-group">
                                         <label for="name">景點名稱</label>
@@ -96,6 +97,54 @@
                                             <option value="1">景點狀態開啟</option>
                                             <option value="0">景點狀態關閉</option>
                                         </select>
+                                    </div>
+                                    <table class="table table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th style="width:120px;">目前景點圖片1</th>
+                                                <th style="width: 200px;">目前景點圖片2</th>
+                                                <th style="width: 200px;">目前景點圖片3</th>
+                                                <th style="width: 200px;">目前景點圖片4</th>
+                                                <th style="width: 421px;">目前橫幅景點圖片</th>
+                                            </tr>
+                                        </thead>
+                                        <input name="spot_pic_1" type="hidden" :value="detailInfo[0].SPOT_PIC_1">
+                                        <input name="spot_pic_2" type="hidden" :value="detailInfo[0].SPOT_PIC_2">
+                                        <input name="spot_pic_3" type="hidden" :value="detailInfo[0].SPOT_PIC_3">
+                                        <input name="spot_pic_4" type="hidden" :value="detailInfo[0].SPOT_PIC_4">
+                                        <input name="spot_pic_b" type="hidden" :value="detailInfo[0].SPOT_PIC_B">
+                                        <tbody>
+                                            <td><img :src="'.'+ detailInfo[0].SPOT_PIC_1" alt="" style="width: 100%;">
+                                            </td>
+                                            <td><img :src="'.'+ detailInfo[0].SPOT_PIC_2" alt="" style="width: 100%;">
+                                            </td>
+                                            <td><img :src="'.'+ detailInfo[0].SPOT_PIC_3" alt="" style="width: 100%;">
+                                            </td>
+                                            <td><img :src="'.'+ detailInfo[0].SPOT_PIC_4" alt="" style="width: 100%;">
+                                            </td>
+                                            <td><img :src="'.'+ detailInfo[0].SPOT_PIC_B" alt="" style="width: 100%;">
+                                            </td>
+                                        </tbody>
+                                    </table>
+                                    <div class="form-group">
+                                        <label for="newPic1" class="form-label">更新圖片1</label>
+                                        <input class="form-control" type="file" name="spot_pic_1" id="newPic1">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="newPic2" class="form-label">更新圖片2</label>
+                                        <input class="form-control" type="file" name="spot_pic_2" id="newPic2">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="newPic3" class="form-label">更新圖片3</label>
+                                        <input class="form-control" type="file" name="spot_pic_3" id="newPic3">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="newPic4" class="form-label">更新圖片4</label>
+                                        <input class="form-control" type="file" name="spot_pic_4" id="newPic4">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="newPicB" class="form-label">更新橫幅圖片</label>
+                                        <input class="form-control" type="file" name="spot_pic_b" id="newPicB">
                                     </div>
                                     <div class="btn-group" style="display:flex ;justify-content:flex-end">
                                         <button id="submit" class="btn btn-success" @click='undisalbled'>修改完成</button>
