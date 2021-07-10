@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新增方案</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="../css/bootstrap.css" rel="stylesheet">
+
+    <!-- MetisMenu CSS -->
+    <link href="../css/metisMenuMin.css" rel="stylesheet">
+
+    <!-- Timeline CSS -->
+    <link href="../css/timeline.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="../css/startmin.css" rel="stylesheet">
+
+    <!-- Morris Charts CSS -->
+    <link href="../css/morris.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+</head>
+
+</head>
+
+<body>
+
+    <div id="wrapper">
+        @@include('../layout/adminSideBar.html')
+        <div id="app">
+            <!-- Page Content -->
+            <div id="page-wrapper">
+                <div class="container-fluid">
+                    <div class="container-lg">
+                        <div class="table-responsive">
+                            <div class="table-wrapper">
+                                <div class="table-title">
+                                    <div class="row">
+                                        <div class="col-sm-8">
+                                            <h2>修改方案資訊</h2>
+                                        </div>
+                                    </div>
+                                </div>
+                                <form action="../php/updateProgram.php" method="POST" enctype="multipart/form-data">
+                                    <div class="form-group">
+                                      <label for="program_no">景點編號</label>
+                                      <input class="form-control" id="program_no" name="program_no" type="text"
+                                          :value="detailInfo[0].PROGRAM_NO" disabled>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="name">方案名稱</label>
+                                        <input class="form-control" id="name" name="program_name" type="text" 
+                                          :value="detailInfo[0].PROGRAM_NAME" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="car">車種</label>
+                                        <select class="form-control" id="car" name="car_no">
+                                            <option :value="item.CAR_NO" v-for="item in carInfo" :key=item.CAR_NO>
+                                                {{item.CAR_TYPE}}</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                      <label for="status">方案列表狀態</label>
+                                      <select class="form-control" id="status" name="program_status"
+                                          :value="detailInfo[0].PROGRAM_STATUS">
+                                          <option value="1">方案列表狀態開啟</option>
+                                          <option value="0">方案列表狀態關閉</option>
+                                      </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="status_s">精選方案狀態</label>
+                                        <select class="form-control" id="status_s" name="program_status_s"
+                                            :value="detailInfo[0].PROGRAM_STATUS_S">
+                                            <option value="1">精選方案狀態開啟</option>
+                                            <option value="0">精選方案狀態關閉</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="status_s_m">主要精選方案狀態</label>
+                                        <select class="form-control" id="status_s_m" name="program_status_s_m"
+                                            :value="detailInfo[0].PROGRAM_STATUS_S_M">
+                                            <option value="1">主要精選方案狀態開啟</option>
+                                            <option value="0">主要精選方案狀態關閉</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="rating">方案評價</label>
+                                        <input class="form-control" id="rating" name="program_rating" type="text"
+                                          :value="detailInfo[0].PROGRAM_RATING" required>
+                                    </div>
+                                    <table class="table table-bordered">
+                                      <thead>
+                                          <tr>
+                                              <th style="width:120px;">目前方案圖片</th>
+                                              <th style="width:120px;">目前方案特色一</th>
+                                              <th style="width:120px;">目前方案特色二</th>
+                                              <th style="width:120px;">目前方案特色三/th>
+                                          </tr>
+                                      </thead>
+                                      <input name="program_pic" type="hidden" :value="detailInfo[0].PROGRAM_PIC">
+                                      <input name="program_feature_1" type="hidden" :value="detailInfo[0].PROGRAM_FEATURE_1">
+                                      <input name="program_feature_2" type="hidden" :value="detailInfo[0].PROGRAM_FEATURE_2">
+                                      <input name="program_feature_3" type="hidden" :value="detailInfo[0].PROGRAM_FEATURE_3">
+                                      <tbody>
+                                          <td><img :src="'.'+ detailInfo[0].PROGRAM_PIC" alt="" style="width: 100%;">
+                                          </td>
+                                      </tbody>
+                                    </table>
+                                    <div class="form-group">
+                                        <label for="newPic" class="form-label">更新圖片</label>
+                                        <input class="form-control" type="file" name="program_pic" id="newPic">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="feature">方案特色一</label>
+                                        <input class="form-control" id="feature" name="program_feature_1" type="text"
+                                          :value="detailInfo[0].PROGRAM_FEATURE_1" required> 
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="feature2">方案特色二</label>
+                                        <input class="form-control" id="feature2" name="program_feature_2" type="text"
+                                          :value="detailInfo[0].PROGRAM_FEATURE_2" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="feature3">方案特色三</label>
+                                        <input class="form-control" id="feature3" name="program_feature_3" type="text"
+                                          :value="detailInfo[0].PROGRAM_FEATURE_3" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="remarks">方案備註</label>
+                                        <textarea class="form-control" id="remarks" name="program_remarks"
+                                            rows="3"  
+                                             :value="detailInfo[0].PROGRAM_REMARKS" required></textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="price">方案金額</label>
+                                        <input class="form-control" id="price" name="program_price" type="text"
+                                          :value="detailInfo[0].PROGRAM_PRICE" required>
+                                    </div>
+                                    <div class="form-group" v-for="n in spotNum" :key="n.id">
+                                        <label :for="'spot'+n">景點</label>
+                                        <div style="display: flex;">
+                                            <select class="form-control" :id="'spot'+n" name="spot[]">
+                                                <option :value="item.SPOT_NO" v-for="item in spotInfo"
+                                                    :key=item.SPOT_NO>
+                                                    {{item.SPOT_NAME}}</option>
+                                            </select>
+                                            <input type="button" style="border: none; background: none; font-size:30px; margin: 0 10px;" @click='subtractSpot' value="-"></input>
+                                            <input type="button" style="border: none; background: none; font-size:30px; margin: 0 10px;" @click='addSpot' value="+"></input>
+                                        </div>
+                                    </div>
+                                    <div class="btn-group" style="display:flex ;justify-content:flex-end">
+                                        <button type="submit" class="btn btn-success" @click='undisalbled'>修改完成</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- jQuery -->
+    <script src="../js/jqueryMin.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="../js/bootstrapMin.js"></script>
+
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="../js/metisMenuMin.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="../js/startmin.js"></script>
+    <script src="../js/adminProgram.js"></script>
+</body>
+
+</html>

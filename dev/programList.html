@@ -34,26 +34,7 @@
                 <div class="box">
                     <ul class="word-menu">
                         <li>排序</li>
-                        <li class="active">
-                            精選評分
-                            <ul class="dropdown">
-                                <li>最高評分</li>
-                                <li>最低評分</li>
-                            </ul>
-                        </li>
-                        <li>
-                            價格
-                            <ul class="dropdown">
-                                <li>最高價格</li>
-                                <li>最低價格</li>
-                            </ul>
-                        </li>
-                        <li>
-                            人數
-                            <ul class="dropdown">
-                                <li>最多人數</li>
-                                <li>最少人數</li>
-                            </ul>
+                        <li v-for="item in typeList" @click="changeList(item)" :class='(item)== type? "active": ""'>{{item}}
                         </li>
                     </ul>
                 </div>
@@ -96,9 +77,8 @@
             </div>
         </section>
         <div class="pagination">
-            <a href="#" class="page-main">1</a>
-            <a href="#" class="page-else">2</a>
-            <a href="#" class="page-else">3</a>
+            <a :href="'./programList.html?page=' + n" :class=" n == targetPageId? 'page-main' : 'page-else' "
+                v-for='n in totalPage'>{{n}}</a>
         </div>
     </div>
     @@include('layout/footer.html')

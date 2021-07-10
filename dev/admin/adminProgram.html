@@ -72,10 +72,19 @@
                                                     <p style="margin: 0;">精選方案狀態: {{info.PROGRAM_STATUS_S == 1 ? '開啟':'關閉'}}</h4>
                                                     <p style="margin: 0;">主要精選方案狀態: {{info.PROGRAM_STATUS_S_M == 1 ? '開啟':'關閉'}}</p>
                                                     <div style="justify-content:flex-end;display:flex">
-                                                        <a class="edit" style="color: #ffc107; font-size: 19px; margin-right: 10px;" title="Edit"
-                                                            data-toggle="tooltip"><i class="fas fa-edit"></i></a>
-                                                        <a style="color: #e34724; font-size: 19px;" title="Delete"
-                                                            data-toggle="tooltip"><i class="fas fa-trash-alt"></i></a>
+                                                        <a class="edit" style="color: #ffc107; font-size: 19px; margin-right: 10px;" 
+                                                        title="Edit" data-toggle="tooltip"
+                                                        :href="'./adminUpdateProgram.html?program_no=' + info.PROGRAM_NO"><i
+                                                                class="fas fa-edit"></i></a>
+                                                        <span @click='deleteProgram '
+                                                            style="cursor: pointer;color: #e34724; font-size: 19px;"
+                                                            title="Delete" data-toggle="tooltip">
+                                                            <i :id="'data' +info.PROGRAM_NO"
+                                                                class="fas fa-trash-alt"></i></span>
+                                                        <form action="../php/deleteProgram.php"
+                                                            :id="'deletedata' + info.PROGRAM_NO" method="post">
+                                                            <input type="hidden" name="delete_no" :value="info.PROGRAM_NO">
+                                                        </form>
                                                     </div>
                                                 </div>
                                                 <div :id="info.PROGRAM_NO" class="panel-collapse collapse"
