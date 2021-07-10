@@ -38,7 +38,31 @@ body{
   width: auto;
   font-size: 14px;
   border-color: #d6d6d6;
+}
+
+.fas.fa-check-circle{
+  font-size: 30px;
+  color: #60EF66;
+}
+
+.fas.fa-times-circle{
+  font-size: 30px;
+  color: #d6d6d6;
+}
+
+@media (max-width: 768px) {
+  .btn-s-hide{
+    display: none;
+  }
+  // .icon{
+  //   display: flex;
+  // }
+  .fas.fa-check-circle, .fas.fa-times-circle{
+    font-size: 20px;
+    // align-items: center;
+  }
   
+
 }
 
 .tb.btn-third:hover{
