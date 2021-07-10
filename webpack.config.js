@@ -3,7 +3,6 @@ const webpack = require('webpack');
 
 module.exports = {
     entry: {
-        index: './dev/js/scripts.js',
         bannerSlider: './dev/js/bannerSlider.js',
         booking: './dev/js/booking.js',
         forum: './dev/js/forum.js',
@@ -29,6 +28,7 @@ module.exports = {
         uploadArticle:'./dev/js/uploadArticle.js',
         slotmachine3:'./dev/js/slotmachine3.js',
         member: './dev/js/member.js',
+        adminCar: './dev/js/adminCar.js',
     },// 入口文件
     output: {
         path: path.resolve(__dirname, 'dist/js'),

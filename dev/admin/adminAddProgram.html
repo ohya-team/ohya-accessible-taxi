@@ -50,7 +50,7 @@
                                 <form action="../php/insertProgram.php" method="POST" enctype="multipart/form-data">
                                     <div class="form-group">
                                         <label for="name">方案名稱</label>
-                                        <input class="form-control" id="name" name="program_name" type="text">
+                                        <input class="form-control" id="name" name="program_name" type="text" required>
                                     </div>
                                     <div class="form-group">
                                         <label for="car">車種</label>
@@ -97,32 +97,32 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="rating">方案評價</label>
-                                        <input class="form-control" id="rating" name="program_rating" type="text">
+                                        <input class="form-control" id="rating" name="program_rating" type="text"  required>
                                     </div>
                                     <div class="form-group">
                                         <label for="pic" class="form-label">方案圖片</label>
-                                        <input class="form-control" type="file" name="program_pic" id="pic">
+                                        <input class="form-control" type="file" name="program_pic" id="pic"  required>
                                     </div>
                                     <div class="form-group">
                                         <label for="feature">方案特色一</label>
-                                        <input class="form-control" id="feature" name="program_feature_1" type="text">
+                                        <input class="form-control" id="feature" name="program_feature_1" type="text"  required> 
                                     </div>
                                     <div class="form-group">
                                         <label for="feature2">方案特色二</label>
-                                        <input class="form-control" id="feature2" name="program_feature_2" type="text">
+                                        <input class="form-control" id="feature2" name="program_feature_2" type="text"  required>
                                     </div>
                                     <div class="form-group">
                                         <label for="feature3">方案特色三</label>
-                                        <input class="form-control" id="feature3" name="program_feature_3" type="text">
+                                        <input class="form-control" id="feature3" name="program_feature_3" type="text"  required>
                                     </div>
                                     <div class="form-group">
                                         <label for="remarks">方案備註</label>
                                         <textarea class="form-control" id="remarks" name="program_remarks"
-                                            rows="3"></textarea>
+                                            rows="3"  required></textarea>
                                     </div>
                                     <div class="form-group">
                                         <label for="price">方案金額</label>
-                                        <input class="form-control" id="price" name="program_price" type="text">
+                                        <input class="form-control" id="price" name="program_price" type="text"  required>
                                     </div>
                                     <div class="form-group" v-for="n in spotNum" :key="n.id">
                                         <label :for="'spot'+n">景點</label>

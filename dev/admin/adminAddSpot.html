@@ -49,19 +49,19 @@
                             <form action="../php/insertSpot.php" method="POST" enctype="multipart/form-data">
                                 <div class="form-group">
                                     <label for="name">景點名稱</label>
-                                    <input class="form-control" id="name" name="spot_name" type="text">
+                                    <input class="form-control" id="name" name="spot_name" type="text" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="slogan">景點標語</label>
-                                    <textarea class="form-control" id="slogan" name="spot_slogan" rows="3"></textarea>
+                                    <textarea class="form-control" id="slogan" name="spot_slogan" rows="3" required></textarea>
                                 </div>
                                 <div class="form-group">
                                     <label for="info">景點介紹</label>
-                                    <textarea class="form-control" id="info" name="spot_info" rows="3"></textarea>
+                                    <textarea class="form-control" id="info" name="spot_info" rows="8" required></textarea>
                                 </div>
                                 <div class="form-group">
                                     <label for="info_m">景點簡單介紹</label>
-                                    <textarea class="form-control" id="info_m" name="spot_min_info" rows="3"></textarea>
+                                    <textarea class="form-control" id="info_m" name="spot_min_info" rows="3" required></textarea>
                                 </div>
                                 <div class="form-group">
                                     <label for="cat">景點類別</label>
@@ -97,23 +97,23 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="pic1" class="form-label">圖片1</label>
-                                    <input class="form-control" type="file" name="spot_pic_1" id="pic1">
+                                    <input class="form-control" type="file" name="spot_pic_1" id="pic1" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="pic2" class="form-label">圖片2</label>
-                                    <input class="form-control" type="file" name="spot_pic_2" id="pic2">
+                                    <input class="form-control" type="file" name="spot_pic_2" id="pic2" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="pic3" class="form-label">圖片3</label>
-                                    <input class="form-control" type="file" name="spot_pic_3" id="pic3">
+                                    <input class="form-control" type="file" name="spot_pic_3" id="pic3" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="pic4" class="form-label">圖片4</label>
-                                    <input class="form-control" type="file" name="spot_pic_4" id="pic4">
+                                    <input class="form-control" type="file" name="spot_pic_4" id="pic4" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="picB" class="form-label">橫幅圖片</label>
-                                    <input class="form-control" type="file" name="spot_pic_b" id="picB">
+                                    <input class="form-control" type="file" name="spot_pic_b" id="picB" required>
                                 </div>
                                 <div class="btn-group" style="display:flex ;justify-content:flex-end">
                                     <button class="btn btn-success">新增完成</button>

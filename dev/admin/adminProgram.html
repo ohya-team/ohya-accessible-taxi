@@ -43,56 +43,95 @@
                             <div class="table-wrapper">
                                 <div class="table-title">
                                     <div class="row">
-                                        <div class="col-sm-8">
-                                            <h2>方案管理 </h2>
-                                        </div>
+                                        <div class="col-sm-8"></div>
                                         <div class="col-sm-4">
                                             <a href="./adminAddProgram.html">
                                                   <button type="button" class="btn btn-info add-new"><i class="fa fa-plus"></i>
                                                 Add New</button>
-                                            </a>
-                                          
+                                            </a>   
                                         </div>
                                     </div>
                                 </div>
-                                <table class="table table-bordered">
-                                    <thead>
-                                        <tr>
-                                            <th>方案編號</th>
-                                            <th>方案名稱</th>
-                                            <th>車種</th>
-                                            <th>方案列表狀態</th>
-                                            <th>精選方案狀態</th>
-                                            <th>主要精選方案狀態</th>
-                                            <th>動作</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr v-for ="info in info" :key="info.PROGRAM_NO">
-                                            <td>{{info.PROGRAM_NO}}</td>
-                                            <td>{{info.PROGRAM_NAME}}</td>
-                                            <td>{{info.CAR_TYPE}}</td>
-                                            <td>{{info.PROGRAM_STATUS == 1 ? "開啟":"關閉"}}</td>
-                                            <td>{{info.PROGRAM_STATUS_S == 1 ? "開啟":"關閉"}}</td>
-                                            <td>{{info.PROGRAM_STATUS_S_M == 1 ? "開啟":"關閉"}}</td>
-                                            <td>
-                                                <a class="text-primary" style="margin: 0px;" title="Add" data-toggle="tooltip"><i
-                                                        class="fas fa-search"></i></a>
-                                                <a class="edit" style="margin: 0px;" title="Edit" data-toggle="tooltip"><i
-                                                        class="fas fa-edit"></i></a>
-                                                <a class="delete" style="margin: 0px;" title="Delete" data-toggle="tooltip"><i
-                                                        class="fas fa-trash-alt"></i></a>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <h4>方案管理</h4>
+                                    </div>
+                                    <!-- .panel-heading -->
+                                    <div class="panel-body">
+                                        <div class="panel-group" id="accordion">
+                                            <div class="panel panel-primary" v-for="info in info" :key="info.PROGRAM_NO">
+                                                <div class="panel-heading"
+                                                    style="display: grid ; grid-template-columns: repeat(4,5fr) 1fr;">
+                                                    <h4 class="panel-title">
+                                                        <a data-toggle="collapse" data-parent="#accordion"
+                                                            :href="'#' + info.PROGRAM_NO" aria-expanded="false"
+                                                            class="collapsed">{{info.PROGRAM_NAME}}</a>
+                                                    </h4>
+                                                    <p style="margin: 0;">方案列表狀態: {{info.PROGRAM_STATUS == 1 ? '開啟':'關閉'}}</p>
+                                                    <p style="margin: 0;">精選方案狀態: {{info.PROGRAM_STATUS_S == 1 ? '開啟':'關閉'}}</h4>
+                                                    <p style="margin: 0;">主要精選方案狀態: {{info.PROGRAM_STATUS_S_M == 1 ? '開啟':'關閉'}}</p>
+                                                    <div style="justify-content:flex-end;display:flex">
+                                                        <a class="edit" style="color: #ffc107; font-size: 19px; margin-right: 10px;" title="Edit"
+                                                            data-toggle="tooltip"><i class="fas fa-edit"></i></a>
+                                                        <a style="color: #e34724; font-size: 19px;" title="Delete"
+                                                            data-toggle="tooltip"><i class="fas fa-trash-alt"></i></a>
+                                                    </div>
+                                                </div>
+                                                <div :id="info.PROGRAM_NO" class="panel-collapse collapse"
+                                                    aria-expanded="false" style="height: 0px;">
+                                                    <div class="panel-body" style="margin: 0 6%; border: none;">
+                                                        <ul>
+                                                            <li class="list-unstyled" style="margin-top: 20px;">
+                                                                <p>方案編號: {{info.PROGRAM_NO}}</p>
+                                                            </li>
+                                                            <li class="list-unstyled" style="margin-top: 20px;">
+                                                                <p>方案名稱: {{info.PROGRAM_NAME}}</p>
+                                                            </li>
+                                                            <li class="list-unstyled" style="margin-top: 20px;">
+                                                                <p>車種: {{info.CAR_TYPE}}</p>
+                                                            </li>
+                                                            <li class="list-unstyled" style="line-height: 2em; margin-top: 20px;">
+                                                                <p>方案評價: {{info.PROGRAM_RATING}}</p>
+                                                            </li>
+                                                            <li class="list-unstyled" style="line-height: 2em; margin-top: 20px;">
+                                                                <p>方案備註: {{info.PROGRAM_REMARKS}}</p>
+                                                            </li>
+                                                            <li class="list-unstyled" style="line-height: 2em; margin-top: 20px;">
+                                                                <p>方案金額: {{info.PROGRAM_PRICE}}</p>
+                                                            </li>
+                                                            <li class="list-unstyled" style="margin-top: 20px;">
+                                                                <table class="table table-bordered">
+                                                                    <thead>
+                                                                        <tr>
+                                                                            <th style="width:120px;">方案圖片</th>
+                                                                            <th style="width:120px;">方案特色一</th>
+                                                                            <th style="width:120px;">方案特色二</th>
+                                                                            <th style="width:120px;">方案特色三</th>
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody>
+                                                                        <td><img :src="'.'+ info.PROGRAM_PIC" alt=""
+                                                                                style="width: 100%;"></td>
+                                                                        <td>{{info.PROGRAM_FEATURE_1}}</td>
+                                                                        <td>{{info.PROGRAM_FEATURE_2}}</td>
+                                                                        <td>{{info.PROGRAM_FEATURE_3}}</td>
+                                                                    </tbody>
+                                                                </table>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
     </div>
 
 
