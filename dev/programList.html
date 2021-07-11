@@ -34,7 +34,18 @@
                 <div class="box">
                     <ul class="word-menu">
                         <li>排序</li>
-                        <li v-for="item in typeList" @click="changeList(item)" :class='(item)== type? "active": ""'>{{item}}
+                        <li :class='this.type == "精選評分" ? "active": "" ' @click='selectType'>精選評分</li>
+                        <li :class='this.type == this.priceSort ? "active": "" '>{{priceSort}}
+                            <ul>
+                                <li @click='selectPriceSort'>價格由高到低</li>
+                                <li @click='selectPriceSort'>價格由低到高</li>
+                            </ul>
+                        </li>
+                        <li :class='this.type == this.personSort ? "active": "" '>{{personSort}}
+                            <ul>
+                                <li @click='selectPersonSort'>人數由少到多</li>
+                                <li @click='selectPersonSort'>人數由多到少</li>
+                            </ul>
                         </li>
                     </ul>
                 </div>
@@ -65,7 +76,7 @@
                                 最多{{item.CAR_MAXNUM}}人
                             </div>
                             <div class="tag">
-                           {{item.CAR_TYPE}}
+                                {{item.CAR_TYPE}}
                             </div>
                         </div>
 
