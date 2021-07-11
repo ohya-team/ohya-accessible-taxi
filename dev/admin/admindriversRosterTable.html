@@ -43,21 +43,18 @@
               <form role="form">
                 <div class="form-group">
                   <label>司機姓名</label>
-                  <input class="form-control">
+                  <input class="form-control" v-model="driverName">
                 </div>
                 <div class="form-group">
                   <label>司機手機</label>
-                  <input class="form-control">
+                  <input class="form-control" v-model="driverPhone">
                 </div>
-                <div class="form-group">
-                  <label>司機車牌號</label>
-                  <input class="form-control">
-                </div>
-                <button type="submit" class="btn btn-success">查詢</button>
+                <button class="btn btn-default" type="button" @click="showAll">全部</button>
+                <button class="btn btn-success" type="button" @click="findName">查詢</button>
               </form>
             </div>
           </div>
-
+          <br>
           <div class="row">
             <div class="col-lg-12">
               <table class="table table-bordered">
@@ -65,7 +62,6 @@
                   <tr>
                     <th>司機</th>
                     <th>聯繫手機</th>
-                    <th>車牌</th>
                     <th>排班設定</th>
                   </tr>
                 </thead>
@@ -73,7 +69,6 @@
                   <tr v-for="driverInfo in driverTable">
                     <td>{{driverInfo.DRIVER_NAME}}</td>
                     <td>{{driverInfo.DRIVER_PHONE}}</td>
-                    <td>{{driverInfo.TAXI_LICENCENO}}</td>
                     <td>
                       <a href="#"><button type="button" class="btn btn-default">排班</button></a>
                     </td>
