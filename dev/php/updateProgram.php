@@ -56,4 +56,27 @@ foreach ($uploadArr as $value) {
 $program->bindValue(":program_pic", $_POST["program_pic"]);
 $program->execute();
 
+$sql = "delete from program_item WHERE PROGRAM_NO = :program_no";
+$deleteSpot = $pdo->prepare($sql);
+$deleteSpot->bindValue(":program_no", $_POST["program_no"]);
+$deleteSpot->execute();
+
+for ($i = 0; $i < count($_POST["spot"]); $i++) {
+    $sql = "INSERT INTO `program_item`(PROGRAM_NO,SPOT_NO) values (:program_no,:spot)";
+    $spot = $pdo->prepare($sql);
+    $spot->bindValue(":program_no", $_POST["program_no"]);
+    $spot->bindValue(":spot", $_POST["spot"][$i]);
+    $spot->execute();
+}
+
+if (count($_POST["newSpot"]) > 0) {
+    for ($i = 0; $i < count($_POST["newSpot"]); $i++) {
+        $sql = "INSERT INTO `program_item`(PROGRAM_NO,SPOT_NO) values (:program_no,:spot)";
+        $newspot = $pdo->prepare($sql);
+        $newspot->bindValue(":program_no", $_POST["program_no"]);
+        $newspot->bindValue(":spot", $_POST["newSpot"][$i]);
+        $newspot->execute();
+    }
+}
+
 header('Location:../admin/adminProgram.html');

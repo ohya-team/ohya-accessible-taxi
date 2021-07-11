@@ -9,6 +9,8 @@ let vue = new Vue({
             spotInfo: null,
             spotNum: 1,
             targetPageId: null,
+            spotInProgramInfo:null,
+            newSpotNum:0,
         }
     },
     mounted() {
@@ -27,6 +29,11 @@ let vue = new Vue({
             .catch(function (error) {
                 console.log(error);
             });
+        axios.get('../php/spotInProgram.php')
+            .then(response => (this.spotInProgramInfo = response.data))
+            .catch(function (error) { // 请求失败处理
+                console.log(error);
+            });
         this.get_href();
     },
     computed: {
@@ -34,7 +41,7 @@ let vue = new Vue({
             if (this.info != null) {
                 return this.info.filter(item => item.PROGRAM_NO == this.targetPageId)
             }
-        }
+        },
     },
     methods: {
         addSpot() {
@@ -43,6 +50,14 @@ let vue = new Vue({
         subtractSpot() {
             if (this.spotNum > 1) {
                 this.spotNum--;
+            }
+        },
+        addNewSpot() {
+            this.newSpotNum++;
+        },
+        subNewtractSpot() {
+            if (this.newSpotNum > 0) {
+                this.newSpotNum--;
             }
         },
         get_href() {
