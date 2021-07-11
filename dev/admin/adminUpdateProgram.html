@@ -129,7 +129,7 @@
                                             :value="detailInfo[0].PROGRAM_PRICE" required>
                                     </div>
                                     <div class="form-group"
-                                        v-for="(n,index) in spotInProgramInfo.filter(info=>info.PROGRAM_NO == detailInfo[0].PROGRAM_NO )"
+                                        v-for="(n,index) in spotInThisProgramInfo"
                                         :key="n.id">
                                         <label :for="'spot'+n">目前景點</label>
                                         <div style="display: flex;">
@@ -139,6 +139,7 @@
                                                     :key=item.SPOT_NO>
                                                     {{item.SPOT_NAME}}</option>
                                             </select>
+                                            <div @click='deleteSpot' style="cursor: pointer;font-size:30px; margin: 0 10px;">-</div>
                                         </div>
                                     </div>
                                     <label>增加景點</label>

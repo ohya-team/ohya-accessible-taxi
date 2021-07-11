@@ -1,5 +1,6 @@
 import Vue from "vue";
 import axios from "axios";
+import { remove } from "animejs";
 let vue = new Vue({
     el: "#app",
     data() {
@@ -9,8 +10,8 @@ let vue = new Vue({
             spotInfo: null,
             spotNum: 1,
             targetPageId: null,
-            spotInProgramInfo:null,
-            newSpotNum:0,
+            spotInProgramInfo: null,
+            newSpotNum: 0,
         }
     },
     mounted() {
@@ -42,6 +43,11 @@ let vue = new Vue({
                 return this.info.filter(item => item.PROGRAM_NO == this.targetPageId)
             }
         },
+        spotInThisProgramInfo() {
+            if (this.spotInProgramInfo != null) {
+                return this.spotInProgramInfo.filter(item => item.PROGRAM_NO == this.targetPageId)
+            }
+        }
     },
     methods: {
         addSpot() {
@@ -51,6 +57,10 @@ let vue = new Vue({
             if (this.spotNum > 1) {
                 this.spotNum--;
             }
+        },
+        deleteSpot(e) {
+            console.log(e.target.parentNode);
+            e.target.parentNode.parentNode.remove();
         },
         addNewSpot() {
             this.newSpotNum++;
