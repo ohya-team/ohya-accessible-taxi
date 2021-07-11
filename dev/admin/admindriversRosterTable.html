@@ -60,6 +60,7 @@
               <table class="table table-bordered">
                 <thead>
                   <tr>
+                    <th>司機編號</th>
                     <th>司機</th>
                     <th>聯繫手機</th>
                     <th>排班設定</th>
@@ -67,10 +68,11 @@
                 </thead>
                 <tbody>
                   <tr v-for="driverInfo in driverTable">
+                    <td>{{driverInfo.DRIVER_NO}}.</td>
                     <td>{{driverInfo.DRIVER_NAME}}</td>
                     <td>{{driverInfo.DRIVER_PHONE}}</td>
                     <td>
-                      <a href="#"><button type="button" class="btn btn-default">排班</button></a>
+                      <a :href="'admindriverRoster.html?driver_no='+driverInfo.DRIVER_NO"><button type="button" class="btn btn-default">排班</button></a>
                     </td>
                   </tr>
                 </tbody>

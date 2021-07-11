@@ -4,6 +4,7 @@ const webpack = require('webpack');
 module.exports = {
     entry: {
         adminDriversTable:'./dev/js/adminDriversTable.js',
+        adminBookingTiming:'./dev/js/adminBookingTiming.js',
         bannerSlider: './dev/js/bannerSlider.js',
         booking: './dev/js/booking.js',
         forum: './dev/js/forum.js',
