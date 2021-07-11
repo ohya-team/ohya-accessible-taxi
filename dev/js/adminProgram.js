@@ -8,6 +8,7 @@ let vue = new Vue({
             carInfo: null,
             spotInfo: null,
             spotNum: 1,
+            targetPageId: null,
         }
     },
     mounted() {
@@ -26,6 +27,14 @@ let vue = new Vue({
             .catch(function (error) {
                 console.log(error);
             });
+        this.get_href();
+    },
+    computed: {
+        detailInfo() {
+            if (this.info != null) {
+                return this.info.filter(item => item.PROGRAM_NO == this.targetPageId)
+            }
+        }
     },
     methods: {
         addSpot() {
@@ -35,6 +44,11 @@ let vue = new Vue({
             if (this.spotNum > 1) {
                 this.spotNum--;
             }
-        }
+        },
+        get_href() {
+            let nowUrl = window.location.href;
+            let targetPageId = nowUrl.split("=")[1];
+            this.targetPageId = parseInt(targetPageId);
+        },
     }
 })
