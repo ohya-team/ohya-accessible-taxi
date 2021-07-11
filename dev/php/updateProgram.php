@@ -15,23 +15,19 @@ $program->bindValue(":program_feature_3", $_POST["program_feature_3"]);
 $program->bindValue(":program_remarks", $_POST["program_remarks"]);
 $program->bindValue(":program_price", $_POST["program_price"]);
 $uploadArr = [];
-foreach ($DefaultUploadArr as $value) {
-    if ($_FILES[$value]['error'] == 0) {
-        $uploadArr[] = $value;
-    }
-}
-foreach ($uploadArr as $value) {
-    switch ($_FILES[$value]['error']) {
+
+if ($_FILES['program_pic']['error'] == 0) {
+    switch ($_FILES['program_pic']['error']) {
         case 0:
             $dir = '../images/travel/program/';
             $webdir = './images/travel/program/';
             if (file_exists($dir) == false) {
                 mkdir($dir);
             }
-            $from = $_FILES[$value]['tmp_name'];
-            $to = $dir . $_FILES[$value]['name'];
+            $from = $_FILES['program_pic']['tmp_name'];
+            $to = $dir . $_FILES['program_pic']['name'];
             if (copy($from, $to)) {
-                $_POST["$value"] = $webdir . $_FILES[$value]['name'];
+                $_POST["program_pic"] = $webdir . $_FILES['program_pic']['name'];
             } else {
                 echo "上傳失敗<br>";
             }
@@ -53,6 +49,7 @@ foreach ($uploadArr as $value) {
             echo "系統暫時無法提供服務~~";
     }
 }
+
 $program->bindValue(":program_pic", $_POST["program_pic"]);
 $program->execute();
 
