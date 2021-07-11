@@ -36,29 +36,25 @@
           </div>
         </div>
 
-        <div class="row">
-          <div class="form-group">
-            <p class="form-control-static">距離已開放預約日期結束，倒數 <span id="dayline">3天</span></p>
-          </div>
-          <div class="col-lg-6">
-            <div class="form-group">
-              <label>新增可預約日期：</label>
+        <div id="app">
+          <div class="row">
+            <form role="form" action="../php/insertBookingTiming.php" method="GET" enctype="multipart/form-data">
               <div class="form-group">
-              <input class="form-control" id="disabledInput" type="text" placeholder="7/15" disabled="">
+                <p class="form-control-static">時段已新增至：<span>{{timingTable[timingTable.length-1].BOOKING_DATE}}</span></p>
               </div>
-            </div>
+
+              <div class="form-group">
+                <label>時段新增至：</label>
+                <div class="form-group">
+                <input class="form-control" type="text" name="insertDates" placeholder="例如：2021-01-01">
+                </div>
+              </div>
+
+              <button class="btn btn-success">新增</button>
+            </form>
           </div>
-          <div class="col-lg-6">
-            <div class="form-group">
-              <label>至</label>
-              <select class="form-control">
-                  <option>7/20</option>
-                  <option>7/21</option>
-                  <option>7/22</option>
-              </select>
-            </div>
-          </div>
-          <button class="btn btn-success">新增時段</button>
+
+          <p></p>
         </div>
       </div>
     </div>

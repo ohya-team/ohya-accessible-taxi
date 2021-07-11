@@ -3,7 +3,7 @@ try{
 	require_once("../connect_cfd101g2.php");
 	$sql = "select * from booking_timing";
 	$products = $pdo->query($sql);
-	$driverInfos = $products->fetchAll(PDO::FETCH_ASSOC);
+	$bookingTiming = $products->fetchAll(PDO::FETCH_ASSOC);
 	echo json_encode($bookingTiming);
 }catch(PDOException $e){
 	//echo $e->getMessage();
