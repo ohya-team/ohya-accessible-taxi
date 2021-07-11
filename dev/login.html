@@ -22,34 +22,34 @@
           <div class="chosen"><span>註冊</span></div>
           <div class=""><span>登入</span></div>
         </div>
-        <form id="signupDetail" action="#">
+        <form id="signupDetail" >
           <div class="name">
-           <div id="last"><label for="last">姓<br></label><input type="text"></div>
-            <div id="first"><label for="first">名<br></label><input type="text"></div>
+           <div id="last"><label for="last">姓<br></label><input type="text" name="mamLastname"></div>
+            <div id="first"><label for="first">名<br></label><input type="text" name="memFirstname"></div>
           </div>
           <div class="account">
-            <label id="signAcc">帳號</label><br><input type="text">
+            <label id="signAcc">帳號</label><br><input type="text" name="memAccount">
           </div>
           <div class="passward">
-            <label for="signPsw">密碼</label><br><input id="signPsw" type="text">
-            <label for="rePsw">再次確認密碼</label><br><input id="rePsw" type="text">
+            <label for="signPsw">密碼</label><br><input id="signPsw" type="text" name="memPassword">
+            <label for="rePsw">再次確認密碼</label><br><input id="rePsw" type="text" name="memDoublecheck">
           </div>
           <div class="checkInfo">
-            <input type="checkBox"><label>登入註冊即代表您同意使用者及隱私權政策</label>
+            <input id="checkInfoBtn" type="checkBox"><label>登入註冊即代表您同意使用者及隱私權政策</label>
           </div>
-          <input type="submit" class="btn-main" value="確認註冊">
+          <input type="submit" class="btn-main" value="確認註冊" disabled>
         </form>
-        <form id="LoginDetail">
+        <form id="LoginDetail" action="../dist/php/login.php" method="post">
           <div class="number">
-            <label>E-mail(帳號)</label><br><input type="email">
+            <label>E-mail(帳號)</label><br><input type="email" name="mem_account" id="memAccount">
           </div>
           <div class="passward">
-            <label>密碼</label><br><input type="text">
+            <label>密碼</label><br><input type="text" name="mem_password" id="memPassword">
           </div>
           <div class="checkInfo">
             <input type="checkBox"><label>登入註冊即代表您同意使用者及隱私權政策</label>
           </div>
-          <input type="submit" class="btn-main" value="登入">
+          <input type="submit" class="btn-main" id="loginBtn" value="登入">
           <div class="loginSpan">
             <span>立即註冊</span>
           </div>

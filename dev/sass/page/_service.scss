@@ -240,7 +240,7 @@ a{
           display: flex;
           float: left;
           li{
-            width: 50%;
+            width: 20vh;
             margin: 10px 20px;
             text-align: center;
             @extend %cursor-hand;
@@ -260,6 +260,9 @@ a{
               border-radius: 5px;
               position: relative;
               top: -15px;
+              @include  rwd_each(tablet) {
+                width: 15vh;
+              }
             }
           }
         }

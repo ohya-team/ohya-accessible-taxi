@@ -24,10 +24,11 @@ function returnTo(){
     $('.selector span')[1].style.color = "#9f9f9f";
   })
 }
-//關閉燈箱
+//關閉燈箱，返回上一頁
 function closeLightBox(){
   $('.closeIcon').on('click', function(){
     $('#LoginLightBox').css("display","none");
+    window.history.back(-1);
   })
 }
 
@@ -61,12 +62,45 @@ function checkSignup(e){
   }
 }
 
-//console.log($('#last')[0].lastChild);
+//勾選隱私權選項才可提交表單
+
+
+//登入
+function sendLoginForm(){
+  let xhr = new XMLHttpRequest();
+  xhr.onload = function(){
+    if(xhr.status == 200){
+      let member = JSON.parse(xhr.responseText);
+      if(member.mem_account){
+        //將燈箱中的表單上的資料清空，並隱藏起來
+        $('#LoginLightBox').style.display = 'none';
+        $('#memAccount').value = '';
+        $('#memPassword').value = '';   
+      }else{
+        alert("帳密錯誤");
+      }
+
+    }else{
+      alert(xhr.status);
+    }
+  }
+
+  xhr.open("post", "../dist/php/login.php",true);
+  let loginFormData = new FormData(document.getElementById('LoginDetail'));
+  xhr.send(loginFormData);   
+}
+
+
+
 
 function init(){
   change();
   closeLightBox();
   document.getElementById('signupDetail').onsubmit = checkSignup;
+  document.getElementById('LoginDetail').onsubmit = sendLoginForm;
+  console.log($('#loginBtn'));
+  
 }
 
 window.onload = init;
+ 
