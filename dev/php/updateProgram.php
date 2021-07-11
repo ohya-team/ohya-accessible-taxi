@@ -55,14 +55,5 @@ foreach ($uploadArr as $value) {
 }
 $program->bindValue(":program_pic", $_POST["program_pic"]);
 $program->execute();
-$last = $pdo->lastInsertId();
-
-for ($i = 0; $i < count($_POST["spot"]); $i++) {
-    $sql = "INSERT INTO `program_item`(PROGRAM_NO,SPOT_NO) values (:program_no,:spot)";
-    $spot = $pdo->prepare($sql);
-    $spot->bindValue(":program_no", $last);
-    $spot->bindValue(":spot", $_POST["spot"][$i]);
-    $spot->execute();
-}
 
 header('Location:../admin/adminProgram.html');

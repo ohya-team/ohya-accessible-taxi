@@ -50,5 +50,14 @@ let vue = new Vue({
             let targetPageId = nowUrl.split("=")[1];
             this.targetPageId = parseInt(targetPageId);
         },
-    }
+        undisalbled() {
+            let program_no = document.getElementById('program_no');
+            program_no.disabled = false;
+        },
+        deleteProgram(e) {
+            e.preventDefault();
+            window.confirm('確定要刪除此筆資料?')
+            document.getElementById(`delete${e.target.id}`).submit();
+        }
+    },
 })
