@@ -66,15 +66,19 @@
                 margin               : auto;
                 grid-template-columns: repeat(2, 1fr);
 
+
                 @include rwd_each(desktop) {
                     grid-template-columns: repeat(4, 1fr);
                 }
 
                 li {
-                    padding  : 1.5rem;
-                    display  : flex;
-                    margin   : 0;
-                    font-size: $font-base;
+                    padding   : 1.5rem;
+                    display   : grid;
+                    margin    : 0;
+                    font-size : $font-base;
+                    height    : 25px;
+                    cursor    : pointer;
+                    overflow-y: hidden;
 
                     @include rwd_each(desktop) {
                         margin   : 0 30px;
@@ -84,6 +88,28 @@
                     &.active {
                         background-color: $black;
                         color           : $white;
+                    }
+
+                    ul {
+
+                        li {
+                            display  : none;
+                            transform: translateY(-300px);
+                            width    : 200px;
+                            margin   : 0;
+                            padding  : $ele-ele 0 0;
+                        }
+                    }
+
+                    &:hover {
+                        height: auto;
+
+                        ul {
+                            li {
+                                display  : block;
+                                transform: translateY(0px);
+                            }
+                        }
                     }
                 }
 
@@ -124,10 +150,12 @@
             display        : flex;
             flex-wrap      : wrap;
             justify-content: space-between;
+
             @include rwd_each(desktop) {
-                padding        : 30px;
+                padding: 30px;
 
             }
+
             a {
                 text-decoration: none;
             }

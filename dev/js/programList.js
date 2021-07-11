@@ -15,8 +15,9 @@ let vue = new Vue({
             info: null,
             type: '精選評分',
             perPage: 5,
-            typeList: ['精選評分', '價格', '人數'],
-            targetPageId: null,    
+            targetPageId: null,
+            priceSort: '價格',
+            personSort: '人數',
         }
     },
     mounted() {
@@ -28,25 +29,50 @@ let vue = new Vue({
     },
     computed: {
         filterData() {
-            if (this.info != null ) {
-                return this.info.sort((a, b) => a.PROGRAM_PRICE - b.PROGRAM_PRICE);
-            }else{
-                return this.info.sort((a, b) => b.PROGRAM_PRICE - a.PROGRAM_PRICE);
+            if (this.info != null) {
+                if (this.type == '精選評分') {
+                    console.log(this.info.sort((a, b) => b.PROGRAM_RATING - a.PROGRAM_RATING));
+                    return this.info.sort((a, b) => b.PROGRAM_RATING - a.PROGRAM_RATING)
+                }
+                if (this.type == '價格由高到低') {
+                    return this.info.sort((a, b) => b.PROGRAM_PRICE - a.PROGRAM_PRICE)
+                }
+                if (this.type == '價格由低到高') {
+                    return this.info.sort((a, b) => a.PROGRAM_PRICE - b.PROGRAM_PRICE)
+                }
+                if (this.type == '人數由多到少') {
+                    return this.info.sort((a, b) => b.CAR_MAXNUM - a.CAR_MAXNUM)
+                }
+                if (this.type == '人數由少到多') {
+                    return this.info.sort((a, b) => a.CAR_MAXNUM - b.CAR_MAXNUM)
+                }
             }
         },
-        totalPage(){
-          return  parseInt(this.filterData.length / this.perPage)+1 ;
+        totalPage() {
+            return parseInt(this.filterData.length / this.perPage) + 1;
         }
     },
     methods: {
-        changeList(item) {
-            this.type = item;
+        selectType(e) {
+            this.type = e.target.innerText;
+            this.priceSort = '價格';
+            this.personSort = '人數';
+        },
+        selectPriceSort(e) {
+            this.priceSort = e.target.innerText;
+            this.type = e.target.innerText;
+            this.personSort = '人數';
+        },
+        selectPersonSort(e) {
+            this.personSort = e.target.innerText;
+            this.type = e.target.innerText;
+            this.priceSort = '價格';
         },
         get_href() {
             let nowUrl = window.location.href;
             let targetPageId = nowUrl.split("=")[1];
             console.log(targetPageId);
             this.targetPageId = parseInt(targetPageId);
-        }        
+        }
     }
 })
