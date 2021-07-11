@@ -50,12 +50,11 @@
                       <th>日期</th>
                       <th>時段</th>
                       <th>上班/休假</th>
-                      <th>預約狀態</th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr>
-                      <td>7/1</td>
+                      <td>{{driverRoster[0].BOOKING_DATE}}</td>
                       <td>早上</td>
                       <td>
                         <select class="form-control">
@@ -63,12 +62,9 @@
                           <option>休假</option>
                         </select>
                       </td>
-                      <td>
-                        未有預約
-                      </td>
                     </tr>
                     <tr>
-                      <td>7/1</td>
+                      <td>{{driverRoster[0].BOOKING_DATE}}</td>
                       <td>下午</td>
                       <td>
                         <select class="form-control">
@@ -76,12 +72,9 @@
                           <option>休假</option>
                         </select>
                       </td>
-                      <td>
-                        未有預約
-                      </td>
                     </tr>
                     <tr>
-                      <td>7/1</td>
+                      <td>{{driverRoster[0].BOOKING_DATE}}</td>
                       <td>晚上</td>
                       <td>
                         <select class="form-control">
@@ -89,13 +82,10 @@
                           <option>休假</option>
                         </select>
                       </td>
-                      <td>
-                        未有預約
-                      </td>
                     </tr>
                   </tbody>
                 </table>
-                <button type="submit" class="btn btn-default">完成</button>
+                <button type="submit" class="btn btn-success">完成</button>
                 <button type="reset" class="btn btn-default">取消</button>
               </form>
             </div>
