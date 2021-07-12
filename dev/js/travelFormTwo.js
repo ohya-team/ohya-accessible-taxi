@@ -1,5 +1,4 @@
 let storage = window.sessionStorage;
-console.log(storage.getItem('first_name'));
 import Vue from "vue";
 import axios from "axios";
 let vue = new Vue({
