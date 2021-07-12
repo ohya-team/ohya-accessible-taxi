@@ -29,7 +29,7 @@
                     <a href="./programList.html">more</a>
                 </div>
                 <div class="program-group">
-                    <div class="main-program">
+                    <div class="main-program" v-if = "mainProgramStatusOpen != null">
                         <img :src=mainProgramStatusOpen[0].PROGRAM_PIC alt="">
                         <div class="intro">
                             <a :href="'./programDetail.html?program_no=' + mainProgramStatusOpen[0].PROGRAM_NO">
@@ -38,8 +38,8 @@
                             <p>{{mainProgramStatusOpen[0].PROGRAM_FEATURE_1}}</p>
                         </div>
                     </div>
-                    <div class="programs">
-                        <div class="sub-program" v-for="item in programStatusOpen.slice(0,4)" :key="item.id">
+                    <div class="programs" v-if ="programStatusOpen != null">
+                        <div class="sub-program" v-for="item in programStatusOpen.slice(0,4)" :key="item.id" >
                             <img :src=item.PROGRAM_PIC alt="">
                             <div class="intro">
                                 <a :href="'./programDetail.html?program_no=' + item.PROGRAM_NO">
@@ -58,7 +58,7 @@
                     <a href="./spotList.html?page=1">more</a>
                 </div>
                 <div class="plural-spot">
-                    <div class="main-spot">
+                    <div class="main-spot" v-if = "mainSpotStatusOpen != null">
                         <img :src=mainSpotStatusOpen[0].SPOT_PIC_B alt="">
                         <div class="intro">
                             <a :href="'./spotDetail.html?SPOT_NO=' + mainSpotStatusOpen[0].SPOT_NO">
@@ -67,8 +67,8 @@
                             <p>{{mainSpotStatusOpen[0].SPOT_SLOGAN}}</p>
                         </div>
                     </div>
-                    <div class="spots">
-                        <div v-for="item in spotStatusOpen.slice(0,4)" :key="item.id">
+                    <div class="spots" v-if = "spotStatusOpen != null">
+                        <div v-for="item in spotStatusOpen.slice(0,4)"  :key="item.id">
                             <div class="sub-spot">
                                 <img :src=item.SPOT_PIC_3 alt="">
                                 <div class="intro">

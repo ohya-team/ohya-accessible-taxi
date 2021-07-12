@@ -7,94 +7,113 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>填寫資料</title>
   <link rel="stylesheet" href="./css/style.css">
-  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+    integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
 </head>
 
 <body class="animate-background">
   @@include('layout/header.html')
-
-  <form action="./travelFormTwo.html">
-    <section class="subscriber-information">
-      <div class="container">
-        <h3>訂購人資訊</h3>
-        <div class="box">
-          <div class="input-box-one">
-            <label for="same" class="def">
-              <input type="checkbox" name="" id="same">同會員資料
-            </label>
-          </div>
-          <div class="input-box-two">
-            <div class="item">
-              <label class="def" for="first-name">名字</label>
-              <input class="def" type="text" id="first-name" placeholder="請填寫名">
-              <label class="def" for="last-name">姓氏</label>
-              <input class="def" type="text" id="last-name" placeholder="請填寫姓">
+  <form action="./php/logout.php" method="POST">
+<button type="submit">登出</button>
+  </form>
+  <div id="app">
+    <form action="./travelFormTwo.html">
+      <section class="subscriber-information">
+        <div class="container">
+          <h3>訂購人資訊</h3>
+          <div class="box">
+            <div class="input-box-one">
+              <label for="same" class="def">
+                <input type="checkbox" id="same" @click='this.toggleUser'>同會員資料
+              </label>
             </div>
-            <div class="item">
-              <label class="def" for="email">電子信箱</label>
-              <input class="def" type="text" id="email" placeholder="請填寫email">
-              <label class="def" for="phone">連絡電話</label>
-              <input class="def" type="text" id="phone" placeholder="請填寫連絡電話">
+            <div class="input-box-two" v-if="meminfo">
+              <div class="item">
+                <label class="def" for="first-name">名字</label>
+                <input class="def" type="text" id="first-name" placeholder="請填寫名" :value="info[0].MEM_FIRSTNAME"
+                  disabled>
+                <label class="def" for="last-name">姓氏</label>
+                <input class="def" type="text" id="last-name" placeholder="請填寫姓" :value="info[0].MEM_LASTNAME" disabled>
+              </div>
+              <div class="item">
+                <label class="def" for="email">電子信箱</label>
+                <input class="def" type="text" id="email" placeholder="請填寫email" :value="info[0].MEM_ACCOUNT" disabled>
+                <label class="def" for="phone">連絡電話</label>
+                <input class="def" type="text" id="phone" placeholder="請填寫連絡電話" :value="info[0].MEM_PHONE" disabled>
+              </div>
+            </div>
+            <div class="input-box-two" v-else>
+              <div class="item">
+                <label class="def" for="first-name">名字</label>
+                <input class="def" type="text" id="first-name" placeholder="請填寫名">
+                <label class="def" for="last-name">姓氏</label>
+                <input class="def" type="text" id="last-name" placeholder="請填寫姓">
+              </div>
+              <div class="item">
+                <label class="def" for="email">電子信箱</label>
+                <input class="def" type="text" id="email" placeholder="請填寫email">
+                <label class="def" for="phone">連絡電話</label>
+                <input class="def" type="text" id="phone" placeholder="請填寫連絡電話">
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
-  
-    <section class="order-itinerary-information">
-      <div class="container">
-        <h3>訂購行程資訊</h3>
-        <div class="box">
-          <div class="item">
-            <label class="def" for="program">選擇旅遊方案</label>
-            <select name="program" id="program" class="def">
-              <option value="volvo">旅遊方案A</option>
-              <option value="saab">旅遊方案B</option>
-              <option value="opel">旅遊方案C</option>
-              <option value="audi">旅遊方案D</option>
+      </section>
+
+      <section class="order-itinerary-information">
+        <div class="container">
+          <h3>訂購行程資訊</h3>
+          <div class="box">
+            <div class="item">
+              <label class="def" for="program">選擇旅遊方案</label>
+              <select name="program" id="program" class="def">
+                <option value="volvo">旅遊方案A</option>
+                <option value="saab">旅遊方案B</option>
+                <option value="opel">旅遊方案C</option>
+                <option value="audi">旅遊方案D</option>
+              </select>
+            </div>
+            <div class="item">
+              <p>車種<span>福斯Caddy</span></p>
+            </div>
+            <div class="item">
+              <label class="def" for="people-num">人數</label>
+              <input type="button" id="subtraction" value="-"></input>
+              <input type="number" value=1 id="people-num">
+              <input type="button" id="add" value="+"></input>
+            </div>
+            <div class="item">
+              <p>乘載的人數 <span>6人</span></p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="remarks-block">
+        <div class="container">
+          <h3>備註</h3>
+          <textarea name="" id="" cols="30" rows="8" placeholder="吃素5個人，加購2份便當"></textarea>
+        </div>
+      </section>
+
+      <section class="voucher-block">
+        <div class="container">
+          <h3>使用優惠卷</h3>
+          <div class="box">
+            <label class="def" for="discount"></label>
+            <select name="discount" id="discount" class="def">
+              <option value="">選擇優惠券</option>
+              <option value="volvo">優惠卷編號 483283 九折優惠</option>
+              <option value="saab">優惠卷編號 483284 七折優惠</option>
+              <option value="opel">優惠卷編號 483286 七折優惠</option>
+              <option value="audi">優惠卷編號 483285 九折優惠</option>
             </select>
           </div>
-          <div class="item">
-            <p>車種<span>福斯Caddy</span></p>
-          </div>
-          <div class="item">
-            <label class="def" for="people-num">人數</label>
-            <input type="button"  id="subtraction" value="-"></input>
-            <input type="number" value=1 id="people-num">
-            <input type="button" id="add" value="+"></input>
-          </div>
-          <div class="item">
-            <p>乘載的人數 <span>6人</span></p>
-          </div>
+          <button class="btn-main" type="submit">下一步</button>
         </div>
-      </div>
-    </section>
-  
-    <section class="remarks-block">
-      <div class="container">
-        <h3>備註</h3>
-        <textarea name="" id="" cols="30" rows="8" placeholder="吃素5個人，加購2份便當"></textarea>
-      </div>
-    </section>
-  
-    <section class="voucher-block">
-      <div class="container">
-        <h3>使用優惠卷</h3>
-        <div class="box">
-          <label class="def" for="discount"></label>
-          <select name="discount" id="discount" class="def">
-            <option value="">選擇優惠券</option>
-            <option value="volvo">優惠卷編號 483283 九折優惠</option>
-            <option value="saab">優惠卷編號 483284 七折優惠</option>
-            <option value="opel">優惠卷編號 483286 七折優惠</option>
-            <option value="audi">優惠卷編號 483285 九折優惠</option>
-          </select>
-        </div>
-        <button class="btn-main" type="submit">下一步</button>
-      </div>
-    </section>
-  </form>
-
+      </section>
+    </form>
+  </div>
   @@include('layout/footer.html')
   <script src="./js/travelForm.js"></script>
 
