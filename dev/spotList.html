@@ -22,16 +22,16 @@
                 </div>
             </div>
         </section>
-
+<form action="./php/userLogout.php" method="post"><button type="submit">送出</button></form>
         <section class="container spot-list">
             <ul class="word-menu">
                 <li v-for="item in typeList" @click="changeList(item)" :class='(item)== type? "active": ""'>{{item}}
                 </li>
             </ul>
-            <div class="card-item">
+            <div class="card-item" v-if='filterData != undefined'>
                 <div class="item"
                     v-for="item in filterData.slice((this.targetPageId - 1)* this.perPage,this.targetPageId * this.perPage)"
-                    :key="item.SPOT_NO">
+                    :key="item.SPOT_NO" >
                     <div class="pic">
                         <img :src="item.SPOT_PIC_3" alt="">
                     </div>
@@ -48,8 +48,8 @@
 
         </section>
         <div class="pagination">
-            <a :href="'./spotList.html?page=' + n" :class=" n == targetPageId? 'page-main' : 'page-else' "
-                v-for='n in totalPage'>{{n}}</a>
+            <a :href="'./spotList.html?page=' + n  + '&cat='+ type"
+                :class=" n == targetPageId? 'page-main' : 'page-else' " v-for='n in totalPage'>{{n}}</a>
         </div>
     </div>
     @@include('layout/footer.html')

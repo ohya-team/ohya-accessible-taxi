@@ -1,57 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>訂單確認</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
-        integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="./css/style.css">
-  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+    integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
 </head>
+
 <body class="animate-background">
   @@include('layout/header.html')
-
-  <section class="confirm-the-contents-of-the-travel-order">
-    <div class="container">
-      <div class="box">
-        <div class="text">
-          <span>訂購人：林家輝</span>
-          <br>
-          <span>訂購人地址：33001桃園市桃園區縣府路1號</span>
-          <br>
-          <span>訂購人電話：0939888776</span>
-          <br>
-          <span>訂購人信箱：Aaa56@gmail.com.tw</span>
-          <br>
-          <span>旅遊方案名稱：大溪+八德埤塘自然生態公園+石門水庫一日遊</span>
-          <br>
-          <span>車種：福斯Caddy</span>
-          <br>
-          <span>總計的人數：6人</span>
+  <div id="app">
+    <section class="confirm-the-contents-of-the-travel-order">
+      <div class="container">
+        <div class="box">
+          <div class="text">
+            <span>訂購人：{{last_name}}{{first_name}}</span>
+            <br>
+            <span>出發日期：{{dep_time}}</span>
+            <br>
+            <span>訂購人地址：{{address}}</span>
+            <br>
+            <span>上車地點：{{pickup_place}}</span>
+            <br>
+            <span>訂購人電話：{{phone}}</span>
+            <br>
+            <span>訂購人信箱：{{email}}</span>
+            <br>
+            <span>旅遊方案名稱：{{thisProgram[0].PROGRAM_NAME}}</span>
+            <br>
+            <span>車種：{{thisProgram[0].CAR_TYPE}}</span>
+            <br>
+            <span>總計的人數：{{people_num}}人</span>
+            <br>
+            <span>優惠卷編碼：{{discount}}</span>
+            <br>
+            <span>備註：{{remarks}}</span>
+          </div>
         </div>
+
+        <button class="btn-main" id="popbox-btn" @click='this.submitTravelForm'>完成送出</button>
       </div>
-      <button class="btn-main" id="popbox-btn" type="submit">完成送出</button>
-    </div>
-  </section>
+    </section>
 
- <div class="pop-up-box">
-  <div class="item">
-    <div class="icon">
-      <i class="far fa-check-circle" aria-hidden="true"></i>
+    <div :class="this.showPopUpBox == true ? 'pop-up-box active' : 'pop-up-box' ">
+      <div class="item">
+        <div class="icon">
+          <i class="far fa-check-circle" aria-hidden="true"></i>
+        </div>
+        <h2>訂單完成</h2>
+        <p>請耐心等待訂單審核完成，審核成功後將會在會員區通知</p>
+        <button class="btn-main" @click='this.closePopUpBox' type="submit">確定</button>
+      </div>
     </div>
-    <h2>訂單完成</h2>
-    <p>請耐心等待訂單審核完成，審核成功後將會在會員區通知</p>
-    <button class="btn-main" id="close-button" type="submit">確定</button>
+
   </div>
- </div>
-
-
 
   @@include('layout/footer.html')
   @@include('layout/slotmachine2.html')
   <script src="./js/travelFormTwo.js"></script>
 </body>
+
 </html>

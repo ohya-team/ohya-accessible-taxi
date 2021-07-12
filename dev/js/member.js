@@ -1,7 +1,7 @@
 import Vue from "vue";
 import axios from "axios";
 let vue = new Vue({
-    el: "#app",
+    el: "#app1",
     data() {
         return {
         memInfo: null,
