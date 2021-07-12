@@ -8,7 +8,7 @@ let vue = new Vue({
             type: '所有景點',
             perPage: 12,
             typeList: ['所有景點', '風景區', '商圈', '藝文區'],
-            targetPageId: null,            
+            targetPageId: 1,            
         }
     },
     mounted() {
@@ -22,7 +22,7 @@ let vue = new Vue({
     computed: {
         filterData() {
             if (this.type === '所有景點') {
-                return this.info
+                return this.info//後台的所有資料
             } else {
                 return this.info.filter(item => item.SPOT_CAT == this.type)
             }

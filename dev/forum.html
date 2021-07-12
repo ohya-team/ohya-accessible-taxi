@@ -10,267 +10,99 @@
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap"
     rel="stylesheet">
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+    integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
   <title>討論區</title>
 </head>
 
 <body class="animate-background">
   @@include('layout/header.html')
 
-  <div class="forum-topic">
-    <h4 class="topic">
-      <span><img src="images/icon/Icon simple-hipchat.svg" alt=""></span>
-      <span>F</span>
-      <span>O</span>
-      <span>R</span>
-      <span>U</span>
-      <span>M</span>
-    </h4>
-    <h2 class="chinese-topic">討論區</h2>
-  </div>
-  <div class="container">
-    <div class="container-category">
+  <div id="app">
+    <div class="forum-topic">
+      <h4 class="topic">
+        <span><img src="images/icon/Icon simple-hipchat.svg" alt=""></span>
+        <span>F</span>
+        <span>O</span>
+        <span>R</span>
+        <span>U</span>
+        <span>M</span>
+      </h4>
+      <h2 class="chinese-topic">討論區</h2>
+    </div>
+    <div class="container">
+      <div class="container-category">
 
-      <div class="category">
-        <div class="category-detail">
-          <p class="category-detail-word">排序</p>
-          <button id="dropdown-list">
-            <p> 熱門</p>
-            <div class="triangle"></div>
-          </button>
-            <ul class="dropdown-menu hide appear " id="dropdown-menu-order">
-              <li class="order">熱門</li>
-              <li class="order">最新</li>
+        <div class="category">
+          <div class="category-detail">
+            <p class="category-detail-word">排序</p>
+            <button  @click.stop="dropdownOrder">
+              <p id="dropdown-order">{{order}}</p>
+              <div class="triangle"></div>
+            </button>
+            <ul class="dropdown-menu" v-show = "openOrder" ref="showOrder">
+              <li class="order" v-for = "item in orderList" @click = "changeOrder" >{{item}}</li>
             </ul>
-        </div>
-        <div class="category-detail">
-          <p class="category-detail-word">分類</p>
-          <button id="dropdown-list-sort">
-            <p>一般預約</p>
-            <div class="triangle"></div>
-          </button>
-            <ul class="dropdown-menu hide " id="dropdown-menu-sort">
-              <li class="sort">一般預約</li>
-              <li class="sort">包車旅遊</li>
-              <li class="sort">優良司機</li>
-              <li class="sort">精選車種</li>
+          </div>
+          <div class="category-detail">
+            <p class="category-detail-word">分類</p>
+            <button  @click.stop="dropdownTypeList">
+              <p id="dropdown-type-list">{{type}}</p>
+              <div class="triangle"></div>
+            </button>
+            <ul class="dropdown-menu" v-show="openTypeList" id="dropdown-menu-sort"  ref="showPanel">
+              <li class="sort" v-for="item in typeList" @click = " changeTypeList">{{item}}</li>
             </ul>
+          </div>
         </div>
+        <a href="uploadArticle.html">
+          <button class="btn-forum">
+            我要發文
+            <i class="fa fa-pencil" aria-hidden="true"></i>
+          </button>
+        </a>
       </div>
-      <a href="uploadArticle.html">
-        <button class="btn-forum">
-          我要發文
-          <i class="fa fa-pencil" aria-hidden="true"></i>
-        </button>
-      </a>
+      <div class="forum-content" >
+        <div class="forum-card" v-for="item in filterData.slice((this.targetPageId - 1)* this.perPage,this.targetPageId * this.perPage)" :key="item.ART_NO">
+          <div class="forum-avatar">
+            <img src="images/forum/member.jpg" alt="">
+            <span>董董</span>
+          </div>
+          <div class="card-group">
+            <img :src="item.ART_IMG" alt="">
+            <span class="card-sort">{{item.ART_CAT}}</span>
+            <section class="card-content">
+              <h3 class="card-topic">{{item.ART_TITLE}}</h3>
+              <div class="card-info">
+                <div class="people-amount">
+                  <i class="fa fa-eye" aria-hidden="true"></i>
+                  <span class="mini " id="add">{{item.ART_CLICK}}</span>
+                </div>
+                <span class="mini">{{item.ART_UPDATED}}</span>
+              </div>
+              <p>{{item.ART_CONTENT | ellipsis}}</p>
+              <a :href="'./forumDetail.html?ART_NO=' + item.ART_NO">
+                <button class="btn-second" @click="addClick">MORE</button>
+              </a>
+            </section>
+          </div>
+        </div>
+
+      </div>
+
+
     </div>
-    <div class="forum-content">
-      <div class="forum-card">
-        <div class="forum-avatar">
-          <img src="images/forum/member.jpg" alt="">
-          <span>董董</span>
-        </div>
-        <div class="card-group">
-          <img src="images/forum/forum-img-1.jpg" alt="">
-          <span class="card-sort">包車旅遊</span>
-          <section class="card-content">
-            <h3 class="card-topic">耶喜歡這個旅遊行程哈哈</h3>
-            <div class="card-info">
-              <div class="people-amount">
-                <i class="fa fa-eye" aria-hidden="true"></i>
-                <span class="mini ">150</span>
-              </div>
-              <span class="mini">2021-06-10 20:35:35</span>
-            </div>
-            <p>每個行程都安排得好用心，大推大家來試試看
-              這次去的地...</p>
-            <a href="forumDetail.html"><button class="btn-second">MORE</button></a>
-          </section>
-        </div>
-      </div>
-
-      <div class="forum-card">
-        <div class="forum-avatar">
-          <img src="images/forum/member.jpg" alt="">
-          <span>董董</span>
-        </div>
-        <div class="card-group">
-          <img src="images/forum/forum-img-1.jpg" alt="">
-          <span class="card-sort">包車旅遊</span>
-          <section class="card-content">
-            <h3 class="card-topic">耶喜歡這個旅遊行程哈哈</h3>
-            <div class="card-info">
-              <div class="people-amount">
-                <i class="fa fa-eye" aria-hidden="true"></i>
-                <span class="mini ">150</span>
-              </div>
-              <span class="mini">2021-06-10 20:35:35</span>
-            </div>
-            <p>每個行程都安排得好用心，大推大家來試試看
-              這次去的地...</p>
-            <a href="forumDetail.html"><button class="btn-second">MORE</button></a>
-          </section>
-        </div>
-      </div>
-
-      <div class="forum-card">
-        <div class="forum-avatar">
-          <img src="images/forum/member.jpg" alt="">
-          <span>董董</span>
-        </div>
-        <div class="card-group">
-          <img src="images/forum/forum-img-1.jpg" alt="">
-          <span class="card-sort">包車旅遊</span>
-          <section class="card-content">
-            <h3 class="card-topic">耶喜歡這個旅遊行程哈哈</h3>
-            <div class="card-info">
-              <div class="people-amount">
-                <i class="fa fa-eye" aria-hidden="true"></i>
-                <span class="mini ">150</span>
-              </div>
-              <span class="mini">2021-06-10 20:35:35</span>
-            </div>
-            <p>每個行程都安排得好用心，大推大家來試試看
-              這次去的地...</p>
-            <a href="forumDetail.html"><button class="btn-second">MORE</button></a>
-          </section>
-        </div>
-      </div>
-
-      <div class="forum-card">
-        <div class="forum-avatar">
-          <img src="images/forum/member.jpg" alt="">
-          <span>董董</span>
-        </div>
-        <div class="card-group">
-          <img src="images/forum/forum-img-1.jpg" alt="">
-          <span class="card-sort">包車旅遊</span>
-          <section class="card-content">
-            <h3 class="card-topic">耶喜歡這個旅遊行程哈哈</h3>
-            <div class="card-info">
-              <div class="people-amount">
-                <i class="fa fa-eye" aria-hidden="true"></i>
-                <span class="mini ">150</span>
-              </div>
-              <span class="mini">2021-06-10 20:35:35</span>
-            </div>
-            <p>每個行程都安排得好用心，大推大家來試試看
-              這次去的地...</p>
-            <a href="forumDetail.html"><button class="btn-second">MORE</button></a>
-          </section>
-        </div>
-      </div>
+    <div class="pagination">
+      <a :href="'./forum.html?page=' + n" :class=" n == targetPageId? 'page-main' : 'page-else' "
+      v-for='n in totalPage'>{{n}}</a>
     </div>
-
-    <div class="forum-content">
-      <div class="forum-card">
-        <div class="forum-avatar">
-          <img src="images/forum/member.jpg" alt="">
-          <span>董董</span>
-        </div>
-        <div class="card-group">
-          <img src="images/forum/forum-img-1.jpg" alt="">
-          <span class="card-sort">包車旅遊</span>
-          <section class="card-content">
-            <h3 class="card-topic">耶喜歡這個旅遊行程哈哈</h3>
-            <div class="card-info">
-              <div class="people-amount">
-                <i class="fa fa-eye" aria-hidden="true"></i>
-                <span class="mini ">150</span>
-              </div>
-              <span class="mini">2021-06-10 20:35:35</span>
-            </div>
-            <p>每個行程都安排得好用心，大推大家來試試看
-              這次去的地...</p>
-            <a href="forumDetail.html"><button class="btn-second">MORE</button></a>
-          </section>
-        </div>
-      </div>
-
-      <div class="forum-card">
-        <div class="forum-avatar">
-          <img src="images/forum/member.jpg" alt="">
-          <span>董董</span>
-        </div>
-        <div class="card-group">
-          <img src="images/forum/forum-img-1.jpg" alt="">
-          <span class="card-sort">包車旅遊</span>
-          <section class="card-content">
-            <h3 class="card-topic">耶喜歡這個旅遊行程哈哈</h3>
-            <div class="card-info">
-              <div class="people-amount">
-                <i class="fa fa-eye" aria-hidden="true"></i>
-                <span class="mini ">150</span>
-              </div>
-              <span class="mini">2021-06-10 20:35:35</span>
-            </div>
-            <p>每個行程都安排得好用心，大推大家來試試看
-              這次去的地...</p>
-            <a href="forumDetail.html"><button class="btn-second">MORE</button></a>
-          </section>
-        </div>
-      </div>
-
-      <div class="forum-card">
-        <div class="forum-avatar">
-          <img src="images/forum/member.jpg" alt="">
-          <span>董董</span>
-        </div>
-        <div class="card-group">
-          <img src="images/forum/forum-img-1.jpg" alt="">
-          <span class="card-sort">包車旅遊</span>
-          <section class="card-content">
-            <h3 class="card-topic">耶喜歡這個旅遊行程哈哈</h3>
-            <div class="card-info">
-              <div class="people-amount">
-                <i class="fa fa-eye" aria-hidden="true"></i>
-                <span class="mini ">150</span>
-              </div>
-              <span class="mini">2021-06-10 20:35:35</span>
-            </div>
-            <p>每個行程都安排得好用心，大推大家來試試看
-              這次去的地...</p>
-            <a href="forumDetail.html"><button class="btn-second">MORE</button></a>
-          </section>
-        </div>
-      </div>
-
-      <div class="forum-card">
-        <div class="forum-avatar">
-          <img src="images/forum/member.jpg" alt="">
-          <span>董董</span>
-        </div>
-        <div class="card-group">
-          <img src="images/forum/forum-img-1.jpg" alt="">
-          <span class="card-sort">包車旅遊</span>
-          <section class="card-content">
-            <h3 class="card-topic">耶喜歡這個旅遊行程哈哈</h3>
-            <div class="card-info">
-              <div class="people-amount">
-                <i class="fa fa-eye" aria-hidden="true"></i>
-                <span class="mini ">150</span>
-              </div>
-              <span class="mini">2021-06-10 20:35:35</span>
-            </div>
-            <p>每個行程都安排得好用心，大推大家來試試看
-              這次去的地...</p>
-            <a href="forumDetail.html"><button class="btn-second">MORE</button></a>
-          </section>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="pagination">
-    <a href="#" class="page-main">1</a>
-    <a href="#" class="page-else">2</a>
-    <a href="#" class="page-else">3</a>
   </div>
   @@include('layout/footer.html')
 
   <script src="./js/forum.js"></script>
 
 
- 
+
 </body>
 
 </html>

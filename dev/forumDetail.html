@@ -1,168 +1,176 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link rel="stylesheet" href="css/style.css">
-        <link rel="preconnect" href="https://fonts.gstatic.com">
-        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap"
-          rel="stylesheet">
-          <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
-        <title>討論區-耶喜歡這個旅遊行程</title>
-      </head>
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+    integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+  <title>討論區-耶喜歡這個旅遊行程</title>
+</head>
+
 <body class="animate-background">
-    @@include('layout/header.html') 
-    <div class="forum-topic">
+  @@include('layout/header.html')
+  <div class="forum-topic">
     <h4 class="topic">
-        <span><img src="images/icon/Icon simple-hipchat.svg" alt=""></span>
-        <span>F</span>
-        <span>O</span>
-        <span>R</span>
-        <span>U</span>
-        <span>M</span>
+      <span><img src="images/icon/Icon simple-hipchat.svg" alt=""></span>
+      <span>F</span>
+      <span>O</span>
+      <span>R</span>
+      <span>U</span>
+      <span>M</span>
     </h4>
     <h2 class="chinese-topic">討論區</h2>
-    </div>
+  </div>
+  <div id="app">
     <article class="forum-detail-container">
-        <div class="forum-detail-topic">
-            <p class="forum-sort">包車旅遊</p>
-            <h3>耶喜歡這個旅遊行程~</h3>
+      <div class="forum-detail-topic">
+        <p class="forum-sort">{{detailInfo[0].ART_CAT}}</p>
+        <h3>{{detailInfo[0].ART_TITLE}}</h3>
+      </div>
+      <div class="card-info">
+        <div class="people-amount">
+          <i class="fa fa-eye" aria-hidden="true"></i>
+          <span class="info-color">{{detailInfo[0].ART_CLICK}}</span>
         </div>
-        <div class="card-info">
-            <div class="people-amount">
-              <i class="fa fa-eye" aria-hidden="true"></i>
-              <span class="info-color">150</span>
-            </div>
-            <button class="alert info-color" id="forum-alert">
-                <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
-                <span class="info-color">檢舉</span>
-            </button>
-            <span class="info-color">2021-06-10 20:35:35</span>
-          </div>
-        <img src="images/forum/forum-img.svg" alt="">
-        <p>範圍內連載遭遇期間緊張上傳監管肌膚積分多少，怎麼辦父母立即通過大多數短信失去皇帝理由於是消費者，蘋果彼此親自教授經濟發展委託你想快捷或許自我是以，培養考核可以用，只不過企業需要，商標患者不得積極你好順利習慣最近男人，斗內告訴你本網可以說，打算效果歐洲讓你。<br>
-        簡直驅動動作儀器地區生日體會書庫追求簡體司機核心，每頁又是些什麼，反覆做什麼評分嚴格新增主管文學長沙取消金錢創造發佈時間，整合趕緊個人奇蹟你們的交流一路至於原文不可能考生，轉身終於解決緩緩之下說是車輛發佈時間主機管理系統對外同步設施，接口一半昨日簽名，收。
-        </p>
+        <button class="alert info-color" id="forum-alert">
+          <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
+          <span class="info-color">檢舉</span>
+        </button>
+        <span class="info-color">{{detailInfo[0].ART_UPDATED}}</span>
+      </div>
+      <img :src="detailInfo[0].ART_IMG" alt="">
+      <p>
+        {{detailInfo[0].ART_CONTENT}}
+      </p>
     </article>
     <section class="article-recommended">
-        <h3>熱門推薦文章</h3>
-        <div class="forum-content">
-            <div class="forum-card">
-              <div class="forum-avatar">
-                <img src="images/forum/member.jpg" alt="">
-                <span>董董</span>
-              </div>
-              <div class="card-group">
-                <img src="images/forum/forum-img-1.jpg" alt="">
-                <span class="card-sort">包車旅遊</span>
-                <section class="card-content">
-                  <h4 class="card-topic">耶喜歡這個旅遊行程哈哈</h4>
-                  <div class="card-info">
-                    <div class="people-amount">
-                      <i class="fa fa-eye" aria-hidden="true"></i>
-                      <span class="mini ">150</span>
-                    </div>
-                    <span class="mini">2021-06-10 20:35:35</span>
-                  </div>
-                  <p>每個行程都安排得好用心，大推大家來試試看
-                    這次去的地...</p>
-                  <button class="btn-second">MORE</button>
-                </section>
-              </div>
-            </div>
-      
-            <div class="forum-card">
-              <div class="forum-avatar">
-                <img src="images/forum/member.jpg" alt="">
-                <span>董董</span>
-              </div>
-              <div class="card-group">
-                <img src="images/forum/forum-img-1.jpg" alt="">
-                <span class="card-sort">包車旅遊</span>
-                <section class="card-content">
-                  <h4 class="card-topic">耶喜歡這個旅遊行程哈哈</h4>
-                  <div class="card-info">
-                    <div class="people-amount">
-                      <i class="fa fa-eye" aria-hidden="true"></i>
-                      <span class="mini ">150</span>
-                    </div>
-                    <span class="mini">2021-06-10 20:35:35</span>
-                  </div>
-                  <p>每個行程都安排得好用心，大推大家來試試看
-                    這次去的地...</p>
-                  <button class="btn-second">MORE</button>
-                </section>
-              </div>
-            </div>
-      
-            <div class="forum-card">
-              <div class="forum-avatar">
-                <img src="images/forum/member.jpg" alt="">
-                <span>董董</span>
-              </div>
-              <div class="card-group">
-                <img src="images/forum/forum-img-1.jpg" alt="">
-                <span class="card-sort">包車旅遊</span>
-                <section class="card-content">
-                  <h4 class="card-topic">耶喜歡這個旅遊行程哈哈</h4>
-                  <div class="card-info">
-                    <div class="people-amount">
-                      <i class="fa fa-eye" aria-hidden="true"></i>
-                      <span class="mini ">150</span>
-                    </div>
-                    <span class="mini">2021-06-10 20:35:35</span>
-                  </div>
-                  <p>每個行程都安排得好用心，大推大家來試試看
-                    這次去的地...</p>
-                  <button class="btn-second">MORE</button>
-                </section>
-              </div>
-            </div>
-      
-            <div class="forum-card">
-              <div class="forum-avatar">
-                <img src="images/forum/member.jpg" alt="">
-                <span>董董</span>
-              </div>
-              <div class="card-group">
-                <img src="images/forum/forum-img-1.jpg" alt="">
-                <span class="card-sort">包車旅遊</span>
-                <section class="card-content">
-                  <h4 class="card-topic">耶喜歡這個旅遊行程哈哈</h4>
-                  <div class="card-info">
-                    <div class="people-amount">
-                      <i class="fa fa-eye" aria-hidden="true"></i>
-                      <span class="mini ">150</span>
-                    </div>
-                    <span class="mini">2021-06-10 20:35:35</span>
-                  </div>
-                  <p>每個行程都安排得好用心，大推大家來試試看
-                    這次去的地...</p>
-                  <button class="btn-second">MORE</button>
-                </section>
-              </div>
-            </div>
+      <h3>熱門推薦文章</h3>
+      <div class="forum-content">
+        <div class="forum-card">
+          <div class="forum-avatar">
+            <img src="images/forum/member.jpg" alt="">
+            <span>董董</span>
           </div>
-
-          <div class="alert-hide pop-up"  id="pop-up">
-              <section class="alert-detail">
-                <i class="fa fa-times" aria-hidden="true" id="forum-alert-close"></i>
-                  <h2>請選取檢舉理由</h2>
-                  <form class="alert-content" action="">
-                    <p><input class="radio" type="radio" name="alert" value="惡意中傷" >惡意中傷</p>
-                    <p><input class="radio" type="radio" name="alert" value="散佈廣告">散佈廣告</p>
-                    <p><input class="radio" type="radio" name="alert" value="色情資訊">色情資訊</p>
-                    <p><input class="radio" type="radio" name="alert" value="不雅字眼" >不雅字眼</p>
-                    <input class="btn-main" type="button" name="" id="" value="送出">
-                  </form>
-              </section>
-
+          <div class="card-group">
+            <img src="images/forum/forum-img-1.jpg" alt="">
+            <span class="card-sort">包車旅遊</span>
+            <section class="card-content">
+              <h4 class="card-topic">耶喜歡這個旅遊行程哈哈</h4>
+              <div class="card-info">
+                <div class="people-amount">
+                  <i class="fa fa-eye" aria-hidden="true"></i>
+                  <span class="mini ">150</span>
+                </div>
+                <span class="mini">2021-06-10 20:35:35</span>
+              </div>
+              <p>每個行程都安排得好用心，大推大家來試試看
+                這次去的地...</p>
+              <button class="btn-second">MORE</button>
+            </section>
           </div>
+        </div>
 
-    </section>
-    <script src="./js/forumDetail.js"></script>
-    
+        <div class="forum-card">
+          <div class="forum-avatar">
+            <img src="images/forum/member.jpg" alt="">
+            <span>董董</span>
+          </div>
+          <div class="card-group">
+            <img src="images/forum/forum-img-1.jpg" alt="">
+            <span class="card-sort">包車旅遊</span>
+            <section class="card-content">
+              <h4 class="card-topic">耶喜歡這個旅遊行程哈哈</h4>
+              <div class="card-info">
+                <div class="people-amount">
+                  <i class="fa fa-eye" aria-hidden="true"></i>
+                  <span class="mini ">150</span>
+                </div>
+                <span class="mini">2021-06-10 20:35:35</span>
+              </div>
+              <p>每個行程都安排得好用心，大推大家來試試看
+                這次去的地...</p>
+              <button class="btn-second">MORE</button>
+            </section>
+          </div>
+        </div>
+
+        <div class="forum-card">
+          <div class="forum-avatar">
+            <img src="images/forum/member.jpg" alt="">
+            <span>董董</span>
+          </div>
+          <div class="card-group">
+            <img src="images/forum/forum-img-1.jpg" alt="">
+            <span class="card-sort">包車旅遊</span>
+            <section class="card-content">
+              <h4 class="card-topic">耶喜歡這個旅遊行程哈哈</h4>
+              <div class="card-info">
+                <div class="people-amount">
+                  <i class="fa fa-eye" aria-hidden="true"></i>
+                  <span class="mini ">150</span>
+                </div>
+                <span class="mini">2021-06-10 20:35:35</span>
+              </div>
+              <p>每個行程都安排得好用心，大推大家來試試看
+                這次去的地...</p>
+              <button class="btn-second">MORE</button>
+            </section>
+          </div>
+        </div>
+
+        <div class="forum-card">
+          <div class="forum-avatar">
+            <img src="images/forum/member.jpg" alt="">
+            <span>董董</span>
+          </div>
+          <div class="card-group">
+            <img src="images/forum/forum-img-1.jpg" alt="">
+            <span class="card-sort">包車旅遊</span>
+            <section class="card-content">
+              <h4 class="card-topic">耶喜歡這個旅遊行程哈哈</h4>
+              <div class="card-info">
+                <div class="people-amount">
+                  <i class="fa fa-eye" aria-hidden="true"></i>
+                  <span class="mini ">150</span>
+                </div>
+                <span class="mini">2021-06-10 20:35:35</span>
+              </div>
+              <p>每個行程都安排得好用心，大推大家來試試看
+                這次去的地...</p>
+              <button class="btn-second">MORE</button>
+            </section>
+          </div>
+        </div>
+      </div>
+
+
+
+      <div class="alert-hide pop-up" id="pop-up">
+        <section class="alert-detail">
+          <i class="fa fa-times" aria-hidden="true" id="forum-alert-close"></i>
+          <h2>請選取檢舉理由</h2>
+          <form class="alert-content" action="">
+            <p><input class="radio" type="radio" name="alert" value="惡意中傷">惡意中傷</p>
+            <p><input class="radio" type="radio" name="alert" value="散佈廣告">散佈廣告</p>
+            <p><input class="radio" type="radio" name="alert" value="色情資訊">色情資訊</p>
+            <p><input class="radio" type="radio" name="alert" value="不雅字眼">不雅字眼</p>
+            <input class="btn-main" type="button" name="" id="" value="送出">
+          </form>
+        </section>
+
+      </div>
+  </div>
+
+  </section>
+  <script src="./js/forumDetail.js"></script>
+
 </body>
+
 </html>

@@ -31,8 +31,7 @@ module.exports = {
         uploadArticle:'./dev/js/uploadArticle.js',
         slotmachine3:'./dev/js/slotmachine3.js',
         adminCar: './dev/js/adminCar.js',
-        userCenter: './dev/js/userCenter.js',
-        member: './dev/js/member.js',
+        adminArticle: './dev/js/adminArticle.js',
     },// 入口文件
     output: {
         path: path.resolve(__dirname, 'dist/js'),
