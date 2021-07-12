@@ -4,23 +4,17 @@ import axios from "axios";
 let vm =  new Vue({
     el: '#app',
     data: {
-        driverTable: [],
-        driverRoster:[],
+        whref: window.location.href.split('?driver_no=')[1],
+        driverRoster: [],
     },
     mounted() {
-        axios.get('../php/driver.php')
-        .then(res => this.driverTable = res.data)
+        axios.get('../php/driverRoster.php')
+        .then(res => this.driverRoster = res.data)
         .catch(error => console.log(error))
 
-        // axios.get('../php/bookingTiming.php')
-        // .then(res => this.driverRoster = res.data)
-        // .catch(error => console.log(error))
-
+        if(this.driverRoster[0].DRIVER_NO==this.whref){
+            alert(yes)
+        }
     },
-})
 
-// for(let i=0; i<vm.driverRoster.length; i++){    
-//     if(vm.driverRoster[i].DRIVER_NO == 1){
-//         drverTiming.push(vm.driverRoster[i].DRIVER_NO);              
-//     }
-// }
+});
