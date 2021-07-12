@@ -10,15 +10,17 @@
     <span class="icon-bar"></span>
   </button>
   <!-- Top Navigation: Right Menu -->
-  <ul class="nav navbar-right navbar-top-links">
+  <ul class="nav navbar-right navbar-top-links" v-for=" memInfo in memInfo" :key="memInfo.mem_no">
     <li class="dropdown">
       <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-        <i class="fa fa-user fa-fw"></i> user888<b class="caret"></b>
+        <i class="fa fa-user fa-fw"></i>{{memInfo.MEM_FIRSTNAME}}<b class="caret"></b>
       </a>
+      <form action="../dist/php/userLogout.php" method="GET">
       <ul class="dropdown-menu dropdown-user">
-        <li><a href="usercenterLogin.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+        <li style="padding: 10px;"><i class="fa fa-sign-out fa-fw"></i><input type="submit" value=" Logout" style="background-color: #fff; border: none;">
         </li>
       </ul>
+    </form>
     </li>
   </ul>
 

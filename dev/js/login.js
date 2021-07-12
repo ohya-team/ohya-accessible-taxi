@@ -34,7 +34,6 @@ function closeLightBox(){
 
 //檢查註冊表單
 function checkSignup(e){
-  console.log('in');
   //檢查姓名不得空白
   let last = $('#last')[0].lastChild;
   if( last.value.length < 1){
@@ -82,23 +81,29 @@ function sendLoginForm(){
 
     }else{
       alert(xhr.status);
+      alert("系統異常");
     }
   }
 
   xhr.open("post", "../dist/php/login.php",true);
   let loginFormData = new FormData(document.getElementById('LoginDetail'));
-  xhr.send(loginFormData);   
+  xhr.send(loginFormData);
 }
 
-
+//清空表單內容
+function clear(){
+  document.getElementById('memAccount').value = '';
+  document.getElementById('memPassword').value = '';
+}
 
 
 function init(){
   change();
   closeLightBox();
+  clear();
   document.getElementById('signupDetail').onsubmit = checkSignup;
   document.getElementById('LoginDetail').onsubmit = sendLoginForm;
-  console.log($('#loginBtn'));
+  console.log(document.querySelector('#memAccount'));
   
 }
 

@@ -9,6 +9,7 @@ try{
 	$member -> bindValue(":mem_password" , $_POST["mem_password"]);
   $member -> execute();
 
+
   if( $member -> rowCount() == 0){
     echo "{}";
   }else{
@@ -23,5 +24,6 @@ try{
 	echo $e->getMessage();
 	exit("系統暫時不能提供服務");
 }
+echo "123";
 ?>
 
