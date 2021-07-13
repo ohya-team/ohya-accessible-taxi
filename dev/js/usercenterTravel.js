@@ -8,10 +8,9 @@ let vue = new Vue({
         }
     },
     mounted() {
-        this.get_href();
-        axios.get('./php/insertTravelOrder.php')
+        axios.get('./php/usercenterTravel.php')
             .then(response => (this.info = response.data))
-            .catch(function (error) { // 请求失败处理
+            .catch(function (error) { // 請求失敗處理
                 console.log(error);
             });
     },
