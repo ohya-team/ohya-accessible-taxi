@@ -1,7 +1,3 @@
-// let heart = document.querySelectorAll('.heart');
-// heart.forEach(e => e.addEventListener('click', ()=>{
-//     e.classList.toggle('active');
-// }))
 import Vue from "vue";
 import axios from "axios";
 import StarRating from 'vue-star-rating'
@@ -15,7 +11,7 @@ let vue = new Vue({
             info: null,
             type: '精選評分',
             perPage: 5,
-            targetPageId: null,
+            targetPageId:1,
             priceSort: '價格',
             personSort: '人數',
         }
@@ -26,6 +22,7 @@ let vue = new Vue({
             .catch(function (error) { // 请求失败处理
                 console.log(error);
             });
+        this.get_href();
     },
     computed: {
         filterData() {
@@ -68,11 +65,13 @@ let vue = new Vue({
             this.type = e.target.innerText;
             this.priceSort = '價格';
         },
-        get_href() {
-            let nowUrl = window.location.href;
-            let targetPageId = nowUrl.split("=")[1];
-            console.log(targetPageId);
-            this.targetPageId = parseInt(targetPageId);
+        changePage(item) {
+            this.targetPageId = item;
+            window.scrollTo({
+                top: 0,
+                left: 0,
+                behavior: 'smooth'
+            });
         }
     }
 })

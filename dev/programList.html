@@ -54,7 +54,8 @@
 
         <section class="list-block">
             <div class="container">
-                <div class="card-item" v-for="item in info">
+                <div class="card-item"
+                    v-for="item in info.slice((targetPageId - 1 ) * perPage , targetPageId * perPage)">
                     <div class="card-image">
                         <a :href="'./programDetail.html?program_no=' + item.PROGRAM_NO">
                             <img :src=item.PROGRAM_PIC alt="">
@@ -88,7 +89,7 @@
             </div>
         </section>
         <div class="pagination">
-            <a :href="'./programList.html?page=' + n" :class=" n == targetPageId? 'page-main' : 'page-else' "
+            <a href="#" @click='changePage(n)' :class=" n == targetPageId? 'page-main' : 'page-else' "
                 v-for='n in totalPage'>{{n}}</a>
         </div>
     </div>
