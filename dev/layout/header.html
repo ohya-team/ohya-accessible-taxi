@@ -30,16 +30,16 @@
 
         <div class="log-sign" style="--i: 1.8s" id="loginLink">
           
-        <!-- <div class="user" v-for=" memInfo in memInfo" :key="memInfo.mem_no">
+        <div class="user" v-for=" memInfo in memInfo" :key="memInfo.mem_no">
           <img src="../images/icon/user-solid.svg" alt="" style="width: 50px;color: black;">
           <a href="usercenter.html">{{memInfo.MEM_FIRSTNAME}}</a>
-        </div> -->
+        </div>
 
-          <button class="btn-login">
+          <button class="btn-login" :style="hideBtn">
             <a href="login.html" class="">登入</a>
           </button>
 
-          <button class="btn-sign">
+          <button class="btn-sign" :style="hideBtn">
             <a href="login.html" class="">註冊</a>
           </button>
 

@@ -17,29 +17,13 @@ let vue = new Vue({
             .catch( (error) => console.log(error));
 
     },
-    // methods:{
-    //     showName(e){
-    //         this.memName = e.target.innerText;
-    //     }
-    // },
-    // computed:{
-    //     showName(){
-    //         this.memName === this.memInfo.MEM_FIRSTNAME;
-    //         if( this.memInfo.MEM_FIRSTNAME == null){
-    //             return {
-    //                 memName : "訪客"
-    //             }
-    //         }else{
-    //             memName = this.memInfo.MEM_FIRSTNAME
-    //         }
-    //     },
-        // hideBtn(){
-        //     this.memName === this.memInfo.MEM_FIRSTNAME;
-        //     if(this.memInfo.MEM_FIRSTNAME !== null){
-        //        return {
-        //            display : 'none'
-        //        } ;
-        //     }
-        // }
-    // },
+    computed:{
+        hideBtn(){
+            if(this.memInfo !== null){
+               return {
+                   display : 'none'
+               } ;
+            }
+        }
+    },
 })
