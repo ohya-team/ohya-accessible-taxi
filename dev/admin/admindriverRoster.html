@@ -40,7 +40,7 @@
         <div id="app">
           <div class="row">
             <div class="col-lg-12">
-              <form action="#">
+              <form role="form" action="../php/updateDriverRoster.php" method="POST" enctype="multipart/form-data">
                 <div class="form-group">
                   <label>司機姓名：{{driverRoster[whref-1].DRIVER_NAME}}</label>
                 </div>
@@ -52,45 +52,46 @@
                       <th>上班/休假</th>
                     </tr>
                   </thead>
-                  <tbody>
+                  <tbody v-for="(driverInfo,index) in driverRoster" v-if="index%11==(whref-1)">
                     <tr>
-                      <td>{{driverRoster[0].BOOKING_DATE}}</td>
+                      <td>{{driverInfo.BOOKING_DATE}}</td>
                       <td>早上</td>
                       <td>
-                        <select class="form-control">
-                          <option>上班</option>
-                          <option>休假</option>
-                        </select>
+                      <select class="form-control" :name="driverInfo.SCH_NO+'_0'">
+                          <option :value="leaveStatus1.status">{{leaveStatus1.info}}</option>
+                          <option :value="leaveStatus0.status">{{leaveStatus0.info}}</option>
+                      </select>
                       </td>
-                    </tr>
-                    <tr>
-                      <td>{{driverRoster[0].BOOKING_DATE}}</td>
+                  </tr>
+                  <tr>
+                      <td>{{driverInfo.BOOKING_DATE}}</td>
                       <td>下午</td>
                       <td>
-                        <select class="form-control">
-                          <option>上班</option>
-                          <option>休假</option>
-                        </select>
+                      <select class="form-control" :name="driverInfo.SCH_NO+'_1'">
+                          <option :value="leaveStatus1.status">{{leaveStatus1.info}}</option>
+                          <option :value="leaveStatus0.status">{{leaveStatus0.info}}</option>
+                      </select>
                       </td>
-                    </tr>
-                    <tr>
-                      <td>{{driverRoster[0].BOOKING_DATE}}</td>
+                  </tr>
+                  <tr>
+                      <td>{{driverInfo.BOOKING_DATE}}</td>
                       <td>晚上</td>
                       <td>
-                        <select class="form-control">
-                          <option>上班</option>
-                          <option>休假</option>
-                        </select>
+                      <select class="form-control" :name="driverInfo.SCH_NO+'_2'">
+                          <option :value="leaveStatus1.status">{{leaveStatus1.info}}</option>
+                          <option :value="leaveStatus0.status">{{leaveStatus0.info}}</option>
+                      </select>
                       </td>
-                    </tr>
+                  </tr>
                   </tbody>
                 </table>
                 <button type="submit" class="btn btn-success">完成</button>
-                <button type="reset" class="btn btn-default">取消</button>
+                <button type="reset" class="btn btn-default" @click="backToTable">取消</button>
               </form>
             </div>
           </div>
         </div>
+        <br>
       </div>
   </div>
 
