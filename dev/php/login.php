@@ -10,16 +10,18 @@ try{
   $member -> execute();
 
 
+
   if( $member -> rowCount() == 0){
-    echo "{}";
+    echo "<script>alert('帳號密碼錯誤~');history.go(-1)</script>";
   }else{
     $memRow = $member->fetch(PDO::FETCH_ASSOC);
     $_SESSION["mem_account"] = $memRow["MEM_ACCOUNT"];
     $_SESSION["mem_password"] = $memRow["MEM_PASSWORD"];
     $result = ["mem_account"=>$_SESSION["mem_account"], "mem_password"=>$_SESSION["mem_password"]];
     echo  json_encode($result);
+    echo "<script>alert('登入成功~');history.go(-2)</script>";
   }
-  header('Location:../usercenter.html');  
+  //header('Location:../usercenter.html');  
 }catch(PDOException $e){
 	echo $e->getMessage();
 	exit("系統暫時不能提供服務");
