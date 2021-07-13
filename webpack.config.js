@@ -8,6 +8,7 @@ module.exports = {
         adminBookingTiming:'./dev/js/adminBookingTiming.js',
         bannerSlider: './dev/js/bannerSlider.js',
         booking: './dev/js/booking.js',
+        booking2: './dev/js/booking2.js',
         forum: './dev/js/forum.js',
         service: './dev/js/service.js',
         travelForm: './dev/js/travelForm.js',
