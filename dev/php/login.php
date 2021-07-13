@@ -26,6 +26,6 @@ try{
 	echo $e->getMessage();
 	exit("系統暫時不能提供服務");
 }
-echo "123";
+
 ?>
 
