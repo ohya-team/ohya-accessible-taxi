@@ -17,14 +17,14 @@
     @@include('layout/header.html')
 
     <div id="app">
-        <section class="spot-d-hero">
+        <section class="spot-d-hero" v-if="detailInfo">
             <img :src=detailInfo[0].SPOT_PIC_B alt="">
             <div class="title">
                 <h2>{{detailInfo[0].SPOT_NAME}}</h2>
                 <p>{{detailInfo[0].SPOT_SLOGAN}}</p>
             </div>
         </section>
-        <section class="spot-detail">
+        <section class="spot-detail" v-if="detailInfo">
             <div class="intro container">
                 <img :src=detailInfo[0].SPOT_PIC_1 alt="">
                 <div class="intro-detail">
@@ -39,7 +39,7 @@
         </section>
 
         </section>
-        <section class="related container">
+        <section class="related container" v-if="programDetailInfo">
             <h2>相關旅遊方案</h2>
             <Div class="item-group" >
                 <a :href="'./programDetail.html?program_no=' + item.PROGRAM_NO" class="item" v-for="item in programDetailInfo" :key="item.PROGRAM_NO"> 

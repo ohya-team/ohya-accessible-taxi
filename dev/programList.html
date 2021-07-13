@@ -67,7 +67,7 @@
                             </a>
                         </div>
                         <div class="star">
-                            <star-rating :rating="item.PROGRAM_RATING" :read-only="true" :increment="0.01"
+                            <star-rating :rating="parseFloat( item.PROGRAM_RATING)" :read-only="true" :increment="0.01"
                                 :show-rating=false active-color="#ffd900" inactive-color="#9f9f9f" :star-size="25">
                             </star-rating>
                         </div>
