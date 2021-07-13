@@ -33,9 +33,9 @@
 <body>
 
     <div id="wrapper">
-        @@include('./layout/usercenterSidebar.html')
+        @@include('layout/usercenterSidebar.html')
         <!-- Page Content -->
-        <!-- <div id="app"> -->
+        <div id="app">
             <div id="page-wrapper">
                 <div class="container-fluid">
                     <div class="container-lg">
@@ -48,28 +48,83 @@
                                 </div>
                                 <div class="panel panel-default">
                                     <div class="panel-heading">
-                                        <h4>會員旅遊訂單</h4>
+                                        <h4>旅遊訂單</h4>
                                     </div>
                                     <!-- .panel-heading -->
                                     <div class="panel-body">
                                         <div class="panel-group" id="accordion">
-                                            <div class="panel panel-primary">
-                                                <div class="panel-collapse collapse"
+                                            <div class="panel panel-primary" v-for="info in info" :key="info.ORDER_NO">
+                                                <div class="panel-heading"
+                                                    style="display: grid ; grid-template-columns: repeat(3,5fr) 1fr;">
+                                                    <h4 class="panel-title">
+                                                        <a data-toggle="collapse" data-parent="#accordion"
+                                                            :href="'#' + info.ORDER_NO" aria-expanded="false"
+                                                            class="collapsed">{{info.ORDER_NO}}</a>
+                                                    </h4>
+                                                    <p style="margin: 0;">{{info.PROGRAM_NAME}}</p>
+                                                    <p style="margin: 0;">{{info.ORDER_DATE}}</p>
+                                                    <p style="margin: 0; justify-content:flex-end">{{info.ORDER_STATUS}}</p>
+                                                </div>
+                                                <div :id="info.SPOT_NO" class="panel-collapse collapse"
                                                     aria-expanded="false" style="height: 0px;">
                                                     <div class="panel-body" style="margin: 0 6%; border: none;">
                                                         <ul style=" overflow-x: auto;">
                                                             <li class="list-unstyled" style="margin-top: 20px;">
-                                                                <p>景點編號 : aaa</p>
+                                                                <p>會員編號 : {{info.MEM_NO}}</p>
                                                             </li>
                                                             <li class="list-unstyled" style="margin-top: 20px;">
-                                                                <p>景點名稱: aaa</p>
+                                                                <p>訂購人姓 : {{info.ORDER_L_NAME}}</p>
                                                             </li>
                                                             <li class="list-unstyled" style="margin-top: 20px;">
-                                                                <p>景點標語: aaa</p>
+                                                                <p>訂購人名 : {{info.ORDER_F_NAME}}</p>
                                                             </li>
                                                             <li class="list-unstyled"
                                                                 style="line-height: 2em; margin-top: 20px;">
-                                                                <p>景點內容: aaa</p>
+                                                                <p>訂購人電話 : {{info.ORDER_PHONE}}</p>
+                                                            </li>
+                                                            <li class="list-unstyled"
+                                                                style="line-height: 2em; margin-top: 20px;">
+                                                                <p>訂購人e-mail : {{info.ORDER_EMAIL}}</p>
+                                                            </li>
+                                                            <li class="list-unstyled"
+                                                                style="line-height: 2em; margin-top: 20px;">
+                                                                <p>訂購人地址 : {{info.ORDER_ADD}}</p>
+                                                            </li>
+                                                            <li class="list-unstyled"
+                                                                style="line-height: 2em; margin-top: 20px;">
+                                                                <p>接送地點 : {{info.PICK_UP_PLACE}}</p>
+                                                            </li>
+                                                            <li class="list-unstyled"
+                                                                style="line-height: 2em; margin-top: 20px;">
+                                                                <p>車號 : {{info.CAR_TYPE}}</p>
+                                                            </li>
+                                                            <li class="list-unstyled"
+                                                                style="line-height: 2em; margin-top: 20px;">
+                                                                <p>人數 : {{info.NUMBER_OF_PEOPLE}}</p>
+                                                            </li>
+                                                            <li class="list-unstyled"
+                                                                style="line-height: 2em; margin-top: 20px;">
+                                                                <p>備註 : {{info.PURCHASE_ADDITIONAL}}</p>
+                                                            </li>
+                                                            <li class="list-unstyled"
+                                                                style="line-height: 2em; margin-top: 20px;">
+                                                                <p>優惠卷編號 : {{info.DISCOUNT_NO}}</p>
+                                                            </li>
+                                                            <li class="list-unstyled"
+                                                                style="line-height: 2em; margin-top: 20px;">
+                                                                <p>總金額 : {{info.TOTAL_PRICE}}</p>
+                                                            </li>
+                                                            <li class="list-unstyled"
+                                                                style="line-height: 2em; margin-top: 20px;">
+                                                                <p>支付方式 : {{info.ORDPAYWAY}}</p>
+                                                            </li>
+                                                            <li class="list-unstyled"
+                                                                style="line-height: 2em; margin-top: 20px;">
+                                                                <p>信用卡卡號 : {{info.PAYWAY_ID}}</p>
+                                                            </li>
+                                                            <li class="list-unstyled"
+                                                                style="line-height: 2em; margin-top: 20px;">
+                                                                <p>信用卡檢查碼 : {{info.PAYWAY_INSP}}</p>
                                                             </li>
                                                         </ul>
                                                     </div>
@@ -83,8 +138,7 @@
                     </div>
                 </div>
             </div>
-        <!-- </div> -->
-
+        </div>
     </div>
 
 
@@ -99,7 +153,7 @@
 
     <!-- Custom Theme JavaScript -->
     <script src="./js/startmin.js"></script>
-    <!-- <script src="./js/"></script> -->
+    <script src="./js/usercenterTravel.js"></script>
 </body>
 
 </html>
