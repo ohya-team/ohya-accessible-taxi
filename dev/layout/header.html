@@ -29,20 +29,21 @@
         </div>
 
         <div class="log-sign" style="--i: 1.8s" id="loginLink">
-          
-        <div class="user" v-for=" memInfo in memInfo" :key="memInfo.mem_no">
-          <img src="../images/icon/user-solid.svg" alt="" style="width: 50px;color: black;">
-          <a href="usercenter.html">{{memInfo.MEM_FIRSTNAME}}</a>
-        </div>
-
-          <button class="btn-login" :style="hideBtn">
+          <div v-if='memInfo.length > 0'>
+            <div class="user" v-for=" memInfo in memInfo" :key="memInfo.mem_no">
+              <img src="../images/icon/user-solid.svg" alt="" style="width: 50px;color: black;">
+              <a href="usercenter.html">{{memInfo.MEM_FIRSTNAME}}</a>
+            </div>
+          </div>
+          <div v-else> 
+          <button class="btn-login">
             <a href="login.html" class="">登入</a>
           </button>
 
-          <button class="btn-sign" :style="hideBtn">
+          <button class="btn-sign">
             <a href="login.html" class="">註冊</a>
           </button>
-
+</div>
           <button class="book-btn-l" onclick="document.getElementById('id01').style.display='block'"
             style="width:auto;">
             <a href="booking.html" class="btn-y ">立即預約</a>
@@ -61,3 +62,4 @@
     </div>
   </div>
 </header>
+<script src="./js/member.js"></script>
