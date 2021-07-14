@@ -33,15 +33,15 @@
             <div class="container">
                 <div class="box">
                     <ul class="word-menu">
-                        <li>排序</li>
-                        <li :class='this.type == "精選評分" ? "active": "" ' @click='selectType'>精選評分</li>
-                        <li :class='this.type == this.priceSort ? "active": "" '>{{priceSort}}
+                        <li><span> 排序</span> </li>
+                        <li :class='this.type == "精選評分" ? "active": "" ' @click='selectType'><span> 精選評分</span> </li>
+                        <li :class='this.type == this.priceSort ? "active down": "down" '><span> {{priceSort}}</span>
                             <ul>
                                 <li @click='selectPriceSort'>價格由高到低</li>
                                 <li @click='selectPriceSort'>價格由低到高</li>
                             </ul>
                         </li>
-                        <li :class='this.type == this.personSort ? "active": "" '>{{personSort}}
+                        <li :class='this.type == this.personSort ? "active down": "down" '><span> {{personSort}}</span>
                             <ul>
                                 <li @click='selectPersonSort'>人數由少到多</li>
                                 <li @click='selectPersonSort'>人數由多到少</li>
@@ -53,9 +53,9 @@
         </section>
 
         <section class="list-block">
-            <div class="container">
+            <div class="container" v-if="filterData">
                 <div class="card-item"
-                    v-for="item in info.slice((targetPageId - 1 ) * perPage , targetPageId * perPage)">
+                    v-for="item in  filterData.slice((targetPageId - 1 ) * perPage , targetPageId * perPage)">
                     <div class="card-image">
                         <a :href="'./programDetail.html?program_no=' + item.PROGRAM_NO">
                             <img :src=item.PROGRAM_PIC alt="">
@@ -88,10 +88,10 @@
                 </div>
             </div>
         </section>
-        <div class="pagination">
-            <a href="#" @click='changePage(n)' :class=" n == targetPageId? 'page-main' : 'page-else' "
-                v-for='n in totalPage'>{{n}}</a>
-        </div>
+        <ul class="pagination">
+            <li @click='changePage(n)' :class=" n == targetPageId? 'page-main' : 'page-else' " v-for='n in totalPage'>
+                {{n}}</li>
+        </ul>
     </div>
     @@include('layout/footer.html')
 

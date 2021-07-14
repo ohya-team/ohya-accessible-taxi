@@ -22,7 +22,6 @@ let vue = new Vue({
             .catch(function (error) { // 请求失败处理
                 console.log(error);
             });
-        this.get_href();
     },
     computed: {
         filterData() {

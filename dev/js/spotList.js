@@ -17,7 +17,6 @@ let vue = new Vue({
             .catch(function (error) { // 请求失败处理
                 console.log(error);
             });
-        this.get_href();
     },
     computed: {
         filterData() {
@@ -34,6 +33,7 @@ let vue = new Vue({
     methods: {
         changeList(item) {
             this.type = item;
+            console.log(this.filterData.length);
         },
         changePage(item) {
             this.targetPageId = item;

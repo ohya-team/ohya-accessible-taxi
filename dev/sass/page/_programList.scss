@@ -57,7 +57,6 @@
             background-color: $white;
             margin-bottom   : $text-text;
             border-radius   : $btn-radius;
-            overflow        : hidden;
 
             .word-menu {
                 @extend %border-box;
@@ -72,49 +71,65 @@
                 }
 
                 li {
-                    padding   : 1.5rem;
-                    display   : grid;
-                    margin    : 0;
-                    font-size : $font-base;
-                    height    : 25px;
-                    cursor    : pointer;
-                    overflow-y: hidden;
-
-                    @include rwd_each(desktop) {
-                        margin   : 0 30px;
-                        font-size: $font-h4;
-                    }
+                    display    : grid;
+                    position   : relative;
+                    align-items: center;
+                    margin     : 0;
+                    height     : 60px;
+                    text-align : center;
+                    cursor     : pointer;
+                    overflow-y : hidden;
 
                     &.active {
                         background-color: $black;
-                        color           : $white;
+
+
+                        span {
+                            color: $white;
+                        }
                     }
 
+                    span {
+                        font-size    : $font-h4;
+                        margin-bottom: 0px;
+                    }
+
+                    @include rwd_each(desktop) {
+                        font-size: $font-h4;
+                    }
+
+
+
                     ul {
+                        background-color: $white;
+                        color           : $black;
+                        position        : absolute;
+                        top             : 0px;
+                        visibility: hidden;
+                        left            : 0;
+                        transition      : .5s;
+                        height          : 120px;
+                        width           : 100%;
 
                         li {
-                            display  : none;
-                            transform: translateY(-300px);
-                            width    : 200px;
-                            margin   : 0;
-                            padding  : $ele-ele 0 0;
+                            margin: 0;
+                            height: 60px;
+                            width : 100%;
+                            &:hover{
+                                background-color: $gray-third;
+                            }
                         }
                     }
 
                     &:hover {
-                        height: auto;
+                        overflow-y: visible;
 
                         ul {
-                            li {
-                                display  : block;
-                                transform: translateY(0px);
-                            }
+                            visibility: visible;
+                            position: absolute;
+                            top     : 60px;
                         }
                     }
-                }
-
-                .dropdown {
-                    display: none;
                 }
             }
         }
