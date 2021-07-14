@@ -3,13 +3,6 @@ require_once("../connect_cfd101g2.php");
 $sql="insert into spot (spot_name,spot_cat,spot_info,spot_min_info,spot_slogan,spot_status,spot_status_s,spot_pic_1,spot_pic_2,spot_pic_3,spot_pic_4,spot_pic_b) values (:spot_name,:spot_cat,:spot_info,:spot_min_info,:spot_slogan,:spot_status,:spot_status_s,:spot_pic_1,:spot_pic_2,:spot_pic_3,:spot_pic_4,:spot_pic_b)";
 $spot =$pdo->prepare($sql);
 
-$spot->bindValue(":spot_name",$_POST["spot_name"]);
-$spot->bindValue(":spot_cat",$_POST["spot_cat"]);
-$spot->bindValue(":spot_info",$_POST["spot_info"]);
-$spot->bindValue(":spot_min_info",$_POST["spot_min_info"]);
-$spot->bindValue(":spot_slogan",$_POST["spot_slogan"]);
-$spot->bindValue(":spot_status",$_POST["spot_status"]);
-$spot->bindValue(":spot_status_s",$_POST["spot_status_s"]);
 $picarr=['spot_pic_1','spot_pic_2','spot_pic_3','spot_pic_4','spot_pic_b'];
 foreach($picarr as $value){
 switch ($_FILES[$value]['error']) {
@@ -44,11 +37,9 @@ switch ($_FILES[$value]['error']) {
         echo "系統暫時無法提供服務~~";
     }
 }
-$spot->bindValue(":spot_pic_1",$_POST["spot_pic_1"]);
-$spot->bindValue(":spot_pic_2",$_POST["spot_pic_2"]);
-$spot->bindValue(":spot_pic_3",$_POST["spot_pic_3"]);
-$spot->bindValue(":spot_pic_4",$_POST["spot_pic_4"]);
-$spot->bindValue(":spot_pic_b",$_POST["spot_pic_b"]);
-
+$spotArr=['spot_name','spot_cat','spot_info','spot_min_info','spot_slogan','spot_status','spot_status_s','spot_pic_1','spot_pic_2','spot_pic_3','spot_pic_4','spot_pic_b'];
+foreach ($spotArr as  $value) {
+    $spot->bindValue(":".$value,$_POST[$value]);
+}
 $spot->execute();
 header('Location:../admin/adminSpot.html');

@@ -2,20 +2,10 @@
 require_once "../connect_cfd101g2.php";
 $sql = "UPDATE `program` SET `PROGRAM_NAME`=:program_name,`CAR_NO`=:car_no,`PROGRAM_STATUS`=:program_status,`PROGRAM_STATUS_S`=:program_status_s,`PROGRAM_STATUS_S_M`=:program_status_s_m,`PROGRAM_RATING`=:program_rating,`PROGRAM_FEATURE_1`=:program_feature_1,PROGRAM_FEATURE_2=:program_feature_2,PROGRAM_FEATURE_3=:program_feature_3,PROGRAM_REMARKS=:program_remarks,PROGRAM_PRICE=:program_price,PROGRAM_PIC=:program_pic WHERE PROGRAM_NO = :program_no";
 $program = $pdo->prepare($sql);
-$program->bindValue(":program_no", $_POST["program_no"]);
-$program->bindValue(":program_name", $_POST["program_name"]);
-$program->bindValue(":car_no", $_POST["car_no"]);
-$program->bindValue(":program_status", $_POST["program_status"]);
-$program->bindValue(":program_status_s", $_POST["program_status_s"]);
-$program->bindValue(":program_status_s_m", $_POST["program_status_s_m"]);
-$program->bindValue(":program_rating", $_POST["program_rating"]);
-$program->bindValue(":program_feature_1", $_POST["program_feature_1"]);
-$program->bindValue(":program_feature_2", $_POST["program_feature_2"]);
-$program->bindValue(":program_feature_3", $_POST["program_feature_3"]);
-$program->bindValue(":program_remarks", $_POST["program_remarks"]);
-$program->bindValue(":program_price", $_POST["program_price"]);
-$uploadArr = [];
-
+$programValueArr = ['program_no', 'program_name', 'car_no', 'program_status', 'program_status_s', 'program_status_s_m', 'program_rating', 'program_feature_1', 'program_feature_2', 'program_feature_3', 'program_remarks', 'program_price'];
+foreach ($programValueArr as $value) {
+    $program->bindValue(':' . $value, $_POST[$value]);
+}
 if ($_FILES['program_pic']['error'] == 0) {
     switch ($_FILES['program_pic']['error']) {
         case 0:
