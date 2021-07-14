@@ -48,24 +48,27 @@
         </ul>
         <div class="deskTable">
           <div class="weekdays">
-            <span>{{leftDate}}-{{leftDate}}</span>
+            <span>{{leftMonth+1}}/{{leftDay}}/{{curYear}} - {{rightMonth+1}}/{{rightDay}}/{{curYear}}</span>
           </div>
           <table>
             <tr>
               <th></th>
-              <th v-for="i in 7">{{i}}</th>
+              <th v-for="day in tableTh">
+                <span>{{day.deskWeek}}</span>
+                <span class="day">{{day.month}}/{{day.day}}</span>
+              </th>
             </tr>
             <tr>
               <td>上午</td>
-              <td v-for="i in 7"><button class="btn-bookingTime">{{i}}</button></td>
+              <td v-for="i in 7"><button :class="btnStatus">預約</button></td>
             </tr>
             <tr>
               <td>下午</td>
-              <td v-for="i in 7"><button class="btn-bookingTime">{{i}}</button></td>
+              <td v-for="i in 7"><button :class="btnStatus">預約</button></td>
             </tr>
             <tr>
               <td>晚上</td>
-              <td v-for="i in 7"><button class="btn-bookingTime">{{i}}</button></td>
+              <td v-for="i in 7"><button :class="btnStatus">預約</button></td>
             </tr>
           </table>
           <div class="calenderDes">
@@ -75,11 +78,15 @@
         </div>
         <div class="mobileTable">
           <div class="weekdays">
-            <span></span>
+            <span>{{leftMonth+1}}/{{leftDay}}/{{curYear}} - {{rightMonth+1}}/{{rightDay}}/{{curYear}}</span>
           </div>
           <table>
             <tr>
+              <th v-for="day in tableTh">
+                <span class="day">{{day.MobileWeek}}</span>
+              </th>
             </tr>
+              <td v-for="day in tableTh">{{day.day}}</td>
             <tr>
             </tr>
           </table>
