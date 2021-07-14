@@ -21,7 +21,7 @@
 
     <div id="app">
         <section class="program-detail">
-            <div class="container" v-if='DetailInfo !=  null'>
+            <div class="container" v-if='DetailInfo !=  undefined && DetailInfo.length > 0'>
                 <div class="title">
                     <h2>{{DetailInfo[0].PROGRAM_NAME}}</h2>
                 </div>
@@ -59,7 +59,7 @@
                             <div class="remarks">
                                 <span>備註</span>
                                 <p class="text"> {{DetailInfo[0].PROGRAM_REMARKS}}</p>
-                                <button class="btn-main" onclick="location.href='./travelFormOne.html'">立即下單</button>
+                                <button class="btn-main" @click="this.order">立即下單</button>
                             </div>
                         </div>
                     </div>
@@ -69,8 +69,7 @@
         <section class="program-spot">
             <div class="container">
                 <h3 class="title">行程介紹</h3>
-                <div class="spot-group">
-
+                <div class="spot-group" >
                     <div class="spot" v-for="(item,index) in spotDetailInfo" :key="item.id">
                         <div class="order">
                             <p>{{index+1}}</p>

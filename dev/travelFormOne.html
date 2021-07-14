@@ -14,123 +14,116 @@
 <body class="animate-background">
   @@include('layout/header.html')
   <div id="app">
-    <div v-if='info.length > 0'>
-      <form action="./travelFormTwo.html">
-        <section class="subscriber-information">
-          <div class="container">
-            <h3>訂購人資訊</h3>
-            <div class="box">
-              <div class="input-box-one">
-                <label for="same" class="def">
-                  <input type="checkbox" id="same" @click='this.toggleUser'>同會員資料
-                </label>
+    <form action="./travelFormTwo.html">
+      <section class="subscriber-information">
+        <div class="container">
+          <h3>訂購人資訊</h3>
+          <div class="box">
+            <div class="input-box-one">
+              <label for="same" class="def">
+                <input type="checkbox" id="same" @click='this.toggleUser'>同會員資料
+              </label>
+            </div>
+            <div class="input-box-two" v-if="defaultMeminfo">
+              <div class="item">
+                <label class="def" for="first_name">名字</label>
+                <input class="def" type="text" id="first_name" placeholder="請填寫名" :value="info[0].MEM_FIRSTNAME"
+                  disabled>
+                <label class="def" for="last_name">姓氏</label>
+                <input class="def" type="text" id="last_name" placeholder="請填寫姓" :value="info[0].MEM_LASTNAME" disabled>
               </div>
-              <div class="input-box-two" v-if="defaultMeminfo">
-                <div class="item">
-                  <label class="def" for="first_name">名字</label>
-                  <input class="def" type="text" id="first_name" placeholder="請填寫名" :value="info[0].MEM_FIRSTNAME"
-                    disabled>
-                  <label class="def" for="last_name">姓氏</label>
-                  <input class="def" type="text" id="last_name" placeholder="請填寫姓" :value="info[0].MEM_LASTNAME"
-                    disabled>
-                </div>
-                <div class="item">
-                  <label class="def" for="email">電子信箱</label>
-                  <input class="def" type="text" id="email" placeholder="請填寫email" :value="info[0].MEM_ACCOUNT"
-                    disabled>
-                  <label class="def" for="phone">連絡電話</label>
-                  <input class="def" type="text" id="phone" placeholder="請填寫連絡電話" :value="info[0].MEM_PHONE" disabled>
-                </div>
+              <div class="item">
+                <label class="def" for="email">電子信箱</label>
+                <input class="def" type="text" id="email" placeholder="請填寫email" :value="info[0].MEM_ACCOUNT" disabled>
+                <label class="def" for="phone">連絡電話</label>
+                <input class="def" type="text" id="phone" placeholder="請填寫連絡電話" :value="info[0].MEM_PHONE" disabled>
               </div>
-              <div class="input-box-two" v-else>
-                <div class="item">
-                  <label class="def" for="first_name">名字</label>
-                  <input class="def" type="text" id="first_name" placeholder="請填寫名">
-                  <label class="def" for="last_name">姓氏</label>
-                  <input class="def" type="text" id="last_name" placeholder="請填寫姓">
-                </div>
-                <div class="item">
-                  <label class="def" for="email">電子信箱</label>
-                  <input class="def" type="text" id="email" placeholder="請填寫email">
-                  <label class="def" for="phone">連絡電話</label>
-                  <input class="def" type="text" id="phone" placeholder="請填寫連絡電話">
-                </div>
+            </div>
+            <div class="input-box-two" v-else>
+              <div class="item">
+                <label class="def" for="first_name">名字</label>
+                <input class="def" type="text" id="first_name" placeholder="請填寫名">
+                <label class="def" for="last_name">姓氏</label>
+                <input class="def" type="text" id="last_name" placeholder="請填寫姓">
+              </div>
+              <div class="item">
+                <label class="def" for="email">電子信箱</label>
+                <input class="def" type="text" id="email" placeholder="請填寫email">
+                <label class="def" for="phone">連絡電話</label>
+                <input class="def" type="text" id="phone" placeholder="請填寫連絡電話">
               </div>
             </div>
           </div>
-        </section>
-        <section class="subscriber-information">
-          <div class="container">
-            <h3>其他相關資訊</h3>
-            <div class="box">
-              <div class="item">
-                <label class="def" for="dep_time">訂購日期</label>
-                <input class="def" type="date" id="dep_time">
-              </div>
-              <div class="item">
-                <label class="def" for="address">訂購人地址</label>
-                <input class="def" type="text" id="address" placeholder="請填寫地址">
-              </div>
-              <div class="item">
-                <label class="def" for="pickup_place">上車地點</label>
-                <input class="def" type="text" id="pickup_place" placeholder="請填寫上車地點">
-              </div>
-        </section>
-        <section class="order-itinerary-information">
-          <div class="container">
-            <h3>訂購行程資訊</h3>
-            <div class="box" v-if='thisProgramInfo != null'>
-              <div class="item">
-                <label class="def" for="program">選擇旅遊方案</label>
-                <select name="program" id="program" class="def" v-model='thisProgram'>
-                  <option :value="item.PROGRAM_NO" v-for='item in program' :key='item.PROGRAM_NO'>{{item.PROGRAM_NAME}}
-                  </option>
-                </select>
-              </div>
-              <div class="item">
-                <p>車種<span>{{thisProgramInfo[0].CAR_TYPE}}</span></p>
-              </div>
-              <div class="item">
-                <label class="def" for="people_num">人數</label>
-                <input type="button" id="subtraction" value="-"></input>
-                <input type="number" v-model='memNum' :max="thisProgramInfo[0].CAR_MAXNUM" id="people_num">
-                <input type="button" @click='add' id="add" value="+"></input>
-              </div>
-              <div class="item">
-                <p>最大乘載的人數 <span>{{thisProgramInfo[0].CAR_MAXNUM}}人</span></p>
-              </div>
+        </div>
+      </section>
+      <section class="subscriber-information">
+        <div class="container">
+          <h3>其他相關資訊</h3>
+          <div class="box">
+            <div class="item">
+              <label class="def" for="dep_time">訂購日期</label>
+              <input class="def" type="date" id="dep_time">
             </div>
-          </div>
-        </section>
-
-        <section class="remarks-block">
-          <div class="container">
-            <h3>備註</h3>
-            <textarea name="" id="remarks" cols="30" rows="8" placeholder="吃素5個人，加購2份便當"></textarea>
-          </div>
-        </section>
-
-        <section class="voucher-block">
-          <div class="container">
-            <h3>使用優惠卷</h3>
-            <div class="box">
-              <label class="def" for="discount"></label>
-              <select name="discount" id="discount" class="def">
-                <option value="">選擇優惠券</option>
-                <option value="483283">優惠卷編號 483283 九折優惠</option>
-                <option value="483284">優惠卷編號 483284 七折優惠</option>
-                <option value="483286">優惠卷編號 483286 七折優惠</option>
-                <option value="483285">優惠卷編號 483285 九折優惠</option>
+            <div class="item">
+              <label class="def" for="address">訂購人地址</label>
+              <input class="def" type="text" id="address" placeholder="請填寫地址">
+            </div>
+            <div class="item">
+              <label class="def" for="pickup_place">上車地點</label>
+              <input class="def" type="text" id="pickup_place" placeholder="請填寫上車地點">
+            </div>
+      </section>
+      <section class="order-itinerary-information">
+        <div class="container">
+          <h3>訂購行程資訊</h3>
+          <div class="box" v-if='thisProgramInfo != null'>
+            <div class="item">
+              <label class="def" for="program">選擇旅遊方案</label>
+              <select name="program" id="program" class="def" v-model='thisProgram'>
+                <option :value="item.PROGRAM_NO" v-for='item in program' :key='item.PROGRAM_NO'>{{item.PROGRAM_NAME}}
+                </option>
               </select>
             </div>
-            <button @click="storageValue" class="btn-main" type="submit">下一步</button>
+            <div class="item">
+              <p>車種<span>{{thisProgramInfo[0].CAR_TYPE}}</span></p>
+            </div>
+            <div class="item">
+              <label class="def" for="people_num">人數</label>
+              <input type="button" id="subtraction" value="-"></input>
+              <input type="number" v-model='memNum' :max="thisProgramInfo[0].CAR_MAXNUM" id="people_num">
+              <input type="button" @click='add' id="add" value="+"></input>
+            </div>
+            <div class="item">
+              <p>最大乘載的人數 <span>{{thisProgramInfo[0].CAR_MAXNUM}}人</span></p>
+            </div>
           </div>
-        </section>
-      </form>
-    </div>
-    <div v-else>
-      請先登入再進行包車
-    </div>
+        </div>
+      </section>
+
+      <section class="remarks-block">
+        <div class="container">
+          <h3>備註</h3>
+          <textarea name="" id="remarks" cols="30" rows="8" placeholder="吃素5個人，加購2份便當"></textarea>
+        </div>
+      </section>
+
+      <section class="voucher-block">
+        <div class="container">
+          <h3>使用優惠卷</h3>
+          <div class="box">
+            <label class="def" for="discount"></label>
+            <select name="discount" id="discount" class="def">
+              <option value="">選擇優惠券</option>
+              <option value="483283">優惠卷編號 483283 九折優惠</option>
+              <option value="483284">優惠卷編號 483284 七折優惠</option>
+              <option value="483286">優惠卷編號 483286 七折優惠</option>
+              <option value="483285">優惠卷編號 483285 九折優惠</option>
+            </select>
+          </div>
+          <button @click="storageValue" class="btn-main" type="submit">下一步</button>
+        </div>
+      </section>
+    </form>
   </div>
   @@include('layout/footer.html')
   <script src="./js/travelForm.js"></script>
