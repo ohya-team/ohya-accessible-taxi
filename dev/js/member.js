@@ -5,7 +5,6 @@ let vue = new Vue({
     data() {
         return {
         memInfo: null,
-        memName: "訪客",
         }
     },
     mounted() {
@@ -15,15 +14,5 @@ let vue = new Vue({
                 console.log(res.data);
             })
             .catch( (error) => console.log(error));
-
-    },
-    computed:{
-        hideBtn(){
-            if(this.memInfo !== null){
-               return {
-                   display : 'none'
-               } ;
-            }
-        }
     },
 })

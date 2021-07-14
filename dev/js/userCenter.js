@@ -1,5 +1,3 @@
-
-
 //圖片瀏覽
 function showUserpic(){
   $('#imgInp').on('change' , function(){
@@ -12,48 +10,39 @@ function previewFile() {
   const reader = new FileReader();
   reader.addEventListener("load", function () {
     preview.src = reader.result;
-    preview.style.maxWidth = '150px';
-    preview.style.maxHeight = '150px';
+    preview.style.maxWidth = '300px';
+    // preview.style.maxHeight = '150px';
   }, false);
   if (file) {
     reader.readAsDataURL(file);
   }
 }
+
 //修改個人資料
-
-function editUserProfile(){
-  console.log($('.editBtn'));
-  console.log($('.show'));
-  $('.editBtn').on('click', ()=> {
-    console.log('in');
-      $('.edit').css("display","block");
-      $('.show').css("display","none");
-      $(this).css('display','none');
-      $('.editBtn').not(this).css('display','block');
-      console.log($('.editBtn').not(this));
-      console.log($(this));
-      
-
-  })
-}
+// function editUserProfile(){
+//   console.log('inn');
+//   $('#editBtn').on('click', ()=> {
+//     console.log('in');
+//     $('#editBtn').css('display','none');
+//     $('#userFrom').css('display','none');
+//     $('#fromEdit').css('display','block');
+//     $('.finishBtn').css('display','block');
+//   })
+//   $('.finishBtn').on('click', ()=> {
+//     $('.finishBtn').css('display','none');
+//     $('#fromEdit').css('display','none');
+//     $('#userFrom').css('display','block');
+//     $('#editBtn').css('display','block');
+//   })
+// }
 
 //變更密碼
-function showLightBox(){
-  $('#editPsw span').on('click', function(){
-    $('#memPswbox').css("display","block");
-    closeLightBox();
-  })
-}
-function closeLightBox(){
-  $('.closeIcon').on('click', function(){
-    $('#memPswbox').css("display","none");
-  })
-}
 
 function init (){
-  showLightBox();
   showUserpic();
-  editUserProfile();
+  //editUserProfile();
+  // $('#editBtn')[0].onclick = editUserProfile;
+  // console.log($('#editBtn'));
 }
 
 window.onload = init;

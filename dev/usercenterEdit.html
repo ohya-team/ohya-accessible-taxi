@@ -64,37 +64,47 @@
                   <div class="panel panel-default">
                     <div class="panel-body">
                       <div class="col-lg-8 col-md-8">
-                        <form role="form" action="../dist/php/member.php" method="POST" id="userFrom"
-                        style="display: block;" v-for=" memInfo in memInfo" :key="memInfo.mem_no">
-                        <div class="form-group">
-                          <label>帳號</label>
-                          <p class="form-control-static">{{memInfo.MEM_ACCOUNT}}</p>
-                          <label>姓名</label>
-                          <input class="form-control" type="text" :value="memInfo.MEM_LASTNAME + memInfo.MEM_FIRSTNAME"
-                            disabled>
 
-                          <label>密碼</label>
-                          <input class="form-control" type="text" :value="memInfo.MEM_PASSWORD" disabled>
-
-                          <label>電話號碼</label>
-                          <input class="form-control" type="text" :value="memInfo.MEM_PHONE" disabled>
-
-                          <div class="panel-body">
+                        <form role="form" action="../dist/php/memberEdit.php" method="POST" id="fromEdit" enctype="multipart/form-data" v-for="memInfo in memInfo" :key="memInfo.MEM_NO">
+                          <div class="form-group">
+                            <input type="text" name="MEM_NO" :value="memInfo.MEM_NO">
+                            <div class="name edit">
+                              <label>姓氏</label>
+                              <input class="form-control" name="MEM_LASTNAME" type="text" :value="memInfo.MEM_LASTNAME">
+                              <label>名字</label>
+                            <input class="form-control" name="MEM_FIRSTNAME" type="text" :value="memInfo.MEM_FIRSTNAME">
+                          </div>
+                          <div class="password edit">
+                            <label>密碼</label>
+                            <input class="form-control" name="MEM_PASSWORD" type="text" :value="memInfo.MEM_PASSWORD">
+                          </div>
+                          <div class="phone edit">
+                            <label>電話號碼</label>
+                            <input class="form-control" name="MEM_PHONE" type="text" :value="memInfo.MEM_PHONE">
+                          </div>
+                          <!-- <div class="panel-body">
                             <div class="alert alert-warning col-xs-12">
-                              <div class="userPic " id="userPic">
-                                <p class="text-center">個人照片</p>
+                              <div class="userPic " id="userPicEdit">
                                 <div class="hero-widget well well-sm ">
-                                  <img :src="memInfo.MEM_PIC" height="300px" alt="">
+                                  <img id="uploadUserpic" :src="memInfo.MEM_PIC" height="300px" alt="">
                                 </div>
-                                <p class="text-center"></p>
+                                <p class="text-center">
+                                  <dd>
+                                    <div class="panel-heading">編輯個人照片<div><br>
+                                        <input id="imgInp" type="file">
+                                  </dd>
+                                </p>
                               </div>
                             </div>
-                          </div>
-                          <div class="col-md-offset-4 ">
-                            <a href="./usercenterEdit.html"><button type="button" class="btn btn-info add-new" id="editBtn"><i class="fa fa-edit"></i> 修改</button></a>
-                          </div>
-                        </div>
-                      </form>
+                          </div> -->
+                              <div class="btn" style="display: flex;justify-content: space-evenly;">
+                                <button type="reset" class="btn btn-info add-new finishBtn" id="cancelBtn"
+                                  >取消</button>
+                                <button type="submit" class="btn btn-info add-new finishBtn" id="finishBtn"
+                                  >完成</button>
+                              </div>
+                            </div>
+                        </form>
 
                       </div>
                     </div>
@@ -126,7 +136,6 @@
   <!-- <script src="../js/startmin.js"></script> -->
   <script src="./js/userCenter.js"></script>
   <script src="./js/member.js"></script>
-
 </body>
 
 </html>

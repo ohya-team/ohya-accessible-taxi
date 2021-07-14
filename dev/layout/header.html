@@ -35,15 +35,15 @@
               <a href="usercenter.html">{{memInfo.MEM_FIRSTNAME}}</a>
             </div>
           </div>
-          <div v-else> 
-          <button class="btn-login">
-            <a href="login.html" class="">登入</a>
-          </button>
+          <div v-else>
+            <button class="btn-login">
+              <a href="login.html" class="">登入</a>
+            </button>
 
-          <button class="btn-sign">
-            <a href="login.html" class="">註冊</a>
-          </button>
-</div>
+            <button class="btn-sign">
+              <a href="login.html" class="">註冊</a>
+            </button>
+          </div>
           <button class="book-btn-l" onclick="document.getElementById('id01').style.display='block'"
             style="width:auto;">
             <a href="booking.html" class="btn-y ">立即預約</a>
@@ -52,9 +52,19 @@
       </div>
 
       <div class="hamburger-menu-container">
-        <button>
-          <a href="../login.html" class="btn-y ">登入</a>
-        </button>
+
+
+
+        <div v-if='memInfo.length > 0'>
+          <div class="user" v-for=" memInfo in memInfo" :key="memInfo.mem_no" style="display:flex;">
+            <a href="usercenter.html">{{memInfo.MEM_FIRSTNAME}}</a>
+          </div>
+        </div>
+        <div v-else>
+          <button>
+            <a href="login.html" class="btn-y ">登入</a>
+          </button>
+        </div>
         <div class="hamburger-menu">
           <div></div>
         </div>
