@@ -9,8 +9,6 @@ try{
 	$member -> bindValue(":mem_password" , $_POST["mem_password"]);
   $member -> execute();
 
-
-
   if( $member -> rowCount() == 0){
     echo "<script>alert('帳號密碼錯誤~');history.go(-1)</script>";
   }else{
@@ -19,13 +17,14 @@ try{
     $_SESSION["mem_password"] = $memRow["MEM_PASSWORD"];
     $result = ["mem_account"=>$_SESSION["mem_account"], "mem_password"=>$_SESSION["mem_password"]];
     echo  json_encode($result);
-    echo "<script>alert('登入成功~');history.go(-2)</script>";
+    
   }
-  //header('Location:../usercenter.html');  
+  
+  echo "<script>alert('登入成功~')</script>";
 }catch(PDOException $e){
 	echo $e->getMessage();
 	exit("系統暫時不能提供服務");
 }
-
+header('Location:../index.html');  
 ?>
 
