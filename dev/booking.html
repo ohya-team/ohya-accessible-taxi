@@ -15,7 +15,7 @@
 
 <body class="animate-background">
 
-  @@include('layout/header.html')
+  <!-- @@include('layout/header.html') -->
 
   <section class="bookingInfo">
     <h4 class="topic">
@@ -60,15 +60,15 @@
             </tr>
             <tr>
               <td>上午</td>
-              <td v-for="(i, index) in tableTh"><button :class="btnStatus" @click="btnBookingMorning(tableTh[index].month,tableTh[index].day)">預約</button></td>
+              <td v-for="(i, index) in tableTh"><button :class="btnStatus" @click="btnBooking(tableTh[index].month,tableTh[index].day,'BOOKING_MORNING')">預約</button></td>
             </tr>
             <tr>
               <td>下午</td>
-              <td v-for="(i, index) in tableTh"><button :class="btnStatus" @click="btnBookingAfternoon(tableTh[index].month,tableTh[index].day)">預約</button></td>
+              <td v-for="(i, index) in tableTh"><button :class="btnStatus" @click="btnBooking(tableTh[index].month,tableTh[index].day,'BOOKING_AFTERNOON')">預約</button></td>
             </tr>
             <tr>
               <td>晚上</td>
-              <td v-for="(i, index) in tableTh"><button :class="btnStatus" @click="btnBookingevening(tableTh[index].month,tableTh[index].day)">預約</button></td>
+              <td v-for="(i, index) in tableTh"><button :class="btnStatus" @click="btnBooking(tableTh[index].month,tableTh[index].day,'BOOKING_EVENING')">預約</button></td>
             </tr>
           </table>
           <div class="calenderDes">
@@ -105,6 +105,19 @@
           <li class="pills-else">{{checkForm}}</li>
         </ul>
         <div class="cards">
+          <div class="card">
+            <img src="images/type2.png" alt="Avatar">
+            <section>
+              <h4>福泰 T5</h4>
+              <ul>
+                <li>一般乘客座位：6位</li>
+                <li>輪椅座位：1位</li>
+                <li>輪椅升降設備：有</li>
+              </ul>
+            </section>
+        
+            <button class="btn-third btn-bookingCar">選擇</button>
+          </div>
         </div>
       </div>
 
@@ -235,7 +248,7 @@
   </div>
   
   @@include('layout/footer.html')
-  @@include('layout/slotmachine2.html')
+  <!-- @@include('layout/slotmachine2.html') -->
   
   <!-- <script src="js/booking.js"></script> -->
   <script src="js/booking2.js"></script>
