@@ -105,15 +105,11 @@
           <li class="pills-else">{{checkForm}}</li>
         </ul>
         <div class="cards">
-          <div class="card">
-            <img src="images/type2.png" alt="Avatar">
+          <div class="card" v-for="info in CarInfo">
+            <img :src="info.carPic" alt="carPic">
             <section>
-              <h4>福泰 T5</h4>
-              <ul>
-                <li>一般乘客座位：6位</li>
-                <li>輪椅座位：1位</li>
-                <li>輪椅升降設備：有</li>
-              </ul>
+              <h4>{{info.carType}}</h4>
+              <p>{{info.cardes}}</p>
             </section>
         
             <button class="btn-third btn-bookingCar">選擇</button>

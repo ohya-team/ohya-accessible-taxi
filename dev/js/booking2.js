@@ -61,13 +61,13 @@ let vm = new Vue({
     methods: {
         btnBooking(m, d, t){//確認點選按鈕的對應時段與司機尚餘幾位
             let driverCount = 0;
-            let tempCarInfo = [];
+            let tempArr = [];
             
             for(let i in this.bookingInfo){
                 if(this.bookingInfo[i].BOOKING_DATE.split('-')[1] == m && this.bookingInfo[i].BOOKING_DATE.split('-')[2] == d && this.bookingInfo[i][t]==1){
                     driverCount +=1;
 
-                    tempCarInfo.push({
+                    tempArr.push({
                         carNo:this.bookingInfo[i].CAR_NO,
                         carPic:this.bookingInfo[i].CAR_PIC,
                         carType:this.bookingInfo[i].CAR_TYPE,
@@ -76,7 +76,25 @@ let vm = new Vue({
                 }
             }
 
-            console.log(m,d,t,driverCount,tempCarInfo, this.carInfo);
+            let tempInfo = tempArr.reduce((a, c) => {
+                a[c.carNo] = [...a[c.carNo] || [], c];
+                return a;
+            },[]);
+
+            for(let i=1; i<tempInfo.length; i++){
+                // console.log(tempInfo[i]);
+
+                this.CarInfo.push({
+                    carNo:tempInfo[i][0].carNo,
+                    carPic:tempInfo[i][0].carPic,
+                    carType:tempInfo[i][0].carType,
+                    cardes:tempInfo[i][0].cardes
+                })
+            }
+
+            console.log(this.CarInfo)
+
+            // console.log(m,d,t,driverCount,this.CarInfo);
         },
     },
     computed: {
