@@ -18,31 +18,10 @@ function previewFile() {
   }
 }
 
-//修改個人資料
-// function editUserProfile(){
-//   console.log('inn');
-//   $('#editBtn').on('click', ()=> {
-//     console.log('in');
-//     $('#editBtn').css('display','none');
-//     $('#userFrom').css('display','none');
-//     $('#fromEdit').css('display','block');
-//     $('.finishBtn').css('display','block');
-//   })
-//   $('.finishBtn').on('click', ()=> {
-//     $('.finishBtn').css('display','none');
-//     $('#fromEdit').css('display','none');
-//     $('#userFrom').css('display','block');
-//     $('#editBtn').css('display','block');
-//   })
-// }
-
 //變更密碼
 
 function init (){
   showUserpic();
-  //editUserProfile();
-  // $('#editBtn')[0].onclick = editUserProfile;
-  // console.log($('#editBtn'));
 }
 
 window.onload = init;

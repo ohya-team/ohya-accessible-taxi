@@ -1,6 +1,4 @@
 <?php
-// ob_start();
-// session_start(); 
 try {
 	require_once("../connect_cfd101g2.php");
 	$sql = "UPDATE `member` 

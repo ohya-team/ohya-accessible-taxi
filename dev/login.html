@@ -22,23 +22,25 @@
           <div class="chosen"><span>註冊</span></div>
           <div class=""><span>登入</span></div>
         </div>
-        <form id="signupDetail" >
+    
+        <form id="signupDetail" action="../dist/php/signIn.php" method="POST" enctype="multipart/form-data">
           <div class="name">
-           <div id="last"><label for="last">姓<br></label><input type="text" name="mamLastname"></div>
-            <div id="first"><label for="first">名<br></label><input type="text" name="memFirstname"></div>
+           <div id="last"><label for="lastName">姓<br></label><input id="lastName" type="text" name="mem_lastname"></div>
+            <div id="first"><label for="firstName">名<br></label><input id="firstName" type="text" name="mem_firstname"></div>
           </div>
           <div class="account">
-            <label id="signAcc">帳號</label><br><input type="text" name="memAccount">
+            <label for="signAcc">帳號</label><br><input id="signAcc" type="text" name="mem_account">
           </div>
           <div class="passward">
-            <label for="signPsw">密碼</label><br><input id="signPsw" type="text" name="memPassword">
-            <label for="rePsw">再次確認密碼</label><br><input id="rePsw" type="text" name="memDoublecheck">
+            <label for="signPsw">密碼</label><br><input id="signPsw" type="text" name="mem_password">
+            <!-- <label for="rePsw">再次確認密碼</label><br><input id="rePsw" type="text" name="memDoublecheck"> -->
           </div>
           <div class="checkInfo">
             <input id="checkInfoBtn" type="checkBox"><label>登入註冊即代表您同意使用者及隱私權政策</label>
           </div>
-          <input type="submit" class="btn-main" value="確認註冊" disabled>
+          <input type="submit" class="btn-main" value="確認註冊">
         </form>
+
         <form id="LoginDetail" action="../dist/php/login.php" method="post">
           <div class="number">
             <label>E-mail(帳號)</label><br><input type="email" name="mem_account" id="memAccount">
@@ -58,6 +60,7 @@
     </div>
   </div>
   <script src="./js/login.js"></script>
+  <script src="./js/member.js"></script>
 </body>
 
 </html>
