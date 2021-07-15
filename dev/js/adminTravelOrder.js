@@ -4,32 +4,34 @@ let vue = new Vue({
     el: "#app",
     data() {
         return {
-        info: null,
+            info: null,
         }
     },
     mounted() {
-        axios.get('./php/adminTravelOrder.php')
-            .then(response => (this.info = response.data))
-            .catch(function (error) { // 請求失敗處理
-                console.log(error);
-            });
-    },
-    computed: {
-        detailInfo() {
-            if (this.info != null) {
-                return this.info.filter(item => item.ORDER_NO == this.targetPageId)
-            }
-        },
+        this.getTravelInfo();
     },
     methods: {
-        get_href() {
-            let nowUrl = window.location.href;
-            let targetPageId = nowUrl.split("=")[1];
-            this.targetPageId = parseInt(targetPageId);
+        getTravelInfo() {
+            axios.get('../php/adminTravelOrder.php')
+                .then(response => (this.info = response.data))
+                .catch(function (error) { // 請求失敗處理
+                    console.log(error);
+                });
         },
-        undisalbled() {
-            let spot_no = document.getElementById('order_no');
-            spot_no.disabled = false;
-        },
-    },    
+        changeStatus(e) {
+            console.log(e.target.value);
+            console.log(e.target.id);
+            confirm('確定要更改狀態?')
+            axios.post('../php/adminTravelOrderStatus.php', {
+                orderNo: e.target.id,
+                orderStatus: e.target.value,
+            })
+                .then(function (response) {
+                    console.log(response);
+                })
+                .catch(function (error) {
+                    alert('更改失敗');
+                })
+        }
+    },
 })
