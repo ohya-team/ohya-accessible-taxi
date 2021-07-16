@@ -5,10 +5,8 @@ let vm = new Vue({
     el: '#app',
     data: {
         bookingInfo: [],//php/booking.php
-        checkTime:'確認時間',
-        checkCar:'確認車種',
-        checkDriver:'確認司機',
-        checkForm:'訂單確認',
+        pilltext:['確認時間','確認車種','確認司機','訂單確認'],
+        stepLoading:[true,false,false,false],
         curMonth: new Date().getMonth(),//index: 6+1月
         curYear: new Date().getFullYear(),//2021年
         fulldays: [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31],
@@ -25,6 +23,8 @@ let vm = new Vue({
         carInfo: [],//放步驟2用的
         driverInfo: [],//放步驟3用的
         finalInfo: [],//放步驟4用的
+        finalAmount: 2000,//放步驟4用的
+        finalDiscount: 0.9,//放步驟4用的
     },
     mounted() {
         //撈資料-步驟一到步驟三用
@@ -111,9 +111,11 @@ let vm = new Vue({
                     break;
             }
             
-            this.finalInfo.push(`${y}-${m}-${d} ${t}`)
+            this.finalInfo.push(`${y}-${m}-${d}`, t)
 
-            console.log('step1',m,d,t,this.driverCount,this.tempInfo,this.carInfo);
+            //跳下一個步驟畫面
+            this.stepLoading[0]=false;
+            this.stepLoading[1]=true;
         },
         btnBookingCar(carType){//確認這台車符合挑選時段可預約的司機有哪些
             for(let i=1; i<this.tempInfo.length; i++){
@@ -128,13 +130,17 @@ let vm = new Vue({
             }
 
             this.finalInfo.push(`${carType}`)
-
-            console.log('step2',this.driverInfo)
+            
+            //跳下一個步驟畫面
+            this.stepLoading[1]=false;
+            this.stepLoading[2]=true;
         },
         btnBookingDriver(driverName){
-            console.log(driverName);
-
             this.finalInfo.push(`${driverName}`)
+
+            //跳下一個步驟畫面
+            this.stepLoading[2]=false;
+            this.stepLoading[3]=true;
         },  
     },
     computed: {
