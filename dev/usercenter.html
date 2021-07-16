@@ -44,10 +44,10 @@
 <body>
 
   <div id="wrapper">
-    <div id="app1">
+
     @@include('layout/usercenterSidebar.html')
     <!-- Page Content -->
-
+    <div id="app">
       <div id="page-wrapper">
         <div class="container-fluid">
 
@@ -58,43 +58,44 @@
               </div>
             </div>
             <div class="table-responsive">
-              <!-- <div class="table-wrapper"> --> 
+              <!-- <div class="table-wrapper"> -->
               <div class="table-title">
                 <div class="row">
                   <div class="panel panel-default">
                     <div class="panel-body">
                       <div class="col-lg-8 col-md-8">
                         <form role="form" action="../dist/php/member.php" method="POST" id="userFrom"
-                        style="display: block;" v-for=" memInfo in memInfo" :key="memInfo.mem_no">
-                        <div class="form-group">
-                          <label>帳號</label>
-                          <p class="form-control-static">{{memInfo.MEM_ACCOUNT}}</p>
-                          <label>姓名</label>
-                          <input class="form-control" type="text" :value="memInfo.MEM_LASTNAME + memInfo.MEM_FIRSTNAME"
-                            disabled>
+                          style="display: block;" v-for=" memInfo in memInfo" :key="memInfo.mem_no">
+                          <div class="form-group">
+                            <label>帳號</label>
+                            <p class="form-control-static">{{memInfo.MEM_ACCOUNT}}</p>
+                            <label>姓名</label>
+                            <input class="form-control" type="text"
+                              :value="memInfo.MEM_LASTNAME + memInfo.MEM_FIRSTNAME" disabled>
 
-                          <label>密碼</label>
-                          <input class="form-control" type="text" :value="memInfo.MEM_PASSWORD" disabled>
+                            <label>密碼</label>
+                            <input class="form-control" type="text" :value="memInfo.MEM_PASSWORD" disabled>
 
-                          <label>電話號碼</label>
-                          <input class="form-control" type="text" :value="memInfo.MEM_PHONE" disabled>
+                            <label>電話號碼</label>
+                            <input class="form-control" type="text" :value="memInfo.MEM_PHONE" disabled>
 
-                          <div class="panel-body">
-                            <div class="alert alert-warning col-xs-12">
-                              <div class="userPic " id="userPic">
-                                <p class="text-center">個人照片</p>
-                                <div class="hero-widget well well-sm ">
-                                  <img :src="memInfo.MEM_PIC" height="300px" alt="">
+                            <div class="panel-body">
+                              <div class="alert alert-warning col-xs-12">
+                                <div class="userPic " id="userPic">
+                                  <p class="text-center">個人照片</p>
+                                  <div class="hero-widget well well-sm ">
+                                    <img :src="memInfo.MEM_PIC" height="300px" alt="">
+                                  </div>
+                                  <p class="text-center"></p>
                                 </div>
-                                <p class="text-center"></p>
                               </div>
                             </div>
+                            <div class="col-md-offset-4 ">
+                              <a href="./usercenterEdit.html"><button type="button" class="btn btn-info add-new"
+                                  id="editBtn"><i class="fa fa-edit"></i> 修改</button></a>
+                            </div>
                           </div>
-                          <div class="col-md-offset-4 ">
-                            <a href="./usercenterEdit.html"><button type="button" class="btn btn-info add-new" id="editBtn"><i class="fa fa-edit"></i> 修改</button></a>
-                          </div>
-                        </div>
-                      </form>
+                        </form>
 
                       </div>
                     </div>
@@ -125,7 +126,6 @@
   <!-- Custom Theme JavaScript -->
   <!-- <script src="../js/startmin.js"></script> -->
   <script src="./js/userCenter.js"></script>
-  <script src="./js/member.js"></script>
 
 </body>
 
