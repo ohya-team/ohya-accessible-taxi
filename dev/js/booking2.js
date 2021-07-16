@@ -17,10 +17,12 @@ let vm = new Vue({
         leftMonth: '',
         rightMonth: '',
         curweekDay: new Date().getDay(),
-        deskCurweekDays: ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'],//抓中文星期用的
-        MobileCurweekDays: ['日', '一', '二', '三', '四', '五', '六'],//抓中文星期用的
-        tableTh: [],//實際要放日曆用的
-        CarInfo: [],//放步驟2用的
+        deskCurweekDays: ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'],//桌機抓中文星期用的
+        MobileCurweekDays: ['日', '一', '二', '三', '四', '五', '六'],//手機抓中文星期用的
+        tableTh: [],//放步驟1用的
+        tempInfo: [],//步驟2 3的資料這裡撈
+        carInfo: [],//放步驟2用的
+        driverInfo: [],//放步驟3用的
     },
     mounted() {
         //撈資料-步驟一到步驟三用
@@ -59,10 +61,11 @@ let vm = new Vue({
         }
     },
     methods: {
-        btnBooking(m, d, t){//確認點選按鈕的對應時段與司機尚餘幾位
+        btnBookingTime(m, d, t){//確認點選按鈕的對應時段與司機尚餘幾位+確認可預約車型
             let driverCount = 0;
             let tempArr = [];
             
+            //確認點選按鈕的對應時段與司機尚餘幾位
             for(let i in this.bookingInfo){
                 if(this.bookingInfo[i].BOOKING_DATE.split('-')[1] == m && this.bookingInfo[i].BOOKING_DATE.split('-')[2] == d && this.bookingInfo[i][t]==1){
                     driverCount +=1;
@@ -72,33 +75,46 @@ let vm = new Vue({
                         carPic:this.bookingInfo[i].CAR_PIC,
                         carType:this.bookingInfo[i].CAR_TYPE,
                         cardes:this.bookingInfo[i].CAR_DESCRIBE,
+                        driverPic:this.bookingInfo[i].DRIVER_PIC,
+                        driverName:this.bookingInfo[i].DRIVER_NAME,
                     });
                 }
             }
 
-            let tempInfo = tempArr.reduce((a, c) => {
+            //確認可預約車型有哪些&刪去重覆的
+            this.tempInfo = tempArr.reduce((a, c) => {
                 a[c.carNo] = [...a[c.carNo] || [], c];
                 return a;
             },[]);
 
-            for(let i=1; i<tempInfo.length; i++){
-                // console.log(tempInfo[i]);
+            for(let i=1; i<this.tempInfo.length; i++){
 
-                this.CarInfo.push({
-                    carNo:tempInfo[i][0].carNo,
-                    carPic:tempInfo[i][0].carPic,
-                    carType:tempInfo[i][0].carType,
-                    cardes:tempInfo[i][0].cardes
+                this.carInfo.push({
+                    carNo:this.tempInfo[i][0].carNo,
+                    carPic:this.tempInfo[i][0].carPic,
+                    carType:this.tempInfo[i][0].carType,
+                    cardes:this.tempInfo[i][0].cardes
                 })
             }
 
-            console.log(this.CarInfo)
-
-            // console.log(m,d,t,driverCount,this.CarInfo);
+            console.log(m,d,t,driverCount,this.tempInfo,this.carInfo);
+        },
+        btnBookingCar(carType){//確認這台車符合挑選時段可預約的司機有哪些
+            for(let i=1; i<this.tempInfo.length; i++){
+                for(let j=0; j<this.tempInfo[i].length; j++){
+                    if(carType == this.tempInfo[i][j].carType){
+                        this.driverInfo.push({
+                            driverPic:this.tempInfo[i][j].driverPic,
+                            driverName:this.tempInfo[i][j].driverName
+                        });
+                    }
+                }
+            }
+            console.log(this.driverInfo)
         },
     },
     computed: {
-        btnStatus(){
+        btnStatus(){//控步驟一時段預約是否額滿的CSS
             return {
                 'btn-bookingTime': true,
                 // 'btn-bookingFull': this.checkTime == '確認時間',

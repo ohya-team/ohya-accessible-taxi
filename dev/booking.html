@@ -60,15 +60,15 @@
             </tr>
             <tr>
               <td>上午</td>
-              <td v-for="(i, index) in tableTh"><button :class="btnStatus" @click="btnBooking(tableTh[index].month,tableTh[index].day,'BOOKING_MORNING')">預約</button></td>
+              <td v-for="(i, index) in tableTh"><button :class="btnStatus" @click="btnBookingTime(tableTh[index].month,tableTh[index].day,'BOOKING_MORNING')">預約</button></td>
             </tr>
             <tr>
               <td>下午</td>
-              <td v-for="(i, index) in tableTh"><button :class="btnStatus" @click="btnBooking(tableTh[index].month,tableTh[index].day,'BOOKING_AFTERNOON')">預約</button></td>
+              <td v-for="(i, index) in tableTh"><button :class="btnStatus" @click="btnBookingTime(tableTh[index].month,tableTh[index].day,'BOOKING_AFTERNOON')">預約</button></td>
             </tr>
             <tr>
               <td>晚上</td>
-              <td v-for="(i, index) in tableTh"><button :class="btnStatus" @click="btnBooking(tableTh[index].month,tableTh[index].day,'BOOKING_EVENING')">預約</button></td>
+              <td v-for="(i, index) in tableTh"><button :class="btnStatus" @click="btnBookingTime(tableTh[index].month,tableTh[index].day,'BOOKING_EVENING')">預約</button></td>
             </tr>
           </table>
           <div class="calenderDes">
@@ -105,14 +105,14 @@
           <li class="pills-else">{{checkForm}}</li>
         </ul>
         <div class="cards">
-          <div class="card" v-for="info in CarInfo">
+          <div class="card" v-for="info in carInfo">
             <img :src="info.carPic" alt="carPic">
             <section>
               <h4>{{info.carType}}</h4>
               <p>{{info.cardes}}</p>
             </section>
         
-            <button class="btn-third btn-bookingCar">選擇</button>
+            <button class="btn-third" @click="btnBookingCar(info.carType)">選擇</button>
           </div>
         </div>
       </div>
@@ -125,6 +125,15 @@
           <li class="pills-else">{{checkForm}}</li>
         </ul>
         <div class="cards">
+          <div class="card" v-for="info in driverInfo">
+            <div class="avatar">
+              <div class="avatar-bookingDriver">
+                <img :src="info.driverPic" alt="">
+              </div>
+              <h4>{{info.driverName}}</h4>
+            </div>
+            <button class="btn-third">選擇</button>
+          </div>
         </div>
       </div>
 
