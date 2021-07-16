@@ -43,7 +43,7 @@ module.exports = {
         path: path.resolve(__dirname, 'dist/js'),
         filename: '[name].js'
     },              // 出口文件
-    mode: 'development',
+    mode: process.env.NODE_ENV,
     plugins: [
         //全域載入jq
         new webpack.ProvidePlugin({
