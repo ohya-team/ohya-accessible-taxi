@@ -66,7 +66,7 @@ function checkSignup(e){
 
 //登入
 function sendLoginForm(){
-  let xhr = new XMLHttpRequest();
+  let xhr = new XMLHttpRequest(); 
   xhr.onload = function(){
     if(xhr.status == 200){
       let member = JSON.parse(xhr.responseText);
@@ -96,14 +96,41 @@ function clear(){
   document.getElementById('memPassword').value = '';
 }
 
+//確認帳號可以使用
+function checkId(){  
+  let xhr = new XMLHttpRequest(); 
+  xhr.onload = function() {
+      if(xhr.status == 200){
+          document.getElementById("idMsg").innerText = xhr.responseText;
+          let idmsg = document.querySelector('#idMsg');
+          console.log(idmsg.innerText);
+          if(idmsg.innerText == '此帳號已存在, 不可使用'){
+            document.querySelector('#signBtn').disabled = true;
+          }else{
+            document.querySelector('#signBtn').disabled = false;
+          }
+      }else{
+        alert(xhr.status);
+      }
+      
+  }
+  xhr.open("post","../dist/php/signInCheck.php",true);
+  xhr.setRequestHeader("content-type" , "application/x-www-form-urlencoded");
+  let member = "mem_account=" + document.getElementById("mem_account").value;
+  
+  xhr.send(member);
+}
+
+
 
 function init(){
   change();
   closeLightBox();
   clear();
+  
+  document.getElementById('mem_account').onblur = checkId;
   document.getElementById('signupDetail').onsubmit = checkSignup;
   document.getElementById('LoginDetail').onsubmit = sendLoginForm;
-  console.log(document.querySelector('#memAccount'));
   
 }
 

@@ -65,16 +65,15 @@
     <div class="selector-btn" id="driver-intro">司機介紹</div>
   </div>
 
+  <form action="../dist/php/service.php" id="serviceInfo" method="post" enctype="multipart/form-data">
   <div class="container service-detail content" id="service-content">
-    <div class="service-wrap">
+    <div class="service-wrap" id="serviceWrap">
       <div class="service-context">
-        <h4>美好旅程，從心開始。</h4>
-        <p>
-          主題污染，空間價格高度衣服原始碼明白就算想想態度細胞例如承受中壢而來，工藝經過一年全身諮詢事情點這裡下載頻道事業，是不是說完公告足夠，限制禁止讓你，網絡指揮討論優勢公主日常也會，常常避免精神對他笑話民主浙江我們，苗栗滿足放在正常小遊戲前進確定，發貼主要一。
-        </p>
+        <h4 name="serve_title"></h4>
+        <p name="serveInfos.SERVE_DESCRIBE"></p>
       </div>
       <div class="service-pic">
-        <img src="./images/service/service_intro.png" alt="">
+        <img name="SERVE_DESCRIBE" src="./images/service/service_intro.png" alt="">
       </div>
     </div>
     <div class="service-btn">
@@ -88,6 +87,7 @@
       </button></a>
     </div>
   </div>
+</form>
 
   <div class="container car-detail content" id="car-content">
     <div id="car-wrap">

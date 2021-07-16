@@ -86,12 +86,14 @@
                             <div class="alert alert-warning col-xs-12">
                               <div class="userPic " id="userPicEdit">
                                 <div class="hero-widget well well-sm ">
-                                  <img id="uploadUserpic" :src="memInfo.MEM_PIC" height="300px" alt="">
+                                  <label for="imgInp">
+                                    <img id="uploadUserpic" :src="memInfo.MEM_PIC" height="300px" alt="">
+                                  </label>
                                 </div>
                                 <p class="text-center">
                                   <dd>
-                                    <div class="panel-heading"><label for="editPic">編輯個人照片</label><div><br>
-                                        <input class="form-control" id="imgInp" name="MEM_PIC" type="file" id="editPic">
+                                    <div class="panel-heading">編輯個人照片<div><br>
+                                        <input class="form-control" id="imgInp" name="MEM_PIC" type="file">
                                   </dd>
                                 </p>
                               </div>

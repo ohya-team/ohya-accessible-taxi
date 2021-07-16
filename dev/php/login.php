@@ -17,10 +17,10 @@ try{
     $_SESSION["mem_password"] = $memRow["MEM_PASSWORD"];
     $result = ["mem_account"=>$_SESSION["mem_account"], "mem_password"=>$_SESSION["mem_password"]];
     echo  json_encode($result);
-    
+    echo "<script>alert('登入成功~')</script>";
   }
+
   
-  echo "<script>alert('登入成功~')</script>";
 }catch(PDOException $e){
 	echo $e->getMessage();
 	exit("系統暫時不能提供服務");

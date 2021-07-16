@@ -149,6 +149,45 @@ function closeLightBox(){
   })
 }
 
+//服務介紹資料連結
+function sendServiceForm(){ debugger;
+  let xhr = new XMLHttpRequest();
+  xhr.onload = function(){
+    if(xhr.status == 200){
+      let serveInfos = JSON.parse(xhr.responseText);
+      console.log('into');
+      serveInfos.SERVE_TITLE = serve_title;
+
+
+    }else{
+      alert(xhr.status);
+      alert("系統異常");
+    }
+  }
+
+  xhr.open("post", "../dist/php/service.php",true);
+  let serviceFormData = new FormData(document.getElementById('serviceInfo'));
+  xhr.send(serviceFormData);
+}
+// function sendServiceForm(){
+//   $.ajax({
+//     url: './sservice.php',
+//     data: {SERVE_TITLE,SERVE_PIC,SERVE_DESCRIBE},
+//     type: 'POST',
+//     success(res){
+//       $('#serviceWrap').html(`
+//       <div class="service-context">
+//         <h4 name="serveInfos.SERVE_TITLE">${res}</h4>
+//         <p name="serveInfos.SERVE_DESCRIBE">${res}</p>
+//       </div>
+//       <div class="service-pic">
+//         <img name="SERVE_DESCRIBE" src="${res}" alt="">
+//       </div>
+//       `)
+//     }
+//   })
+// }
+
 //init
 function init(){
   for (let i = 0; i < selectorBtn.length; i++) {
@@ -159,6 +198,8 @@ function init(){
   autoMove();
   showCar();
   showLightBox();
+  sendServiceForm();
+  console.log(document.getElementById('serviceInfo'));
 }
 
 window.onload = init;
