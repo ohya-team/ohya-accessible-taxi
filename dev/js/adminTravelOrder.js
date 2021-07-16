@@ -19,19 +19,20 @@ let vue = new Vue({
                 });
         },
         changeStatus(e) {
-            console.log(e.target.value);
-            console.log(e.target.id);
-            confirm('確定要更改狀態?')
-            axios.post('../php/adminTravelOrderStatus.php', {
-                orderNo: e.target.id,
-                orderStatus: e.target.value,
-            })
-                .then(function (response) {
-                    console.log(response);
+            let confirmThisChange = (confirm('確定要更改狀態?'))
+            if (confirmThisChange == true) {
+                axios.post('../php/adminTravelOrderStatus.php', {
+                    orderNo: e.target.id.split('_')[1],
+                    orderStatus: e.target.value,
                 })
-                .catch(function (error) {
-                    alert('更改失敗');
-                })
+                    .then(function (response) {
+                        console.log(response);
+                    })
+                    .catch(function (error) {
+                        alert('更改失敗');
+                    })
+            }
         }
+
     },
 })

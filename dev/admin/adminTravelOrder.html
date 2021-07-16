@@ -49,7 +49,7 @@
 
                                 <div class="panel tabbed-panel panel-default">
                                     <div class="panel-heading clearfix">
-                                        <div class="panel-title pull-left">Tabbed Panel Default</div>
+                                        <div class="panel-title pull-left">訂單管理</div>
                                         <div class="pull-right">
                                             <ul class="nav nav-tabs">
                                                 <li class="active"><a href="#tab-default-1" data-toggle="tab"
@@ -83,12 +83,11 @@
                                                             </h4>
                                                             <p style="margin: 0;">{{info.PROGRAM_NAME}}</p>
                                                             <p style="margin: 0;">{{info.ORDER_AT}}</p>
-                                                            <select name="" :id="info.ORDER_NO"
-                                                                v-model='info.ORDER_STATUS' @change='changeStatus'>
+                                                            <select :id="'status_' + info.ORDER_NO"
+                                                            v-model='info.ORDER_STATUS'    @change='changeStatus'>
                                                                 <option value="0">審核中 </option>
                                                                 <option value="1">未通過 </option>
                                                                 <option value="2">待付款 </option>
-                                                                <option value="4">已付款 </option>
                                                             </select>
                                                         </div>
                                                         <div :id="info.ORDER_NO  + info.ORDER_STATUS"
@@ -175,13 +174,7 @@
                                                             </h4>
                                                             <p style="margin: 0;">{{info.PROGRAM_NAME}}</p>
                                                             <p style="margin: 0;">{{info.ORDER_AT}}</p>
-                                                            <select name="" v-model='info.ORDER_STATUS'
-                                                                :id="info.ORDER_NO" @change='changeStatus'>
-                                                                <option value="1">未通過 </option>
-                                                                <option value="0">審核中 </option>
-                                                                <option value="2">待付款 </option>
-                                                                <option value="4">已付款 </option>
-                                                            </select>
+                                                            <p style="margin: 0;">未通過</p>
                                                         </div>
                                                         <div :id="info.ORDER_NO + info.ORDER_STATUS"
                                                             class="panel-collapse collapse" aria-expanded="false"
@@ -258,7 +251,7 @@
                                                         v-for="info in info.filter(item=>item.ORDER_STATUS == 2)"
                                                         :key="info.ORDER_NO">
                                                         <div class="panel-heading"
-                                                            style="display: grid ; grid-template-columns: repeat(3,5fr) 1fr 1fr;">
+                                                            style="display: grid ; align-items: center;grid-template-columns: repeat(3,5fr) 1fr 1fr;">
                                                             <h4 class="panel-title">
                                                                 <a data-toggle="collapse" data-parent="#accordion"
                                                                     :href="'#' + info.ORDER_NO + info.ORDER_STATUS"
@@ -267,10 +260,8 @@
                                                             </h4>
                                                             <p style="margin: 0;">{{info.PROGRAM_NAME}}</p>
                                                             <p style="margin: 0;">{{info.ORDER_AT}}</p>
-                                                            <select name="" v-model='info.ORDER_STATUS'
-                                                                :id="info.ORDER_NO" @change='changeStatus'>
-                                                                <option value="0">審核中 </option>
-                                                                <option value="1">未通過 </option>
+                                                            <select v-model='info.ORDER_STATUS'
+                                                                :id="'status_' + info.ORDER_NO" @change='changeStatus'>
                                                                 <option value="2">待付款 </option>
                                                                 <option value="4">已付款 </option>
                                                             </select>
@@ -451,13 +442,7 @@
                                                             </h4>
                                                             <p style="margin: 0;">{{info.PROGRAM_NAME}}</p>
                                                             <p style="margin: 0;">{{info.ORDER_AT}}</p>
-                                                            <select name="" :id="info.ORDER_NO"
-                                                                v-model='info.ORDER_STATUS' @change='changeStatus'>
-                                                                <option value="4">已付款 </option>
-                                                                <option value="0">審核中 </option>
-                                                                <option value="1">未通過 </option>
-                                                                <option value="2">待付款 </option>
-                                                            </select>
+                                                            <p style="margin: 0;">已付款</p>
                                                         </div>
                                                         <div :id="info.ORDER_NO + info.ORDER_STATUS"
                                                             class="panel-collapse collapse" aria-expanded="false"
