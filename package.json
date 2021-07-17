@@ -8,7 +8,7 @@
     "開發": "gulp",
     "webpack 編譯js development版": "cross-env NODE_ENV=development webpack --watch ",
     "打包上線": "gulp prod",
-    "webpack 編譯js production版":"cross-env NODE_ENV=production webpack"
+    "webpack 編譯js production版": "cross-env NODE_ENV=production webpack"
   },
   "repository": {
     "type": "git",
