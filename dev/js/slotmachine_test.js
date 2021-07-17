@@ -46,35 +46,20 @@ btn1.addEventListener('click', () => {
 
 
 
-// import Vue from "vue";
-// import axios from "axios";
 
-// let vue = new Vue({
-//     el: "#app2",
-//     data() {
-//         return {
-//             memberInfos: null
-//         }
-//     },
-//     mounted() {
-//         axios.get('./php/member.php')
-//             .then(response => (this.memberInfos = response.data))
-//             .catch(function (error) {
-//                 console.log(error)
-//             });
+import axios from "axios";
+function name() {
+    return axios.get('./php/member.php')
+        .then(result => showOutput(result.data[0].MEM_NO))
+        .catch(function (error) {
+            console.log(error)
+        });
 
-//     },
-//     created() {
-
-
-
-
-//     },
-
-
-
-// })
-
-
+}
+name();
+function showOutput(res) {
+    document.getElementById('mem_no').value = res;
+    console.log(res);
+}
 
 
