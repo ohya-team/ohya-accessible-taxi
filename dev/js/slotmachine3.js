@@ -33,5 +33,5 @@ btn1.addEventListener('click', () => {
     document.querySelector(".slotmachine-container").style.display = 'none';
  }
     ,3000)
-});
 
+});

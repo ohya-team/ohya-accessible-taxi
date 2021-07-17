@@ -55,14 +55,12 @@
             </ul>
           </div>
         </div>
-        <a href="uploadArticle.html">
-          <button class="btn-forum">
+          <button class="btn-forum" @click= this.upload>
             我要發文
             <i class="fa fa-pencil" aria-hidden="true"></i>
           </button>
-        </a>
       </div>
-      <div class="forum-content" >
+      <div class="forum-content v-if='filterData != null" >
         <div class="forum-card" v-for="item in filterData.slice((this.targetPageId - 1)* this.perPage,this.targetPageId * this.perPage)" :key="item.ART_NO">
           <div class="forum-avatar">
             <img src="images/forum/member.jpg" alt="">
@@ -82,7 +80,7 @@
               </div>
               <p>{{item.ART_CONTENT | ellipsis}}</p>
               <a :href="'./forumDetail.html?ART_NO=' + item.ART_NO">
-                <button class="btn-second" @click="addClick">MORE</button>
+                <button class="btn-second">MORE</button>
               </a>
             </section>
           </div>
@@ -92,11 +90,10 @@
 
 
     </div>
-    <div class="pagination">
-      <a :href="'./forum.html?page=' + n" :class=" n == targetPageId? 'page-main' : 'page-else' "
-      v-for='n in totalPage'>{{n}}</a>
+    <ul class="pagination">
+      <li @click='changePage(n)' v-for="n in totalPage" :class="n == targetPageId? 'page-main':'page-else'">{{n}}</li>
+    </ul>
     </div>
-  </div>
   @@include('layout/footer.html')
 
   <script src="./js/forum.js"></script>

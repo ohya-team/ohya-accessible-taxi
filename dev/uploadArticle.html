@@ -15,9 +15,9 @@
 
 <body class="animate-background">
     @@include('layout/header.html')
-
+<div id="app">
     <div class="uploadArticle-container">
-        <form action="" class="uploadArticle-form">
+        <form  class="uploadArticle-form" method="POST" enctype="multipart/form-data">
             <h3>發表新文章</h3>
             <div class="uploadArticle-content">
                 <p>文章圖片</p>
@@ -27,9 +27,7 @@
 
                         <img id="uploadImg" src="" alt="">
                     </div>
-                    <form>
-                        <input type="file" name="image" accept="image/gif,image/jpeg,image/png,image/jpg" />
-                    </form>
+                        <input type="file" name="art_img" accept="image/gif,image/jpeg,image/png,image/jpg" @change="fileChange" required/>
                     <button class="upload-picture-btn">
                         <img src="images/forum/upload.jpg" alt="">
                         <span class="mini">上傳圖片</span>
@@ -37,8 +35,8 @@
                 </div>
                 <div class="upload-category">
                     <div class="upload-article-sort">
-                        <label class="def" for="upload-article-sort">文章類別</label>
-                        <select name="upload-sort" id="upload-sort" class="def">
+                        <label class="def" for="art_cat">文章類別</label>
+                        <select name="art_cat" id="art_cat" class="def">
                             <option value="一般預約">一般預約</option>
                             <option value="包車旅遊">包車旅遊</option>
                             <option value="優良司機">優良司機</option>
@@ -46,26 +44,29 @@
                         </select>
                     </div>
                     <div class="uplaod-article-topic">
-                        <label class="def" for="upload-topic">文章標題</label>
-                        <input class="def" type="text" id="default" placeholder="文章標題不得超過13個字" maxlength="13">
+                        <label class="def" for="art_title">文章標題</label>
+                        <input class="def" type="text" id="art_title" placeholder="文章標題不得超過13個字" maxlength="13" name="art_title" required>
                     </div>
                 </div>
-                <label class="def">文章內容</label>
-                <textarea name="message" cols="30" rows="10" class="upload-txt"
-                    onKeyUp="textCounter(message,remLen,500)" onKeyDown="textCounter(message,remLen,500)"></textarea>
+                <label class="def" for="art_content">文章內容</label>
+                <textarea name="art_content" cols="30" rows="10" class="upload-txt" id="art_content"
+                    onKeyUp="textCounter(art_content,remLen,500)" onKeyDown="textCounter(art_content,remLen,500)" ></textarea>
                 <div class="word-left">
                     剩餘字數 :<input name="remLen" type="text" value="500" size="5" readonly="readonly">
                 </div>
+                <input type="text" name="mem_no" :value="detailInfo[0].MEM_NO" >
                 <div class="upload-btn">
-                    <input class="btn-main" type="button"  id="popbox-btn" value="送出">
+                    <button class="btn-main" id="popbox-btn" @click="submitArticle">送出</button>
                     <a href="forum.html">
-                        <button class="btn-third">取消</button>
+                        <button class="btn-third">取消</button>                      
                     </a>
+                    
                 </div>
             </div>
         </form>
     </div>
-    <div class="pop-up-box">
+</div>
+    <div class="pop-up-box" style="display: none;">
         <div class="item">
             <div class="icon">
                 <i class="fa fa-check-circle-o" aria-hidden="true"></i>
@@ -76,7 +77,7 @@
         </div>
     </div>
     @@include('layout/footer.html')
-    @@include('layout/slotmachine2.html')
+    <!-- @@include('layout/slotmachine2.html') -->
     <script src="./js/uploadArticle.js"></script>
     <script>
         function textCounter(field, countfield, maxlimit) {
@@ -85,9 +86,17 @@
         //如果元素區字符數大於最大字符數，按照最大字符數截斷；  
         field.value = field.value.substring(0, maxlimit);
     else
-        countfield.value = maxlimit - field.value.length
+        countfield.value = maxlimit - field.value.length;
+
+    document.querySelector(".pop-up-box").classList.add('active');
+
+    document.getElementById("pop-up-slot").addEventListener("click", function () {
+    document.getElementById("slotmachine-pop-up").classList.remove('slot-hide');
+    document.querySelector(".pop-up-box").classList.remove('active');
+    })
 }
     </script>
+    
 
 </body>
 

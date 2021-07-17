@@ -100,7 +100,7 @@
                 @extend %flex,
                 %flex-jc-ai;
 
-                @include btn(input, main, 120px, '%black', '%bg-yellow-first') {
+                .btn-main{
                     @extend %flex,
                     %flex-jc-ai;
                     border: 2px solid $yellow-first;
@@ -116,9 +116,7 @@
                     display: block;
                 }
 
-                input.btn-main:hover {
-                    color           : $white;
-                    background-color: $black;
+                .btn-main:hover {
                     border          : 2px solid $black;
                 }
 
@@ -126,7 +124,7 @@
                     margin         : 0px;
                     text-decoration: none;
 
-                    @include btn(button, third, 120px, '%black', '%bg-white') {
+                    @include btn(button, third, 150px, '%black', '%bg-white') {
                         @extend %flex,
                         %flex-jc-ai;
                         margin: 0 0 0 8px;

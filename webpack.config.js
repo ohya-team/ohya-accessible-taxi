@@ -39,6 +39,8 @@ module.exports = {
         member: './dev/js/member.js',
         adminTravelOrder: './dev/js/adminTravelOrder.js',
         payment: './dev/js/payment.js',
+        uploadArticle1:'./dev/js/uploadArticle1.js',
+        slotmachine_test:'./dev/js/slotmachine_test.js',
     },// 入口文件
     output: {
         path: path.resolve(__dirname, 'dist/js'),
