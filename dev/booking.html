@@ -15,7 +15,7 @@
 
 <body class="animate-background">
 
-  @@include('layout/header.html')
+  <!-- @@include('layout/header.html') -->
 
   <section class="bookingInfo">
     <h4 class="topic">
@@ -99,7 +99,7 @@
 
       <div class="carChoosing" id="step2" v-show="stepLoading[1]">
         <ul class="pills">
-          <li class="pills-main">{{pilltext[0]}} <i class="far fa-check-circle" aria-hidden="true"></i></li>          
+          <li class="pills-main" @click="backToStep1">{{pilltext[0]}} <i class="far fa-check-circle" aria-hidden="true"></i></li>          
           <li class="pills-main">{{pilltext[1]}}</li>
           <li class="pills-else">{{pilltext[2]}}</li>
           <li class="pills-else">{{pilltext[3]}}</li>
@@ -119,8 +119,8 @@
 
       <div class="driverChoosing" id="step3" v-show="stepLoading[2]">
         <ul class="pills">
-          <li class="pills-main">{{pilltext[0]}} <i class="far fa-check-circle" aria-hidden="true"></i></li>
-          <li class="pills-main">{{pilltext[1]}} <i class="far fa-check-circle" aria-hidden="true"></i></li>
+          <li class="pills-main" @click="backToStep1">{{pilltext[0]}} <i class="far fa-check-circle" aria-hidden="true"></i></li>
+          <li class="pills-main" @click="backToStep2">{{pilltext[1]}} <i class="far fa-check-circle" aria-hidden="true"></i></li>
           <li class="pills-main">{{pilltext[2]}}</li>
           <li class="pills-else">{{pilltext[3]}}</li>
         </ul>
@@ -139,9 +139,9 @@
 
       <div class="formChecking" id="step4" v-show="stepLoading[3]">
         <ul class="pills">
-          <li class="pills-main">{{pilltext[0]}} <i class="far fa-check-circle" aria-hidden="true"></i></li>
-          <li class="pills-main">{{pilltext[1]}} <i class="far fa-check-circle" aria-hidden="true"></i></li>
-          <li class="pills-main">{{pilltext[2]}} <i class="far fa-check-circle" aria-hidden="true"></i></li>
+          <li class="pills-main" @click="backToStep1">{{pilltext[0]}} <i class="far fa-check-circle" aria-hidden="true"></i></li>
+          <li class="pills-main" @click="backToStep2">{{pilltext[1]}} <i class="far fa-check-circle" aria-hidden="true"></i></li>
+          <li class="pills-main" @click="backToStep3">{{pilltext[2]}} <i class="far fa-check-circle" aria-hidden="true"></i></li>
           <li class="pills-main">{{pilltext[3]}}</li>
         </ul>
         <form class="booking-form" action="">
@@ -192,31 +192,31 @@
             <h3>請確認此次訂車資訊</h3>
             <li class="sbs">
               <label class="def" for="">確認預約日期</label>
-              <input type="text" class="def" name="" id="" :value="finalInfo[0]" disabled>
+              <input type="text" class="def" name="b-date" :value="finalInfo[0]" disabled>
             </li>
             <li class="sbs">
               <label class="def" for="">確認預約時段</label>
-              <input type="text" class="def" name="" id="" :value="finalInfo[1]" disabled>
+              <input type="text" class="def" name="b-timing" :value="finalInfo[1]" disabled>
             </li>
             <li class="sbs">
               <label class="def" for="">確認預約車種</label>
-              <input type="text" class="def" name="" id="" :value="finalInfo[2]" disabled>
+              <input type="text" class="def" name="b-car" :value="finalInfo[2]" disabled>
             </li>
             <li class="sbs">
               <label class="def" for="">確認預約司機</label>
-              <input type="text" class="def" name="" id="" :value="finalInfo[3]" disabled>
+              <input type="text" class="def" name="b-driver" :value="finalInfo[3]" disabled>
             </li>
             <li class="full">
               <label class="def" for="">應付金額</label>
-              <input type="text" class="def" name="" id="" :value="finalAmount" disabled>
+              <input type="text" class="def" name="b-amount" :value="finalAmount" disabled>
             </li>
             <li class="full">
               <label class="def" for="">優惠券折扣金額</label>
-              <input type="text" class="def" name="" id="" :value="Math.round(finalAmount*(1-finalDiscount))" disabled>
+              <input type="text" class="def" name="b-discount" :value="Math.round(finalAmount*(1-finalDiscount))" disabled>
             </li>
             <li class="full">
               <label class="def" for="">實付金額</label>
-              <input type="text" class="def" name="" id="" :value="finalAmount*finalDiscount" disabled>
+              <input type="text" class="def" name="b-total" :value="finalAmount*finalDiscount" disabled>
             </li>
           </ul>
           <input type="button" value="確認預約" class="btn-main" id="bookingSub">

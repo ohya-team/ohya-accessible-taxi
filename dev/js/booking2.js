@@ -23,7 +23,7 @@ let vm = new Vue({
         deskCurweekDays: ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'],//桌機抓中文星期用的
         MobileCurweekDays: ['日', '一', '二', '三', '四', '五', '六'],//手機抓中文星期用的
         tableTh: [],//放步驟1用的
-        driverCount: 0,//此時段司機可預約人數有幾位?
+        driverCount: 0,//每日的各時段司機可預約人數有幾位
         tempInfo: [],//步驟2 3的資料這裡撈
         carInfo: [],//放步驟2用的
         driverInfo: [],//放步驟3用的
@@ -67,6 +67,11 @@ let vm = new Vue({
                 'day':(this.leftDay+i)<10 ? "0"+(this.leftDay+i) : this.leftDay+i
             });
         }
+
+        // let doAjax = setTimeout(()=>{//因為Ajax會延遲 所以設setTimeout
+
+        // },1000)
+
     },
     methods: {
         btnBookingTime(y, m, d, t){//確認點選按鈕的對應時段與司機尚餘幾位+確認可預約車型
@@ -104,6 +109,7 @@ let vm = new Vue({
                 })
             }
 
+            //步驟4表單顯示用
             switch(t){
                 case 'BOOKING_MORNING':
                     t='上午';
@@ -119,8 +125,7 @@ let vm = new Vue({
             this.finalInfo.push(`${y}-${m}-${d}`, t)
 
             //跳下一個步驟畫面
-            this.stepLoading[0]=false;
-            this.stepLoading[1]=true;
+            this.stepLoading=[false, true];
         },
         btnBookingCar(carType){//確認這台車符合挑選時段可預約的司機有哪些
             for(let i=1; i<this.tempInfo.length; i++){
@@ -137,16 +142,23 @@ let vm = new Vue({
             this.finalInfo.push(`${carType}`)
             
             //跳下一個步驟畫面
-            this.stepLoading[1]=false;
-            this.stepLoading[2]=true;
+            this.stepLoading=[false, false, true];
         },
-        btnBookingDriver(driverName){
+        btnBookingDriver(driverName){//確認挑選的司機是誰
             this.finalInfo.push(`${driverName}`)
 
             //跳下一個步驟畫面
-            this.stepLoading[2]=false;
-            this.stepLoading[3]=true;
-        },  
+            this.stepLoading=[false, false, false, true];
+        },
+        backToStep1(){
+            this.stepLoading=[true, false, false, false];
+        },
+        backToStep2(){
+            this.stepLoading=[false, true, false, false];
+        },
+        backToStep3(){
+            this.stepLoading=[false, false, true, false];
+        },
     },
     computed: {
         btnStatus(){//控步驟一時段預約是否額滿的CSS
@@ -155,6 +167,5 @@ let vm = new Vue({
                 // 'btn-bookingFull': this.driverCount == 0,
             };
         },
-     
     },
 });
