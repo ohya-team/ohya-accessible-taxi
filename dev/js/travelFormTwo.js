@@ -67,6 +67,7 @@ let vue = new Vue({
       })
         .then(function (response) {
           self.showPopUpBox = true;
+          sessionStorage.clear();
         })
         .catch(function (error) {
           alert('留言失敗');
