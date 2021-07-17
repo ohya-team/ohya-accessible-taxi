@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>新增文章</title>
+        <link rel="stylesheet" href="./css/style.css">
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@700&display=swap" rel="stylesheet">
+    </head>
+</head>
+
+<body class="animate-background">
+    <!-- @@include('layout/header.html') -->
+
+    <div class="uploadArticle-container">
+        <form action="./php/uploadArticle.php" class="uploadArticle-form" method="POST" enctype="multipart/form-data">
+            <h3>發表新文章</h3>
+            <div class="uploadArticle-content">
+                <p>文章圖片</p>
+                <div class="upload-picture">
+                    <!--預覽圖片-->
+                    <div class="uploadImg">
+
+                        <img id="uploadImg" src="" alt="">
+                    </div>
+                        <input type="file" name="art_img" accept="image/gif,image/jpeg,image/png,image/jpg" required/>
+                    <button class="upload-picture-btn">
+                        <img src="images/forum/upload.jpg" alt="">
+                        <span class="mini">上傳圖片</span>
+                    </button>
+                </div>
+                <div class="upload-category">
+                    <div class="upload-article-sort">
+                        <label class="def" for="upload-article-sort">文章類別</label>
+                        <select name="art_cat" id="upload-sort" class="def">
+                            <option value="一般預約">一般預約</option>
+                            <option value="包車旅遊">包車旅遊</option>
+                            <option value="優良司機">優良司機</option>
+                            <option value="精選車種">精選車種</option>
+                        </select>
+                    </div>
+                    <div class="uplaod-article-topic">
+                        <label class="def" for="upload-topic">文章標題</label>
+                        <input class="def" type="text" id="default" placeholder="文章標題不得超過13個字" maxlength="13" name="art_title" required>
+                    </div>
+                </div>
+                <label class="def">文章內容</label>
+                <textarea name="art_content" cols="30" rows="10" class="upload-txt"
+                    onKeyUp="textCounter(art_content,remLen,500)" onKeyDown="textCounter(art_content,remLen,500)" ></textarea>
+                <div class="word-left">
+                    剩餘字數 :<input name="remLen" type="text" value="500" size="5" readonly="readonly">
+                </div>
+                <input type="text" value="0" name="art_click" hidden>
+                <input type="text" name="mem_no" value="1" hidden >
+                <input type="text" name="art_status" value="0" hidden >
+                <div class="upload-btn">
+                    <input class="btn-main" type="submit"  id="popbox-btn" value="送出">
+                    <a href="./forum.html">
+                        <button class="btn-third">取消</button>
+                    </a>
+                    
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="pop-up-box active">
+        <div class="item">
+            <div class="icon">
+                <i class="fa fa-check-circle-o" aria-hidden="true"></i>
+            </div>
+            <h2>文章新增成功</h2>
+            <p>可以至討論區查看您的文章</p>
+            <button class="btn-main" id="pop-up-slot">確定</button>
+        </div>
+    </div>
+    @@include('layout/footer.html')
+    @@include('./slotmachine2_test.php')
+    <script src="./js/uploadArticle1.js"></script>
+</body>
+
+</html>
