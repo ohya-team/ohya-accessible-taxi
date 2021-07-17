@@ -32,114 +32,134 @@
 
 <body>
 
-  <div id="wrapper">
-    @@include('layout/usercenterSidebar.html')
-    <!-- Page Content -->
-    <div id="app">
-      <div id="page-wrapper">
-        <div class="container-fluid">
-          <div class="container-lg">
-            <div class="table-responsive">
-              <div class="table-wrapper">
-                <div class="table-title">
-                  <div class="row">
-                    <div class="col-sm-8"> </div>
-                  </div>
-                </div>
-                <div class="panel panel-default">
-                  <div class="panel-heading">
-                    <h4>旅遊訂單</h4>
-                  </div>
-                  <!-- .panel-heading -->
-                  <div class="panel-body">
-                    <div class="panel-group" id="accordion">
-                      <div class="panel panel-primary" v-for="info in info" :key="info.ORDER_NO">
-                        <div class="panel-heading" style="display: grid ; grid-template-columns: repeat(3,5fr) 1fr;">
-                          <h4 class="panel-title">
-                            <a data-toggle="collapse" data-parent="#accordion" :href="'#' + info.ORDER_NO"
-                              aria-expanded="false" class="collapsed">{{info.ORDER_NO}}</a>
-                          </h4>
-                          <p style="margin: 0;">{{info.PROGRAM_NAME}}</p>
-                          <p style="margin: 0;">{{info.ORDER_AT}}</p>
-                          <p style="margin: 0; justify-content:flex-end">{{info.ORDER_STATUS}}</p>
+    <div id="wrapper">
+        @@include('layout/usercenterSidebar.html')
+        <!-- Page Content -->
+        <div id="app">
+            <div id="page-wrapper">
+                <div class="container-fluid">
+                    <div class="container-lg">
+                        <div class="table-responsive">
+                            <div class="table-wrapper">
+                                <div class="table-title">
+                                    <div class="row">
+                                        <div class="col-sm-8"> </div>
+                                    </div>
+                                </div>
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <h4>旅遊訂單</h4>
+                                    </div>
+                                    <!-- .panel-heading -->
+                                    <div class="panel-body">
+                                        <div class="panel-group" id="accordion">
+                                            <div class="panel panel-primary" v-for="info in info" :key="info.ORDER_NO">
+                                                <div class="panel-heading"
+                                                    style="display: grid ; grid-template-columns: repeat(2,5fr) 1fr;">
+                                                    <h4 class="panel-title">
+                                                        <a data-toggle="collapse" data-parent="#accordion"
+                                                            :href="'#' + info.ORDER_NO" aria-expanded="false"
+                                                            class="collapsed">{{info.PROGRAM_NAME}}</a>
+                                                    </h4>
+                                                    <p style="margin: 0;">{{info.ORDER_AT}}</p>
+                                                    <p style="margin: 0; justify-content:flex-end">{{trans[info.ORDER_STATUS]}}</p>
+                                                    <div v-if="info.ORDER_STATUS == 2">
+                                                        <a href="payment.html" style="color: blue;">付款單</a>
+                                                    </div>
+                                                </div>
+                                                <div :id="info.ORDER_NO" class="panel-collapse collapse"
+                                                    aria-expanded="false" style="height: 0px;">
+                                                    <div class="panel-body" style="margin: 0 6%; border: none;">
+                                                        <ul style=" overflow-x: auto;">
+                                                            <li class="list-unstyled" style="margin-top: 20px;">
+                                                                <p>會員編號 : {{info.MEM_NO}}</p>
+                                                            </li>
+                                                            <li class="list-unstyled" style="margin-top: 20px;">
+                                                                <p>訂購人姓 : {{info.ORDER_L_NAME}}</p>
+                                                            </li>
+                                                            <li class="list-unstyled" style="margin-top: 20px;">
+                                                                <p>訂購人名 : {{info.ORDER_F_NAME}}</p>
+                                                            </li>
+                                                            <li class="list-unstyled"
+                                                                style="line-height: 2em; margin-top: 20px;">
+                                                                <p>訂購人電話 : {{info.ORDER_PHONE}}</p>
+                                                            </li>
+                                                            <li class="list-unstyled"
+                                                                style="line-height: 2em; margin-top: 20px;">
+                                                                <p>訂購人e-mail : {{info.ORDER_EMAIL}}</p>
+                                                            </li>
+                                                            <li class="list-unstyled"
+                                                                style="line-height: 2em; margin-top: 20px;">
+                                                                <p>訂購人地址 : {{info.ORDER_ADD}}</p>
+                                                            </li>
+                                                            <li class="list-unstyled"
+                                                                style="line-height: 2em; margin-top: 20px;">
+                                                                <p>接送地點 : {{info.PICK_UP_PLACE}}</p>
+                                                            </li>
+                                                            <li class="list-unstyled"
+                                                                style="line-height: 2em; margin-top: 20px;">
+                                                                <p>車號 : {{info.CAR_TYPE}}</p>
+                                                            </li>
+                                                            <li class="list-unstyled"
+                                                                style="line-height: 2em; margin-top: 20px;">
+                                                                <p>支付方式 : {{info.ORDPAYWAY}}</p>
+                                                            </li>
+                                                            <li class="list-unstyled"
+                                                                style="line-height: 2em; margin-top: 20px;">
+                                                                <p>信用卡卡號 : {{info.PAYWAY_ID}}</p>
+                                                            </li>
+                                                            <li class="list-unstyled"
+                                                                style="line-height: 2em; margin-top: 20px;">
+                                                                <p>信用卡檢查碼 : {{info.PAYWAY_INSP}}</p>
+                                                            </li>
+                                                            <li class="list-unstyled"
+                                                                style="line-height: 2em; margin-top: 20px;">
+                                                                <table class="table table-bordered">
+                                                                    <thead>
+                                                                        <tr>
+                                                                            <th style="width: 120px;">人數</th>
+                                                                            <th style="width: 120px;">備註</th>
+                                                                            <th style="width: 120px;">優惠卷編號</th>
+                                                                            <th style="width: 120px;">總金額</th>
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody>
+                                                                        <td>{{info.NUMBER_OF_PEOPLE}}</td>
+                                                                        <td>{{info.PURCHASE_ADDITIONAL}}</td>
+                                                                        <td>{{info.DISCOUNT_NO}}</td>
+                                                                        <td>{{info.TOTAL_PRICE}}</td>
+                                                                    </tbody>
+                                                                </table>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div :id="info.ORDER_NO" class="panel-collapse collapse" aria-expanded="false"
-                          style="height: 0px;">
-                          <div class="panel-body" style="margin: 0 6%; border: none;">
-                            <ul style=" overflow-x: auto;">
-                              <li class="list-unstyled" style="margin-top: 20px;">
-                                <p>會員編號 : {{info.MEM_NO}}</p>
-                              </li>
-                              <li class="list-unstyled" style="margin-top: 20px;">
-                                <p>訂購人姓 : {{info.ORDER_L_NAME}}</p>
-                              </li>
-                              <li class="list-unstyled" style="margin-top: 20px;">
-                                <p>訂購人名 : {{info.ORDER_F_NAME}}</p>
-                              </li>
-                              <li class="list-unstyled" style="line-height: 2em; margin-top: 20px;">
-                                <p>訂購人電話 : {{info.ORDER_PHONE}}</p>
-                              </li>
-                              <li class="list-unstyled" style="line-height: 2em; margin-top: 20px;">
-                                <p>訂購人e-mail : {{info.ORDER_EMAIL}}</p>
-                              </li>
-                              <li class="list-unstyled" style="line-height: 2em; margin-top: 20px;">
-                                <p>訂購人地址 : {{info.ORDER_ADD}}</p>
-                              </li>
-                              <li class="list-unstyled" style="line-height: 2em; margin-top: 20px;">
-                                <p>接送地點 : {{info.PICK_UP_PLACE}}</p>
-                              </li>
-                              <li class="list-unstyled" style="line-height: 2em; margin-top: 20px;">
-                                <p>車號 : {{info.CAR_TYPE}}</p>
-                              </li>
-                              <li class="list-unstyled" style="line-height: 2em; margin-top: 20px;">
-                                <p>人數 : {{info.NUMBER_OF_PEOPLE}}</p>
-                              </li>
-                              <li class="list-unstyled" style="line-height: 2em; margin-top: 20px;">
-                                <p>備註 : {{info.PURCHASE_ADDITIONAL}}</p>
-                              </li>
-                              <li class="list-unstyled" style="line-height: 2em; margin-top: 20px;">
-                                <p>優惠卷編號 : {{info.DISCOUNT_NO}}</p>
-                              </li>
-                              <li class="list-unstyled" style="line-height: 2em; margin-top: 20px;">
-                                <p>總金額 : {{info.TOTAL_PRICE}}</p>
-                              </li>
-                              <li class="list-unstyled" style="line-height: 2em; margin-top: 20px;">
-                                <p>支付方式 : {{info.ORDPAYWAY}}</p>
-                              </li>
-                              <li class="list-unstyled" style="line-height: 2em; margin-top: 20px;">
-                                <p>信用卡卡號 : {{info.PAYWAY_ID}}</p>
-                              </li>
-                              <li class="list-unstyled" style="line-height: 2em; margin-top: 20px;">
-                                <p>信用卡檢查碼 : {{info.PAYWAY_INSP}}</p>
-                              </li>
-                            </ul>
-                          </div>
-                        </div>
-                      </div>
                     </div>
-                  </div>
                 </div>
-              </div>
             </div>
-          </div>
         </div>
-      </div>
     </div>
-  </div>
 
 
-  <!-- jQuery -->
-  <script src="./js/jqueryMin.js"></script>
+    <!-- jQuery -->
+    <script src="./js/jqueryMin.js"></script>
 
-  <!-- Bootstrap Core JavaScript -->
-  <script src="./js/bootstrapMin.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="./js/bootstrapMin.js"></script>
 
-  <!-- Metis Menu Plugin JavaScript -->
-  <script src="./js/metisMenuMin.js"></script>
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="./js/metisMenuMin.js"></script>
 
-  <!-- Custom Theme JavaScript -->
-  <script src="./js/startmin.js"></script>
-  <script src="./js/usercenterTravel.js"></script>
+    <!-- Custom Theme JavaScript -->
+    <script src="./js/startmin.js"></script>
+    <script src="./js/member.js"></script>
+    <script src="./js/usercenterTravel.js"></script>
 </body>
 
 </html>

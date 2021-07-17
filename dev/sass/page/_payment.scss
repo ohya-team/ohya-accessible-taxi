@@ -1,0 +1,69 @@
+.program-information {
+
+  h3 {
+    margin-top: $text-text;
+  }
+
+  .box {
+    background-color: $gray-second;
+    padding         : 5%;
+    margin-top      : $text-text;
+    display: grid;
+    grid-template-columns: repeat(3,5fr) 1fr;
+
+    p {
+      text-align: center;
+      margin: auto;
+    }
+  }
+}
+
+.data-confirmation {
+
+  .title {
+    background-color: $black;
+
+    h3 {
+      margin: auto;
+      text-align: center;
+      padding: 1.5%;
+      margin-top: $text-text;
+      color: $white;
+    }
+  }
+
+  .box {
+    background-color: $gray-second;
+    padding         : 5%;
+
+    ul {
+      margin: 0 30%;
+    }
+    
+  }
+}
+
+.payment-methods {
+
+  h3 {
+    margin-top: $text-text;
+  }
+
+  .box {
+    background-color: $gray-second;
+    padding         : 5%;
+    margin-top      : $text-text;
+
+    .item {
+      margin-top: $text-text;
+      display: grid;
+      grid-template-columns: 7fr 1fr;
+      grid-column-gap: 30px;
+    }
+    
+  }
+  .btn-main {
+    float     : right;
+    margin-top: $text-text;
+  }
+}

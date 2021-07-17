@@ -6,12 +6,6 @@ let vue = new Vue({
         return {
             info: null,
             memInfo: null,
-            trans: {
-                0: '審核中',
-                1: '未通過',
-                2: '待付款',
-                3: '已付款',
-            }
         }
     },
     mounted() {

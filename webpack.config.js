@@ -38,6 +38,7 @@ module.exports = {
         userCenter: './dev/js/userCenter.js',
         member: './dev/js/member.js',
         adminTravelOrder: './dev/js/adminTravelOrder.js',
+        payment: './dev/js/payment.js',
     },// 入口文件
     output: {
         path: path.resolve(__dirname, 'dist/js'),
