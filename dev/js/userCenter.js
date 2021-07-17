@@ -38,8 +38,6 @@ function previewFile() {
   }
 }
 
-//變更密碼
-
 function init (){
   showUserpic();
 }
