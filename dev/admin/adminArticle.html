@@ -8,7 +8,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>優惠卷</title>
+  <title>文章管理</title>
 
   <!-- Bootstrap Core CSS -->
   <link href="../css/bootstrap.css" rel="stylesheet">
@@ -62,7 +62,8 @@
                       <th>會員編號</th>
                       <th>文章類別</th>
                       <th>文章最新更新時間</th>
-                      <th>是否顯示</th>
+                      <th>文章狀態</th>
+                      <th>操作</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -72,6 +73,7 @@
                       <td>{{art.ART_CAT}}</td>
                       <td>{{art.ART_UPDATED}}</td>
                       <td>{{art.ART_STATUS == 0 ?'顯示':'隱藏'}}</td>
+                      <td><a class="edit" title="Edit" data-toggle="tooltip" :href="'./showArticle.html?ART_NO='+art.ART_NO"><i class="fas fa-search"></i></a></td>
                     </tr>
 
                   </tbody>

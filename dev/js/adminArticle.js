@@ -14,5 +14,5 @@ let vue = new Vue({
                 console.log(res.data)
             })
             .catch( (error) => console.log(error));
-    }
+    },
 })
