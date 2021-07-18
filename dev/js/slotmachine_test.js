@@ -33,11 +33,12 @@ btn1.addEventListener('click', () => {
     setTimeout(() => machine2.shuffle(8, onComplete), 500);
     setTimeout(() => machine3.shuffle(8, onComplete), 1000);
     setTimeout(() => {
+        insertDiscount();
+        getDiscountNum();
         document.querySelector(".slot-result").classList.remove("slot-result-hide");
         document.querySelector(".slotmachine-container").style.display = 'none';
     }
         , 3000)
-
 });
 
 
@@ -57,9 +58,32 @@ function name() {
 
 }
 name();
+function getDiscountNum() {
+    return axios.post('./php/discount_test.php', {
+        discount_res: document.getElementById('slot').value
+    })
+        .then(result => showDiscountNum(result.data[0].DISCOUNT_NUM))
+        .catch(function (error) {
+            console.log(error)
+        });
+
+}
+function showDiscountNum(res) {
+    document.getElementById('slotDiscount').innerText = res;
+}
 function showOutput(res) {
     document.getElementById('mem_no').value = res;
-    console.log(res);
+    // console.log(res);
+    let mem_no = res;
 }
-
-
+function insertDiscount() {
+    axios.post('./php/insert_discount_test.php', {
+        member_no: document.getElementById('mem_no').value,
+        discount_res: document.getElementById('slot').value
+    }).then(function (response) {
+        alert('新增成功')
+    })
+        .catch(function (error) {
+            alert('留言失敗');
+        })
+}
