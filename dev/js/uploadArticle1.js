@@ -1,12 +1,3 @@
-// document.getElementById("popbox-btn").addEventListener("click", function () {
-//     document.querySelector(".pop-up-box").classList.add('active')
-// });
-document.getElementById("pop-up-slot").addEventListener("click", function () {
-    document.getElementById("slotmachine-pop-up").classList.remove('slot-hide');
-    document.querySelector(".pop-up-box").classList.remove('active');
-
-});
-
 function textCounter(field, countfield, maxlimit) {
     // 函數，3個參數，表單名字，表單域元素名，限制字符；  
     if (field.value.length > maxlimit)
@@ -46,7 +37,6 @@ let vue = new Vue({
         console.log(1);
         axios.get('./php/member.php')
             .then(response => (this.memInfos = response.data))
-
             .catch(function (error) { // 请求失败处理
                 console.log(error);
             });
@@ -57,7 +47,6 @@ let vue = new Vue({
             if (this.memInfos != null) {
                 return this.memInfos;
             }
-
         },
 
     },

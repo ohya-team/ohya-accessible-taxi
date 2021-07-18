@@ -63,7 +63,7 @@
                     </a>
                 </div>
                 <div id="app">
-                <input type="text" :value="detailInfo[0].MEM_NO" name="mem_no">
+                <input type="text" :value="detailInfo[0].MEM_NO" name="mem_no" hidden>
                 </div>
             </div>
         </form>
@@ -79,7 +79,6 @@
         </div>
     </div>
     @@include('layout/footer.html')
-    @@include('layout/slotmachine2.html')
     <script src="./js/uploadArticle1.js"></script>
     <script>
         function textCounter(field, countfield, maxlimit) {

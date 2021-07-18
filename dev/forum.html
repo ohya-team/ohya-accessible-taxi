@@ -36,64 +36,68 @@
         <div class="category">
           <div class="category-detail">
             <p class="category-detail-word">排序</p>
-            <button  @click.stop="dropdownOrder">
+            <button @click.stop="dropdownOrder">
               <p id="dropdown-order">{{order}}</p>
               <div class="triangle"></div>
             </button>
-            <ul class="dropdown-menu" v-show = "openOrder" ref="showOrder">
-              <li class="order" v-for = "item in orderList" @click = "changeOrder" >{{item}}</li>
+            <ul class="dropdown-menu" v-show="openOrder" ref="showOrder">
+              <li class="order" v-for="item in orderList" @click="changeOrder">{{item}}</li>
             </ul>
           </div>
           <div class="category-detail">
             <p class="category-detail-word">分類</p>
-            <button  @click.stop="dropdownTypeList">
+            <button @click.stop="dropdownTypeList">
               <p id="dropdown-type-list">{{type}}</p>
               <div class="triangle"></div>
             </button>
-            <ul class="dropdown-menu" v-show="openTypeList" id="dropdown-menu-sort"  ref="showPanel">
-              <li class="sort" v-for="item in typeList" @click = " changeTypeList">{{item}}</li>
+            <ul class="dropdown-menu" v-show="openTypeList" id="dropdown-menu-sort" ref="showPanel">
+              <li class="sort" v-for="item in typeList" @click=" changeTypeList">{{item}}</li>
             </ul>
           </div>
         </div>
-          <button class="btn-forum" @click= this.upload>
-            我要發文
-            <i class="fa fa-pencil" aria-hidden="true"></i>
-          </button>
+        <button class="btn-forum" @click=this.upload>
+          我要發文
+          <i class="fa fa-pencil" aria-hidden="true"></i>
+        </button>
       </div>
-      <div class="forum-content v-if='filterData != null" >
-        <div class="forum-card" v-for="item in filterData.slice((this.targetPageId - 1)* this.perPage,this.targetPageId * this.perPage)" :key="item.ART_NO">
-          <div class="forum-avatar">
-            <img src="images/forum/member.jpg" alt="">
-            <span>董董</span>
-          </div>
-          <div class="card-group">
-            <img :src="item.ART_IMG" alt="">
-            <span class="card-sort">{{item.ART_CAT}}</span>
-            <section class="card-content">
-              <h3 class="card-topic">{{item.ART_TITLE}}</h3>
-              <div class="card-info">
-                <div class="people-amount">
-                  <i class="fa fa-eye" aria-hidden="true"></i>
-                  <span class="mini " id="add">{{item.ART_CLICK}}</span>
+      <form action="./php/click.php" method="GET">
+        <div class="forum-content v-if='filterData != null">
+
+          <div class="forum-card"
+            v-for="item in filterData.slice((this.targetPageId - 1)* this.perPage,this.targetPageId * this.perPage)"
+            :name="item.ART_NO">
+            <div class="forum-avatar">
+              <img src="images/forum/member.jpg" alt="">
+              <span>董董</span>
+            </div>
+            <div class="card-group">
+              <img :src="item.ART_IMG" alt="">
+              <span class="card-sort">{{item.ART_CAT}}</span>
+              <section class="card-content">
+                <h3 class="card-topic">{{item.ART_TITLE}}</h3>
+                <div class="card-info">
+                  <div class="people-amount">
+                    <i class="fa fa-eye" aria-hidden="true"></i>
+                    <span class="mini " id="add">{{item.ART_CLICK}}</span>
+                  </div>
+                  <span class="mini">{{item.ART_UPDATED}}</span>
                 </div>
-                <span class="mini">{{item.ART_UPDATED}}</span>
-              </div>
-              <p>{{item.ART_CONTENT | ellipsis}}</p>
-              <a :href="'./forumDetail.html?ART_NO=' + item.ART_NO">
-                <button class="btn-second">MORE</button>
-              </a>
-            </section>
+                <p>{{item.ART_CONTENT | ellipsis}}</p>
+                <a :href="'./forumDetail.html?ART_NO=' + item.ART_NO">
+                  <button @click="uploadclick(item.ART_NO)" class="btn-second">MORE</button>
+                </a>
+              </section>
+            </div>
           </div>
         </div>
-
-      </div>
-
+        <input type="text" :value="art_no" name="ART_NO" hidden>
+      </form>
 
     </div>
     <ul class="pagination">
       <li @click='changePage(n)' v-for="n in totalPage" :class="n == targetPageId? 'page-main':'page-else'">{{n}}</li>
     </ul>
-    </div>
+  </div>
   @@include('layout/footer.html')
 
   <script src="./js/forum.js"></script>

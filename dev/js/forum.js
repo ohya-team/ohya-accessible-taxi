@@ -1,5 +1,10 @@
 import Vue from "vue";
 import axios from "axios";
+/*模式設定*/
+const isDebug_mode = process.env.NODE_ENV !== 'production';
+Vue.config.debug = isDebug_mode;
+Vue.config.devtools = isDebug_mode;
+
 let vue = new Vue({
     el: "#app",
     data() {
@@ -14,6 +19,7 @@ let vue = new Vue({
             openTypeList: false,
             openOrder: false,
             targetPageId: 1, 
+            art_no:"",
         }
     },
     mounted() {
@@ -49,14 +55,26 @@ let vue = new Vue({
     },
     computed: {
         filterData() {
-            if (this.type === '所有文章') {
-                return this.artInfos//後台的所有資料
-                
-            } else {
-                this.targetPageId = 1
-                return this.artInfos.filter(item => item.ART_CAT == this.type)
-                
+            if(this.artInfos != null){
+                let tempArt = [...this.artInfos];
+                if(this.type === '所有文章'){
+                    tempArt = tempArt//所有資料
+                }
+                if(this.type !== '所有文章'){
+                    this.targetPageId = 1
+                    tempArt = tempArt.filter(item => item.ART_CAT == this.type)
+                }
+                if(this.order === '熱門'){
+                    tempArt = tempArt.sort((a,b) => b.ART_CLICK - a.ART_CLICK)
+                }
+                if(this.order === '最新'){
+                    tempArt = tempArt.sort((a,b) => Date.parse(b.ART_UPDATED) - Date.parse(a.ART_UPDATED))
+                }
+                console.log(tempArt);
+                return tempArt;
+
             }
+            
         },
         totalPage() {
             return parseInt(this.filterData.length / this.perPage) + 1;
@@ -77,6 +95,7 @@ let vue = new Vue({
     },
     methods: {
         dropdownTypeList() {
+            let tempArt = [...this.artInfos];
             this.openTypeList = true;
         },
         dropdownOrder() {
@@ -108,6 +127,9 @@ let vue = new Vue({
                 alert('請先登入再發文')
                 location.href = './login.html'
             }
+        },
+        uploadclick(e){
+            this.art_no = e;
         }
 
        

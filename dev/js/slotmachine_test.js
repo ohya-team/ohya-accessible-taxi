@@ -1,4 +1,4 @@
-
+import axios from "axios";
 const btn = document.querySelector('#randomizeButton');
 const btn1 = document.querySelector('#randomizeButton1');
 const results = {
@@ -23,10 +23,12 @@ btn.addEventListener('click', () => {
     machine1.shuffle(8, onComplete);
     setTimeout(() => machine2.shuffle(8, onComplete), 500);
     setTimeout(() => machine3.shuffle(8, onComplete), 1000);
-    //     setTimeout(() =>{document.querySelector(".slot-result").classList.remove("slot-result-hide");
-    //     document.querySelector(".slotmachine-container").style.display = 'none';
-    //  }
-    //     ,3000)
+    setTimeout(() => {
+        insertDiscount();
+    }
+        , 3000)
+    
+
 });
 btn1.addEventListener('click', () => {
     machine1.shuffle(8, onComplete);
@@ -34,22 +36,13 @@ btn1.addEventListener('click', () => {
     setTimeout(() => machine3.shuffle(8, onComplete), 1000);
     setTimeout(() => {
         insertDiscount();
-        getDiscountNum();
-        document.querySelector(".slot-result").classList.remove("slot-result-hide");
-        document.querySelector(".slotmachine-container").style.display = 'none';
-    }
+     }
         , 3000)
 });
 
 
 
-
-
-
-
-
-import axios from "axios";
-function name() {
+function name() {//會員資料
     return axios.get('./php/member.php')
         .then(result => showOutput(result.data[0].MEM_NO))
         .catch(function (error) {
@@ -58,32 +51,35 @@ function name() {
 
 }
 name();
-function getDiscountNum() {
+function getDiscountNum() {//拉霸機結果
     return axios.post('./php/discount_test.php', {
         discount_res: document.getElementById('slot').value
     })
-        .then(result => showDiscountNum(result.data[0].DISCOUNT_NUM))
+        .then(result => showDiscountNum(result.data[0].DISCOUNT_INFO))
         .catch(function (error) {
             console.log(error)
         });
 
 }
-function showDiscountNum(res) {
+function showDiscountNum(res) {//顯示幾折
     document.getElementById('slotDiscount').innerText = res;
 }
-function showOutput(res) {
+function showOutput(res) {//顯示會員編號
+    let mem_no = res;
     document.getElementById('mem_no').value = res;
     // console.log(res);
-    let mem_no = res;
+    
 }
-function insertDiscount() {
+function insertDiscount() {//把優惠卷放入資料庫
     axios.post('./php/insert_discount_test.php', {
         member_no: document.getElementById('mem_no').value,
         discount_res: document.getElementById('slot').value
     }).then(function (response) {
-        alert('新增成功')
+        getDiscountNum();
+        document.querySelector(".slot-result").style.display = 'block';
+        document.querySelector(".slotmachine-container").style.display = 'none';
     })
         .catch(function (error) {
-            alert('留言失敗');
+            alert('系統出現異常，稍後會有專人處理');
         })
 }
