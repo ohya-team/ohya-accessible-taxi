@@ -18,12 +18,12 @@
       <section class="program-information">
         <div class="container">
           <h3>付款單</h3>
-          <div class="box">
-            <div class="program-img">
-              <img src="../dev/images/travel/program/daxi_old_street_A_200.jpg" alt="">
-            </div>
-            <p>旅遊方案：{{info.PROGRAM_NAME}}</p>
-            <p>人數：{{info.CAR_MAXNUM}}</p>
+          <div class="box" v-for="info in order" :key="info[0].ORDER_NO">
+            <!-- <div class="program-img">
+              <img :src="info[0].PROGRAM_PIC" alt="">
+            </div> -->
+            <p>旅遊方案：{{info[0].PROGRAM_NAME}}</p>
+            <p>人數：{{info[0].CAR_MAXNUM}}</p>
           </div>
         </div>
       </section>
@@ -33,20 +33,20 @@
           <div class="title">
             <h3>確認細項</h3>
           </div>
-          <div class="box">
+          <div class="box" v-for="info in order" :key="info[0].ORDER_NO">
             <ul>
-              <li><p>訂購人姓：{{info.ORDER_L_NAME}}</p></li>
-              <li><p>訂購人名：{{info.ORDER_F_NAME}}</p></li>
-              <li><p>訂購人電話：{{info.ORDER_PHONE}}</p></li>
-              <li><p>訂購人e-mail：{{info.ORDER_EMAIL}}</p></li>
-              <li><p>訂購人地址：{{info.ORDER_ADD}}</p></li>
-              <li><p>接送地點：{{info.PICK_UP_PLACE}}</p></li>
-              <li><p>車號：{{info.CAR_TYPE}}</p></li>
-              <li><p>人數：{{info.NUMBER_OF_PEOPLE}}</p></li>
-              <li><p>備註：{{info.PURCHASE_ADDITIONAL}}</p></li>
-              <li><p>總金額：{{info.TOTAL_PRICE}}</p></li>
-              <li><p>折抵金額：</p></li>
-              <li><p>應付金額：</p></li>
+              <li><p>訂購人姓：{{info[0].ORDER_L_NAME}}</p></li>
+              <li><p>訂購人名：{{info[0].ORDER_F_NAME}}</p></li>
+              <li><p>訂購人電話：{{info[0].ORDER_PHONE}}</p></li>
+              <li><p>訂購人e-mail：{{info[0].ORDER_EMAIL}}</p></li>
+              <li><p>訂購人地址：{{info[0].ORDER_ADD}}</p></li>
+              <li><p>接送地點：{{info[0].PICK_UP_PLACE}}</p></li>
+              <li><p>車號：{{info[0].CAR_TYPE}}</p></li>
+              <li><p>人數：{{info[0].NUMBER_OF_PEOPLE}}</p></li>
+              <li><p>備註：{{info[0].PURCHASE_ADDITIONAL}}</p></li>
+              <li><p>總金額：{{info[0].TOTAL_PRICE}}</p></li>
+              <li><p>優惠眷折抵：{{info[0].DISCOUNT_NO}}</p></li>
+              <li><p>應付金額：{{info[0].FINAL_PRICE}}</p></li>
             </ul>
           </div>
         </div>

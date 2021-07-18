@@ -64,7 +64,7 @@
                                                     <p style="margin: 0;">{{info.ORDER_AT}}</p>
                                                     <p style="margin: 0; justify-content:flex-end">{{trans[info.ORDER_STATUS]}}</p>
                                                     <div v-if="info.ORDER_STATUS == 2">
-                                                        <a href="payment.html" style="color: blue;">付款單</a>
+                                                        <a :href="'payment.html?order=' + info.ORDER_NO" style="color: blue;">付款單</a>
                                                     </div>
                                                 </div>
                                                 <div :id="info.ORDER_NO" class="panel-collapse collapse"
@@ -100,18 +100,20 @@
                                                                 style="line-height: 2em; margin-top: 20px;">
                                                                 <p>車號 : {{info.CAR_TYPE}}</p>
                                                             </li>
-                                                            <li class="list-unstyled"
+                                                            <div v-if="info.ORDER_STATUS == 3">
+                                                                <li class="list-unstyled"
                                                                 style="line-height: 2em; margin-top: 20px;">
                                                                 <p>支付方式 : {{info.ORDPAYWAY}}</p>
-                                                            </li>
-                                                            <li class="list-unstyled"
-                                                                style="line-height: 2em; margin-top: 20px;">
-                                                                <p>信用卡卡號 : {{info.PAYWAY_ID}}</p>
-                                                            </li>
-                                                            <li class="list-unstyled"
-                                                                style="line-height: 2em; margin-top: 20px;">
-                                                                <p>信用卡檢查碼 : {{info.PAYWAY_INSP}}</p>
-                                                            </li>
+                                                                </li>
+                                                                <li class="list-unstyled"
+                                                                    style="line-height: 2em; margin-top: 20px;">
+                                                                    <p>信用卡卡號 : {{info.PAYWAY_ID}}</p>
+                                                                </li>
+                                                                <li class="list-unstyled"
+                                                                    style="line-height: 2em; margin-top: 20px;">
+                                                                    <p>信用卡檢查碼 : {{info.PAYWAY_INSP}}</p>
+                                                                </li>
+                                                            </div>
                                                             <li class="list-unstyled"
                                                                 style="line-height: 2em; margin-top: 20px;">
                                                                 <table class="table table-bordered">

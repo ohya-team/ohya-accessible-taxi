@@ -6,6 +6,7 @@ let vue = new Vue({
         return {
             info: null,
             memInfo: null,
+            targetPageId: null,
         }
     },
     mounted() {
@@ -19,12 +20,20 @@ let vue = new Vue({
             .catch(function (error) { // 请求失败处理
                 console.log(error);
             });
+            this.get_href()
     },
     computed: {
-        memberOrder() {
+        order() {
             if (this.info != null) {
-                return this.info.filter(item => item.MEM_NO == this.memInfo[0].MEM_NO)
+                return this.info.filter(item => item.ORDER_NO == this.targetPageId)
             }
+        }
+    },
+    methods: {
+        get_href() {
+            let nowUrl = window.location.href;
+            let targetPageId = nowUrl.split("=")[1];
+            this.targetPageId = targetPageId;
         }
     }
 })
