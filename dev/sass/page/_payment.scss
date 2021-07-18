@@ -9,7 +9,15 @@
     padding         : 5%;
     margin-top      : $text-text;
     display: grid;
-    grid-template-columns: repeat(3,5fr) 1fr;
+    grid-template-columns: 1fr;
+
+    @include rwd_each(desktop) {
+      grid-template-columns: repeat(3,5fr) 1fr;
+    }
+
+    .program-img {
+      margin: auto;
+    }
 
     p {
       text-align: center;
@@ -37,7 +45,11 @@
     padding         : 5%;
 
     ul {
-      margin: 0 30%;
+      margin: 0 3%;
+
+      @include rwd_each(desktop) {
+        margin: 0 30%;
+      }
     }
     
   }
@@ -57,13 +69,20 @@
     .item {
       margin-top: $text-text;
       display: grid;
-      grid-template-columns: 7fr 1fr;
-      grid-column-gap: 30px;
+      grid-template-columns: 1fr;
+
+      @include rwd_each(desktop) {
+        grid-template-columns: 7fr 1fr;
+        grid-column-gap: 30px;
+      }
     }
     
   }
   .btn-main {
-    float     : right;
     margin-top: $text-text;
+
+    @include rwd_each(desktop) {
+      float     : right;
+    }
   }
 }
