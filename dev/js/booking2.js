@@ -23,7 +23,9 @@ let vm = new Vue({
         deskCurweekDays: ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'],//桌機抓中文星期用的
         MobileCurweekDays: ['日', '一', '二', '三', '四', '五', '六'],//手機抓中文星期用的
         tableTh: [],//放步驟1用的
-        driverCount: 0,//每日的各時段司機可預約人數有幾位
+        driverCountMorning: [],//每日的早上時段司機可預約人數有幾位
+        driverCountAfternoon: [],//每日的下午時段司機可預約人數有幾位
+        driverCountEvening: [],//每日的晚上時段司機可預約人數有幾位
         tempInfo: [],//步驟2 3的資料這裡撈
         carInfo: [],//放步驟2用的
         driverInfo: [],//放步驟3用的
@@ -68,9 +70,33 @@ let vm = new Vue({
             });
         }
 
-        // let doAjax = setTimeout(()=>{//因為Ajax會延遲 所以設setTimeout
+        let doAjax = setTimeout(()=>{//因為Ajax會延遲 所以設setTimeout
+            let sortInfo = this.bookingInfo.reduce((a, c) => {
+                a[c.BOOKING_DATE] = [...a[c.BOOKING_DATE] || [], c];
+                return a;
+            },[]);
 
-        // },1000)
+            console.log(sortInfo)
+
+            //判斷該時段司機人數是否為0，以此控制按鈕狀態
+            for(let data in sortInfo){
+                let driversM=0;
+                let driversA=0;
+                let driversE=0;
+
+                for(let i in sortInfo[data]){                   
+                    sortInfo[data][i].BOOKING_MORNING == 1 ? driversM +=1 : driversM +=0
+                    
+                    sortInfo[data][i].BOOKING_AFTERNOON == 1 ? driversA +=1 : driversA +=0
+                    
+                    sortInfo[data][i].BOOKING_EVENING == 1 ? driversE +=1 : driversE +=0
+                }
+
+                this.driverCountMorning.push(driversM == 0 ? 'btn-bookingFull' : 'btn-bookingTime')
+                this.driverCountAfternoon.push(driversA == 0 ? 'btn-bookingFull' : 'btn-bookingTime')
+                this.driverCountEvening.push(driversE == 0 ? 'btn-bookingFull' : 'btn-bookingTime')
+            }
+        },100)
 
     },
     methods: {
@@ -79,9 +105,7 @@ let vm = new Vue({
             
             //確認點選按鈕的對應時段與司機尚餘幾位
             for(let i in this.bookingInfo){
-                if(this.bookingInfo[i].BOOKING_DATE.split('-')[1] == m && this.bookingInfo[i].BOOKING_DATE.split('-')[2] == d && this.bookingInfo[i][t]==1){
-                    this.driverCount +=1;
-    
+                if(this.bookingInfo[i].BOOKING_DATE.split('-')[1] == m && this.bookingInfo[i].BOOKING_DATE.split('-')[2] == d && this.bookingInfo[i][t]==1){    
                     tempArr.push({
                         carNo:this.bookingInfo[i].CAR_NO,
                         carPic:this.bookingInfo[i].CAR_PIC,
@@ -158,14 +182,6 @@ let vm = new Vue({
         },
         backToStep3(){
             this.stepLoading=[false, false, true, false];
-        },
-    },
-    computed: {
-        btnStatus(){//控步驟一時段預約是否額滿的CSS
-            return {
-                'btn-bookingTime': true,
-                // 'btn-bookingFull': this.driverCount == 0,
-            };
         },
     },
 });

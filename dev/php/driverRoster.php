@@ -5,8 +5,8 @@ try{
 
     . "FROM booking_timing b NATURAL JOIN driver d\n"
 
-    . "WHERE month(b.BOOKING_DATE)=month(CURRENT_DATE);"; //本月
-    // . "WHERE month(b.BOOKING_DATE)=month(CURRENT_DATE)+1;"; //下月
+    // . "WHERE month(b.BOOKING_DATE)=month(CURRENT_DATE);"; //本月
+    . "WHERE month(b.BOOKING_DATE)=month(CURRENT_DATE)+1;"; //下月
 	$tbInfo = $pdo->query($sql);
 	$driverRoster = $tbInfo->fetchAll(PDO::FETCH_ASSOC);
 	echo json_encode($driverRoster);
