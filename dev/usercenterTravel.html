@@ -53,7 +53,7 @@
                                     <!-- .panel-heading -->
                                     <div class="panel-body">
                                         <div class="panel-group" id="accordion">
-                                            <div class="panel panel-primary" v-for="info in info" :key="info.ORDER_NO">
+                                            <div class="panel panel-primary" v-for="info in test" :key="info.ORDER_NO">
                                                 <div class="panel-heading"
                                                     style="display: grid ; grid-template-columns: repeat(2,5fr) 1fr;">
                                                     <h4 class="panel-title">
@@ -100,20 +100,18 @@
                                                                 style="line-height: 2em; margin-top: 20px;">
                                                                 <p>車號 : {{info.CAR_TYPE}}</p>
                                                             </li>
-                                                            <div v-if="info.ORDER_STATUS == 3">
-                                                                <li class="list-unstyled"
+                                                            <li class="list-unstyled"
                                                                 style="line-height: 2em; margin-top: 20px;">
                                                                 <p>支付方式 : {{info.ORDPAYWAY}}</p>
-                                                                </li>
-                                                                <li class="list-unstyled"
-                                                                    style="line-height: 2em; margin-top: 20px;">
-                                                                    <p>信用卡卡號 : {{info.PAYWAY_ID}}</p>
-                                                                </li>
-                                                                <li class="list-unstyled"
-                                                                    style="line-height: 2em; margin-top: 20px;">
-                                                                    <p>信用卡檢查碼 : {{info.PAYWAY_INSP}}</p>
-                                                                </li>
-                                                            </div>
+                                                            </li>
+                                                            <li class="list-unstyled"
+                                                                style="line-height: 2em; margin-top: 20px;">
+                                                                <p>信用卡卡號 : {{info.PAYWAY_ID}}</p>
+                                                            </li>
+                                                            <li class="list-unstyled"
+                                                                style="line-height: 2em; margin-top: 20px;">
+                                                                <p>信用卡檢查碼 : {{info.PAYWAY_INSP}}</p>
+                                                            </li>
                                                             <li class="list-unstyled"
                                                                 style="line-height: 2em; margin-top: 20px;">
                                                                 <table class="table table-bordered">

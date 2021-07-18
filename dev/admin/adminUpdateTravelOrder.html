@@ -51,89 +51,83 @@
                                     <div class="form-group">
                                         <label for="mem">會員編號</label>
                                         <input class="form-control" id="mem" name="mem_no" type="text"
-                                            :value="detailInfo[0].MEM_NO" disabled>
+                                            :value="detailInfo[0].MEM_NO" readonly>
                                     </div>
                                     <div class="form-group">
                                         <label for="l_name">訂購人姓</label>
                                         <input class="form-control" id="l_name" name="order_l_name" type="text"
-                                            :value="detailInfo[0].ORDER_L_NAME" disabled>
+                                            :value="detailInfo[0].ORDER_L_NAME" readonly>
                                     </div>
                                     <div class="form-group">
                                         <label for="f_name">訂購人名</label>
                                         <textarea class="form-control" id="f_name" name="order_f_name" rows="3"
-                                            :value="detailInfo[0].ORDER_F_NAME" disabled></textarea>
+                                            :value="detailInfo[0].ORDER_F_NAME" readonly></textarea>
                                     </div>
                                     <div class="form-group">
                                         <label for="phone">訂購人電話</label>
-                                        <textarea class="form-control" id="phone" name="order_phone" rows="8"
-                                            :value="detailInfo[0].ORDER_PHONE" disabled></textarea>
+                                        <input class="form-control" id="phone" name="order_phone"
+                                            :value="detailInfo[0].ORDER_PHONE" readonly></input>
                                     </div>
                                     <div class="form-group">
                                         <label for="email">訂購人e-mail</label>
-                                        <textarea class="form-control" id="email" name="order_email" rows="3"
-                                            :value="detailInfo[0].ORDER_EMAIL" disabled></textarea>
+                                        <input class="form-control" id="email" name="order_email"
+                                            :value="detailInfo[0].ORDER_EMAIL" readonly></input>
                                     </div>
                                     <div class="form-group">
                                         <label for="add">訂購人地址</label>
-                                        <textarea class="form-control" id="add" name="order_add" rows="3"
-                                            :value="detailInfo[0].ORDER_ADD" disabled></textarea>
+                                        <input class="form-control" id="add" name="order_add"
+                                            :value="detailInfo[0].ORDER_ADD" readonly></input>
                                     </div>
                                     <div class="form-group">
                                         <label for="place">接送地點</label>
-                                        <textarea class="form-control" id="place" name="pick_up_place" rows="3"
-                                            :value="detailInfo[0].PICK_UP_PLACE" disabled></textarea>
+                                        <input class="form-control" id="place" name="pick_up_place"
+                                            :value="detailInfo[0].PICK_UP_PLACE" readonly></input>
                                     </div>
                                     <div class="form-group">
                                         <label for="car">車號</label>
-                                        <textarea class="form-control" id="car" name="car_type" rows="3"
-                                            :value="detailInfo[0].CAR_TYPE" disabled></textarea>
+                                        <input class="form-control" id="car" name="car_type"
+                                            :value="detailInfo[0].CAR_TYPE" readonly></input>
                                     </div>
                                     <div class="form-group">
                                         <label for="people">人數</label>
-                                        <textarea class="form-control" id="people" name="number_of_people" rows="3"
-                                            :value="detailInfo[0].NUMBER_OF_PEOPLE" disabled></textarea>
+                                        <input class="form-control" id="people" name="number_of_people"
+                                            :value="detailInfo[0].NUMBER_OF_PEOPLE" readonly></input>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="program-price">方案定價</label>
+                                        <input class="form-control" id="program-price"
+                                            :value="detailInfo[0].PROGRAM_PRICE" readonly></input>
                                     </div>
                                     <div class="form-group">
                                         <label for="additional">備註</label>
-                                        <textarea class="form-control" id="additional" name="purchase_additional" rows="3"
-                                            :value="detailInfo[0].PURCHASE_ADDITIONAL" disabled></textarea>
+                                        <textarea class="form-control" id="additional" name="purchase_additional"
+                                            rows="3" :value="detailInfo[0].PURCHASE_ADDITIONAL" readonly></textarea>
                                     </div>
+                                    <div v-if='detailInfo[0].DISCOUNT_NUM != 0'>
+                                        <div class="form-group">
+                                            <label for="discount">優惠卷編號</label>
+                                            <input class="form-control" id="discount" name="discount_no"
+                                                :value="detailInfo[0].DISCOUNT_NUM" readonly></input>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="discount">優惠卷折數</label>
+                                            <input class="form-control" id="discount" name="discount_no"
+                                                :value="detailInfo[0].DISCOUNT_INFO" readonly></input>
+                                        </div>
+                                    </div>
+                                    <input type="hidden" name="discount_per" :value="detailInfo[0].DISCOUNT_PER">
+
                                     <div class="form-group">
-                                        <label for="discount">優惠卷編號</label>
-                                        <textarea class="form-control" id="discount" name="discount_no" rows="3"
-                                            :value="detailInfo[0].DISCOUNT_NO" disabled></textarea>
+                                        <label for="total">總金額(不含折數)</label>
+                                        <input class="form-control" id="total" name="total_price"></input>
                                     </div>
-                                    <div class="form-group">
-                                        <label for="total">總金額</label>
-                                        <textarea class="form-control" id="total" name="total_price" rows="3"
-                                            :value="detailInfo[0].TOTAL_PRICE" disabled></textarea>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="pay">支付方式</label>
-                                        <textarea class="form-control" id="pay" name="ordpayway" rows="3"
-                                            :value="detailInfo[0].ORDPAYWAY" disabled></textarea>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="card">信用卡卡號</label>
-                                        <textarea class="form-control" id="card" name="payway_id" rows="3"
-                                            :value="detailInfo[0].PAYWAY_ID" disabled></textarea>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="insp">信用卡檢查碼</label>
-                                        <textarea class="form-control" id="insp" name="payway_insp" rows="3"
-                                            :value="detailInfo[0].PAYWAY_INSP" disabled></textarea>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="status">訂單狀態</label>
-                                        <select class="form-control" id="status" name="order_status"
-                                            :value="detailInfo[0].ORDER_STATUS">
-                                            <option value="0">審核中</option>
-                                            <option value="1">未通過</option>
-                                            <option value="2">待付款</option>
-                                        </select>
-                                    </div>
+                                    <input type="hidden" name="ordpayway" :value="detailInfo[0].ORDPAYWAY"></input>
+                                    <input type="hidden" name="payway_id" :value="detailInfo[0].PAYWAY_ID"></input>
+                                    <input type="hidden" name="payway_insp" :value="detailInfo[0].PAYWAY_INSP"></input>
+                                    <input type="hidden" name="order_no" :value="detailInfo[0].ORDER_NO"></input>
+
                                     <div class="btn-group" style="display:flex ;justify-content:flex-end">
-                                        <button id="submit" class="btn btn-success" @click='undisalbled'>修改完成</button>
+                                        <button id="submit" class="btn btn-success">修改完成</button>
                                     </div>
                                 </form>
                             </div>

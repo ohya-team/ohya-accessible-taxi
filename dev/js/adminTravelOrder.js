@@ -9,10 +9,19 @@ let vue = new Vue({
     data() {
         return {
             info: null,
+            targetId: null,
         }
     },
     mounted() {
+        this.get_href();
         this.getTravelInfo();
+    },
+    computed: {
+        detailInfo() {
+            if (this.info != null) {
+                return this.info.filter(item => item.ORDER_NO == this.targetId)
+            }
+        }
     },
     methods: {
         getTravelInfo() {
@@ -21,6 +30,10 @@ let vue = new Vue({
                 .catch(function (error) { // 請求失敗處理
                     console.log(error);
                 });
+        },
+        get_href() {
+            let nowUrl = window.location.href;
+            this.targetId = nowUrl.split('=')[1];
         },
         changeStatus(e) {
             let confirmThisChange = (confirm('確定要更改狀態?'))

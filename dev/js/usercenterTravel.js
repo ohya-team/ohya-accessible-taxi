@@ -27,10 +27,10 @@ let vue = new Vue({
             });
     },
     computed: {
-        memberOrder() {
-            if (this.info != null) {
+        test() {
+            if (this.info != null && this.memInfo != null) {
                 return this.info.filter(item => item.MEM_NO == this.memInfo[0].MEM_NO)
             }
         }
-    }
+    },
 })

@@ -84,11 +84,18 @@
                                                             <p style="margin: 0;">{{info.PROGRAM_NAME}}</p>
                                                             <p style="margin: 0;">{{info.ORDER_AT}}</p>
                                                             <select :id="'status_' + info.ORDER_NO"
-                                                            v-model='info.ORDER_STATUS'    @change='changeStatus'>
+                                                                v-model='info.ORDER_STATUS' @change='changeStatus'>
                                                                 <option value="0">審核中 </option>
                                                                 <option value="1">未通過 </option>
                                                                 <option value="2">待付款 </option>
                                                             </select>
+                                                            <div style="justify-content:flex-end;display:flex">
+                                                                <a class="edit"
+                                                                    style="color: #ffc107; font-size: 19px; margin-right: 10px;"
+                                                                    title="Edit" data-toggle="tooltip"
+                                                                    :href="'./adminUpdateTravelOrder.html?order_no=' + info.ORDER_NO"><i
+                                                                        class="fas fa-edit"></i></a>
+                                                            </div>
                                                         </div>
                                                         <div :id="info.ORDER_NO  + info.ORDER_STATUS"
                                                             class="panel-collapse collapse" aria-expanded="false"
@@ -265,13 +272,6 @@
                                                                 <option value="2">待付款 </option>
                                                                 <option value="4">已付款 </option>
                                                             </select>
-                                                            <div style="justify-content:flex-end;display:flex">
-                                                                <a class="edit"
-                                                                    style="color: #ffc107; font-size: 19px; margin-right: 10px;"
-                                                                    title="Edit" data-toggle="tooltip"
-                                                                    :href="'./adminUpdateTravelOrder.html?order_no=' + info.ORDER_NO"><i
-                                                                        class="fas fa-edit"></i></a>
-                                                            </div>
                                                         </div>
                                                         <div :id="info.ORDER_NO + info.ORDER_STATUS"
                                                             class="panel-collapse collapse" aria-expanded="false"
