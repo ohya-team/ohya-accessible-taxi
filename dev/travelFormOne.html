@@ -113,11 +113,10 @@
           <div class="box">
             <label class="def" for="discount"></label>
             <select name="discount" id="discount" class="def">
-              <option value="">選擇優惠券</option>
-              <option value="483283">優惠卷編號 483283 九折優惠</option>
-              <option value="483284">優惠卷編號 483284 七折優惠</option>
-              <option value="483286">優惠卷編號 483286 七折優惠</option>
-              <option value="483285">優惠卷編號 483285 九折優惠</option>
+              <option value="0">選擇優惠券</option>
+              <option v-for='info in thisMemDiscount' :value="info.DISCOUNT_NUM">優惠卷編號 {{info.DISCOUNT_NUM}}
+                {{info.DISCOUNT_INFO}}優惠</option>
+
             </select>
           </div>
           <button @click="storageValue" class="btn-main" type="submit">下一步</button>

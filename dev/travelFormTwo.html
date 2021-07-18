@@ -39,8 +39,10 @@
             <br>
             <span>總計的人數：{{people_num}}人</span>
             <br>
-            <span>優惠卷編碼：{{discount}}</span>
-            <br>
+            <div v-if='discount != 0'>
+              <span>優惠卷編碼：{{discount}}</span>
+              <br>
+            </div>
             <span>備註：{{remarks}}</span>
           </div>
         </div>

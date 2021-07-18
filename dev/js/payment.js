@@ -7,6 +7,8 @@ let vue = new Vue({
             info: null,
             memInfo: null,
             targetPageId: null,
+            payType:'信用卡',
+            payTypeList:['信用卡','atm']
         }
     },
     mounted() {

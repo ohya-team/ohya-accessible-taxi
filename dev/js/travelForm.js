@@ -16,6 +16,7 @@ let vue = new Vue({
             memNum: 1,
             thisProgram: '1',
             menInfo: null,
+            discount: null,
         }
     },
     mounted() {
@@ -29,14 +30,23 @@ let vue = new Vue({
             .catch(function (error) { // 请求失败处理
                 console.log(error);
             });
-
+        axios.get('./php/getDiscount.php')
+            .then(response => (this.discount = response.data))
+            .catch(function (error) { // 请求失败处理
+                console.log(error);
+            });
     },
     computed: {
         thisProgramInfo() {
-            if (this.program != null)
+            if (this.program != null) {
                 return this.program.filter(item => item.PROGRAM_NO == this.thisProgram)
+            }
         },
-
+        thisMemDiscount() {
+            if (this.discount != null && this.info != null) {
+                return this.discount.filter(item => item.MEMBER_NO == this.info[0].MEM_NO)
+            }
+        }
     },
     methods: {
         toggleUser() {
