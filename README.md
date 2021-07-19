@@ -22,10 +22,10 @@
 ![範例圖片](/vue_env.png)
 ## 額外說明
 ### 1.jquery是全域皆可使用，想要用vue的請先加
-### 2.後臺參考模板:http://secondtruth.github.io/startmin/pages/panels-wells.html
 ``` 
 import Vue  from 'vue';
 ``` 
+### 2.後臺參考模板:http://secondtruth.github.io/startmin/pages/panels-wells.html
 
 
 

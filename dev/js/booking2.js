@@ -51,7 +51,7 @@ let vm = new Vue({
         }
         
         if(this.rightDay>this.fulldays[this.curMonth]){
-            this.rightDay -= this.fulldays[curMonth];
+            this.rightDay -= this.fulldays[this.curMonth];
             this.rightMonth = this.curMonth+1;
         }else{
             this.rightMonth = this.curMonth;
@@ -61,22 +61,29 @@ let vm = new Vue({
         for(let i=0; i<this.deskCurweekDays.length; i++){
             let j = (this.curweekDay+i) % 7;
 
+            let newDay = this.leftDay+i;
+            let newMonth = this.leftMonth+1;
+
+            if((this.leftDay+i)>this.fulldays[this.curMonth]){
+                newDay -= this.fulldays[this.curMonth];
+                newMonth +=1;
+            }
+
             this.tableTh.push({
                 'year':this.curYear,
                 'deskWeek':this.deskCurweekDays[j],
                 'MobileWeek':this.MobileCurweekDays[j],
-                'month':(this.leftMonth+1)<10 ? "0"+(this.leftMonth+1) : this.leftMonth+1,
-                'day':(this.leftDay+i)<10 ? "0"+(this.leftDay+i) : this.leftDay+i
+                'month':newMonth<10 ? "0"+newMonth : newMonth,
+                'day':newDay<10 ? "0"+newDay : newDay
             });
         }
 
         let doAjax = setTimeout(()=>{//因為Ajax會延遲 所以設setTimeout
+
             let sortInfo = this.bookingInfo.reduce((a, c) => {
                 a[c.BOOKING_DATE] = [...a[c.BOOKING_DATE] || [], c];
                 return a;
             },[]);
-
-            console.log(sortInfo)
 
             //判斷該時段司機人數是否為0，以此控制按鈕狀態
             for(let data in sortInfo){
@@ -102,7 +109,7 @@ let vm = new Vue({
     methods: {
         btnBookingTime(y, m, d, t){//確認點選按鈕的對應時段與司機尚餘幾位+確認可預約車型
             let tempArr = [];
-            
+
             //確認點選按鈕的對應時段與司機尚餘幾位
             for(let i in this.bookingInfo){
                 if(this.bookingInfo[i].BOOKING_DATE.split('-')[1] == m && this.bookingInfo[i].BOOKING_DATE.split('-')[2] == d && this.bookingInfo[i][t]==1){    
@@ -123,8 +130,7 @@ let vm = new Vue({
                 return a;
             },[]);
     
-            for(let i=1; i<this.tempInfo.length; i++){
-    
+            for(let i=1; i<this.tempInfo.length; i++){    
                 this.carInfo.push({
                     carNo:this.tempInfo[i][0].carNo,
                     carPic:this.tempInfo[i][0].carPic,
@@ -172,16 +178,22 @@ let vm = new Vue({
             this.finalInfo.push(`${driverName}`)
 
             //跳下一個步驟畫面
-            this.stepLoading=[false, false, false, true];
+            this.stepLoading = [false, false, false, true];
         },
         backToStep1(){
-            this.stepLoading=[true, false, false, false];
+            this.stepLoading = [true, false, false, false];
+            this.carInfo = [];//重新點選時，資料清空
+            this.driverInfo = [];//重新點選時，資料清空
+            this.finalInfo = [];//重新點選時，資料清空
         },
         backToStep2(){
-            this.stepLoading=[false, true, false, false];
+            this.stepLoading = [false, true, false, false];
+            this.driverInfo = [];//重新點選時，資料清空
+            this.finalInfo.pop(this.finalInfo[2]);//重新點選時，資料清空
         },
         backToStep3(){
-            this.stepLoading=[false, false, true, false];
+            this.stepLoading = [false, false, true, false];
+            this.finalInfo.pop(this.finalInfo[3]);//重新點選時，資料清空
         },
     },
 });

@@ -56,6 +56,15 @@ button.btn-bookingFull{
   }
 }
 
+.mobileTable table td.btn-bookingTime{
+  padding: $ele-ele;
+  @extend %bg-white;
+}
+
+.mobileTable table td.btn-bookingFull{
+  @extend %gray-first, %bg-gray-second;
+}
+
 .calenderDes{
   margin-top: $ele-ele;
   justify-content: flex-end;

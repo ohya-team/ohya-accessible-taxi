@@ -245,7 +245,7 @@
 //table 可改寬度
 @mixin table($w) {
   table, th, td {
-    border: 1px solid $gray-second;
+    border: 1px solid $gray-first;
     border-collapse: collapse;
   
     @extend %ta-center;
