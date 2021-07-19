@@ -61,19 +61,22 @@
             <tr>
               <td>上午</td>
               <td v-for="(i, index) in tableTh">
-                <button :class="driverCountMorning[index]" @click="btnBookingTime(tableTh[index].year,tableTh[index].month,tableTh[index].day,'BOOKING_MORNING')">預約</button>
+                <button :class="driverCountMorning[index]" 
+                @click="btnBookingTime(tableTh[index].year,tableTh[index].month,tableTh[index].day,'BOOKING_MORNING')" :disabled="driverCountMorning[index]=='btn-bookingFull'">預約</button>
               </td>
             </tr>
             <tr>
               <td>下午</td>
               <td v-for="(i, index) in tableTh">
-                <button :class="driverCountAfternoon[index]" @click="btnBookingTime(tableTh[index].year,tableTh[index].month,tableTh[index].day,'BOOKING_AFTERNOON')">預約</button>
+                <button :class="driverCountAfternoon[index]" 
+                @click="btnBookingTime(tableTh[index].year,tableTh[index].month,tableTh[index].day,'BOOKING_AFTERNOON')" :disabled="driverCountMorning[index]=='btn-bookingFull'">預約</button>
               </td>
             </tr>
             <tr>
               <td>晚上</td>
               <td v-for="(i, index) in tableTh">
-                <button :class="driverCountEvening[index]" @click="btnBookingTime(tableTh[index].year,tableTh[index].month,tableTh[index].day,'BOOKING_EVENING')">預約</button>
+                <button :class="driverCountEvening[index]" 
+                @click="btnBookingTime(tableTh[index].year,tableTh[index].month,tableTh[index].day,'BOOKING_EVENING')" :disabled="driverCountMorning[index]=='btn-bookingFull'">預約</button>
               </td>
             </tr>
           </table>
