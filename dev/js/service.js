@@ -92,53 +92,55 @@ $('.smallPic').on('click',function(){
 
 
 //driver slider narrow move
-function moveLeft(){
-  $("#driverSlider").animate({
-    left: 0
-  })
-}
-function moveRight(){
-  $("#driverSlider").animate({
-    left: $('.image').width() * -0.5
-  })
-}
+// function moveLeft(){
+//   $("#driverSlider").animate({
+//     left: 0
+//   })
+// }
+// function moveRight(){
+//   $("#driverSlider").animate({
+//     left: $('.image').width() * -0.5
+//   })
+// }
 //driver slider auto move
-function autoMove() {
-  let imgCount = $('.image').length;
-  let i = 0;
+// function autoMove() {
+//   let imgCount = $('.image').length;
+//   let i = 0;
 
-  setInterval(function () {
-      if (i == imgCount) {
-        i = 0;
-      };
-      $("#driverSlider").animate({
-          left: $('.image').width() * -0.5 *i,
-      });
-      i++;
-  }, 4000);
-};
-// driver slider resize
-
-$(window).resize( function(){
-  let win_w = $(window).width();
-  let win_h = $(window).height();
-  let w = $('.image li').width();
-  console.log(win_w);
-  console.log(win_h);
-  console.log(w);
-  // if ( win_w < 1200) {
-  //   $('.image li').each( function(){
-  //     $('.image li').css("width", w * (win_h/win_w) );
-  //   })
-  // }
-})
-
-//driver smallSlider
-
+//   setInterval(function () {
+//       if (i == imgCount) {
+//         i = 0;
+//       };
+//       $("#driverSlider").animate({
+//           left: $('.image').width() * -0.5 *i,
+//       });
+//       i++;
+//   }, 4000);
+// };
 
 //driver lightBox
 function showLightBox(){
-  $('.image li').on('click', function(){
+  $('.image li').on('click', function(e){
+    console.log(e.target.id);
+    $.ajax({
+      type: 'POST',
+      url: '../dist/php/driverLightbox.php',
+      data: {DRIVER_NO: e.target.id},
+      success: function(res){
+        let driverInfo = JSON.parse(res);
+        console.log('res:',driverInfo);
+          $('#driverName').text(driverInfo.DRIVER_NAME);
+          $('#driverPhone').text(driverInfo.DRIVER_PHONE);
+          $('#driverContext').text(driverInfo.DRIVER_DESCRIBE);
+          $('#driverPic').html(`<img src="${driverInfo.DRIVER_PIC}" alt="">`);
+          $('#carLisence').text('車牌號碼:'+driverInfo.TAXI_LICENCENO);
+          $('#carDes').html(driverInfo.TAXI_DESCRIBE);
+          $('#driverCarPic').html(`<img src="${driverInfo.TAXI_PIC}" alt="">`);
+      },
+      error:()=>{
+        alert( "error");
+      }
+  });
     $('#driverLightBox').css("display","block");
     closeLightBox();
   })
@@ -150,56 +152,87 @@ function closeLightBox(){
 }
 
 //服務介紹資料連結
-function sendServiceForm(){ debugger;
+function sendServiceForm(){ 
   let xhr = new XMLHttpRequest();
   xhr.onload = function(){
     if(xhr.status == 200){
       let serveInfos = JSON.parse(xhr.responseText);
-      console.log('into');
-      serveInfos.SERVE_TITLE = serve_title;
-
-
+      document.getElementById('SERVE_TITLE').innerText = serveInfos[0].SERVE_TITLE;
+      document.getElementById('SERVE_DESCRIBE').innerText = serveInfos[0].SERVE_DESCRIBE;
+      document.getElementById('SERVE_PIC').src = serveInfos[0].SERVE_PIC;
     }else{
       alert(xhr.status);
       alert("系統異常");
     }
   }
-
   xhr.open("post", "../dist/php/service.php",true);
   let serviceFormData = new FormData(document.getElementById('serviceInfo'));
   xhr.send(serviceFormData);
 }
-// function sendServiceForm(){
-//   $.ajax({
-//     url: './sservice.php',
-//     data: {SERVE_TITLE,SERVE_PIC,SERVE_DESCRIBE},
-//     type: 'POST',
-//     success(res){
-//       $('#serviceWrap').html(`
-//       <div class="service-context">
-//         <h4 name="serveInfos.SERVE_TITLE">${res}</h4>
-//         <p name="serveInfos.SERVE_DESCRIBE">${res}</p>
-//       </div>
-//       <div class="service-pic">
-//         <img name="SERVE_DESCRIBE" src="${res}" alt="">
-//       </div>
-//       `)
-//     }
-//   })
-// }
+
+//服務車輛資料連結
+function sendCarForm(){ 
+  let xhr = new XMLHttpRequest();
+  xhr.onload = function(){
+    if(xhr.status == 200){
+      let carInfos = JSON.parse(xhr.responseText);
+      document.getElementById('bigPic').children[0].src = carInfos[0].CAR_PIC;
+      for(let i=0 ; i<carInfos.length; i++){
+        document.getElementsByClassName('smallWrap')[0].children[i].children[0].src = carInfos[i].CAR_PIC;
+        document.getElementsByClassName('carContext')[i].children[0].innerText = carInfos[i].CAR_TYPE;
+        document.getElementsByClassName('carContext')[i].children[1].innerText = carInfos[i].CAR_DESCRIBE;
+        document.getElementsByClassName('carContext')[i].style.display = 'none';
+        document.getElementsByClassName('carContext')[0].style.display = 'block';
+      }
+    }else{
+      alert(xhr.status);
+      alert("系統異常");
+    }
+  }
+  xhr.open("post", "../dist/php/car.php",true);
+  let carFormData = new FormData(document.getElementById('carInfos'));
+  xhr.send(carFormData);
+}
+//服務司機資料連結
+function sendDriverForm(){ 
+  let xhr = new XMLHttpRequest();
+  xhr.onload = function(){
+    if(xhr.status == 200){
+      let driverInfos = JSON.parse(xhr.responseText);
+      console.log('into');
+      console.log( driverInfos[0].DRIVER_PIC );
+      for(let i=0 ; i<driverInfos.length ; i++){
+        console.log( document.getElementsByClassName('driverContentPic')[i]);
+        document.getElementsByClassName('driverContentPic')[i].src = driverInfos[i].DRIVER_PIC;
+        document.getElementsByClassName('driverContentPic')[i].nextElementSibling.innerText = driverInfos[i].DRIVER_NAME;
+        // document.getElementsByClassName('driverContentPic')[i].previousElementSibling.innerText = driverInfos[i].DRIVER_NO;
+        // console.log(document.getElementsByClassName('driverContentPic')[i]);
+        document.getElementsByClassName('driverContentPic')[i].id = driverInfos[i].DRIVER_NO;
+      }
+    }else{
+      alert(xhr.status);
+      alert("系統異常");
+    }
+  }
+  xhr.open("post", "../dist/php/driver.php",true);
+  let driverFormData = new FormData(document.getElementById('driverInfos'));
+  xhr.send(driverFormData);
+}
+
 
 //init
 function init(){
   for (let i = 0; i < selectorBtn.length; i++) {
     selectorBtn[i].onclick = chosen;
   }
-  $('#driver-content #narLeft')[0].onclick = moveLeft;
-  $('#driver-content #narRight')[0].onclick = moveRight;
-  autoMove();
-  showCar();
-  showLightBox();
   sendServiceForm();
-  console.log(document.getElementById('serviceInfo'));
+  sendCarForm();
+  // $('#driver-content #narLeft')[0].onclick = moveLeft;
+  // $('#driver-content #narRight')[0].onclick = moveRight;
+  //autoMove();
+  showCar();
+  sendDriverForm();
+  showLightBox();
 }
 
 window.onload = init;
