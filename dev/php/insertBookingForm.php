@@ -31,12 +31,28 @@ $booking->execute();
 
 <?php
 //修改時段
-// require_once "../connect_cfd101g2.php";
+require_once "../connect_cfd101g2.php";
 
-// $sql = "";
-// $booking = $pdo->prepare($sql);
-// $booking->bindValue("b_memNo", $_POST["b_memNo"]);
-// $booking->execute();
+$b_timing = $_POST["b_timing"];
+
+switch($b_timing){
+    case '上午':
+        $b_timing = 'BOOKING_MORNING';
+        break;
+    case '下午':
+        $b_timing = 'BOOKING_AFTERNOON';
+        break;
+    case '晚上':
+        $b_timing = 'BOOKING_EVENING';
+        break;
+};
+
+$sql = "UPDATE `booking_timing` SET `$b_timing`= 2\n"
+
+    . "WHERE BOOKING_DATE = '$b_date' and DRIVER_NO = :b_driverNo;";
+$booking = $pdo->prepare($sql);
+$booking->bindValue("b_driverNo", $_POST["b_driverNo"]);
+$booking->execute();
 
 // header('Location:./booking.html');
 ?>
