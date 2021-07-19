@@ -9,6 +9,7 @@ if (!isset($_SESSION['is_login']) || !$_SESSION['is_login']) {
   header("Location: adminLogin.php");
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="zh-TW">
 
@@ -237,14 +238,14 @@ if (!isset($_SESSION['is_login']) || !$_SESSION['is_login']) {
               }
 
               $servername = "localhost";
-              $username = "tibamefe_since2021";
-              $password = "vwRBSb.j&K#E";
+              $username = "root";
+              $password = "root";
               $dbname = "tebamefe_cfd101g2";
 
               try {
                 $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
                 $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-                $stmt = $conn->prepare("SELECT admin_id, admin_name, creat_date, update_date , 
+                $stmt = $conn->prepare("SELECT admin_id, admin_name, creat_date, update_date
                 
                 FROM admin");
                 $stmt->execute();
