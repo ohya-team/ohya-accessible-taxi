@@ -1,14 +1,27 @@
+<?php
+//載入 db.php 檔案，讓我們可以透過它連接資料庫，另外後台都會用 session 判別暫存資料，所以要請求 db.php 因為該檔案最上方有啟動session_start()。
+require_once 'adminDb.php';
+//print_r($_SESSION); //查看目前session內容
+
+//如過沒有 $_SESSION['is_login'] 這個值，或者 $_SESSION['is_login'] 為 false 都代表沒登入
+if (!isset($_SESSION['is_login']) || !$_SESSION['is_login']) {
+  //直接轉跳到 login.php
+  header("Location: adminLogin.php");
+}
+?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-TW">
 
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="">
-  <meta name="author" content="">
-
   <title>後台管理員</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <!-- 給行動裝置或平板顯示用，根據裝置寬度而定，初始放大比例 1 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- 載入 bootstrap 的 css 方便我們快速設計網站-->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" />
+  <!-- <link rel="stylesheet" href="../css/style.css" />
+  <link rel="shortcut icon" href="../images/favicon.ico"> -->
 
   <!-- Bootstrap Core CSS -->
   <link href="../css/bootstrap.css" rel="stylesheet">
@@ -27,78 +40,47 @@
 
   <!-- Custom Fonts -->
   <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
-  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-  <!--[if lt IE 9]>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
 
   <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 
-
-  <script>
-    $(document).ready(function() {
-      $('[data-toggle="tooltip"]').tooltip();
-      var actions = $("table td:last-child").html();
-      // Append table with add row form on add new button click
-      $(".add-new").click(function() {
-        $(this).attr("disabled", "disabled");
-        var index = $("table tbody tr:last-child").index();
-        var row = '<tr>' +
-          '<td><input type="text" class="form-control" name="name" id="name"></td>' +
-          '<td><input type="text" class="form-control" name="department" id="department"></td>' +
-          '<td><input type="text" class="form-control" name="phone" id="phone"></td>' +
-          '<td><input type="text" class="form-control" name="phone" id="phone"></td>' +
-          '<td>' + actions + '</td>' +
-          '</tr>';
-        $("table").append(row);
-        $("table tbody tr").eq(index + 1).find(".add, .edit").toggle();
-        $('[data-toggle="tooltip"]').tooltip();
-      });
-      // Add row on add button click
-      $(document).on("click", ".add", function() {
-        var empty = false;
-        var input = $(this).parents("tr").find('input[type="text"]');
-        input.each(function() {
-          if (!$(this).val()) {
-            $(this).addClass("error");
-            empty = true;
-          } else {
-            $(this).removeClass("error");
-          }
-        });
-        $(this).parents("tr").find(".error").first().focus();
-        if (!empty) {
-          input.each(function() {
-            $(this).parent("td").html($(this).val());
-          });
-          $(this).parents("tr").find(".add, .edit").toggle();
-          $(".add-new").removeAttr("disabled");
-        }
-      });
-      // Edit row on edit button click
-      $(document).on("click", ".edit", function() {
-        $(this).parents("tr").find("td:not(:last-child)").each(function() {
-          $(this).html('<input type="text" class="form-control" value="' + $(this).text() + '">');
-        });
-        $(this).parents("tr").find(".add, .edit").toggle();
-        $(".add-new").attr("disabled", "disabled");
-      });
-      // Delete row on delete button click
-      $(document).on("click", ".delete", function() {
-        $(this).parents("tr").remove();
-        $(".add-new").removeAttr("disabled");
-      });
-    });
-  </script>
-
 </head>
 
 <body>
+  <!-- 頁首 -->
+  <?php
+  //取得目前檔案的名稱。透過$_SERVER['PHP_SELF']先取得路徑
+  $current_file = $_SERVER['PHP_SELF'];
+  //echo $current_file; //查看目前取得的檔案完整
+  //然後透過 basename 取得檔案名稱，加上第二個參數".php"，主要是將取得的檔案去掉 .php 這副檔名稱
+  $current_file = basename($current_file, ".php");
+  //echo $current_file; //查看目前取得後的檔名
 
+  switch ($current_file) {
+    default:
+      //預設索引為 0
+      $index = 0;
+      break;
+  }
+  ?>
+
+  <div class="container">
+    <!-- 建立第一個 row 空間，裡面準備放格線系統 -->
+    <div class="row">
+      <!-- 在 xs 尺寸，佔12格，可參考 http://getbootstrap.com/css/#grid 說明-->
+      <div class="col-xs-12">
+        <!--網站標題-->
+
+        <!-- 選單 -->
+        <ul class="nav nav-pills">
+          <li role="presentation"><a href="adminLogout.php">登出</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- 網站內容 -->
   <div id="wrapper">
     <!-- Navigation -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -118,7 +100,8 @@
             <i class="fa fa-user fa-fw"></i> adminid <b class="caret"></b>
           </a>
           <ul class="dropdown-menu dropdown-user">
-            <li><a href="adminLogin.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+            <!-- <li><a href="adminLogin.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a> -->
+            <li role="presentation"><a href="adminLogout.php">登出</a></li>
             </li>
           </ul>
         </li>
@@ -218,7 +201,7 @@
                   </div>
                 </div>
               </div>
-              
+
               <?php
               echo "<table class='table table-bordered'>";
               echo "<tr>
@@ -238,8 +221,8 @@
 
                 function current()
                 {
-                  return 
-                   '<td>' . parent::current() . '</td>';
+                  return
+                    '<td>' . parent::current() . '</td>';
                 }
 
                 function beginChildren()
@@ -254,15 +237,15 @@
               }
 
               $servername = "localhost";
-              $username = "root";
-              $password = "root";
+              $username = "tibamefe_since2021";
+              $password = "vwRBSb.j&K#E";
               $dbname = "tebamefe_cfd101g2";
 
               try {
                 $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
                 $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                 $stmt = $conn->prepare("SELECT admin_id, admin_name, creat_date, update_date , 
-                '修改 刪除' 
+                
                 FROM admin");
                 $stmt->execute();
 
@@ -291,7 +274,7 @@
 
 
 
-  </div>
+  </div>F
 
 
   <!-- jQuery -->
