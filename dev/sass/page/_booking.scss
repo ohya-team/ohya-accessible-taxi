@@ -120,9 +120,10 @@ ul.booking-detail{
   margin-bottom: $ele-ele*1.5;
 }  
 
-ul.booking-detail input{
+ul.booking-info .dis,
+ul.booking-detail .dis{
   border: none;
-  background-color: $gray-second;
+  background-color: lighten($yellow-second, 5%);
 }
 
 label.booking-notice{
@@ -236,13 +237,5 @@ button.btn-cancel{
   ul.booking-detail h3{
     width: 100%;
     display: block;
-  }
-
-  ul.booking-detail h3{
-    margin-bottom: $text-text+2;
-  }
-
-  label.booking-notice{
-    padding: $ele-ele;
   }
 }

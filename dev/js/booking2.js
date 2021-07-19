@@ -10,6 +10,7 @@ let vm = new Vue({
     el: '#app',
     data: {
         bookingInfo: [],//php/booking.php
+        memInfo:null,//php/member.php
         pilltext:['確認時間','確認車種','確認司機','訂單確認'],
         stepLoading:[true,false,false,false],
         curMonth: new Date().getMonth(),//index: 6+1月
@@ -32,11 +33,17 @@ let vm = new Vue({
         finalInfo: [],//放步驟4用的
         finalAmount: 2000,//放步驟4用的
         finalDiscount: 0.9,//放步驟4用的
+        startLoa: '',//放步驟4用的
+        endLoa: '',//放步驟4用的
     },
     mounted() {
         //撈資料-步驟一到步驟三用
         axios.get('php/booking.php')
         .then(res => this.bookingInfo = res.data)
+        .catch(error => console.log(error))
+
+        axios.get('./php/member.php')
+        .then(res => (this.memInfo = res.data))
         .catch(error => console.log(error))
 
         //處理閏年是29天
@@ -103,7 +110,7 @@ let vm = new Vue({
                 this.driverCountAfternoon.push(driversA == 0 ? 'btn-bookingFull' : 'btn-bookingTime')
                 this.driverCountEvening.push(driversE == 0 ? 'btn-bookingFull' : 'btn-bookingTime')
             }
-        },100)
+        },1000)
 
     },
     methods: {
@@ -118,6 +125,7 @@ let vm = new Vue({
                         carPic:this.bookingInfo[i].CAR_PIC,
                         carType:this.bookingInfo[i].CAR_TYPE,
                         cardes:this.bookingInfo[i].CAR_DESCRIBE,
+                        driverNo:this.bookingInfo[i].DRIVER_NO,
                         driverPic:this.bookingInfo[i].DRIVER_PIC,
                         driverName:this.bookingInfo[i].DRIVER_NAME,
                     });
@@ -162,6 +170,7 @@ let vm = new Vue({
                 for(let j=0; j<this.tempInfo[i].length; j++){
                     if(carType == this.tempInfo[i][j].carType){
                         this.driverInfo.push({
+                            driverNo:this.tempInfo[i][j].driverNo,
                             driverPic:this.tempInfo[i][j].driverPic,
                             driverName:this.tempInfo[i][j].driverName
                         });
@@ -174,8 +183,8 @@ let vm = new Vue({
             //跳下一個步驟畫面
             this.stepLoading=[false, false, true];
         },
-        btnBookingDriver(driverName){//確認挑選的司機是誰
-            this.finalInfo.push(`${driverName}`)
+        btnBookingDriver(driverName, driverNo){//確認挑選的司機是誰
+            this.finalInfo.push(`${driverName}`, `${driverNo}`)
 
             //跳下一個步驟畫面
             this.stepLoading = [false, false, false, true];
@@ -196,4 +205,20 @@ let vm = new Vue({
             this.finalInfo.pop(this.finalInfo[3]);//重新點選時，資料清空
         },
     },
+    computed: {
+        issubmit(){
+            if(this.startLoa !== '' && this.endLoa !== ''){
+                return 'submit'
+            }else{
+                return 'button'
+            }
+        },
+        isNoText(){
+            if(this.issubmit=='button'){
+                return {'color': '#EF5C5C'}
+            }else{
+                return {'color': '#60EF66'}
+            }
+        }
+    }
 });

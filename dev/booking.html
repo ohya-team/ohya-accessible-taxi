@@ -40,7 +40,10 @@
   </section>
 
   <div id="app">
-    <div class="booking">
+    <div class="booking"  v-if="memInfo == null">
+      <p>請先登入會員：<a href="login.html">登入</a></p>
+    </div>
+    <div class="booking" v-else>
       <div class="calender" id="step1" v-show="stepLoading[0]">
         <ul class="pills">
           <li class="pills-main">{{pilltext[0]}}</li>
@@ -159,7 +162,7 @@
               </div>
               <h4>{{info.driverName}}</h4>
             </div>
-            <button class="btn-third" @click="btnBookingDriver(info.driverName)">選擇</button>
+            <button class="btn-third" @click="btnBookingDriver(info.driverName, info.driverNo)">選擇</button>
           </div>
         </div>
       </div>
@@ -171,82 +174,79 @@
           <li class="pills-main" @click="backToStep3">{{pilltext[2]}} <i class="far fa-check-circle" aria-hidden="true"></i></li>
           <li class="pills-main">{{pilltext[3]}}</li>
         </ul>
-        <form class="booking-form" action="">
+        <form class="booking-form" form role="form" action="php/insertBookingForm.php" method="POST" >
           <ul class="booking-info">
             <h3>請填寫訂單明細</h3>
-            <li class="full">
-              <label for="memId" class="def">
-                <input type="checkbox" name="memId" id="memId">同會員資料
-              </label>
+            <input type="hidden" name="b_memNo" :value="memInfo[0].MEM_NO">
+            <input type="hidden" name="b_driverNo" :value="finalInfo[4]">
+            <li class="sbs">
+              <label class="def" for="b_lastName">姓氏</label>
+              <input class="def dis" type="text" name="b_lastName" :value="memInfo[0].MEM_LASTNAME" readonly>
             </li>
             <li class="sbs">
-              <label class="def" for="b-lastName">姓氏</label>
-              <input class="def" type="text" name="b-lastName" id="b-lastName">
+              <label class="def" for="b_FirstName">名字</label>
+              <input class="def dis" type="text" name="b_FirstName" :value="memInfo[0].MEM_FIRSTNAME" readonly>
             </li>
             <li class="sbs">
-              <label class="def" for="b-FirstName">名字</label>
-              <input class="def" type="text" name="b-FirstName" id="b-FirstName">
+              <label class="def" for="b_email">信箱</label>
+              <input class="def dis" type="email" name="b_email" :value="memInfo[0].MEM_ACCOUNT" readonly>
             </li>
             <li class="sbs">
-              <label class="def" for="b-email">信箱</label>
-              <input class="def" type="email" name="b-email" id="b-email">
+              <label class="def" for="b_phone">連絡電話</label>
+              <input class="def dis" type="text" name="b_phone" :value="memInfo[0].MEM_PHONE" readonly>
             </li>
             <li class="sbs">
-              <label class="def" for="b-phone">連絡電話</label>
-              <input class="def" type="text" name="b-phone" id="b-phone">
+              <label class="def" for="b_startLoa" :style="isNoText">上車地點</label>
+              <input class="def" v-model="startLoa" name="b_startLoa" placeholder="必填">
             </li>
             <li class="sbs">
-              <label class="def" for="b-startLoa">上車地點</label>
-              <input class="def" type="text" name="b-startLoa" id="b-startLoa">
+              <label class="def" for="b_endLoa" :style="isNoText">下車地點</label>
+              <input class="def" v-model="endLoa" name="b_endLoa" placeholder="必填">
             </li>
             <li class="sbs">
-              <label class="def" for="b-endLoa">下車地點</label>
-              <input class="def" type="text" name="b-endLoa" id="b-endLoa">
-            </li>
-            <li class="sbs">
-              <label class="def" for="b-coopon">使用優惠券</label>
-              <select class="def" name="b-coopon" id="">
-                <option value="b-coopon">請選擇</option>
+              <label class="def" for="b_coopon">使用優惠券</label>
+              <select class="def" name="b_coopon">
+                <option value="b_coopon">無</option>
               </select>
             </li>
             <li class="full">
-              <label class="def" for="b-else">其他需求</label>
-              <textarea name="b-else" id="b-else" style="width: 100%; height: 100px;"></textarea>
+              <label class="def" for="b_else">其他需求</label>
+              <textarea name="b_else" id="b_else" style="width: 100%; height: 100px;"></textarea>
             </li>
           </ul>
 
           <ul class="booking-detail">
             <h3>請確認此次訂車資訊</h3>
             <li class="sbs">
-              <label class="def" for="">確認預約日期</label>
-              <input type="text" class="def" name="b-date" :value="finalInfo[0]" disabled>
+              <label class="def" for="b_date">確認預約日期</label>
+              <input type="text" class="def dis" name="b_date" :value="finalInfo[0]" readonly>
             </li>
             <li class="sbs">
-              <label class="def" for="">確認預約時段</label>
-              <input type="text" class="def" name="b-timing" :value="finalInfo[1]" disabled>
+              <label class="def" for="b_timing">確認預約時段</label>
+              <input type="text" class="def dis" name="b_timing" :value="finalInfo[1]" readonly>
             </li>
             <li class="sbs">
-              <label class="def" for="">確認預約車種</label>
-              <input type="text" class="def" name="b-car" :value="finalInfo[2]" disabled>
+              <label class="def" for="b_car">確認預約車種</label>
+              <input type="text" class="def dis" name="b_car" :value="finalInfo[2]" readonly>
             </li>
             <li class="sbs">
-              <label class="def" for="">確認預約司機</label>
-              <input type="text" class="def" name="b-driver" :value="finalInfo[3]" disabled>
+              <label class="def" for="b_driver">確認預約司機</label>
+              <input type="text" class="def dis" name="b_driver" :value="finalInfo[3]" readonly>
             </li>
             <li class="full">
-              <label class="def" for="">應付金額</label>
-              <input type="text" class="def" name="b-amount" :value="finalAmount" disabled>
+              <label class="def" for="b_amount">應付金額</label>
+              <input type="text" class="def dis" name="b_amount" :value="finalAmount" readonly>
             </li>
             <li class="full">
-              <label class="def" for="">優惠券折扣金額</label>
-              <input type="text" class="def" name="b-discount" :value="Math.round(finalAmount*(1-finalDiscount))" disabled>
+              <label class="def" for="b_discount">優惠券折扣金額</label>
+              <input type="text" class="def dis" name="b_discount" :value="Math.round(finalAmount*(1-finalDiscount))" readonly>
             </li>
             <li class="full">
-              <label class="def" for="">實付金額</label>
-              <input type="text" class="def" name="b-total" :value="finalAmount*finalDiscount" disabled>
+              <label class="def" for="b_total">實付金額</label>
+              <input type="text" class="def dis" name="b_total" :value="finalAmount*finalDiscount" readonly>
             </li>
           </ul>
-          <input type="button" value="確認預約" class="btn-main" id="bookingSub">
+          <input :type="issubmit" value="確認預約" class="btn-main" id="bookingSub">
           <a href="index.html" class="btn-cancel">取消預約</a>
         </form>
 
