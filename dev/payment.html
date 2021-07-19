@@ -84,8 +84,8 @@
           <h3>支付方式</h3>
         </div>
         <div class="box">
-          <form action="./php/updateTravelOrder.php">
-            <label class="def" for="payway"></label>
+          <form action="./php/updateTravelOrder.php" method="POST">
+            <label class="def" for="payway">信用卡/ATM</label>
             <select name="ordpayway" id="payway" v-model='payType' class="def">
               <option v-for='item in payTypeList' :value="item">{{item}}</option>
             </select>
@@ -110,15 +110,14 @@
                 <input class="def" type="text" id="payway_insp" name="payway_insp">
               </div>
             </div>
+            <input type="hidden" :value="order[0].ORDER_NO" name="order_no">
+            <input type="hidden" :value="order[0].TOTAL_PRICE" name="total_price">
+            <input type="hidden" :value="order[0].DISCOUNT_PER" name="discount_per">
+            <button class="btn-main" type="submit">完成付款</button>
+          </form>
         </div>
-        <input type="hidden" :value="order[0].TOTAL_PRICE" name="total_price">
-        <input type="hidden" :value="order[0].DISCOUNT_PER" name="discount_per">
-        <button class="btn-main" type="submit">完成付款</button>
-        </form>
-        
       </div>
 
-  </div>
     </section>
   </div>
   @@include('layout/footer.html')

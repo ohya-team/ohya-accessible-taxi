@@ -58,8 +58,6 @@
                                                         aria-expanded="false">未通過</a></li>
                                                 <li class=""><a href="#tab-default-3" data-toggle="tab"
                                                         aria-expanded="true">待付款</a></li>
-                                                <li class=""><a href="#tab-default-4" data-toggle="tab"
-                                                        aria-expanded="true">取消</a></li>
                                                 <li class=""><a href="#tab-default-5" data-toggle="tab"
                                                         aria-expanded="true">已付款</a></li>
                                             </ul>
@@ -140,24 +138,9 @@
                                                                         <p>備註 : {{info.PURCHASE_ADDITIONAL}}</p>
                                                                     </li>
                                                                     <li class="list-unstyled"
-                                                                        style="line-height: 2em; margin-top: 20px;">
-                                                                        <p>優惠卷編號 : {{info.DISCOUNT_NO}}</p>
-                                                                    </li>
-                                                                    <li class="list-unstyled"
-                                                                        style="line-height: 2em; margin-top: 20px;">
-                                                                        <p>總金額 : {{info.TOTAL_PRICE}}</p>
-                                                                    </li>
-                                                                    <li class="list-unstyled"
-                                                                        style="line-height: 2em; margin-top: 20px;">
-                                                                        <p>支付方式 : {{info.ORDPAYWAY}}</p>
-                                                                    </li>
-                                                                    <li class="list-unstyled"
-                                                                        style="line-height: 2em; margin-top: 20px;">
-                                                                        <p>信用卡卡號 : {{info.PAYWAY_ID}}</p>
-                                                                    </li>
-                                                                    <li class="list-unstyled"
-                                                                        style="line-height: 2em; margin-top: 20px;">
-                                                                        <p>信用卡檢查碼 : {{info.PAYWAY_INSP}}</p>
+                                                                        style="line-height: 2em; margin-top: 20px;"
+                                                                        v-if="info.DISCOUNT_NUM != 0">
+                                                                        <p>優惠卷編號 : {{info.DISCOUNT_NUM}}</p>
                                                                     </li>
                                                                 </ul>
                                                             </div>
@@ -226,24 +209,9 @@
                                                                         <p>備註 : {{info.PURCHASE_ADDITIONAL}}</p>
                                                                     </li>
                                                                     <li class="list-unstyled"
-                                                                        style="line-height: 2em; margin-top: 20px;">
-                                                                        <p>優惠卷編號 : {{info.DISCOUNT_NO}}</p>
-                                                                    </li>
-                                                                    <li class="list-unstyled"
-                                                                        style="line-height: 2em; margin-top: 20px;">
-                                                                        <p>總金額 : {{info.TOTAL_PRICE}}</p>
-                                                                    </li>
-                                                                    <li class="list-unstyled"
-                                                                        style="line-height: 2em; margin-top: 20px;">
-                                                                        <p>支付方式 : {{info.ORDPAYWAY}}</p>
-                                                                    </li>
-                                                                    <li class="list-unstyled"
-                                                                        style="line-height: 2em; margin-top: 20px;">
-                                                                        <p>信用卡卡號 : {{info.PAYWAY_ID}}</p>
-                                                                    </li>
-                                                                    <li class="list-unstyled"
-                                                                        style="line-height: 2em; margin-top: 20px;">
-                                                                        <p>信用卡檢查碼 : {{info.PAYWAY_INSP}}</p>
+                                                                        style="line-height: 2em; margin-top: 20px;"
+                                                                        v-if="info.DISCOUNT_NUM != 0">
+                                                                        <p>優惠卷編號 : {{info.DISCOUNT_NUM}}</p>
                                                                     </li>
                                                                 </ul>
                                                             </div>
@@ -270,7 +238,7 @@
                                                             <select v-model='info.ORDER_STATUS'
                                                                 :id="'status_' + info.ORDER_NO" @change='changeStatus'>
                                                                 <option value="2">待付款 </option>
-                                                                <option value="4">已付款 </option>
+                                                                <option value="3">已付款 </option>
                                                             </select>
                                                         </div>
                                                         <div :id="info.ORDER_NO + info.ORDER_STATUS"
@@ -316,121 +284,27 @@
                                                                         <p>備註 : {{info.PURCHASE_ADDITIONAL}}</p>
                                                                     </li>
                                                                     <li class="list-unstyled"
-                                                                        style="line-height: 2em; margin-top: 20px;">
-                                                                        <p>優惠卷編號 : {{info.DISCOUNT_NO}}</p>
+                                                                        style="line-height: 2em; margin-top: 20px;"
+                                                                        v-if="info.DISCOUNT_NUM != 0">
+                                                                        <p>優惠卷編號 : {{info.DISCOUNT_NUM}}</p>
                                                                     </li>
                                                                     <li class="list-unstyled"
                                                                         style="line-height: 2em; margin-top: 20px;">
                                                                         <p>總金額 : {{info.TOTAL_PRICE}}</p>
                                                                     </li>
-                                                                    <li class="list-unstyled"
-                                                                        style="line-height: 2em; margin-top: 20px;">
-                                                                        <p>支付方式 : {{info.ORDPAYWAY}}</p>
-                                                                    </li>
-                                                                    <li class="list-unstyled"
-                                                                        style="line-height: 2em; margin-top: 20px;">
-                                                                        <p>信用卡卡號 : {{info.PAYWAY_ID}}</p>
-                                                                    </li>
-                                                                    <li class="list-unstyled"
-                                                                        style="line-height: 2em; margin-top: 20px;">
-                                                                        <p>信用卡檢查碼 : {{info.PAYWAY_INSP}}</p>
-                                                                    </li>
+
                                                                 </ul>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="tab-pane fade" id="tab-default-4">
-                                                <div class="panel-group" id="accordion">
-                                                    <h4>取消</h4>
-                                                    <div class="panel panel-primary"
-                                                        v-for="info in info.filter(item=>item.ORDER_STATUS == 3)"
-                                                        :key="info.ORDER_NO">
-                                                        <div class="panel-heading"
-                                                            style="display: grid ; grid-template-columns: repeat(3,5fr) 1fr 1fr;">
-                                                            <h4 class="panel-title">
-                                                                <a data-toggle="collapse" data-parent="#accordion"
-                                                                    :href="'#' + info.ORDER_NO + info.ORDER_STATUS"
-                                                                    aria-expanded="false"
-                                                                    class="collapsed">{{info.ORDER_NO}}</a>
-                                                            </h4>
-                                                            <p style="margin: 0;">{{info.PROGRAM_NAME}}</p>
-                                                            <p style="margin: 0;">{{info.ORDER_AT}}</p>
-                                                        </div>
-                                                        <div :id="info.ORDER_NO + info.ORDER_STATUS"
-                                                            class="panel-collapse collapse" aria-expanded="false"
-                                                            style="height: 0px;">
-                                                            <div class="panel-body" style="margin: 0 6%; border: none;">
-                                                                <ul style=" overflow-x: auto;">
-                                                                    <li class="list-unstyled" style="margin-top: 20px;">
-                                                                        <p>會員編號 : {{info.MEM_NO}}</p>
-                                                                    </li>
-                                                                    <li class="list-unstyled" style="margin-top: 20px;">
-                                                                        <p>訂購人姓 : {{info.ORDER_L_NAME}}</p>
-                                                                    </li>
-                                                                    <li class="list-unstyled" style="margin-top: 20px;">
-                                                                        <p>訂購人名 : {{info.ORDER_F_NAME}}</p>
-                                                                    </li>
-                                                                    <li class="list-unstyled"
-                                                                        style="line-height: 2em; margin-top: 20px;">
-                                                                        <p>訂購人電話 : {{info.ORDER_PHONE}}</p>
-                                                                    </li>
-                                                                    <li class="list-unstyled"
-                                                                        style="line-height: 2em; margin-top: 20px;">
-                                                                        <p>訂購人e-mail : {{info.ORDER_EMAIL}}</p>
-                                                                    </li>
-                                                                    <li class="list-unstyled"
-                                                                        style="line-height: 2em; margin-top: 20px;">
-                                                                        <p>訂購人地址 : {{info.ORDER_ADD}}</p>
-                                                                    </li>
-                                                                    <li class="list-unstyled"
-                                                                        style="line-height: 2em; margin-top: 20px;">
-                                                                        <p>接送地點 : {{info.PICK_UP_PLACE}}</p>
-                                                                    </li>
-                                                                    <li class="list-unstyled"
-                                                                        style="line-height: 2em; margin-top: 20px;">
-                                                                        <p>車號 : {{info.CAR_TYPE}}</p>
-                                                                    </li>
-                                                                    <li class="list-unstyled"
-                                                                        style="line-height: 2em; margin-top: 20px;">
-                                                                        <p>人數 : {{info.NUMBER_OF_PEOPLE}}</p>
-                                                                    </li>
-                                                                    <li class="list-unstyled"
-                                                                        style="line-height: 2em; margin-top: 20px;">
-                                                                        <p>備註 : {{info.PURCHASE_ADDITIONAL}}</p>
-                                                                    </li>
-                                                                    <li class="list-unstyled"
-                                                                        style="line-height: 2em; margin-top: 20px;">
-                                                                        <p>優惠卷編號 : {{info.DISCOUNT_NO}}</p>
-                                                                    </li>
-                                                                    <li class="list-unstyled"
-                                                                        style="line-height: 2em; margin-top: 20px;">
-                                                                        <p>總金額 : {{info.TOTAL_PRICE}}</p>
-                                                                    </li>
-                                                                    <li class="list-unstyled"
-                                                                        style="line-height: 2em; margin-top: 20px;">
-                                                                        <p>支付方式 : {{info.ORDPAYWAY}}</p>
-                                                                    </li>
-                                                                    <li class="list-unstyled"
-                                                                        style="line-height: 2em; margin-top: 20px;">
-                                                                        <p>信用卡卡號 : {{info.PAYWAY_ID}}</p>
-                                                                    </li>
-                                                                    <li class="list-unstyled"
-                                                                        style="line-height: 2em; margin-top: 20px;">
-                                                                        <p>信用卡檢查碼 : {{info.PAYWAY_INSP}}</p>
-                                                                    </li>
-                                                                </ul>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
+
                                             <div class="tab-pane fade" id="tab-default-5">
                                                 <div class="panel-group" id="accordion">
                                                     <h4>已付款</h4>
                                                     <div class="panel panel-primary"
-                                                        v-for="info in info.filter(item=>item.ORDER_STATUS == 4)"
+                                                        v-for="info in info.filter(item=>item.ORDER_STATUS == 3)"
                                                         :key="info.ORDER_NO">
                                                         <div class="panel-heading"
                                                             style="display: grid ; grid-template-columns: repeat(3,5fr) 1fr 1fr;">
@@ -487,8 +361,9 @@
                                                                         <p>備註 : {{info.PURCHASE_ADDITIONAL}}</p>
                                                                     </li>
                                                                     <li class="list-unstyled"
-                                                                        style="line-height: 2em; margin-top: 20px;">
-                                                                        <p>優惠卷編號 : {{info.DISCOUNT_NO}}</p>
+                                                                        style="line-height: 2em; margin-top: 20px;"
+                                                                        v-if="info.DISCOUNT_NUM != 0">
+                                                                        <p>優惠卷編號 : {{info.DISCOUNT_NUM}}</p>
                                                                     </li>
                                                                     <li class="list-unstyled"
                                                                         style="line-height: 2em; margin-top: 20px;">
@@ -496,7 +371,7 @@
                                                                     </li>
                                                                     <li class="list-unstyled"
                                                                         style="line-height: 2em; margin-top: 20px;">
-                                                                        <p>支付方式 : {{info.ORDPAYWAY}}</p>
+                                                                        <p>支付方式 : {{info.PAYWAY}}</p>
                                                                     </li>
                                                                     <li class="list-unstyled"
                                                                         style="line-height: 2em; margin-top: 20px;">
