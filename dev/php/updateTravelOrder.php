@@ -11,5 +11,8 @@ $order->bindValue(":payway_insp", $_POST["payway_insp"]);
 $order->bindValue(":final_price", $final_price);
 
 $order->execute();
-
-header('Location:../admin/adminTravelOrder.html');
+if ($_POST['loc'] == 1) {
+    header('Location:../admin/adminTravelOrder.html');
+} else {
+    header('Location:../usercenterTravel.html');
+}

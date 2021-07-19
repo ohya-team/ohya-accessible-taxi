@@ -31,7 +31,6 @@
 }
 
 .order-itinerary-information {
-
   h3 {
     margin-top: $text-text;
   }
@@ -63,7 +62,9 @@
       }
 
       &:nth-child(3) {
-        margin: auto;
+        display    : flex;
+        align-items: center;
+        margin     : auto;
 
         @include rwd_each(desktop) {
           margin: 0;
@@ -74,11 +75,8 @@
         }
 
         .def {
-          display: inline;
-
-          @include rwd_each(desktop) {
-            display: block;
-          }
+          display: block;
+          margin : 0 .5rem 0 0;
         }
 
         #people_num {
@@ -87,18 +85,14 @@
           height    : 30px;
         }
 
-        #subtraction {
-          font-size: $font-h4;
-          background: none;
-          border: none;
-          text-align: center;
-        }
-  
+        #subtraction,
         #add {
-          font-size: $font-h4;
+          font-size : $font-h4;
           background: none;
-          border: none;
+          border    : none;
+          cursor    : pointer;
         }
+
       }
 
       &:nth-child(4) {

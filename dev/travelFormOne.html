@@ -89,7 +89,7 @@
             </div>
             <div class="item">
               <label class="def" for="people_num">人數</label>
-              <input type="button" id="subtraction" value="-"></input>
+              <input type="button" @click='subtraction' id="subtraction" value="-"></input>
               <input type="number" v-model='memNum' :max="thisProgramInfo[0].CAR_MAXNUM" id="people_num">
               <input type="button" @click='add' id="add" value="+"></input>
             </div>
