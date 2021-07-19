@@ -15,7 +15,7 @@
 
 <body class="animate-background">
 
-  <!-- @@include('layout/header.html') -->
+  @@include('layout/header.html')
 
   <section class="bookingInfo">
     <h4 class="topic">
@@ -34,6 +34,8 @@
        早上時段為 08:00 ~ 12:00，
        下午時段為 13:00 ~ 17:00，
        晚上時段為 18:00 ~ 22:00，
+       <br>
+       每時段服務費用為2000元。
     </p>
   </section>
 
@@ -93,16 +95,32 @@
             <tr>
               <th v-for="day in tableTh">
                 <span class="day">{{day.MobileWeek}}</span>
+                <span class="day">{{day.day}}</span>
               </th>
             </tr>
-              <td v-for="day in tableTh">{{day.day}}</td>
             <tr>
+              <td v-for="(i, index) in tableTh" :class="driverCountMorning[index]">
+                <div  
+                @click="btnBookingTime(tableTh[index].year,tableTh[index].month,tableTh[index].day,'BOOKING_MORNING')" :disabled="driverCountMorning[index]=='btn-bookingFull'">上午</div>
+              </td>
+            </tr>
+            <tr>
+              <td v-for="(i, index) in tableTh" :class="driverCountAfternoon[index]">
+                <div
+                @click="btnBookingTime(tableTh[index].year,tableTh[index].month,tableTh[index].day,'BOOKING_AFTERNOON')" :disabled="driverCountMorning[index]=='btn-bookingFull'">下午</div>
+              </td>
+            </tr>
+            <tr>
+              <td v-for="(i, index) in tableTh" :class="driverCountEvening[index]">
+                <div 
+                @click="btnBookingTime(tableTh[index].year,tableTh[index].month,tableTh[index].day,'BOOKING_EVENING')" :disabled="driverCountMorning[index]=='btn-bookingFull'">晚上</div>
+              </td>
             </tr>
           </table>
-    
-          <button class="btn-third">上午</button>
-          <button class="btn-third">下午</button>
-          <button class="btn-third">晚上</button>
+          <div class="calenderDes">
+            <span class="okay">可預約</span>
+            <span class="full">已額滿</span>
+          </div>
         </div>
       </div>
 
