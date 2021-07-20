@@ -59,7 +59,11 @@
       .item-group {
         background-color     : $gray-second;
         display              : grid;
-        grid-template-columns: 1fr 4fr 3fr;
+        grid-template-columns: repeat(1,1fr) 1fr;
+
+        @include rwd_each(tablet) {
+          grid-template-columns: repeat(4,5fr) 1fr;
+        }
 
         .stroke {
           margin      : 10px 0;
@@ -76,24 +80,28 @@
             margin-bottom: 0;
           }
         }
+        .location {
+          @extend %ta-center;
+          margin      : 10px 0;
 
-        .location-and-star {
-          display        : flex;
+          span {
+            margin-bottom: 0;
+            color        : $gray-first;
+          }
+
+          p {
+            margin-bottom: 0;
+          }
+        }
+        .star-wrap {
           justify-content: space-around;
           align-items    : center;
-          margin         : 10px 0;
+          margin         : 10px auto;
 
-          .location {
+          span {
             @extend %ta-center;
-
-            span {
-              margin-bottom: 0;
-              color        : $gray-first;
-            }
-
-            p {
-              margin-bottom: 0;
-            }
+            margin-bottom: 0;
+            color        : $gray-first;
           }
 
           .star {
@@ -108,16 +116,22 @@
         }
 
         .price {
-          display      : grid;
           align-content: center;
           margin       : 10px 0;
 
+
           span {
+            @extend %ta-center;
             margin-bottom: 0;
             color        : $gray-first;
+
+            @include rwd_each(tablet) {
+              margin: 0;
+            }
           }
 
           p {
+            @extend %ta-center;
             margin-bottom: 0;
             margin       : auto;
           }
