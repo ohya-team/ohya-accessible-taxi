@@ -10,9 +10,10 @@ let vm = new Vue({
     el: '#app',
     data: {
         bookingInfo: [],//php/booking.php
-        memInfo:null,//php/member.php
-        pilltext:['確認時間','確認車種','確認司機','訂單確認'],
-        stepLoading:[true,false,false,false],
+        memInfo: null,//php/member.php
+        discount: null,//php/getDiscount.php
+        pilltext: ['確認時間','確認車種','確認司機','訂單確認'],
+        stepLoading: [true,false,false,false],
         curMonth: new Date().getMonth(),
         curYear: new Date().getFullYear(),
         fulldays: [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31],
@@ -33,9 +34,11 @@ let vm = new Vue({
         finalInfo: [],//放步驟4用的
         startLoa: '',//步驟4 出發地
         endLoa: '',//步驟4用的 目的地
+        elseText: '',//步驟4用的 目的地
         hasCoopn: '無',//步驟4 優惠券使用
         finalAmount: 2000,//步驟4用的 時段金額
         finalDiscount: 0.9,//步驟4用的 折扣內容
+        showPopUpBox: false,
     },
     mounted() {
         //撈資料-步驟一到步驟三用
@@ -46,6 +49,10 @@ let vm = new Vue({
         axios.get('./php/member.php')
         .then(res => (this.memInfo = res.data))
         .catch(error => console.log(error))
+
+        axios.get('./php/getDiscount.php')
+            .then(res => (this.discount = res.data))
+            .catch(error => console.log(error))
 
         //處理閏年是29天
         this.curYear%4 ==0 ? this.fulldays[1]=29 : this.fulldays[1]=28
@@ -205,6 +212,33 @@ let vm = new Vue({
             this.stepLoading = [false, false, true, false];
             this.finalInfo.pop(this.finalInfo[3]);//重新點選時，資料清空
         },
+        submitForm(){
+            let self = this;
+
+            axios.post('./php/insertBookingForm.php',{
+                    b_startLoa:this.startLoa,
+                    b_endLoa:this.endLoa,
+                    b_else:this.elseText,
+                    b_date:this.finalInfo[0],
+                    b_timing:this.finalInfo[1],
+                    b_coopon:this.hasCoopn,
+                    b_memNo:this.memInfo[0].MEM_NO,
+                    b_driverNo:this.finalInfo[4],
+                    b_amount:this.finalAmount,
+                    b_total:this.finalAmount*this.finalDiscount,
+                })
+                .then(function (response) {
+                    self.showPopUpBox = true;
+                })
+                .catch(function (error) {
+                    console.log(error)
+                    alert('預約失敗')
+                })
+        },
+        closePopUpBox(){
+            document.getElementById("slotmachine-pop-up").classList.remove('slot-hide');
+            this.showPopUpBox = false;
+        },
     },
     computed: {
         issubmit(){
@@ -219,6 +253,11 @@ let vm = new Vue({
                 return {'color': '#EF5C5C'}
             }else{
                 return {'color': '#60EF66'}
+            }
+        },
+        memCoopon(){
+            if (this.discount != null && this.memInfo != null) {
+                return this.discount.filter(item => item.MEMBER_NO == this.memInfo[0].MEM_NO)
             }
         }
     }

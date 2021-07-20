@@ -67,7 +67,4 @@ let vm = new Vue({
             this.allisShow = true
         },
     },
-    computed: {
-        
-    },
 });

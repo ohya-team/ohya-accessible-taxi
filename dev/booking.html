@@ -174,7 +174,7 @@
           <li class="pills-main" @click="backToStep3">{{pilltext[2]}} <i class="far fa-check-circle" aria-hidden="true"></i></li>
           <li class="pills-main">{{pilltext[3]}}</li>
         </ul>
-        <form class="booking-form" form role="form" action="php/insertBookingForm.php" method="POST" >
+        <form class="booking-form" form role="form">
           <ul class="booking-info">
             <h3>請填寫訂單明細</h3>
             <input type="hidden" name="b_memNo" :value="memInfo[0].MEM_NO">
@@ -207,11 +207,12 @@
               <label class="def" for="b_coopon">使用優惠券</label>
               <select class="def" name="b_coopon">
                 <option :value="hasCoopn">{{hasCoopn}}</option>
+                <option v-for="coopon in memCoopon" :value="coopon.DISCOUNT_NUM">{{coopon.DISCOUNT_INFO}}</option>
               </select>
             </li>
             <li class="full">
               <label class="def" for="b_else">其他需求</label>
-              <textarea name="b_else" id="b_else" style="width: 100%; height: 100px;"></textarea>
+              <textarea v-model="elseText" name="b_else" id="b_else" style="width: 100%; height: 100px;"></textarea>
             </li>
           </ul>
 
@@ -246,25 +247,25 @@
               <input type="text" class="def dis" name="b_total" :value="finalAmount*finalDiscount" readonly>
             </li>
           </ul>
-          <input :type="issubmit" value="確認預約" class="btn-main" id="bookingSub">
+          <button class="btn-main" type="button" id="bookingSub" @click="submitForm">確認預約</button>
           <a href="index.html" class="btn-cancel">取消預約</a>
         </form>
 
-        <div class="pop-up-box">
+        <div :class="this.showPopUpBox == true ? 'pop-up-box active' : 'pop-up-box'">
           <div class="item">
             <div class="icon">
               <i class="far fa-check-circle" aria-hidden="true"></i>
             </div>
             <h2>預約完成</h2>
-            <button class="btn-cancel" id="goGame">確定</button>
+            <button class="btn-main" @click='closePopUpBox' type="submit">確定</button>
           </div>
-        </div>
+        </div>       
       </div>
     </div>
   </div>
   
   @@include('layout/footer.html')
-  <!-- @@include('layout/slotmachine.html') -->
+  @@include('./layout/slotmachine.html')
 
   <script src="js/booking2.js"></script>
 
