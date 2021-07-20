@@ -206,7 +206,7 @@
             <li class="sbs">
               <label class="def" for="b_coopon">使用優惠券</label>
               <select class="def" name="b_coopon">
-                <option value="b_coopon">無</option>
+                <option :value="hasCoopn">{{hasCoopn}}</option>
               </select>
             </li>
             <li class="full">
@@ -264,9 +264,8 @@
   </div>
   
   @@include('layout/footer.html')
-  <!-- @@include('layout/slotmachine2.html') -->
-  
-  <!-- <script src="js/booking.js"></script> -->
+  <!-- @@include('layout/slotmachine.html') -->
+
   <script src="js/booking2.js"></script>
 
 </body>

@@ -13,16 +13,16 @@ let vm = new Vue({
         memInfo:null,//php/member.php
         pilltext:['確認時間','確認車種','確認司機','訂單確認'],
         stepLoading:[true,false,false,false],
-        curMonth: new Date().getMonth(),//index: 6+1月
-        curYear: new Date().getFullYear(),//2021年
+        curMonth: new Date().getMonth(),
+        curYear: new Date().getFullYear(),
         fulldays: [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31],
         leftDay: new Date().getDate()+7,
         rightDay: new Date().getDate()+13,
         leftMonth: '',
         rightMonth: '',
         curweekDay: new Date().getDay(),
-        deskCurweekDays: ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'],//桌機抓中文星期用的
-        MobileCurweekDays: ['日', '一', '二', '三', '四', '五', '六'],//手機抓中文星期用的
+        deskCurweekDays: ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'],
+        MobileCurweekDays: ['日', '一', '二', '三', '四', '五', '六'],
         tableTh: [],//放步驟1用的
         driverCountMorning: [],//每日的早上時段司機可預約人數有幾位
         driverCountAfternoon: [],//每日的下午時段司機可預約人數有幾位
@@ -31,10 +31,11 @@ let vm = new Vue({
         carInfo: [],//放步驟2用的
         driverInfo: [],//放步驟3用的
         finalInfo: [],//放步驟4用的
-        finalAmount: 2000,//放步驟4用的
-        finalDiscount: 0.9,//放步驟4用的
-        startLoa: '',//放步驟4用的
-        endLoa: '',//放步驟4用的
+        startLoa: '',//步驟4 出發地
+        endLoa: '',//步驟4用的 目的地
+        hasCoopn: '無',//步驟4 優惠券使用
+        finalAmount: 2000,//步驟4用的 時段金額
+        finalDiscount: 0.9,//步驟4用的 折扣內容
     },
     mounted() {
         //撈資料-步驟一到步驟三用

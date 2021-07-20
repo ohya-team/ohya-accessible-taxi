@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>一般預約訂單</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="./css/bootstrap.css" rel="stylesheet">
+
+    <!-- MetisMenu CSS -->
+    <link href="./css/metisMenuMin.css" rel="stylesheet">
+
+    <!-- Timeline CSS -->
+    <link href="./css/timeline.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="./css/startmin.css" rel="stylesheet">
+
+    <!-- Morris Charts CSS -->
+    <link href="./css/morris.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+</head>
+
+<body>
+
+    <div id="wrapper">
+        @@include('layout/usercenterSidebar.html')
+        <!-- Page Content -->
+        <div id="page-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h2 class="page-header">預約訂單</h2>
+                    </div>
+                </div>
+    
+            <div id="app">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <form role="form">
+                            <div class="form-group">
+                                <label>訂單編號</label>
+                                <input class="form-control" v-model="checkFormNo">
+                            </div>
+                            <button type="button" class="btn btn-default" @click="showAll">全部</button>
+                            <button type="button" class="btn btn-success" @click="findForm">查詢</button>
+                        </form>
+                    </div>
+                </div>
+                  <br>
+                <div class="row" v-for="(info, index) in bookingFormInfo">
+                    <div class="col-lg-12">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                訂單編號：{{info.ORDER_NO}}
+                            </div>
+                            <!-- /.panel-heading -->
+                            <div class="panel-body">
+                                <form role="form">
+                                    <div class="col-lg-12">
+                                        <div class="form-group">
+                                            <label>下訂時間</label>
+                                            <p class="form-control-static">{{info.ORDER_DATE}}</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label>客戶姓名：</label>
+                                            <p class="form-control-static">{{info.MEM_LASTNAME+info.MEM_FIRSTNAME}}</p>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>客戶手機：</label>
+                                            <p class="form-control-static">{{info.MEM_PHONE}}</p>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>起始地點：</label>
+                                            <p class="form-control-static">{{info.LOCATION_START}}</p>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>前往目的地：</label>
+                                            <p class="form-control-static">{{info.LOCATION_END}}</p>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>預約司機：</label>
+                                            <p class="form-control-static">{{info.DRIVER_NAME}}</p>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>司機聯繫電話：</label>
+                                            <p class="form-control-static">{{info.DRIVER_PHONE}}</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label>訂單金額：</label>
+                                            <p class="form-control-static">{{info.ORDER_PRICE}}</p>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>使用優惠券：</label>
+                                            <p class="form-control-static">9折</p>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>預約時段：</label>
+                                            <p class="form-control-static">{{info.DRIVING_DATE}} {{timing[info.DRIVING_TIMING-1]}}</p>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>預約車種：</label>
+                                            <p class="form-control-static">{{info.CAR_TYPE}}</p>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>預約車牌號：</label>
+                                            <p class="form-control-static">{{info.TAXI_LICENCENO}}</p>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>其他需求：</label>
+                                            <p class="form-control-static">{{info.NEEDING_ELSE}}</p>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <!-- /.panel-body -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="./js/bootstrapMin.js"></script>
+
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="./js/metisMenuMin.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="./js/startmin.js"></script>
+    <!-- <script src="./js/member.js"></script> -->
+    <script src="./js/usercenterBooking.js"></script>
+</body>
+
+</html>

@@ -7,6 +7,7 @@ $b_endLoa = $_POST["b_endLoa"];
 $b_else = $_POST["b_else"];
 $b_date = $_POST["b_date"];
 $b_timing = $_POST["b_timing"];
+$b_coopon = $_POST["b_coopon"];
 
 switch($b_timing){
     case '上午':
@@ -20,7 +21,11 @@ switch($b_timing){
         break;
 };
 
-$sql = "INSERT INTO `booking_form`(`MEM_NO`, `DRIVER_NO`, `DISCOUNT_NO`, `ORDER_DATE`, `DRIVING_DATE`, `DRIVING_TIMING`, `TIMING_PRICE`, `ORDER_PRICE`, `ORDER_STATUS`, `LOCATION_START`, `LOCATION_END`, `NEEDING_ELSE`) VALUES (:b_memNo,:b_driverNo,0,curdate(),'$b_date',$b_timing,:b_amount,:b_total,0,'$b_startLoa','$b_endLoa','$b_else');";
+if($b_coopon == '無'){
+    $b_coopon = 0;
+}
+
+$sql = "INSERT INTO `booking_form`(`MEM_NO`, `DRIVER_NO`, `DISCOUNT_NO`, `ORDER_DATE`, `DRIVING_DATE`, `DRIVING_TIMING`, `TIMING_PRICE`, `ORDER_PRICE`, `ORDER_STATUS`, `LOCATION_START`, `LOCATION_END`, `NEEDING_ELSE`) VALUES (:b_memNo,:b_driverNo,$b_coopon,now(),'$b_date',$b_timing,:b_amount,:b_total,0,'$b_startLoa','$b_endLoa','$b_else');";
 $booking = $pdo->prepare($sql);
 $booking->bindValue("b_memNo", $_POST["b_memNo"]);
 $booking->bindValue("b_driverNo", $_POST["b_driverNo"]);
@@ -54,5 +59,5 @@ $booking = $pdo->prepare($sql);
 $booking->bindValue("b_driverNo", $_POST["b_driverNo"]);
 $booking->execute();
 
-// header('Location:./booking.html');
+// header('Location:./layout/slotmachine.html');
 ?>
