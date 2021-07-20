@@ -24,7 +24,7 @@
 
     <!-- Morris Charts CSS -->
     <link href="./css/morris.css" rel="stylesheet">
-
+    <link rel="stylesheet" href="./css/usercentertravel.css">
     <!-- Custom Fonts -->
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
         integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
@@ -54,9 +54,8 @@
                                     <div class="panel-body">
                                         <div class="panel-group" id="accordion">
                                             <div class="panel panel-primary" v-for="info in test" :key="info.ORDER_NO">
-                                                <div class="panel-heading"
-                                                    style="display: grid ; grid-template-columns: repeat(2,5fr) 1fr;">
-                                                    <h4 class="panel-title">
+                                                <div class="panel-heading">
+                                                    <h4 class="panel-title" style="font-weight: 600;">
                                                         <a data-toggle="collapse" data-parent="#accordion"
                                                             :href="'#' + info.ORDER_NO" aria-expanded="false"
                                                             class="collapsed">{{info.PROGRAM_NAME}}</a>

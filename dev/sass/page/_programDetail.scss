@@ -59,15 +59,15 @@
       .item-group {
         background-color     : $gray-second;
         display              : grid;
-        grid-template-columns: repeat(1,1fr) 1fr;
+        grid-template-columns: repeat(1, 1fr) 1fr;
 
         @include rwd_each(tablet) {
-          grid-template-columns: repeat(4,5fr) 1fr;
+          grid-template-columns: repeat(4, 5fr) 1fr;
         }
 
         .stroke {
-          margin      : 10px 0;
-          border-right: 2px $gray-first dotted;
+          margin: 10px 0;
+
 
           span {
             margin-bottom: 0;
@@ -80,9 +80,11 @@
             margin-bottom: 0;
           }
         }
+
         .location {
           @extend %ta-center;
-          margin      : 10px 0;
+          margin     : 10px 0;
+          border-left: 2px $gray-first dotted;
 
           span {
             margin-bottom: 0;
@@ -93,6 +95,7 @@
             margin-bottom: 0;
           }
         }
+
         .star-wrap {
           justify-content: space-around;
           align-items    : center;
@@ -118,7 +121,11 @@
         .price {
           align-content: center;
           margin       : 10px 0;
+          border-left  : 2px $gray-first dotted;
 
+          @include rwd_each(desktop) {
+            border-left: none;
+          }
 
           span {
             @extend %ta-center;
@@ -170,9 +177,10 @@
 
         .text {
           white-space: pre-line;
-          text-align: left;
+          text-align : left;
           line-height: 1.5em;
         }
+
         button {
           margin: auto;
         }
@@ -247,9 +255,12 @@
         grid-area: n;
 
         @include rwd_each(tablet) {
+          margin-bottom: 30px;
           width: 80%;
         }
-
+        @include rwd_each(desktop) {
+          margin-bottom:0px;
+        }
         .spot-title {
           text-align: center;
 
@@ -257,9 +268,10 @@
             grid-template-columns: 5fr 3fr;
           }
         }
+
         .spot-time {
           line-height: 2.5;
-          color: $blue;
+          color      : $blue;
         }
       }
 
@@ -276,7 +288,13 @@
           "s t";
 
         @include rwd_each(tablet) {
-          width: 80%;
+          width        : 80%;
+          margin-bottom: auto;
+        }
+
+        @include rwd_each(desktop) {
+          margin-bottom: $text-text;
+
         }
 
         .img-f {
