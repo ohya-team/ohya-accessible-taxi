@@ -35,13 +35,13 @@
                     <ul class="word-menu">
                         <li><span> 排序</span> </li>
                         <li :class='this.type == "精選評分" ? "active": "" ' @click='selectType'><span> 精選評分</span> </li>
-                        <li :class='this.type == this.priceSort ? "active down": "down" '><span> {{priceSort}}</span>
+                        <li :class='this.type == this.priceSort ? "active ": "" '><span> {{priceSort}}</span>
                             <ul>
                                 <li @click='selectPriceSort'>價格由高到低</li>
                                 <li @click='selectPriceSort'>價格由低到高</li>
                             </ul>
                         </li>
-                        <li :class='this.type == this.personSort ? "active down": "down" '><span> {{personSort}}</span>
+                        <li :class='this.type == this.personSort ? "active ": "" '><span> {{personSort}}</span>
                             <ul>
                                 <li @click='selectPersonSort'>人數由少到多</li>
                                 <li @click='selectPersonSort'>人數由多到少</li>
