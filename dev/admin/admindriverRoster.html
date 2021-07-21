@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -23,8 +24,9 @@
 
   <!-- Custom Fonts -->
   <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
-      integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
 </head>
+
 <body>
   <div id="wrapper">
     @@include('../layout/adminSideBar.html')
@@ -33,7 +35,7 @@
       <div class="container-fluid">
         <div class="row">
           <div class="col-lg-12">
-              <h2 class="page-header">司機個人排班表</h2>
+            <h2 class="page-header">司機個人排班表</h2>
           </div>
         </div>
 
@@ -58,32 +60,38 @@
                       <td>{{driverInfo.BOOKING_DATE}}</td>
                       <td>早上</td>
                       <td>
-                      <select class="form-control" :name="driverInfo.SCH_NO+'_0'">
-                          <option :value="leaveStatus1.status">{{leaveStatus1.info}}</option>
-                          <option :value="leaveStatus0.status">{{leaveStatus0.info}}</option>
-                      </select>
+                        <select class="form-control" :name="driverInfo.SCH_NO+'_0'">
+                          <option :value="driverInfo.BOOKING_MORNING == 1? 1 :0">{{driverInfo.BOOKING_MORNING == 1? "上班"
+                            :"休假"}}</option>
+                          <option :value="driverInfo.BOOKING_MORNING == 1? 0 :1">{{driverInfo.BOOKING_MORNING == 1? "休假"
+                            :"上班"}}</option>
+                        </select>
                       </td>
-                  </tr>
-                  <tr>
+                    </tr>
+                    <tr>
                       <td>{{driverInfo.BOOKING_DATE}}</td>
                       <td>下午</td>
                       <td>
-                      <select class="form-control" :name="driverInfo.SCH_NO+'_1'">
-                          <option :value="leaveStatus1.status">{{leaveStatus1.info}}</option>
-                          <option :value="leaveStatus0.status">{{leaveStatus0.info}}</option>
-                      </select>
+                        <select class="form-control" :name="driverInfo.SCH_NO+'_1'">
+                          <option :value="driverInfo.BOOKING_AFTERNOON == 1? 1 :0">{{driverInfo.BOOKING_AFTERNOON == 1? "上班"
+                            :"休假"}}</option>
+                          <option :value="driverInfo.BOOKING_AFTERNOON == 1? 0 :1">{{driverInfo.BOOKING_AFTERNOON == 1? "休假"
+                            :"上班"}}</option>
+                        </select>
                       </td>
-                  </tr>
-                  <tr>
+                    </tr>
+                    <tr>
                       <td>{{driverInfo.BOOKING_DATE}}</td>
                       <td>晚上</td>
                       <td>
-                      <select class="form-control" :name="driverInfo.SCH_NO+'_2'">
-                          <option :value="leaveStatus1.status">{{leaveStatus1.info}}</option>
-                          <option :value="leaveStatus0.status">{{leaveStatus0.info}}</option>
-                      </select>
+                        <select class="form-control" :name="driverInfo.SCH_NO+'_2'">
+                          <option :value="driverInfo.BOOKING_EVENING == 1? 1 :0">{{driverInfo.BOOKING_EVENING == 1? "上班"
+                            :"休假"}}</option>
+                          <option :value="driverInfo.BOOKING_EVENING == 1? 0 :1">{{driverInfo.BOOKING_EVENING == 1? "休假"
+                            :"上班"}}</option>
+                        </select>
                       </td>
-                  </tr>
+                    </tr>
                   </tbody>
                 </table>
                 <button type="submit" class="btn btn-success">完成</button>
@@ -94,17 +102,18 @@
         </div>
         <br>
       </div>
-  </div>
+    </div>
 
 
-<!-- Bootstrap Core JavaScript -->
-<script src="../js/bootstrapMin.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="../js/bootstrapMin.js"></script>
 
-<!-- Metis Menu Plugin JavaScript -->
-<script src="../js/metisMenuMin.js"></script>
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="../js/metisMenuMin.js"></script>
 
-<!-- Custom Theme JavaScript -->
-<script src="../js/startmin.js"></script>
-<script src="../js/adminDriverRoster.js"></script>
+    <!-- Custom Theme JavaScript -->
+    <script src="../js/startmin.js"></script>
+    <script src="../js/adminDriverRoster.js"></script>
 </body>
+
 </html>
