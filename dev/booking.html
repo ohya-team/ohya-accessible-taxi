@@ -240,11 +240,11 @@
             </li>
             <li class="full">
               <label class="def" for="b_discount">優惠券折扣金額</label>
-              <input type="text" class="def dis" name="b_discount" :value="Math.round(finalAmount*(1-finalDiscount))" readonly>
+              <input type="text" class="def dis" name="b_discount" :value="finalDiscount" readonly>
             </li>
             <li class="full">
               <label class="def" for="b_total">實付金額</label>
-              <input type="text" class="def dis" name="b_total" :value="finalAmount*finalDiscount" readonly>
+              <input type="text" class="def dis" name="b_total" :value="finalAmount-finalDiscount" readonly>
             </li>
           </ul>
           <button class="btn-main" type="button" id="bookingSub" @click="submitForm">確認預約</button>

@@ -37,7 +37,7 @@ let vm = new Vue({
         elseText: '',//步驟4用的 目的地
         hasCoopn: '無',//步驟4 優惠券使用
         finalAmount: 2000,//步驟4用的 時段金額
-        finalDiscount: 0.9,//步驟4用的 折扣內容
+        finalDiscount: 0,//步驟4用的 折扣內容
         showPopUpBox: false,
     },
     mounted() {
@@ -221,7 +221,7 @@ let vm = new Vue({
                     b_else:this.elseText,
                     b_date:this.finalInfo[0],
                     b_timing:this.finalInfo[1],
-                    b_coopon:this.hasCoopn,
+                    b_coopon:document.getElementsByName('b_coopon')[0].value,
                     b_memNo:this.memInfo[0].MEM_NO,
                     b_driverNo:this.finalInfo[4],
                     b_amount:this.finalAmount,

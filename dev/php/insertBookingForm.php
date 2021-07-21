@@ -62,6 +62,6 @@ $booking->execute();
 //修改優惠券使用狀態
 $sql = "UPDATE `discount` SET `DISCOUNT_STATUS`=1 WHERE discount_num = :discount_num";
 $discount = $pdo->prepare($sql);
-$discount->bindValue(":discount_num", $data['discount']);
+$discount->bindValue(":discount_num", $data['b_coopon']);
 $discount->execute();
 ?>
