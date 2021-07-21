@@ -205,9 +205,9 @@
             </li>
             <li class="sbs">
               <label class="def" for="b_coopon">使用優惠券</label>
-              <select class="def" name="b_coopon">
-                <option :value="hasCoopn">{{hasCoopn}}</option>
-                <option v-for="coopon in memCoopon" :value="coopon.DISCOUNT_NUM">{{coopon.DISCOUNT_INFO}}</option>
+              <select class="def" name="b_coopon" v-model="hasCoopn">
+                <option>無</option>
+                <option v-for="coopon in memCoopon">{{coopon.DISCOUNT_NUM}}</option>
               </select>
             </li>
             <li class="full">
