@@ -245,13 +245,6 @@ let vm = new Vue({
         },
     },
     computed: {
-        isNoText(){
-            if(this.issubmit=='button'){
-                return {'color': '#EF5C5C'}
-            }else{
-                return {'color': '#60EF66'}
-            }
-        },
         memCoopon(){
             if (this.discount != null && this.memInfo != null) {
                 return this.discount.filter(item => item.MEMBER_NO == this.memInfo[0].MEM_NO)
