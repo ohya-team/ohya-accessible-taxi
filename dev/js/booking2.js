@@ -215,25 +215,29 @@ let vm = new Vue({
         submitForm(){
             let self = this;
 
-            axios.post('./php/insertBookingForm.php',{
-                    b_startLoa:this.startLoa,
-                    b_endLoa:this.endLoa,
-                    b_else:this.elseText,
-                    b_date:this.finalInfo[0],
-                    b_timing:this.finalInfo[1],
-                    b_coopon:document.getElementsByName('b_coopon')[0].value,
-                    b_memNo:this.memInfo[0].MEM_NO,
-                    b_driverNo:this.finalInfo[4],
-                    b_amount:this.finalAmount,
-                    b_total:this.finalAmount*this.finalDiscount,
-                })
-                .then(function (response) {
-                    self.showPopUpBox = true;
-                })
-                .catch(function (error) {
-                    console.log(error)
-                    alert('預約失敗')
-                })
+            if(this.startLoa !== '' && this.endLoa !== ''){
+                axios.post('./php/insertBookingForm.php',{
+                        b_startLoa:this.startLoa,
+                        b_endLoa:this.endLoa,
+                        b_else:this.elseText,
+                        b_date:this.finalInfo[0],
+                        b_timing:this.finalInfo[1],
+                        b_coopon:document.getElementsByName('b_coopon')[0].value,
+                        b_memNo:this.memInfo[0].MEM_NO,
+                        b_driverNo:this.finalInfo[4],
+                        b_amount:this.finalAmount,
+                        b_total:this.finalAmount*this.finalDiscount,
+                    })
+                    .then(function (response) {
+                        self.showPopUpBox = true;
+                    })
+                    .catch(function (error) {
+                        console.log(error)
+                        alert('預約失敗')
+                    })
+            }else{
+                self.showPopUpBox = false;
+            }
         },
         closePopUpBox(){
             document.getElementById("slotmachine-pop-up").classList.remove('slot-hide');
@@ -241,13 +245,6 @@ let vm = new Vue({
         },
     },
     computed: {
-        issubmit(){
-            if(this.startLoa !== '' && this.endLoa !== ''){
-                return 'submit'
-            }else{
-                return 'button'
-            }
-        },
         isNoText(){
             if(this.issubmit=='button'){
                 return {'color': '#EF5C5C'}
@@ -262,12 +259,19 @@ let vm = new Vue({
         },
         finalDiscount(){
             for(let coopon in this.memCoopon){
-                if(coopon.DISCOUNT_NUM == document.getElementsByName("b_coopon")[0].value){
+                if(coopon.DISCOUNT_NUM == this.hasCoopn){
                     return this.finalAmount*(1-coopon.DISCOUNT_PER)
                 }else{
                     return 0
                 }
             }
+        }
+    },
+    watch: {
+        hasCoopn:{
+            handler(newValue,oldValue){
+                console.log(`num: ${oldValue} --> ${newValue}`);
+            },
         }
     }
 });
