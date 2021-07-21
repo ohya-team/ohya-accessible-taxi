@@ -3,9 +3,9 @@ ob_start();
 session_start();
 try{
 	require_once("../connect_cfd101g2.php");
-	$sql = "INSERT INTO `MEMBER`( `MEM_LASTNAME`, `MEM_FIRSTNAME`, `MEM_ACCOUNT`, `MEM_PASSWORD`, `MEM_STATUS`) VALUES (:mem_lastname,:mem_firstname,:mem_account,:mem_password,1)";
+	$sql = "INSERT INTO `MEMBER`( `MEM_LASTNAME`, `MEM_FIRSTNAME`, `MEM_ACCOUNT`, `MEM_PASSWORD`,`MEM_PHONE`, `MEM_STATUS`) VALUES (:mem_lastname,:mem_firstname,:mem_account,:mem_password,:mem_phone,1)";
 	$member = $pdo->prepare($sql);
-  $memArr = ['mem_lastname', 'mem_firstname', 'mem_account', 'mem_password'];
+  $memArr = ['mem_lastname', 'mem_firstname', 'mem_account', 'mem_password','mem_phone'];
   foreach ($memArr as  $value) {
     $member->bindValue(":".$value,$_POST[$value]);
   }
@@ -16,6 +16,7 @@ try{
   $_SESSION["mem_lastname"] = $_POST["mem_lastname"];
   $_SESSION["mem_firstname"] = $_POST["mem_firstname"];
   $_SESSION["mem_password"] = $_POST["mem_password"];
+  $_SESSION["mem_phone"] = $_POST["mem_phone"];
 
 }catch(PDOException $e){
 	echo $e->getMessage();

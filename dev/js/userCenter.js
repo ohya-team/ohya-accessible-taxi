@@ -25,7 +25,7 @@ let vue = new Vue({
         }
     },
     mounted() {
-        axios.post('../dist/php/member.php')
+        axios.post('./php/member.php')
             .then((res) => {
                 this.memInfo = res.data;
                 this.image = res.data[0].MEM_PIC;
