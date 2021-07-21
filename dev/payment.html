@@ -14,109 +14,112 @@
 <body class="animate-background">
   @@include('layout/header.html')
   <div id="app">
-    <form action="./.html">
-      <section class="program-information">
-        <div class="container">
-          <h3>付款單</h3>
-          <div class="box">
-            <div class="program-img">
-              <img :src="order[0].PROGRAM_PIC" alt="">
-            </div>
-            <p>旅遊方案：{{order[0].PROGRAM_NAME}}</p>
-            <p>人數：{{order[0].CAR_MAXNUM}}</p>
+    <section class="program-information">
+      <div class="container">
+        <h3>付款單</h3>
+        <div class="box">
+          <div class="program-img">
+            <img :src="order[0].PROGRAM_PIC" alt="">
           </div>
+          <p>旅遊方案：{{order[0].PROGRAM_NAME}}</p>
+          <p>人數：{{order[0].CAR_MAXNUM}}</p>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <section class="data-confirmation">
-        <div class="container">
-          <div class="title">
-            <h3>確認細項</h3>
-          </div>
-          <div class="box">
-            <ul>
-              <li>
-                <p>訂購人姓：{{order[0].ORDER_L_NAME}}</p>
-              </li>
-              <li>
-                <p>訂購人名：{{order[0].ORDER_F_NAME}}</p>
-              </li>
-              <li>
-                <p>訂購人電話：{{order[0].ORDER_PHONE}}</p>
-              </li>
-              <li>
-                <p>訂購人e-mail：{{order[0].ORDER_EMAIL}}</p>
-              </li>
-              <li>
-                <p>訂購人地址：{{order[0].ORDER_ADD}}</p>
-              </li>
-              <li>
-                <p>接送地點：{{order[0].PICK_UP_PLACE}}</p>
-              </li>
-              <li>
-                <p>車號：{{order[0].CAR_TYPE}}</p>
-              </li>
-              <li>
-                <p>人數：{{order[0].NUMBER_OF_PEOPLE}}</p>
-              </li>
-              <li>
-                <p>備註：{{order[0].PURCHASE_ADDITIONAL}}</p>
-              </li>
-              <li>
-                <p>總金額：{{order[0].TOTAL_PRICE}}</p>
-              </li>
-              <li>
-                <p>優惠券編碼：{{order[0].DISCOUNT_NUM}}</p>
-              </li>
-              <li>
-                <p>優惠券折抵金額：{{order[0].TOTAL_PRICE - order[0].FINAL_PRICE}}</p>
-              </li>
-              <li>
-                <p>應付金額：{{order[0].FINAL_PRICE}}</p>
-              </li>
-            </ul>
-          </div>
+    <section class="data-confirmation">
+      <div class="container">
+        <div class="title">
+          <h3>確認細項</h3>
         </div>
-      </section>
-
-      <section class="payment-methods">
-        <div class="container">
-          <div class="title">
-            <h3>支付方式</h3>
-          </div>
-          <div class="box">
-            <label class="def" for="payway"></label>
-            <select name="payway" id="payway" v-model='payType' class="def">
-              <option v-for='item in payTypeList' :value="item">{{item}}</option>
-            </select>
-            
-            <div class="item" v-if='payType == "信用卡"'>
-              <div class="card-box">
-                <label class="def" for="card_id">信用卡卡號</label>
-                <input class="def" type="text" id="card_id">
-              </div>
-              <div class="card-box">
-                <label class="def" for="card_insp">檢查碼</label>
-                <input class="def" type="text" id="card_insp">
-              </div>
-            </div>
-            <div class="item" v-else>
-              <div class="card-box">
-                <label class="def" for="card_id">ATM卡號</label>
-                <input class="def" type="text" id="card_id">
-              </div>
-              <div class="card-box">
-                <label class="def" for="card_insp">檢查碼</label>
-                <input class="def" type="text" id="card_insp">
-              </div>
-            </div>
-          </div>
-          <button  class="btn-main" type="submit">完成付款</button>
+        <div class="box">
+          <ul>
+            <li>
+              <p>訂購人姓：{{order[0].ORDER_L_NAME}}</p>
+            </li>
+            <li>
+              <p>訂購人名：{{order[0].ORDER_F_NAME}}</p>
+            </li>
+            <li>
+              <p>訂購人電話：{{order[0].ORDER_PHONE}}</p>
+            </li>
+            <li>
+              <p>訂購人e-mail：{{order[0].ORDER_EMAIL}}</p>
+            </li>
+            <li>
+              <p>訂購人地址：{{order[0].ORDER_ADD}}</p>
+            </li>
+            <li>
+              <p>接送地點：{{order[0].PICK_UP_PLACE}}</p>
+            </li>
+            <li>
+              <p>車號：{{order[0].CAR_TYPE}}</p>
+            </li>
+            <li>
+              <p>人數：{{order[0].NUMBER_OF_PEOPLE}}</p>
+            </li>
+            <li>
+              <p>備註：{{order[0].PURCHASE_ADDITIONAL}}</p>
+            </li>
+            <li>
+              <p>總金額：{{order[0].TOTAL_PRICE}}</p>
+            </li>
+            <li>
+              <p>優惠券編碼：{{order[0].DISCOUNT_NUM}}</p>
+            </li>
+            <li>
+              <p>優惠券折抵金額：{{order[0].TOTAL_PRICE - order[0].FINAL_PRICE}}</p>
+            </li>
+            <li>
+              <p>應付金額：{{order[0].FINAL_PRICE}}</p>
+            </li>
+          </ul>
         </div>
-  </div>
-  </section>
+      </div>
+    </section>
 
-  </form>
+    <section class="payment-methods">
+      <div class="container">
+        <div class="title">
+          <h3>支付方式</h3>
+        </div>
+          <form action="./php/updateTravelOrder.php" method="POST">
+            <div class="box">
+              <label class="def" for="payway">信用卡/ATM</label>
+              <select name="ordpayway" id="payway" v-model='payType' class="def">
+                <option v-for='item in payTypeList' :value="item">{{item}}</option>
+              </select>
+
+              <div class="item" v-if='payType == "信用卡"'>
+                <div class="card-box">
+                  <label class="def" for="payway_id">信用卡卡號</label>
+                  <input class="def" type="text" id="payway_id" name="payway_id">
+                </div>
+                <div class="card-box">
+                  <label class="def" for="payway_insp">檢查碼</label>
+                  <input class="def" type="text" id="payway_insp" name="payway_insp">
+                </div>
+              </div>
+              <div class="item" v-else>
+                <div class="card-box">
+                  <label class="def" for="payway_id">ATM卡號</label>
+                  <input class="def" type="text" id="payway_id" name="payway_id">
+                </div>
+                <div class="card-box">
+                  <label class="def" for="payway_insp">檢查碼</label>
+                  <input class="def" type="text" id="payway_insp" name="payway_insp">
+                </div>
+              </div>
+              <input type="hidden" :value="order[0].ORDER_NO" name="order_no">
+              <input type="hidden" :value="order[0].TOTAL_PRICE" name="total_price">
+              <input type="hidden" :value="order[0].DISCOUNT_PER" name="discount_per">
+            </div>
+            <div class="btn-p">
+              <button class="btn-main" type="submit">完成付款</button>
+            </div>
+          </form>
+      </div>
+    </section>
   </div>
   @@include('layout/footer.html')
   <script src="./js/payment.js"></script>

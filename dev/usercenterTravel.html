@@ -2,32 +2,32 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="">
-  <meta name="author" content="">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-  <title>旅遊訂單</title>
+    <title>旅遊訂單</title>
 
-  <!-- Bootstrap Core CSS -->
-  <link href="./css/bootstrap.css" rel="stylesheet">
+    <!-- Bootstrap Core CSS -->
+    <link href="./css/bootstrap.css" rel="stylesheet">
 
-  <!-- MetisMenu CSS -->
-  <link href="./css/metisMenuMin.css" rel="stylesheet">
+    <!-- MetisMenu CSS -->
+    <link href="./css/metisMenuMin.css" rel="stylesheet">
 
-  <!-- Timeline CSS -->
-  <link href="./css/timeline.css" rel="stylesheet">
+    <!-- Timeline CSS -->
+    <link href="./css/timeline.css" rel="stylesheet">
 
-  <!-- Custom CSS -->
-  <link href="./css/startmin.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="./css/startmin.css" rel="stylesheet">
 
-  <!-- Morris Charts CSS -->
-  <link href="./css/morris.css" rel="stylesheet">
-
-  <!-- Custom Fonts -->
-  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
-    integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <!-- Morris Charts CSS -->
+    <link href="./css/morris.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/usercentertravel.css">
+    <!-- Custom Fonts -->
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
 </head>
 
 <body>
@@ -54,17 +54,18 @@
                                     <div class="panel-body">
                                         <div class="panel-group" id="accordion">
                                             <div class="panel panel-primary" v-for="info in test" :key="info.ORDER_NO">
-                                                <div class="panel-heading"
-                                                    style="display: grid ; grid-template-columns: repeat(2,5fr) 1fr;">
-                                                    <h4 class="panel-title">
+                                                <div class="panel-heading">
+                                                    <h4 class="panel-title" style="font-weight: 600;">
                                                         <a data-toggle="collapse" data-parent="#accordion"
                                                             :href="'#' + info.ORDER_NO" aria-expanded="false"
                                                             class="collapsed">{{info.PROGRAM_NAME}}</a>
                                                     </h4>
                                                     <p style="margin: 0;">{{info.ORDER_AT}}</p>
-                                                    <p style="margin: 0; justify-content:flex-end">{{trans[info.ORDER_STATUS]}}</p>
+                                                    <p style="margin: 0; justify-content:flex-end">
+                                                        {{trans[info.ORDER_STATUS]}}</p>
                                                     <div v-if="info.ORDER_STATUS == 2">
-                                                        <a :href="'payment.html?order=' + info.ORDER_NO" style="color: blue;">付款單</a>
+                                                        <a :href="'payment.html?order=' + info.ORDER_NO"
+                                                            style="color: blue;">付款單</a>
                                                     </div>
                                                 </div>
                                                 <div :id="info.ORDER_NO" class="panel-collapse collapse"
@@ -102,8 +103,8 @@
                                                             </li>
                                                             <div v-if="info.ORDER_STATUS == 3">
                                                                 <li class="list-unstyled"
-                                                                style="line-height: 2em; margin-top: 20px;">
-                                                                <p>支付方式 : {{info.PAYWAY}}</p>
+                                                                    style="line-height: 2em; margin-top: 20px;">
+                                                                    <p>支付方式 : {{info.PAYWAY}}</p>
                                                                 </li>
                                                                 <li class="list-unstyled"
                                                                     style="line-height: 2em; margin-top: 20px;">
@@ -149,9 +150,6 @@
     </div>
 
 
-    <!-- jQuery -->
-    <script src="./js/jqueryMin.js"></script>
-
     <!-- Bootstrap Core JavaScript -->
     <script src="./js/bootstrapMin.js"></script>
 
@@ -160,7 +158,7 @@
 
     <!-- Custom Theme JavaScript -->
     <script src="./js/startmin.js"></script>
-    <script src="./js/member.js"></script>
+
     <script src="./js/usercenterTravel.js"></script>
 </body>
 

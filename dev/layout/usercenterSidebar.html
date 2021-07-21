@@ -16,13 +16,15 @@
         <a class="dropdown-toggle" data-toggle="dropdown" href="#">
           <i class="fa fa-user fa-fw"></i>{{memInfo.MEM_FIRSTNAME}}<b class="caret"></b>
         </a>
-        <form action="../dist/php/userLogout.php" method="GET">
-          <ul class="dropdown-menu dropdown-user">
-            <li style="padding: 10px;"><i class="fa fa-sign-out fa-fw"></i><input type="submit" value=" Logout"
+        <ul class="dropdown-menu dropdown-user">
+
+          <li style="padding: 10px;">
+            <form action="../dist/php/userLogout.php" method="GET">
+              <i class="fa fa-sign-out fa-fw"></i><input type="submit" value=" Logout"
                 style="background-color: #fff; border: none;">
-            </li>
-          </ul>
-        </form>
+            </form>
+          </li>
+        </ul>
       </li>
     </ul>
 
@@ -42,6 +44,9 @@
           </li>
           <li>
             <a href="usercenterForum.html">文章管理</a>
+          </li>
+          <li>
+            <a href="usercenterDiscount.html">優惠卷</a>
           </li>
         </ul>
       </div>

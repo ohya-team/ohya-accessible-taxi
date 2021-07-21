@@ -33,14 +33,15 @@
                                 <span>最多人數</span>
                                 <p>{{DetailInfo[0].CAR_MAXNUM}}</p>
                             </div>
-                            <div class="location-and-star">
-                                <div class="location">
-                                    <span>搭乘車種</span>
-                                    <p>{{DetailInfo[0].CAR_TYPE}}</p>
-                                </div>
+                            <div class="location">
+                                <span>搭乘車種</span>
+                                <p>{{DetailInfo[0].CAR_TYPE}}</p>
+                            </div>
+                            <div class="star-wrap">
+                                <span>精選評分</span>
                                 <star-rating :rating="parseFloat( DetailInfo[0].PROGRAM_RATING)" :read-only="true" :increment="0.01"
                                     active-color="#ffd900" inactive-color="#9f9f9f" :show-rating=false :star-size="25">
-                                </star-rating>
+                                </star-rating>   
                             </div>
                             <div class="price">
                                 <span>價格</span>
@@ -80,6 +81,11 @@
                             </h3>
                             <p class="spot-text">
                                 {{item.SPOT_MIN_INFO}}
+                            </p>
+                            <p class="spot-time">
+                                {{item.PROGRAM_INFO_1}}
+                                <br>
+                                {{item.PROGRAM_INFO_2}}
                             </p>
                         </div>
                         <div class="spot-img">

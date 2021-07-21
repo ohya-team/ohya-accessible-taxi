@@ -2,11 +2,14 @@
 //新增訂單
 require_once "../connect_cfd101g2.php";
 
-$b_startLoa = $_POST["b_startLoa"];
-$b_endLoa = $_POST["b_endLoa"];
-$b_else = $_POST["b_else"];
-$b_date = $_POST["b_date"];
-$b_timing = $_POST["b_timing"];
+$data = json_decode(file_get_contents("php://input"), true);
+
+$b_startLoa = $data["b_startLoa"];
+$b_endLoa = $data["b_endLoa"];
+$b_else = $data["b_else"];
+$b_date = $data["b_date"];
+$b_timing = $data["b_timing"];
+$b_coopon = $data["b_coopon"];
 
 switch($b_timing){
     case '上午':
@@ -20,20 +23,22 @@ switch($b_timing){
         break;
 };
 
-$sql = "INSERT INTO `booking_form`(`MEM_NO`, `DRIVER_NO`, `DISCOUNT_NO`, `ORDER_DATE`, `DRIVING_DATE`, `DRIVING_TIMING`, `TIMING_PRICE`, `ORDER_PRICE`, `ORDER_STATUS`, `LOCATION_START`, `LOCATION_END`, `NEEDING_ELSE`) VALUES (:b_memNo,:b_driverNo,0,curdate(),'$b_date',$b_timing,:b_amount,:b_total,0,'$b_startLoa','$b_endLoa','$b_else');";
-$booking = $pdo->prepare($sql);
-$booking->bindValue("b_memNo", $_POST["b_memNo"]);
-$booking->bindValue("b_driverNo", $_POST["b_driverNo"]);
-$booking->bindValue("b_amount", $_POST["b_amount"]);
-$booking->bindValue("b_total", $_POST["b_total"]);
-$booking->execute();
-?>
+if($b_coopon == '無'){
+    $b_coopon = 0;
+}
 
-<?php
+$sql = "INSERT INTO `booking_form`(`MEM_NO`, `DRIVER_NO`, `DISCOUNT_NO`, `ORDER_DATE`, `DRIVING_DATE`, `DRIVING_TIMING`, `TIMING_PRICE`, `ORDER_PRICE`, `ORDER_STATUS`, `LOCATION_START`, `LOCATION_END`, `NEEDING_ELSE`) VALUES (:b_memNo,:b_driverNo,$b_coopon,now(),'$b_date',$b_timing,:b_amount,:b_total,0,'$b_startLoa','$b_endLoa','$b_else');";
+$booking = $pdo->prepare($sql);
+$booking->bindValue("b_memNo", $data["b_memNo"]);
+$booking->bindValue("b_driverNo", $data["b_driverNo"]);
+$booking->bindValue("b_amount", $data["b_amount"]);
+$booking->bindValue("b_total", $data["b_total"]);
+$booking->execute();
+
 //修改時段
 require_once "../connect_cfd101g2.php";
 
-$b_timing = $_POST["b_timing"];
+$b_timing = $data["b_timing"];
 
 switch($b_timing){
     case '上午':
@@ -51,8 +56,12 @@ $sql = "UPDATE `booking_timing` SET `$b_timing`= 2\n"
 
     . "WHERE BOOKING_DATE = '$b_date' and DRIVER_NO = :b_driverNo;";
 $booking = $pdo->prepare($sql);
-$booking->bindValue("b_driverNo", $_POST["b_driverNo"]);
+$booking->bindValue("b_driverNo", $data["b_driverNo"]);
 $booking->execute();
 
-// header('Location:./booking.html');
+//修改優惠券使用狀態
+$sql = "UPDATE `discount` SET `DISCOUNT_STATUS`=1 WHERE discount_num = :discount_num";
+$discount = $pdo->prepare($sql);
+$discount->bindValue(":discount_num", $data['b_coopon']);
+$discount->execute();
 ?>

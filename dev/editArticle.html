@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>修改文章</title>
+        <link rel="stylesheet" href="./css/style.css">
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@700&display=swap" rel="stylesheet">
+    </head>
+</head>
+
+<body class="animate-background">
+    @@include('layout/header.html')
+    <div id="app">
+        <div class="uploadArticle-container">
+
+            <form action="./php/updateArticle.php" method="POST" enctype="multipart/form-data"
+                class="uploadArticle-form">
+                <h3>修改文章</h3>
+                <div class="uploadArticle-content">
+                    <p style="margin-bottom: 30px;">文章圖片</p>
+                    <!-- <div class="upload-picture"> -->
+                    <!--預覽圖片-->
+                    <!-- <div class="uploadImg" style="z-index:1000"> -->
+                    <img id="uploadImg" style="width: 285px; height: 159.39px;" :src="detailInfo[0].ART_IMG">
+                    <!-- </div> -->
+                    <form>
+                        <input class="upload-file" type="file" name="art_img"
+                            accept="image/gif,image/jpeg,image/png,image/jpg"
+                            style="z-index: 1000; left:0px; display: block; margin-top: 5px;" @change="fileSelected"
+                             />
+                    </form>
+
+                    <!-- </div> -->
+                    <div class="upload-category" style="margin-top: 40px;">
+                        <div class="upload-article-sort">
+                            <label class="def" for="art_cat">文章類別</label>
+                            <select name="art_cat" id="art_cat" class="def" :value="detailInfo[0].ART_CAT">
+                                <option value="一般預約">一般預約</option>
+                                <option value="包車旅遊">包車旅遊</option>
+                                <option value="優良司機">優良司機</option>
+                                <option value="精選車種">精選車種</option>
+                            </select>
+                        </div>
+                        <div class="uplaod-article-topic">
+                            <label class="def" for="art_title">文章標題</label>
+                            <input class="def" type="text" id="art_title" placeholder="文章標題不得超過13個字" maxlength="13"
+                                name="art_title" :value="detailInfo[0].ART_TITLE" required>
+                        </div>
+                    </div>
+                    <label class="def" for="art_content">文章內容</label>
+                    <textarea name="art_content" cols="30" rows="10" class="upload-txt"
+                        onKeyUp="textCounter(art_content,remLen,500)" onKeyDown="textCounter(art_content,remLen,500)"
+                        id="art_content" required>{{detailInfo[0].ART_CONTENT}}</textarea>
+                    <div class="word-left">
+                        剩餘字數 :<input name="remLen" type="text" value="500" size="5" readonly="readonly">
+                    </div>
+                    <div class="upload-btn">
+                        <input class="btn-main" type="submit" id="popbox-btn" value="送出">
+                        <a href="./forum.html">
+                            <button class="btn-third">取消</button>
+                        </a>
+                    </div>
+
+                    <input type="text" name="art_no" :value="detailInfo[0].ART_NO" hidden>
+                    <input type="text" :value="detailInfo[0].ART_IMG" name="art_img" hidden>
+
+                </div>
+            </form>
+        </div>
+    </div>
+    @@include('layout/footer.html')
+    <script src="./js/editArticle.js"></script>
+    <script>
+        function textCounter(field, countfield, maxlimit) {
+            // 函數，3個參數，表單名字，表單域元素名，限制字符；  
+            if (field.value.length > maxlimit)
+                //如果元素區字符數大於最大字符數，按照最大字符數截斷；  
+                field.value = field.value.substring(0, maxlimit);
+            else
+                countfield.value = maxlimit - field.value.length
+        }
+
+        var x = new FileReader;
+        let uploadImg = document.getElementById("uploadImg")
+        document.forms[0].elements[0].onchange = function () {
+            x.readAsDataURL(this.files[0]);
+            document.querySelector(".upload-picture-btn").style.opacity = "0";
+        }
+        x.onloadend = function () {
+            uploadImg.src = this.result
+            uploadImg.style.opacity = "1"
+            console.log(this.result);
+        }
+    </script>
+
+</body>
+
+</html>

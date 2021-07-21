@@ -212,33 +212,21 @@ a{
 #driver-content {
   display: none;
   // border: 1px solid #ccc;
-  #sliderWrap{
+  #driverWrap{
     display: none;
     @include  rwd_each(tablet) {
       display: flex;
       margin: auto;
       text-align: center;
     }
-    .nar{
-      color: black;
-      margin: auto;
-      @extend %cursor-hand;
-      width: 25px;
-    }
-    #sliderBoard{
-      // border: 1px solid #ccc;
-      overflow: hidden;
-      width: 50%;
-      #driverSlider{	
-        position: relative;
-        display: flex;
-        flex-wrap: wrap;
-      }
       .image{
+        width: 600px;
+        margin: auto;      
         ul{
           list-style: none;
           display: flex;
-          float: left;
+          flex-wrap: wrap;
+          justify-content: center;           
           li{
             width: 20vh;
             margin: 10px 20px;
@@ -267,34 +255,6 @@ a{
           }
         }
       }
-    }
-  }
-}
-//司機介紹 rwd
-#smallSlider{
-  display: flex;
-  justify-content: center;
-  .nar{
-    width: 15px;
-    margin: auto;
-  }
-  .smallBoard{
-    width: 50%;
-    overflow: hidden;
-    .smallImage{
-      display: flex;
-      justify-content: center;
-      ul{
-        display: flex;
-        justify-content: space-evenly;
-        li{
-          margin: 5px;
-        }
-        img{
-          width: 100%;
-        }
-      }
-    }
   }
 }
 
@@ -330,7 +290,7 @@ a{
           font-weight: $font-bold;
         }
       }
-      .driverPic{
+      #driverPic{
         width: 300px;
         img{
           width: 100%;
@@ -348,7 +308,7 @@ a{
     .driverCar{
       justify-content: space-between;
       padding: 0px 40px 40px 40px;
-      .carPic{
+      #driverCarPic{
         width: 250px;
         margin: 25px;
         display: inline-block;

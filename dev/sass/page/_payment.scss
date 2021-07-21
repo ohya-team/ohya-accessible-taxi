@@ -83,11 +83,15 @@
     }
     
   }
-  .btn-main {
-    margin-top: $text-text;
+  .btn-p {
+    text-align: center;
 
-    @include rwd_each(desktop) {
-      float     : right;
+    .btn-main {
+      margin-top: $text-text;
+  
+      @include rwd_each(desktop) {
+        float     : right;
+      }
     }
   }
 }

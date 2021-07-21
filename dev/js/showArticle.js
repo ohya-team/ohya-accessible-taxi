@@ -13,12 +13,12 @@ let vue = new Vue({
     },
     mounted(){
         axios.get('../php/forum.php')
-            .then((res)=>{
-                this.artInfos = res.data;
-                console.log(res.data)
-            })
-            .catch( (error) => console.log(error));
+            .then(response => (this.artInfos = response.data))
+            .catch(function (error) { // 请求失败处理
+                console.log(error);
+            });
             this.get_href()
+            
     },
     computed:{
         detailInfo() {

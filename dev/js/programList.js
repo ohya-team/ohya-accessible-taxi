@@ -16,9 +16,11 @@ let vue = new Vue({
             info: null,
             type: '精選評分',
             perPage: 5,
-            targetPageId:1,
+            targetPageId: 1,
             priceSort: '價格',
             personSort: '人數',
+            typeList: ['精選評分', '價格由高到低', '價格由低到高', '人數由少到多', '人數由多到少'],
+            showmbFilter: false
         }
     },
     mounted() {
@@ -76,6 +78,9 @@ let vue = new Vue({
                 left: 0,
                 behavior: 'smooth'
             });
+        },
+        toShowMbfilter() {
+            this.showmbFilter = ! this.showmbFilter
         }
     }
 })

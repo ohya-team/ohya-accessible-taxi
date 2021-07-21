@@ -59,8 +59,14 @@ function checkSignup(e){
     e.preventDefault();
     return;
   }
+  let psw =$('signPsw')[0].lastChild;
+  if( psw.value.length > 10){
+    alert("密碼不可超過10位");
+    psw.focus();
+    e.preventDefault();
+    return;
+  }
 }
-
 //勾選隱私權選項才可提交表單
 
 
@@ -73,18 +79,14 @@ function sendLoginForm(){
       if(member.mem_account){
         //將燈箱中的表單上的資料清空，並隱藏起來
         $('#LoginLightBox').style.display = 'none';
-        $('#memAccount').value = '';
-        $('#memPassword').value = '';   
       }else{
         alert("帳密錯誤");
       }
-
     }else{
       alert(xhr.status);
       alert("系統異常");
     }
   }
-
   xhr.open("post", "../dist/php/login.php",true);
   let loginFormData = new FormData(document.getElementById('LoginDetail'));
   xhr.send(loginFormData);
@@ -97,7 +99,7 @@ function clear(){
 }
 
 //確認帳號可以使用
-function checkId(){  
+function checkId(){   
   let xhr = new XMLHttpRequest(); 
   xhr.onload = function() {
       if(xhr.status == 200){
@@ -112,7 +114,6 @@ function checkId(){
       }else{
         alert(xhr.status);
       }
-      
   }
   xhr.open("post","../dist/php/signInCheck.php",true);
   xhr.setRequestHeader("content-type" , "application/x-www-form-urlencoded");
@@ -127,7 +128,6 @@ function init(){
   change();
   closeLightBox();
   clear();
-  
   document.getElementById('mem_account').onblur = checkId;
   document.getElementById('signupDetail').onsubmit = checkSignup;
   document.getElementById('LoginDetail').onsubmit = sendLoginForm;

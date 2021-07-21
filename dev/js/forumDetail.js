@@ -12,6 +12,7 @@ let vue = new Vue({
             artInfos: null,
             targetPageId: null,
             showPopUpBox: false,
+            randomArticle: null,
         }
     },
     mounted() {
@@ -20,6 +21,16 @@ let vue = new Vue({
             .catch(function (error) { // 请求失败处理
                 console.log(error);
             });
+        axios.get('./php/randomArticle.php')
+        .then(response => (this.randomArticle = response.data))
+        .catch(function (error) { // 请求失败处理
+            console.log(error);
+        });
+        axios.get('./php/member.php')
+        .then(response => (this.memInfos = response.data))
+        .catch(function (error) { // 请求失败处理
+            console.log(error);
+        });
         this.get_href()
     },
     computed: {
@@ -28,6 +39,17 @@ let vue = new Vue({
                 return this.artInfos.filter(item => item.ART_NO == this.targetPageId)
             }
         },
+    },
+    filters: {
+        ellipsis(value) {
+            const len = 27;
+            if (value.length > len) {
+                return value.slice(0, len) + '...'
+            } else {
+                return value;
+            }
+           
+        }
     },
     methods: {
         get_href() {
@@ -66,8 +88,9 @@ let vue = new Vue({
                 alert('檢舉失敗');
               })
             },
-
-
+            uploadclick(e){
+                document.getElementById("art_no").value = e ;
+            }
     }
 
 })
@@ -93,18 +116,3 @@ let vue = new Vue({
 
 
 
-// function hideAlert(){
-//     document.getElementById("pop-up").classList.add("alert-hide");
-//  }
-
-//  function appearAlert(){
-//     if(document.getElementById("pop-up").classList.contains("alert-hide")){
-//         document.getElementById("pop-up").classList.remove("alert-hide");
-//     }
-//  }
-
-//  function init(){
-//     document.getElementById("forum-alert").onclick = appearAlert;
-//     document.getElementById("forum-alert-close").onclick=hideAlert;
-//  }
-//  window.addEventListener("load",init,false);
