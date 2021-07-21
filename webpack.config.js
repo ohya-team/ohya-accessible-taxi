@@ -48,6 +48,9 @@ module.exports = {
         uploadSuccess:'./dev/js/uploadSuccess.js',
         showArticle:'./dev/js/showArticle.js',
         serviceVue: './dev/js/serviceVue.js',
+        usercenterForum:'./dev/js/usercenterForum.js',
+        usercenterDiscount:'./dev/js/usercenterDiscount.js',
+        editArticle:'./dev/js/editArticle.js',
     },// 入口文件
     output: {
         path: path.resolve(__dirname, 'dist/js'),

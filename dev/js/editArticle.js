@@ -8,17 +8,16 @@ let vue = new Vue({
     data(){
         return {
             artInfos:null,
-            targetPageId: null,
+            targetPageId: null, 
         }
     },
     mounted(){
-        axios.get('../php/forum.php')
+        axios.get('./php/forum.php')
             .then(response => (this.artInfos = response.data))
             .catch(function (error) { // 请求失败处理
                 console.log(error);
             });
-            this.get_href()
-            
+        this.get_href();
     },
     computed:{
         detailInfo() {
@@ -33,5 +32,15 @@ let vue = new Vue({
             let targetPageId = nowUrl.split("=")[1];
             this.targetPageId = targetPageId;
         },
+        fileSelected(e){
+            const file = e.target.files.item(0);
+            const reader = new FileReader();
+            reader.addEventListener('load', this.imageLoaded);
+            reader.readAsDataURL(file);  
+        },
+        imageLoaded(e){
+            document.getElementById("uploadImg").src =  e.target.result;
+        }
+
     }
 })
