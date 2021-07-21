@@ -222,11 +222,11 @@ let vm = new Vue({
                         b_else:this.elseText,
                         b_date:this.finalInfo[0],
                         b_timing:this.finalInfo[1],
-                        b_coopon:document.getElementsByName('b_coopon')[0].value,
+                        b_coopon:this.hasCoopn.split('+')[0],
                         b_memNo:this.memInfo[0].MEM_NO,
                         b_driverNo:this.finalInfo[4],
                         b_amount:this.finalAmount,
-                        b_total:this.finalAmount*this.finalDiscount,
+                        b_total:this.finalAmount-this.finalDiscount,
                     })
                     .then(function (response) {
                         self.showPopUpBox = true;
@@ -245,26 +245,24 @@ let vm = new Vue({
         },
     },
     computed: {
+        isNoText(){
+            if(this.startLoa =='' || this.endLoa ==''){
+                return {'color': '#EF5C5C'}
+            }else{
+                return {'color': '#60EF66'}
+            }
+        },
         memCoopon(){
             if (this.discount != null && this.memInfo != null) {
                 return this.discount.filter(item => item.MEMBER_NO == this.memInfo[0].MEM_NO)
             }
         },
         finalDiscount(){
-            for(let coopon in this.memCoopon){
-                if(coopon.DISCOUNT_NUM == this.hasCoopn){
-                    return this.finalAmount*(1-coopon.DISCOUNT_PER)
-                }else{
-                    return 0
-                }
+            if(this.hasCoopn !== '無'){
+                return this.finalAmount-this.finalAmount*this.hasCoopn.split('+')[1] 
+            }else{
+                return 0
             }
         }
     },
-    watch: {
-        hasCoopn:{
-            handler(newValue,oldValue){
-                console.log(`num: ${oldValue} --> ${newValue}`);
-            },
-        }
-    }
 });
