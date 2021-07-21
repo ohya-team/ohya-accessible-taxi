@@ -101,6 +101,22 @@
                                                                 style="line-height: 2em; margin-top: 20px;">
                                                                 <p>車號 : {{info.CAR_TYPE}}</p>
                                                             </li>
+                                                            <li class="list-unstyled"
+                                                                style="line-height: 2em; margin-top: 20px;">
+                                                                <p>人數 : {{info.NUMBER_OF_PEOPLE}}</p>
+                                                            </li>
+                                                            <li class="list-unstyled"
+                                                                style="line-height: 2em; margin-top: 20px;">
+                                                                <p>備註 : {{info.PURCHASE_ADDITIONAL}}</p>
+                                                            </li>
+                                                            <li class="list-unstyled"
+                                                                style="line-height: 2em; margin-top: 20px;">
+                                                                <p>優惠卷編號 : {{info.DISCOUNT_NUM}}</p>
+                                                            </li>
+                                                            <li class="list-unstyled"
+                                                                style="line-height: 2em; margin-top: 20px;">
+                                                                <p>總金額 : {{info.TOTAL_PRICE}}</p>
+                                                            </li>
                                                             <div v-if="info.ORDER_STATUS == 3">
                                                                 <li class="list-unstyled"
                                                                     style="line-height: 2em; margin-top: 20px;">
@@ -115,25 +131,6 @@
                                                                     <p>信用卡檢查碼 : {{info.PAYWAY_INSP}}</p>
                                                                 </li>
                                                             </div>
-                                                            <li class="list-unstyled"
-                                                                style="line-height: 2em; margin-top: 20px;">
-                                                                <table class="table table-bordered">
-                                                                    <thead>
-                                                                        <tr>
-                                                                            <th style="width: 120px;">人數</th>
-                                                                            <th style="width: 120px;">備註</th>
-                                                                            <th style="width: 120px;">優惠卷編號</th>
-                                                                            <th style="width: 120px;">總金額</th>
-                                                                        </tr>
-                                                                    </thead>
-                                                                    <tbody>
-                                                                        <td>{{info.NUMBER_OF_PEOPLE}}</td>
-                                                                        <td>{{info.PURCHASE_ADDITIONAL}}</td>
-                                                                        <td>{{info.DISCOUNT_NUM}}</td>
-                                                                        <td>{{info.TOTAL_PRICE}}</td>
-                                                                    </tbody>
-                                                                </table>
-                                                            </li>
                                                         </ul>
                                                     </div>
                                                 </div>
