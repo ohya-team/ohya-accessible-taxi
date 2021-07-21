@@ -19,6 +19,16 @@
   <div id="app">
     <section class="confirm-the-contents-of-the-travel-order">
       <div class="container">
+        <ul class="breadcrumbs">
+          <li> <a href="./programList.html">旅遊方案</a><i class="fas fa-chevron-right"></i></li>
+          <li> <a
+              :href="'programDetail.html?program_no=' + thisProgram[0].PROGRAM_NO">{{thisProgram[0].PROGRAM_NAME}}</a><i
+              class="fas fa-chevron-right"></i>
+          </li>
+          <li> <a href="./travelFormOne.html">填寫資料</a> <i class="fas fa-chevron-right"></i></li>
+          <li><span>訂單確認</span></li>
+        </ul>
+
         <div class="box">
           <div class="text" v-if='thisProgram != null && thisProgram.length > 0'>
             <span>訂購人：{{last_name}}{{first_name}}</span>
@@ -48,7 +58,7 @@
         </div>
         <div class="btn-out">
           <button class="btn-main" id="popbox-btn" @click='this.submitTravelForm'>完成送出</button>
-        </div>    
+        </div>
       </div>
     </section>
 

@@ -5,6 +5,7 @@ import axios from "axios";
 const isDebug_mode = process.env.NODE_ENV !== 'production';
 Vue.config.debug = isDebug_mode;
 Vue.config.devtools = isDebug_mode;
+let storage = window.sessionStorage;
 
 let vue = new Vue({
     el: "#app",
@@ -17,6 +18,19 @@ let vue = new Vue({
             thisProgram: '1',
             menInfo: null,
             discount: null,
+            storageobj: {
+                first_name: storage.getItem('first_name'),
+                last_name: storage.getItem('last_name'),
+                email: storage.getItem('email'),
+                phone: storage.getItem('phone'),
+                dep_time: storage.getItem('dep_time'),
+                address: storage.getItem('address'),
+                pickup_place: storage.getItem('pickup_place'),
+                program: storage.getItem('program'),
+                people_num: storage.getItem('people_num'),
+                remarks: storage.getItem('remarks'),
+                discount: storage.getItem('discount'),
+            }
         }
     },
     mounted() {
@@ -44,8 +58,18 @@ let vue = new Vue({
         },
         thisMemDiscount() {
             if (this.discount != null && this.info != null) {
-                return this.discount.filter(item => item.MEMBER_NO == this.info[0].MEM_NO)
+                return this.discount.filter(item => item.MEM_NO == this.info[0].MEM_NO)
             }
+        },
+        storageDiscount() {
+            if (this.thisMemDiscount != null) {
+                let stDiscount = [...this.thisMemDiscount];
+                if (this.storageobj.discount != 0) {
+                    stDiscount = stDiscount.filter(item => item.DISCOUNT_NUM == this.storageobj.discount)
+                    return stDiscount
+                }
+            }
+
         }
     },
     methods: {
@@ -65,11 +89,10 @@ let vue = new Vue({
         },
         storageValue(e) {
             let storageArr = ['first_name', 'last_name', 'email', 'address', 'phone', 'program', 'dep_time', 'pickup_place', 'people_num', 'remarks', 'discount']
-            let storage = window.sessionStorage;
             storageArr.forEach(e => {
                 storage.setItem(e, document.getElementById(e).value)
             });
-        }
+        },
     }
 
 })
