@@ -18,19 +18,6 @@ let vue = new Vue({
             thisProgram: '1',
             menInfo: null,
             discount: null,
-            storageobj: {
-                first_name: storage.getItem('first_name'),
-                last_name: storage.getItem('last_name'),
-                email: storage.getItem('email'),
-                phone: storage.getItem('phone'),
-                dep_time: storage.getItem('dep_time'),
-                address: storage.getItem('address'),
-                pickup_place: storage.getItem('pickup_place'),
-                program: storage.getItem('program'),
-                people_num: storage.getItem('people_num'),
-                remarks: storage.getItem('remarks'),
-                discount: storage.getItem('discount'),
-            }
         }
     },
     mounted() {

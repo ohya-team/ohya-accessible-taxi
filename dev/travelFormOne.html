@@ -42,19 +42,15 @@
             <div class="input-box-two" v-else>
               <div class="item">
                 <label class="def" for="first_name">名字</label>
-                <input class="def" type="text" id="first_name" placeholder="請填寫名"
-                  :value="storageobj.first_name != ''? storageobj.first_name : ''">
+                <input class="def" type="text" id="first_name" placeholder="請填寫名">
                 <label class="def" for="last_name">姓氏</label>
-                <input class="def" type="text" id="last_name" placeholder="請填寫姓"
-                  :value="storageobj.last_name != ''? storageobj.last_name : ''">
+                <input class="def" type="text" id="last_name" placeholder="請填寫姓">
               </div>
               <div class="item">
                 <label class="def" for="email">電子信箱</label>
-                <input class="def" type="text" id="email" placeholder="請填寫email"
-                  :value="storageobj.email != ''? storageobj.email : ''">
+                <input class="def" type="text" id="email" placeholder="請填寫email">
                 <label class="def" for="phone">連絡電話</label>
-                <input class="def" type="text" id="phone" placeholder="請填寫連絡電話"
-                  :value="storageobj.phone != ''? storageobj.phone : ''">
+                <input class="def" type="text" id="phone" placeholder="請填寫連絡電話">
               </div>
             </div>
           </div>
@@ -66,17 +62,15 @@
           <div class="box">
             <div class="item">
               <label class="def" for="dep_time">訂購日期</label>
-              <input class="def" type="date" id="dep_time" :value="storageobj.dep_time != ''? storageobj.dep_time : ''">
+              <input class="def" type="date" id="dep_time">
             </div>
             <div class="item">
               <label class="def" for="address">訂購人地址</label>
-              <input class="def" type="text" id="address" placeholder="請填寫地址"
-                :value="storageobj.address != ''? storageobj.address : ''">
+              <input class="def" type="text" id="address" placeholder="請填寫地址">
             </div>
             <div class="item">
               <label class="def" for="pickup_place">上車地點</label>
-              <input class="def" type="text" id="pickup_place" placeholder="請填寫上車地點"
-                :value="storageobj.pickup_place != ''? storageobj.pickup_place : ''">
+              <input class="def" type="text" id="pickup_place" placeholder="請填寫上車地點">
             </div>
       </section>
       <section class="order-itinerary-information">
@@ -85,27 +79,18 @@
           <div class="box" v-if='thisProgramInfo != null'>
             <div class="item">
               <label class="def" for="program">選擇旅遊方案</label>
-              <select name="program" id="program" class="def" v-model='thisProgram' v-if='storageobj.program == ""'>
-                <option :value="item.PROGRAM_NO" v-for='item in program' :key='item.PROGRAM_NO'>{{item.PROGRAM_NAME}}
-                </option>
-              </select>
-              <select name="program" id="program" class="def" :value='storageobj.program '
-                @change='storageobj.program = ""' v-else>
+              <select name="program" id="program" class="def" v-model='thisProgram'>
                 <option :value="item.PROGRAM_NO" v-for='item in program' :key='item.PROGRAM_NO'>{{item.PROGRAM_NAME}}
                 </option>
               </select>
             </div>
             <div class="item">
-              <p>車種：{{storageobj.program != '' ? program[storageobj.program].CAR_TYPE
-                :thisProgramInfo[0].CAR_TYPE}}</p>
+              <p>車種：{{thisProgramInfo[0].CAR_TYPE}}</p>
             </div>
             <div class="item">
               <label class="def" for="people_num">人數</label>
               <input type="button" @click='subtraction' id="subtraction" value="-"></input>
-              <input type="number" v-model='memNum' :max="thisProgramInfo[0].CAR_MAXNUM" id="people_num"
-                v-if='storageobj.program == ""'>
-              <input type="number" v-model='memNum' :max="program[storageobj.program].CAR_MAXNUM" id="people_num"
-                v-else>
+              <input type="number" v-model='memNum' :max="thisProgramInfo[0].CAR_MAXNUM" id="people_num">
               <input type="button" @click='add' id="add" value="+"></input>
             </div>
             <div class="item">
@@ -118,8 +103,7 @@
       <section class="remarks-block">
         <div class="container">
           <h3>備註</h3>
-          <textarea id="remarks" :value="storageobj.remarks != ''? storageobj.remarks : ''" cols="30" rows="8"
-            placeholder="吃素5個人，加購2份便當"></textarea>
+          <textarea name="" id="remarks" cols="30" rows="8" placeholder="吃素5個人，加購2份便當"></textarea>
         </div>
       </section>
 
@@ -128,10 +112,7 @@
           <h3>使用優惠卷</h3>
           <div class="box">
             <label class="def" for="discount"></label>
-            <select name="discount" id="discount" class="def" @change='storageobj.discount =0'>   
-              <option v-if='storageobj.discount !=0' :value="storageobj.discount" >優惠卷編號 {{storageobj.discount}}
-                {{storageDiscount[0].DISCOUNT_INFO}}優惠</option>
-                    
+            <select name="discount" id="discount" class="def">
               <option value="0">選擇優惠券</option>
               <option v-for='info in thisMemDiscount' :value="info.DISCOUNT_NUM">優惠卷編號 {{info.DISCOUNT_NUM}}
                 {{info.DISCOUNT_INFO}}優惠</option>
