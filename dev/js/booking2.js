@@ -37,7 +37,7 @@ let vm = new Vue({
         elseText: '',//步驟4用的 目的地
         hasCoopn: '無',//步驟4 優惠券使用
         finalAmount: 2000,//步驟4用的 時段金額
-        finalDiscount: 0,//步驟4用的 折扣內容
+        // finalDiscount: 0,//步驟4用的 折扣內容
         showPopUpBox: false,
     },
     mounted() {
@@ -258,6 +258,15 @@ let vm = new Vue({
         memCoopon(){
             if (this.discount != null && this.memInfo != null) {
                 return this.discount.filter(item => item.MEMBER_NO == this.memInfo[0].MEM_NO)
+            }
+        },
+        finalDiscount(){
+            for(let coopon in this.memCoopon){
+                if(coopon.DISCOUNT_NUM == document.getElementsByName("b_coopon")[0].value){
+                    return this.finalAmount*(1-coopon.DISCOUNT_PER)
+                }else{
+                    return 0
+                }
             }
         }
     }
