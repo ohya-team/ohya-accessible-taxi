@@ -122,13 +122,14 @@
         transform: translateX(-50%);
       }
       .loginSpan{
-        display: flex;
-        justify-content: center;
+        text-align: center;
         margin-top: 20px;
-        span{
-          color: #ffd900;
-          cursor: pointer;
-          margin-bottom: 0;
+        p{
+          color: $black;
+          font-size: $font-mini;
+        }
+        a{
+          margin:  0px auto;
         }
       }
     }

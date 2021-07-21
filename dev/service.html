@@ -13,31 +13,31 @@
   <title>無障礙服務</title>
 </head>
 
-  <div id="driverLightBox" style="display: none;">
-    <div class="driverContent">
-      <div class="closeIcon">
-        <img src="./images/icon/Icon material-close.svg" alt="">
+<div id="driverLightBox" style="display: none;">
+  <div class="driverContent">
+    <div class="closeIcon">
+      <img src="./images/icon/Icon material-close.svg" alt="">
+    </div>
+    <div class="driverDetail">
+      <div class="driverDescribe">
+        <h3 id="driverName"></h3><br>
+        司機電話：<span id="driverPhone"></span><br>
+        <p id="driverContext"></p>
       </div>
-        <div class="driverDetail">
-          <div class="driverDescribe">
-            <h3 id="driverName"></h3><br>
-            司機電話：<span id="driverPhone"></span><br>
-            <p id="driverContext"></p>
-          </div>
-          <div id="driverPic">
-          </div>
-        </div>
-      <div class="driverCar" style="justify-content: space-between;">
-        <div id="driverCarPic" style="display: inline-block;">
-        </div>
-        <div class="carDescribe" style="display: inline-block; width: 300px;">
-          <span id="carLisence"></span>
-          <ol id="carDes">
-          </ol>
-        </div>
+      <div id="driverPic">
+      </div>
+    </div>
+    <div class="driverCar">
+      <div id="driverCarPic">
+      </div>
+      <div class="carDescribe">
+        <span id="carLisence"></span>
+        <ol id="carDes">
+        </ol>
       </div>
     </div>
   </div>
+</div>
 
 <body class="animate-background">
   @@include('layout/header.html')
@@ -61,8 +61,8 @@
     <div class="selector-btn" id="driver-intro">司機介紹</div>
   </div>
 
-  <form action="../dist/php/service.php" id="serviceInfo" method="post" enctype="multipart/form-data">
-    <div class="container service-detail content" id="service-content">
+  <div class="container service-detail content" id="service-content">
+    <form action="./php/service.php" id="serviceInfo" method="post" enctype="multipart/form-data">
       <div class="service-wrap" id="serviceWrap">
         <div class="service-context">
           <h4 name="serveInfos.SERVE_TITLE" id="SERVE_TITLE"></h4>
@@ -72,20 +72,21 @@
           <img id="SERVE_PIC" name="SERVE_PIC" src="" alt="">
         </div>
       </div>
-      <div class="service-btn">
-        <a href="./booking.html"><button class="btn-main">
-            <i class="fas fa-calendar-check"></i>
-            立即預約
-          </button></a>
-        <a href="./travelList.html"><button class="btn-main">
-            <i class="fas fa-taxi"></i>
-            包車旅遊
-          </button></a>
-      </div>
+    </form>
+    <div class="service-btn">
+      <a href="./booking.html"><button class="btn-main">
+          <i class="fas fa-calendar-check"></i>
+          立即預約
+        </button></a>
+      <a href="./travelList.html"><button class="btn-main">
+          <i class="fas fa-taxi"></i>
+          包車旅遊
+        </button></a>
     </div>
-  </form>
+  </div>
 
-  <form action="../dist/php/car.php" id="carInfos" enctype="multipart/form-data" method="post">
+
+  <form action="./php/car.php" id="carInfos" enctype="multipart/form-data" method="post">
     <div class="container car-detail content" id="car-content">
       <div id="car-wrap">
         <div class="pic-wrap">
@@ -113,56 +114,56 @@
             <h3></h3>
             <p></p>
             <div class="service-btn">
-              <a href="./booking.html"><button class="btn-main">
+              <button class="btn-main">
                   <i class="fas fa-calendar-check"></i>
-                  立即預約
-                </button></a>
-              <a href="./travelList.html"><button class="btn-main">
+                  <a href="./booking.html">立即預約</a>
+                </button>
+              <button class="btn-main">
                   <i class="fas fa-taxi"></i>
-                  包車旅遊
-                </button></a>
+                  <a href="./travelList.html">包車旅遊</a>
+                </button>
             </div>
           </div>
           <div class="carContext">
             <h3></h3>
             <p></p>
             <div class="service-btn">
-              <a href="./booking.html"><button class="btn-main">
+              <button class="btn-main">
                   <i class="fas fa-calendar-check"></i>
-                  立即預約
-                </button></a>
-              <a href="./travelList.html"><button class="btn-main">
+                  <a href="./booking.html">立即預約</a>
+                </button>
+              <button class="btn-main">
                   <i class="fas fa-taxi"></i>
-                  包車旅遊
-                </button></a>
+                  <a href="./travelList.html">包車旅遊</a>
+                </button>
             </div>
           </div>
           <div class="carContext">
             <h3></h3>
             <p></p>
             <div class="service-btn">
-              <a href="./booking.html"><button class="btn-main">
+              <button class="btn-main">
                   <i class="fas fa-calendar-check"></i>
-                  立即預約
-                </button></a>
-              <a href="./travelList.html"><button class="btn-main">
+                  <a href="./booking.html">立即預約</a>
+                </button>
+              <button class="btn-main">
                   <i class="fas fa-taxi"></i>
-                  包車旅遊
-                </button></a>
+                  <a href="./travelList.html">包車旅遊</a>
+                </button>
             </div>
           </div>
           <div class="carContext">
             <h3></h3>
             <p></p>
             <div class="service-btn">
-              <a href="./booking.html"><button class="btn-main">
-                  <i class="fas fa-calendar-check"></i>
-                  立即預約
-                </button></a>
-              <a href="./travelList.html"><button class="btn-main">
-                  <i class="fas fa-taxi"></i>
-                  包車旅遊
-                </button></a>
+              <button class="btn-main">
+                <i class="fas fa-calendar-check"></i>
+                <a href="./booking.html">立即預約</a>
+              </button>
+              <button class="btn-main">
+                <i class="fas fa-taxi"></i>
+                <a href="./travelList.html">包車旅遊</a>
+              </button>
             </div>
           </div>
         </div>
@@ -179,17 +180,13 @@
     </div>
   </form>
 
-  <form action="../dist/php/driver.php" id="driverInfos" enctype="multipart/form-data" method="post">
-    <div class="container driver-detail content" id="driver-content">
+
+  <div class="container driver-detail content" id="driver-content">
+    <form action="../dist/php/driver.php" id="driverInfos" enctype="multipart/form-data" method="post">
       <div id="driverWrap">
         <div class="image">
           <ul>
             <li>
-              <input type="hidden" value="" >
-              <img class="driverContentPic" src="" >
-              <span></span>
-            </li>
-            <li>
               <input type="hidden" value="">
               <img class="driverContentPic" src="">
               <span></span>
@@ -214,10 +211,11 @@
               <img class="driverContentPic" src="">
               <span></span>
             </li>
-          <!-- </ul> -->
-        <!-- </div>
-        <div class="image" style="display: none;"> -->
-          <!-- <ul> -->
+            <li>
+              <input type="hidden" value="">
+              <img class="driverContentPic" src="">
+              <span></span>
+            </li>
             <li>
               <input type="hidden" value="">
               <img class="driverContentPic" src="">
@@ -246,52 +244,24 @@
           </ul>
         </div>
       </div>
-      <div id="smallSlider" style="display: none;">
-        <div class="smallBoard">
-          <div class="smallImage">
-            <ul>
-              <li><img src="./images/driver/01_driver.jpg" alt=""></li>
-              <li><img src="./images/driver/02_driver.jpg" alt=""></li>
-              <li><img src="./images/driver/03_driver.jpg" alt=""></li>
-            </ul>
-            <ul>
-              <li><img src="./images/driver/04_driver.jpg" alt=""></li>
-              <li><img src="./images/driver/05_driver.jpg" alt=""></li>
-              <li><img src="./images/driver/06_driver.jpg" alt=""></li>
-            </ul>
-            <ul>
-              <li><img src="./images/driver/07_driver.jpg" alt=""></li>
-              <li><img src="./images/driver/08_driver.jpg" alt=""></li>
-              <li><img src="./images/driver/09_driver.jpg" alt=""></li>
-            </ul>
-            <ul>
-              <li><img src="./images/driver/10_driver.jpg" alt=""></li>
-              <li><img src="" alt=""></li>
-              <li><img src="" alt=""></li>
-            </ul>
-          </div>
-        </div>
-        <div class="nar" id="smallRight"><img src="./images/icon/caret-right-solid.svg" alt=""></div>
-      </div>
-      <div class="service-btn">
-        <a href="./booking.html"><button class="btn-main">
-            <i class="fas fa-calendar-check"></i>
-            立即預約
-          </button></a>
-        <a href="./travelList.html"><button class="btn-main">
-            <i class="fas fa-taxi"></i>
-            包車旅遊
-          </button></a>
-      </div>
+    </form>
+    <div class="service-btn">
+      <a href="./booking.html"><button class="btn-main">
+          <i class="fas fa-calendar-check"></i>
+          立即預約
+        </button></a>
+      <a href="./travelList.html"><button class="btn-main">
+          <i class="fas fa-taxi"></i>
+          包車旅遊
+        </button></a>
     </div>
-    <ul id="paginationList" class="clearFix2"></ul>
-  </form>
+  </div>
+
 
   @@include('layout/footer.html')
 
 
   <script src="./js/service.js"></script>
-  <!-- <script src="./js/serviceVue.js"></script> -->
 </body>
 
 </html>

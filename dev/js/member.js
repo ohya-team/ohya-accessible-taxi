@@ -12,10 +12,9 @@ let vue = new Vue({
         }
     },
     mounted() {
-        axios.post('../dist/php/member.php')
+        axios.post('./php/member.php')
             .then((res) => {
                 this.memInfo = res.data;
-                console.log(res.data);
             })
             .catch( (error) => console.log(error));
     },

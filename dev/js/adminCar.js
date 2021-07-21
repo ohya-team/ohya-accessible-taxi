@@ -36,6 +36,7 @@ let vue = new Vue({
         }
     },
     mounted() {
+        this.get_href();
         axios.post('../php/car.php')
             .then((res) => {
                 this.carInfo = res.data;
