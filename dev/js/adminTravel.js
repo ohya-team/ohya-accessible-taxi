@@ -38,9 +38,10 @@ let vue = new Vue({
             spot_no.disabled = false;
         },
         deleteSpot(e) {
-            e.preventDefault();
-            window.confirm('確定要刪除此筆資料?')
-            document.getElementById(`delete${e.target.id}`).submit();
+            let deleteThisData = (confirm('確定要刪除此筆資料?'))
+            if (deleteThisData == true) {
+                document.getElementById(`delete${e.target.id}`).submit();
+            }
         }
     },
 })

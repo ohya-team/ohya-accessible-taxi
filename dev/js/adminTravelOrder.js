@@ -36,7 +36,7 @@ let vue = new Vue({
             this.targetId = nowUrl.split('=')[1];
         },
         changeStatus(e) {
-            let confirmThisChange = (confirm('確定要更改狀態?'))
+            let confirmThisChange = (window.confirm('確定要更改狀態?'))
             if (confirmThisChange == true) {
                 axios.post('../php/adminTravelOrderStatus.php', {
                     orderNo: e.target.id.split('_')[1],

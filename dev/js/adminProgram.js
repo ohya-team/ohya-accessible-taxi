@@ -83,9 +83,10 @@ let vue = new Vue({
             program_no.disabled = false;
         },
         deleteProgram(e) {
-            e.preventDefault();
-            window.confirm('確定要刪除此筆資料?')
-            document.getElementById(`delete${e.target.id}`).submit();
+            let deleteThisData = (confirm('確定要刪除此筆資料?'))
+            if (deleteThisData == true) {
+                document.getElementById(`delete${e.target.id}`).submit();
+            }
         }
     },
 })

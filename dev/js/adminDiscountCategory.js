@@ -8,6 +8,7 @@ let vue = new Vue({
     data(){
         return {
             discountInfos:null,
+            carType:['黃車','灰車','黑車']
         }
     },
     mounted(){

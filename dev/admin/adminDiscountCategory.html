@@ -63,14 +63,14 @@
               <table class="table table-bordered">
                 <thead>
                   <tr>
-                    <th>拉霸機結果 (0:黃車,1:灰車,2:黑車)</th>
+                    <th>拉霸機結果</th>
                     <th>優惠折數</th>
                     <th>優惠數值</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr v-for = "item in  discountInfos">
-                    <td>{{item.DISCOUNT_RES}}</td>
+                    <td>{{carType[item.DISCOUNT_RES.split('')[0]] + ',' + carType[item.DISCOUNT_RES.split('')[1]] + ',' + carType[item.DISCOUNT_RES.split('')[2]]}}</td>
                     <td>{{item.DISCOUNT_INFO}}</td>
                     <td>{{item.DISCOUNT_PER}}</td>
                   </tr>
