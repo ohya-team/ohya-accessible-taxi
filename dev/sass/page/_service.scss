@@ -1,14 +1,14 @@
-a{
+a {
   text-decoration: none;
 }
 
-.container.pt-65{
+.container.pt-65 {
   padding-top: 65px;
 }
 
 //無障礙服務選擇器 service-selector
 #service-selector {
-  display: flex;  
+  display: flex;
   justify-content: center;
   margin: auto;
   text-align: center;
@@ -22,7 +22,7 @@ a{
     border: 1px solid $gray-first;
     border-radius: 10px;
     background-color: #fff;
-    @include  rwd_each(tablet) {
+    @include rwd_each(tablet) {
       width: 120px;
       margin: 10px;
       padding: 10px;
@@ -43,14 +43,14 @@ a{
 .service-btn {
   display: block;
   padding-bottom: 20px;
-  @include  rwd_each(desktop) {
+  @include rwd_each(desktop) {
     justify-content: space-between;
   }
-  .btn-main{
+  .btn-main {
     margin: 20px auto;
     display: block;
   }
-  @include  rwd_each(desktop) {
+  @include rwd_each(desktop) {
     width: 400px;
     padding-bottom: 60px;
     margin: auto;
@@ -65,11 +65,11 @@ a{
   width: 375px;
   @include rwd_each(tablet) {
     width: 596px;
-    h4{
+    h4 {
       font-size: $font-h3;
     }
   }
-  @include  rwd_each(desktop) {
+  @include rwd_each(desktop) {
     margin: auto;
     width: 1200px;
   }
@@ -82,7 +82,7 @@ a{
     .service-pic img {
       width: 350px;
       display: none;
-      @include  rwd_each(desktop) {
+      @include rwd_each(desktop) {
         display: flex;
       }
     }
@@ -92,26 +92,26 @@ a{
 #car-content {
   display: none;
   padding: 0px;
-  .carSlider{
+  .carSlider {
     justify-content: center;
     display: flex;
     margin-top: 30px;
-    @include  rwd_each(desktop) {
+    @include rwd_each(desktop) {
       display: none;
     }
-    .nar{
+    .nar {
       width: 25px;
       margin: auto;
     }
-    .nar:hover{
+    .nar:hover {
       @extend %cursor-hand;
     }
-    #carImage{
-      li{
+    #carImage {
+      li {
         width: 300px;
         height: 150px;
         margin: 0px 10px;
-        img{
+        img {
           width: 100%;
         }
       }
@@ -121,28 +121,28 @@ a{
 #car-wrap {
   display: block;
   margin: auto;
-  @include  rwd_each(desktop) {
+  @include rwd_each(desktop) {
     display: flex;
     justify-content: space-between;
   }
   .pic-wrap {
-    #bigPic{
+    #bigPic {
       display: none;
-      @include  rwd_each(desktop) {
+      @include rwd_each(desktop) {
         width: 530px;
         height: 300px;
         margin: auto;
         display: block;
       }
-      img{
+      img {
         width: 100%;
         position: relative;
         bottom: -30px;
       }
     }
-    #car-shadow{
+    #car-shadow {
       display: none;
-      @include  rwd_each(tablet) {
+      @include rwd_each(tablet) {
         display: block;
         width: 530px;
         height: 51px;
@@ -153,7 +153,7 @@ a{
     .small-wrap {
       display: none;
       justify-content: center;
-      @include  rwd_each(desktop) {
+      @include rwd_each(desktop) {
         display: flex;
       }
       .smallPic {
@@ -171,75 +171,76 @@ a{
         border: 2px solid $black;
       }
       .chosen {
-        border: 2px solid $black;        
+        border: 2px solid $black;
       }
     }
   }
-  .carContext{
+  .carContext {
     width: 375px;
     height: 500px;
     padding: 35px;
     margin: auto;
     background-color: #fff;
     border-radius: 10px;
-    .service-btn{
-      @include  rwd_each(desktop) {
+    .service-btn {
+      @include rwd_each(desktop) {
         justify-content: space-between;
       }
-      .btn-main{
+      .btn-main {
         margin: auto;
       }
     }
-    @include  rwd_each(tablet) {
+    @include rwd_each(tablet) {
       display: block;
       width: 500px;
       height: 400px;
       margin-top: 25px;
     }
-    @include  rwd_each(desktop) {
+    @include rwd_each(desktop) {
       height: 375px;
     }
-    p{
+    p {
       margin: 10px 0px;
       height: 180px;
-      @include  rwd_each(tablet) {
+      @include rwd_each(tablet) {
         height: 130px;
       }
-    }    
+    }
   }
 }
 //司機介紹
-#driver-content {
-  display: none;
-  // border: 1px solid #ccc;
-  #driverWrap{
+#driverInfos {
+  #driver-content {
     display: none;
-    @include  rwd_each(tablet) {
-      display: flex;
+    // border: 1px solid #ccc;
+    #driverWrap {
       margin: auto;
       text-align: center;
-    }
-      .image{
-        width: 600px;
-        margin: auto;      
-        ul{
+      // border: 1px solid red;
+      .image {
+        margin: auto;
+        ul {
           list-style: none;
           display: flex;
           flex-wrap: wrap;
-          justify-content: center;           
-          li{
+          justify-content: space-between;
+          margin: auto;
+          @include rwd_each(tablet) {
+            justify-content: initial;
+          }
+          li {
             width: 20vh;
             margin: 10px 20px;
             text-align: center;
             @extend %cursor-hand;
-            img{
+            img {
               border-radius: 10px;
               width: 100%;
             }
-            img:hover{
+            img:hover {
               border: 3px solid $black;
             }
-            span{
+            span {
               width: 100px;
               padding: 5px 10px;
               margin: auto;
@@ -248,30 +249,31 @@ a{
               border-radius: 5px;
               position: relative;
               top: -15px;
-              @include  rwd_each(tablet) {
+              @include rwd_each(tablet) {
                 width: 15vh;
               }
             }
           }
         }
       }
+    }
   }
 }
 
 //司機燈箱
-#driverLightBox{
+#driverLightBox {
   position: fixed;
   z-index: 1001;
   width: 100%;
   height: 100%;
-  background: rgba(66,66,66,.6);
-  .driverContent{
+  background: rgba(66, 66, 66, 0.6);
+  .driverContent {
     width: 750px;
     margin: 50px auto;
     background-color: #fff;
     border-radius: 10px;
     position: relative;
-    .closeIcon{
+    .closeIcon {
       position: absolute;
       top: 0px;
       right: 0px;
@@ -279,25 +281,25 @@ a{
       border: 1px solid #ccc;
       @extend %cursor-hand;
     }
-    .driverDetail{
+    .driverDetail {
       justify-content: space-between;
       padding: 40px;
       display: flex;
-      .driverDescribe{
+      .driverDescribe {
         vertical-align: top;
-         width: 50%;
-        span{
+        width: 50%;
+        span {
           font-weight: $font-bold;
         }
       }
-      #driverPic{
+      #driverPic {
         width: 300px;
-        img{
+        img {
           width: 100%;
         }
       }
     }
-    .driverCar::before{
+    .driverCar::before {
       content: "";
       background-color: #313131;
       width: 650px;
@@ -305,25 +307,25 @@ a{
       display: block;
       margin: auto;
     }
-    .driverCar{
+    .driverCar {
       justify-content: space-between;
       padding: 0px 40px 40px 40px;
-      #driverCarPic{
+      #driverCarPic {
         width: 250px;
         margin: 25px;
         display: inline-block;
-        img{
+        img {
           width: 100%;
         }
       }
-      .carDescribe{
+      .carDescribe {
         display: inline-block;
         margin-left: 60px;
-        span{
+        span {
           font-size: $font-base;
           font-weight: $font-bold;
         }
-        li{
+        li {
           line-height: 1.5;
         }
       }

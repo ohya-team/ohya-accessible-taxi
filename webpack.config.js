@@ -47,10 +47,12 @@ module.exports = {
         slotmachine_test:'./dev/js/slotmachine_test.js',
         uploadSuccess:'./dev/js/uploadSuccess.js',
         showArticle:'./dev/js/showArticle.js',
-        serviceVue: './dev/js/serviceVue.js',
         usercenterForum:'./dev/js/usercenterForum.js',
         usercenterDiscount:'./dev/js/usercenterDiscount.js',
         editArticle:'./dev/js/editArticle.js',
+        adminDiscount:'./dev/js/adminDiscount.js',
+        adminMember: './dev/js/adminMember.js',
+        adminDiscountCategory: './dev/js/adminDiscountCategory.js',
     },// 入口文件
     output: {
         path: path.resolve(__dirname, 'dist/js'),

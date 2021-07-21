@@ -5,7 +5,7 @@ try {
     require_once "../connect_cfd101g2.php";
     $memInfos =[];
     if (isset($_SESSION["mem_account"])) {
-        $sql = "select * from member where mem_account=:mem_account and mem_password=:mem_password";
+        $sql = "select * from member where mem_account=:mem_account and mem_password=:mem_password and mem_status ='1'";
         $member = $pdo->prepare($sql);
         $member->bindValue(":mem_account", $_SESSION["mem_account"]);
         $member->bindValue(":mem_password", $_SESSION["mem_password"]);

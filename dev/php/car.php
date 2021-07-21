@@ -1,7 +1,7 @@
 <?php
 try{
 	require_once("../connect_cfd101g2.php");
-	$sql = "select * from car";
+	$sql = "select * from car where CAR_STATUS = '1'";
 	$products = $pdo->query($sql);
 	$carInfos = $products->fetchAll(PDO::FETCH_ASSOC);
 	echo json_encode($carInfos);

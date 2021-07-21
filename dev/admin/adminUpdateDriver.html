@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>服務資訊管理</title>
+
+  <!-- Bootstrap Core CSS -->
+  <link href="../css/bootstrap.css" rel="stylesheet">
+
+  <!-- MetisMenu CSS -->
+  <link href="../css/metisMenuMin.css" rel="stylesheet">
+
+  <!-- Timeline CSS -->
+  <link href="../css/timeline.css" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link href="../css/startmin.css" rel="stylesheet">
+
+  <!-- Morris Charts CSS -->
+  <link href="../css/morris.css" rel="stylesheet">
+
+  <!-- Custom Fonts -->
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+    integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+</head>
+
+<body>
+
+  <div id="app">
+    @@include('../layout/adminSideBar.html')
+    <!-- Page Content -->
+    <div id="page-wrapper">
+      <div class="container-fluid">
+
+        <div class="container-lg">
+          <div class="table-responsive">
+            <div class="table-wrapper">
+              <div class="table-title">
+                <div class="row">
+                  <div class="col-sm-8">
+                    <h2>修改司機資訊 </h2>
+                  </div>
+                </div>
+              </div>
+              <form action="../php/updateDriver.php" method="POST" enctype="multipart/form-data">
+                <div class="form-group">
+                  <input class="form-control" id="driver_no" name="DRIVER_NO" type="hidden" :value="driverInfo[0].DRIVER_NO">
+                </div>
+                <div class="form-group">
+                  <input class="form-control" id="driver_status" name="DRIVER_STATUS" type="hidden" :value="driverInfo[0].DRIVER_NO">
+                </div>
+                <div class="form-group">
+                  <label for="DRIVER_NAME">姓名</label>
+                  <input class="form-control" id="name" name="DRIVER_NAME" type="text" :value="driverInfo[0].DRIVER_NAME"
+                    required>
+                </div>
+                <div class="form-group">
+                  <label for="DRIVER_PHONE">司機電話</label>
+                  <textarea class="form-control" id="phone" name="DRIVER_PHONE" rows="3"
+                    :value="driverInfo[0].DRIVER_PHONE" required></textarea>
+                </div>
+                <div class="form-group">
+                  <label for="DRIVER_DESCRIBE">司機介紹</label>
+                  <textarea class="form-control" id="info" name="DRIVER_DESCRIBE" rows="8" :value="driverInfo[0].DRIVER_DESCRIBE"
+                    required></textarea>
+                </div>
+                <div class="panel-body">
+                  <div class="alert alert-warning col-xs-12">
+                    <div class="driverPic " id="driverPicEdit">
+                      <div class="hero-widget well well-sm ">
+                        <label for="driverInp">
+                          <img id="uploadDriverpic" :src="driverImage" style="max-width:300px;max-height: 300px;" alt="">
+                        </label>
+                      </div>
+                      <p class="text-center">
+                        <dd>
+                          <div class="panel-heading">編輯個人照片<div><br>
+                              <input type="hidden" name="DRIVER_PIC" :value="driverImage">
+                              <input class="form-control" id="driverInp" name="DRIVER_PIC" type="file"
+                                @change="driverfileChange">
+                        </dd>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="TAXI_LICENCENO">車牌</label>
+                  <input class="form-control" id="texi_licence" name="TAXI_LICENCENO" type="text" :value="driverInfo[0].TAXI_LICENCENO"
+                  required>
+                </div>
+                <div class="form-group">
+                  <label for="TAXI_DESCRIBE">計程車介紹</label>
+                  <input class="form-control" id="taxi_descibe" name="TAXI_DESCRIBE" type="text" :value="driverInfo[0].TAXI_DESCRIBE"
+                    required>
+                </div>
+                <div class="panel-body">
+                  <div class="alert alert-warning col-xs-12">
+                    <div class="taxiPic " id="taxiPicEdit">
+                      <div class="hero-widget well well-sm ">
+                        <label for="taxiInp">
+                          <img id="uploadTaxipic" :src="taxiImage" style="max-width:300px;max-height: 300px;" alt="">
+                        </label>
+                      </div>
+                      <p class="text-center">
+                        <dd>
+                          <div class="panel-heading">編輯計程車照片<div><br>
+                              <input type="hidden" name="TAXI_PIC" :value="taxiImage">
+                              <input class="form-control" id="taxiInp" name="TAXI_PIC" type="file"
+                                @change="taxifileChange">
+                        </dd>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="btn" style="display: flex;justify-content: space-evenly;">
+                  <a href="./adminServiceDriver.html"><button type="button" class="btn btn-info add-new finishBtn"
+                      id="cancelBtn">取消</button></a>
+                  <button type="submit" class="btn btn-info add-new finishBtn" id="finishBtn">完成</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+
+  <!-- Bootstrap Core JavaScript -->
+  <script src="../js/bootstrapMin.js"></script>
+
+  <!-- Metis Menu Plugin JavaScript -->
+  <script src="../js/metisMenuMin.js"></script>
+
+  <!-- Custom Theme JavaScript -->
+  <script src="../js/startmin.js"></script>
+  <script src="../js/adminDriver.js"></script>
+</body>
+
+</html>

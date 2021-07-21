@@ -123,11 +123,10 @@
       }
       .loginSpan{
         display: flex;
-        justify-content: flex-end;
+        justify-content: center;
         margin-top: 20px;
         span{
-          color: #9f9f9f;
-          font-size: $font-mini;
+          color: #ffd900;
           cursor: pointer;
           margin-bottom: 0;
         }

@@ -19,11 +19,11 @@
       </div>
       <div class="LoginWrap">
         <div class="selector">
-          <div class="chosen"><span>註冊</span></div>
-          <div class=""><span>登入</span></div>
+          <div class=""><span>註冊</span></div>
+          <div class="chosen"><span>登入</span></div>
         </div>
     
-        <form id="signupDetail" action="../dist/php/signIn.php" method="POST" enctype="multipart/form-data">
+        <form id="signupDetail" action="../dist/php/signIn.php" method="POST" enctype="multipart/form-data" style="display: none;">
           <div class="name">
            <div id="last"><label for="lastName">姓<br></label><input id="lastName" type="text" name="mem_lastname" placeholder="ex,林" required></div>
             <div id="first"><label for="firstName">名<br></label><input id="firstName" type="text" name="mem_firstname" placeholder="ex,大明" required></div>
@@ -40,7 +40,7 @@
           <input id="signBtn" type="submit" class="btn-main" value="確認註冊" >
         </form>
 
-        <form id="LoginDetail" action="../dist/php/login.php" method="post">
+        <form id="LoginDetail" action="../dist/php/login.php" method="post" style="display: block;">
           <div class="number">
             <label>E-mail(帳號)</label><br><input type="email" name="mem_account" id="memAccount" required>
             <input type="hidden" id="checkAcc">
@@ -52,7 +52,8 @@
             <input type="checkBox" required><label>登入即代表您同意使用者及隱私權政策</label>
           </div>
           <input type="submit" class="btn-main" id="loginBtn" value="登入">
-          <div class="loginSpan">
+          <div class="loginSpan" >
+            <p>還沒有加入我們嗎?趕快申請註冊吧!</p><br>
             <span>立即註冊</span>
           </div>
         </form>

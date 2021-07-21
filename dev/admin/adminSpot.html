@@ -2,167 +2,153 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
 
-    <title>景點管理</title>
+  <title>景點管理</title>
 
-    <!-- Bootstrap Core CSS -->
-    <link href="../css/bootstrap.css" rel="stylesheet">
+  <!-- Bootstrap Core CSS -->
+  <link href="../css/bootstrap.css" rel="stylesheet">
 
-    <!-- MetisMenu CSS -->
-    <link href="../css/metisMenuMin.css" rel="stylesheet">
+  <!-- MetisMenu CSS -->
+  <link href="../css/metisMenuMin.css" rel="stylesheet">
 
-    <!-- Timeline CSS -->
-    <link href="../css/timeline.css" rel="stylesheet">
+  <!-- Timeline CSS -->
+  <link href="../css/timeline.css" rel="stylesheet">
 
-    <!-- Custom CSS -->
-    <link href="../css/startmin.css" rel="stylesheet">
+  <!-- Custom CSS -->
+  <link href="../css/startmin.css" rel="stylesheet">
 
-    <!-- Morris Charts CSS -->
-    <link href="../css/morris.css" rel="stylesheet">
+  <!-- Morris Charts CSS -->
+  <link href="../css/morris.css" rel="stylesheet">
 
-    <!-- Custom Fonts -->
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
-        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+  <!-- Custom Fonts -->
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+    integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
 </head>
 
 <body>
 
-    <div id="wrapper">
-        @@include('../layout/adminSideBar.html')
-        <!-- Page Content -->
-        <div id="app">
-            <div id="page-wrapper">
-                <div class="container-fluid">
-                    <div class="container-lg">
-                        <div class="table-responsive">
-                            <div class="table-wrapper">
-                                <div class="table-title">
-                                    <div class="row">
-                                        <div class="col-sm-8"> </div>
-                                        <div class="col-sm-4">
-                                            <a href="./adminAddSpot.html">
-                                                <button type="button" class="btn btn-info add-new"><i
-                                                        class="fa fa-plus"></i>
-                                                    Add New</button>
-                                            </a>
+  <div id="wrapper">
+    @@include('../layout/adminSideBar.html')
+    <!-- Page Content -->
+    <div id="app">
+      <div id="page-wrapper">
+        <div class="container-fluid">
+          <div class="container-lg">
+            <div class="table-responsive">
+              <div class="table-wrapper">
+                <div class="table-title">
+                  <div class="row">
+                    <div class="col-sm-8"> </div>
+                    <div class="col-sm-4">
+                      <a href="./adminAddSpot.html">
+                        <button type="button" class="btn btn-info add-new"><i class="fa fa-plus"></i>
+                          Add New</button>
+                      </a>
 
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="panel panel-default">
-                                    <div class="panel-heading">
-                                        <h4>景點管理</h4>
-                                    </div>
-                                    <!-- .panel-heading -->
-                                    <div class="panel-body">
-                                        <div class="panel-group" id="accordion">
-                                            <div class="panel panel-primary" v-for="info in info" :key="info.SPOT_NO">
-                                                <div class="panel-heading"
-                                                    style="display: grid ; grid-template-columns: repeat(3,5fr) 1fr;">
-                                                    <h4 class="panel-title">
-                                                        <a data-toggle="collapse" data-parent="#accordion"
-                                                            :href="'#' + info.SPOT_NO" aria-expanded="false"
-                                                            class="collapsed">{{info.SPOT_NAME}}</a>
-                                                    </h4>
-                                                    <p style="margin: 0;">景點狀態: {{info.SPOT_STATUS == 1 ? '開啟':'關閉'}}</p>
-                                                    <p style="margin: 0;">精選景點狀態: {{info.SPOT_STATUS_S == 1 ?
-                                                        '開啟':'關閉'}}</p>
-                                                    <div style="justify-content:flex-end;display:flex">
-                                                        <a class="edit"
-                                                            style="color: #ffc107; font-size: 19px; margin-right: 10px;"
-                                                            title="Edit" data-toggle="tooltip"
-                                                            :href="'./adminUpdateSpot.html?spot_no=' + info.SPOT_NO"><i
-                                                                class="fas fa-edit"></i></a>
-                                                        <span @click='deleteSpot '
-                                                            style="cursor: pointer;color: #e34724; font-size: 19px;"
-                                                            title="Delete" data-toggle="tooltip">
-                                                            <i :id="'data' +info.SPOT_NO"
-                                                                class="fas fa-trash-alt"></i></span>
-                                                        <form action="../php/deleteSpot.php"
-                                                            :id="'deletedata' + info.SPOT_NO" method="post">
-                                                            <input type="hidden" name="delete_no" :value="info.SPOT_NO">
-                                                        </form>
-                                                    </div>
-                                                </div>
-                                                <div :id="info.SPOT_NO" class="panel-collapse collapse"
-                                                    aria-expanded="false" style="height: 0px;">
-                                                    <div class="panel-body" style="margin: 0 6%; border: none;">
-                                                        <ul style=" overflow-x: auto;">
-                                                            <li class="list-unstyled" style="margin-top: 20px;">
-                                                                <p>景點編號 : {{info.SPOT_NO}}</p>
-                                                            </li>
-                                                            <li class="list-unstyled" style="margin-top: 20px;">
-                                                                <p>景點名稱: {{info.SPOT_NAME}}</p>
-                                                            </li>
-                                                            <li class="list-unstyled" style="margin-top: 20px;">
-                                                                <p>景點標語: {{info.SPOT_SLOGAN}}</p>
-                                                            </li>
-                                                            <li class="list-unstyled"
-                                                                style="line-height: 2em; margin-top: 20px;">
-                                                                <p>景點內容: <br> {{info.SPOT_INFO}}</p>
-                                                            </li>
-                                                            <li class="list-unstyled" style="margin-top: 20px;">
-                                                                <table class="table table-bordered">
-                                                                    <thead>
-                                                                        <tr>
-                                                                            <th style="width:120px;">景點圖片1</th>
-                                                                            <th style="width: 200px;">景點圖片2</th>
-                                                                            <th style="width: 200px;">景點圖片3</th>
-                                                                            <th style="width: 200px;">景點圖片4</th>
-                                                                            <th style="width: 421px;">橫幅景點圖片</th>
-                                                                        </tr>
-                                                                    </thead>
-                                                                    <tbody>
-                                                                        <td><img :src="'.'+ info.SPOT_PIC_1" alt=""
-                                                                                style="width: 100%;">
-                                                                        </td>
-                                                                        <td><img :src="'.'+ info.SPOT_PIC_2" alt=""
-                                                                                style="width: 100%;">
-                                                                        </td>
-                                                                        <td><img :src="'.'+ info.SPOT_PIC_3" alt=""
-                                                                                style="width: 100%;">
-                                                                        </td>
-                                                                        <td><img :src="'.'+ info.SPOT_PIC_4" alt=""
-                                                                                style="width: 100%;">
-                                                                        </td>
-                                                                        <td><img :src="'.'+ info.SPOT_PIC_B" alt=""
-                                                                                style="width: 100%;">
-                                                                        </td>
-                                                                    </tbody>
-                                                                </table>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                     </div>
+                  </div>
                 </div>
+                <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <h4>景點管理</h4>
+                  </div>
+                  <!-- .panel-heading -->
+                  <div class="panel-body">
+                    <div class="panel-group" id="accordion">
+                      <div class="panel panel-primary" v-for="info in info" :key="info.SPOT_NO">
+                        <div class="panel-heading" style="display: grid ; grid-template-columns: repeat(3,5fr) 1fr;">
+                          <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" :href="'#' + info.SPOT_NO"
+                              aria-expanded="false" class="collapsed">{{info.SPOT_NAME}}</a>
+                          </h4>
+                          <p style="margin: 0;">景點狀態: {{info.SPOT_STATUS == 1 ? '開啟':'關閉'}}</p>
+                          <p style="margin: 0;">精選景點狀態: {{info.SPOT_STATUS_S == 1 ?
+                            '開啟':'關閉'}}</p>
+                          <div style="justify-content:flex-end;display:flex">
+                            <a class="edit" style="color: #ffc107; font-size: 19px; margin-right: 10px;" title="Edit"
+                              data-toggle="tooltip" :href="'./adminUpdateSpot.html?spot_no=' + info.SPOT_NO"><i
+                                class="fas fa-edit"></i></a>
+                            <span @click='deleteSpot ' style="cursor: pointer;color: #e34724; font-size: 19px;"
+                              title="Delete" data-toggle="tooltip">
+                              <i :id="'data' +info.SPOT_NO" class="fas fa-trash-alt"></i></span>
+                            <form action="../php/deleteSpot.php" :id="'deletedata' + info.SPOT_NO" method="post">
+                              <input type="hidden" name="delete_no" :value="info.SPOT_NO">
+                            </form>
+                          </div>
+                        </div>
+                        <div :id="info.SPOT_NO" class="panel-collapse collapse" aria-expanded="false"
+                          style="height: 0px;">
+                          <div class="panel-body" style="margin: 0 6%; border: none;">
+                            <ul style=" overflow-x: auto;">
+                              <li class="list-unstyled" style="margin-top: 20px;">
+                                <p>景點編號 : {{info.SPOT_NO}}</p>
+                              </li>
+                              <li class="list-unstyled" style="margin-top: 20px;">
+                                <p>景點名稱: {{info.SPOT_NAME}}</p>
+                              </li>
+                              <li class="list-unstyled" style="margin-top: 20px;">
+                                <p>景點標語: {{info.SPOT_SLOGAN}}</p>
+                              </li>
+                              <li class="list-unstyled" style="line-height: 2em; margin-top: 20px;">
+                                <p>景點內容: <br> {{info.SPOT_INFO}}</p>
+                              </li>
+                              <li class="list-unstyled" style="margin-top: 20px;">
+                                <table class="table table-bordered">
+                                  <thead>
+                                    <tr>
+                                      <th style="width:120px;">景點圖片1</th>
+                                      <th style="width: 200px;">景點圖片2</th>
+                                      <th style="width: 200px;">景點圖片3</th>
+                                      <th style="width: 200px;">景點圖片4</th>
+                                      <th style="width: 421px;">橫幅景點圖片</th>
+                                    </tr>
+                                  </thead>
+                                  <tbody>
+                                    <td><img :src="'.'+ info.SPOT_PIC_1" alt="" style="width: 100%;">
+                                    </td>
+                                    <td><img :src="'.'+ info.SPOT_PIC_2" alt="" style="width: 100%;">
+                                    </td>
+                                    <td><img :src="'.'+ info.SPOT_PIC_3" alt="" style="width: 100%;">
+                                    </td>
+                                    <td><img :src="'.'+ info.SPOT_PIC_4" alt="" style="width: 100%;">
+                                    </td>
+                                    <td><img :src="'.'+ info.SPOT_PIC_B" alt="" style="width: 100%;">
+                                    </td>
+                                  </tbody>
+                                </table>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
+          </div>
         </div>
-
+      </div>
     </div>
 
+  </div>
 
 
-    <!-- Bootstrap Core JavaScript -->
-    <script src="../js/bootstrapMin.js"></script>
 
-    <!-- Metis Menu Plugin JavaScript -->
-    <script src="../js/metisMenuMin.js"></script>
+  <!-- Bootstrap Core JavaScript -->
+  <script src="../js/bootstrapMin.js"></script>
 
-    <!-- Custom Theme JavaScript -->
-    <script src="../js/startmin.js"></script>
-    <script src="../js/adminTravel.js"></script>
+  <!-- Metis Menu Plugin JavaScript -->
+  <script src="../js/metisMenuMin.js"></script>
+
+  <!-- Custom Theme JavaScript -->
+  <script src="../js/startmin.js"></script>
+  <script src="../js/adminTravel.js"></script>
 </body>
 
 </html>

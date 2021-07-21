@@ -64,12 +64,12 @@
                       <tr v-for = "driver in driverInfo " :key = "driver.DRIVER_NO">
                         <td>{{driver.DRIVER_NO}}</td>
                         <td>{{driver.DRIVER_NAME}}</td>
-                        <td>{{driver.CAR_No}}</td>
+                        <td>{{driver.TAXI_LICENCENO}}</td>
                         <td>{{driver.DRIVER_STATUS == 1 ? '啟用' : '關閉'}}</td>
                         <td>
-                          <a class="add" title="Add" data-toggle="tooltip"><i class="fas fa-plus"></i></a>
-                          <a class="edit" title="Edit" data-toggle="tooltip"><i class="fas fa-edit"></i></a>
-                          <a class="delete" title="Delete" data-toggle="tooltip"><i class="fas fa-trash-alt"></i></a>
+                          <p class="text-center">
+                          <a class="edit" title="Edit" data-toggle="tooltip" :href="'./adminUpdateDriver.html?driver_no=' + driver.DRIVER_NO"><i class="fas fa-edit"></i></a>
+                          </p>
                         </td>
                       </tr>
                       

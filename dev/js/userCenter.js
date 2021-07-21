@@ -15,13 +15,11 @@ let vue = new Vue({
         readFile.addEventListener('load',(e) => this.image = e.target.result);
         console.log(readFile);
       },
-      showPic(){
-        
-      }
     },
     data() {
         return {
         memInfo: null,
+        targetPageId: null,
         image: '',
         file: '',
         }
@@ -32,8 +30,6 @@ let vue = new Vue({
                 this.memInfo = res.data;
                 this.image = res.data[0].MEM_PIC;
                 this.file = res.data[0].MEM_PIC;
-                console.log(res.data);
-                console.log(this.image);
             })
             .catch( (error) => console.log(error));
     },

@@ -60,17 +60,15 @@
                 </thead>
                 <tbody>
                   <tr v-for="member in memInfo " :key="member.MEM_NO">
-                    <td>{{member.MEM_NO}}</td>
+                    <td >{{member.MEM_NO}}</td>
                     <td>{{member.MEM_LASTNAME + member.MEM_FIRSTNAME}}</td>
                     <td>{{member.MEM_ACCOUNT}}</td>
                     <td>{{member.MEM_STATUS == 1 ? '啟用' : '關閉'}}</td>
                     <td>
-                      <a class="add" title="Add" data-toggle="tooltip"><i class="fas fa-plus"></i></a>
-                      <a class="edit" title="Edit" data-toggle="tooltip"><i class="fas fa-edit"></i></a>
-                      <a class="delete" title="Delete" data-toggle="tooltip"><i class="fas fa-trash-alt"></i></a>
+                      <input type="hidden" :value="member.MEM_NO" name="MEM_NO">
+                      <input id="changeStatus" type="submit" name="MEM_STATUS" class="edit" :data-value="member.MEM_STATUS" data-toggle="tooltip" value="停權" @click="changeStatus(member)">
                     </td>
                   </tr>
-
                 </tbody>
               </table>
             </div>

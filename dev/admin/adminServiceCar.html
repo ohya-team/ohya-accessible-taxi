@@ -46,9 +46,6 @@
                       <div class="col-sm-8">
                         <h2>車種管理 </h2>
                       </div>
-                      <div class="col-sm-4">
-                        <button type="button" class="btn btn-info add-new"><i class="fa fa-plus"></i> Add New</button>
-                      </div>
                     </div>
                   </div>
                   <table class="table table-bordered">
@@ -66,9 +63,10 @@
                         <td>{{car.CAR_TYPE}}</td>
                         <td>{{car.CAR_STATUS == 1 ? '啟用' : '關閉'}}</td>
                         <td>
-                          <a class="add" title="Add" data-toggle="tooltip"><i class="fas fa-plus"></i></a>
-                          <a class="edit" title="Edit" data-toggle="tooltip" ><i class="fas fa-edit"></i></a>
-                          <a class="delete" title="Delete" data-toggle="tooltip"><i class="fas fa-trash-alt"></i></a>
+                          <p class="text-center">
+                          <a class="edit" title="Edit" data-toggle="tooltip" :href="'./adminUpdateCar.html?car_no=' + car.CAR_NO"><i class="fas fa-edit"></i></a>
+                          <input type="button" value="停權">
+                          </p>
                         </td>
                       </tr>
                     </tbody>

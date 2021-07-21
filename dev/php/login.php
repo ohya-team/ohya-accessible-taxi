@@ -3,7 +3,7 @@ ob_start();
 session_start();
 try{
 	require_once("../connect_cfd101g2.php");
-	$sql = "select * from member where mem_account=:mem_account and mem_password=:mem_password";
+	$sql = "select * from member where mem_account=:mem_account and mem_password=:mem_password and mem_status = '1'";
 	$member = $pdo->prepare($sql);
 	$member -> bindValue(":mem_account" , $_POST["mem_account"]);
 	$member -> bindValue(":mem_password" , $_POST["mem_password"]);

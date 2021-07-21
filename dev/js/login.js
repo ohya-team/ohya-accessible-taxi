@@ -2,6 +2,7 @@
 let signUp = $('#signupDetail')[0];
 let logIn = $('#LoginDetail')[0];
 function change(){
+  console.log('in');
     $('.selector span').on( 'click',function(){
     $(this).css('color','#313131');
     $('.selector span').not(this).css('color','#9f9f9f');
@@ -11,7 +12,7 @@ function change(){
     }else{
       signUp.style.display = "none";
       logIn.style.display = "block";
-      returnTo();
+      // returnTo();
     }
   })
 }
@@ -74,11 +75,14 @@ function checkSignup(e){
 function sendLoginForm(){
   let xhr = new XMLHttpRequest(); 
   xhr.onload = function(){
+    debugger;
     if(xhr.status == 200){
       let member = JSON.parse(xhr.responseText);
       if(member.mem_account){
         //將燈箱中的表單上的資料清空，並隱藏起來
         $('#LoginLightBox').style.display = 'none';
+        $('#memAccount').value = '';
+        $('#memPassword').value = '';  
       }else{
         alert("帳密錯誤");
       }
@@ -126,6 +130,7 @@ function checkId(){
 
 function init(){
   change();
+  returnTo();
   closeLightBox();
   clear();
   document.getElementById('mem_account').onblur = checkId;
