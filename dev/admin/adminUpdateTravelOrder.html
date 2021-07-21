@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>修改旅遊訂單狀態</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="../css/bootstrap.css" rel="stylesheet">
+
+    <!-- MetisMenu CSS -->
+    <link href="../css/metisMenuMin.css" rel="stylesheet">
+
+    <!-- Timeline CSS -->
+    <link href="../css/timeline.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="../css/startmin.css" rel="stylesheet">
+
+    <!-- Morris Charts CSS -->
+    <link href="../css/morris.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+</head>
+
+</head>
+
+<body>
+
+    <div id="wrapper">
+        @@include('../layout/adminSideBar.html')
+        <div id="app">
+            <!-- Page Content -->
+            <div id="page-wrapper">
+                <div class="container-fluid">
+                    <div class="container-lg">
+                        <div class="table-responsive">
+                            <div class="table-wrapper">
+                                <div class="table-title">
+                                    <div class="row">
+                                        <div class="col-sm-8">
+                                            <h2>修改旅遊訂單資訊</h2>
+                                        </div>
+                                    </div>
+                                </div>
+                                <form action="../php/updateTravelOrder.php" method="POST" enctype="multipart/form-data">
+                                    <div class="form-group">
+                                        <label for="mem">會員編號</label>
+                                        <input class="form-control" id="mem" name="mem_no" type="text"
+                                            :value="detailInfo[0].MEM_NO" readonly>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="l_name">訂購人姓</label>
+                                        <input class="form-control" id="l_name" name="order_l_name" type="text"
+                                            :value="detailInfo[0].ORDER_L_NAME" readonly>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="f_name">訂購人名</label>
+                                        <textarea class="form-control" id="f_name" name="order_f_name" rows="3"
+                                            :value="detailInfo[0].ORDER_F_NAME" readonly></textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="phone">訂購人電話</label>
+                                        <input class="form-control" id="phone" name="order_phone"
+                                            :value="detailInfo[0].ORDER_PHONE" readonly></input>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="email">訂購人e-mail</label>
+                                        <input class="form-control" id="email" name="order_email"
+                                            :value="detailInfo[0].ORDER_EMAIL" readonly></input>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="add">訂購人地址</label>
+                                        <input class="form-control" id="add" name="order_add"
+                                            :value="detailInfo[0].ORDER_ADD" readonly></input>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="place">接送地點</label>
+                                        <input class="form-control" id="place" name="pick_up_place"
+                                            :value="detailInfo[0].PICK_UP_PLACE" readonly></input>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="car">車號</label>
+                                        <input class="form-control" id="car" name="car_type"
+                                            :value="detailInfo[0].CAR_TYPE" readonly></input>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="people">人數</label>
+                                        <input class="form-control" id="people" name="number_of_people"
+                                            :value="detailInfo[0].NUMBER_OF_PEOPLE" readonly></input>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="program-price">方案定價</label>
+                                        <input class="form-control" id="program-price"
+                                            :value="detailInfo[0].PROGRAM_PRICE" readonly></input>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="additional">備註</label>
+                                        <textarea class="form-control" id="additional" name="purchase_additional"
+                                            rows="3" :value="detailInfo[0].PURCHASE_ADDITIONAL" readonly></textarea>
+                                    </div>
+                                    <div v-if='detailInfo[0].DISCOUNT_NUM != 0'>
+                                        <div class="form-group">
+                                            <label for="discount">優惠卷編號</label>
+                                            <input class="form-control" id="discount" name="discount_no"
+                                                :value="detailInfo[0].DISCOUNT_NUM" readonly></input>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="discount">優惠卷折數</label>
+                                            <input class="form-control" id="discount" name="discount_no"
+                                                :value="detailInfo[0].DISCOUNT_INFO" readonly></input>
+                                        </div>
+                                    </div>
+                                    <input type="hidden" name="discount_per" :value="detailInfo[0].DISCOUNT_PER">
+
+                                    <div class="form-group">
+                                        <label for="total">總金額(不含折數)</label>
+                                        <input class="form-control" id="total" name="total_price"></input>
+                                    </div>
+                                    <input type="hidden" name="ordpayway" :value="detailInfo[0].ORDPAYWAY"></input>
+                                    <input type="hidden" name="payway_id" :value="detailInfo[0].PAYWAY_ID"></input>
+                                    <input type="hidden" name="payway_insp" :value="detailInfo[0].PAYWAY_INSP"></input>
+                                    <input type="hidden" name="order_no" :value="detailInfo[0].ORDER_NO"></input>
+                                    <input type="hidden" name="loc" value="1">
+                                    <div class="btn-group" style="display:flex ;justify-content:flex-end">
+                                        <button type="submit" class="btn btn-success">修改完成</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="../js/bootstrapMin.js"></script>
+
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="../js/metisMenuMin.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="../js/startmin.js"></script>
+    <script src="../js/adminTravelOrder.js"></script>
+</body>
+
+</html>

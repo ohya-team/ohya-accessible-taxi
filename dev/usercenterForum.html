@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="">
+    
+        <title>文章管理</title>
+    
+        <!-- Bootstrap Core CSS -->
+        <link href="./css/bootstrap.css" rel="stylesheet">
+    
+        <!-- MetisMenu CSS -->
+        <link href="./css/metisMenuMin.css" rel="stylesheet">
+    
+        <!-- Timeline CSS -->
+        <link href="./css/timeline.css" rel="stylesheet">
+    
+        <!-- Custom CSS -->
+        <link href="./css/startmin.css" rel="stylesheet">
+    
+        <!-- Morris Charts CSS -->
+        <link href="./css/morris.css" rel="stylesheet">
+    
+        <!-- Custom Fonts -->
+        <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+            integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    </head>
+
+<body>
+
+    <div id="wrapper">
+        @@include('./layout/usercenterSidebar.html')
+        <!-- Page Content -->
+        <div id="app">
+            <div id="page-wrapper">
+                <div class="container-fluid">
+                    <div class="container-lg">
+                        <div class="table-responsive">
+                            <div class="table-wrapper">
+                                <div class="table-title">
+                                    <div class="row">
+                                        <div class="col-sm-8"> </div>
+                                        <div class="col-sm-4">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <h4>文章管理</h4>
+                                    </div>
+                                    <!-- .panel-heading -->
+                                    <div class="panel-body">
+                                        <div class="panel-group" id="accordion">
+                                            <div class="panel panel-primary" v-for="item in detailInfo" :key="item.ART_NO">
+                                                <div class="panel-heading"
+                                                    style="display: grid ; grid-template-columns: repeat(2,6fr) 1fr;">
+                                                    <h4 class="panel-title">
+                                                        <a data-toggle="collapse" data-parent="#accordion"
+                                                            :href="'#' + item.ART_NO" aria-expanded="false"
+                                                            class="collapsed">{{item.ART_TITLE}}</a>
+                                                    </h4>
+                                                    <p style="margin: 0; font-size: 16px;">文章類別 : {{item.ART_CAT}}</p>
+                                                    <div style="justify-content:flex-end;display:flex">
+                                                        <a class="edit"
+                                                            style="color: #ffc107; font-size: 19px; margin-right: 10px;"
+                                                            title="Edit" data-toggle="tooltip"
+                                                            :href="'./editArticle.html?art_no=' + item.ART_NO"><i
+                                                                class="fas fa-edit"></i></a>
+                                                        <span @click='deleteForum '
+                                                            style="cursor: pointer;color: #e34724; font-size: 19px;"
+                                                            title="Delete" data-toggle="tooltip">
+                                                            <i :id="'data' +item.ART_NO"
+                                                                class="fas fa-trash-alt"></i></span>
+                                                        <form action="./php/deleteArticle.php"
+                                                            :id="'deletedata' + item.ART_NO" method="post">
+                                                            <input name="art_no" :value="item.ART_NO" hidden>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                                <div :id="item.ART_NO" class="panel-collapse collapse"
+                                                    aria-expanded="false" style="height: 0px;">
+                                                    <div class="panel-body" style="margin: 0 6%; border: none;">
+                                                        <ul style=" overflow-x: auto;">
+                                                            <li class="list-unstyled" style="margin-top: 20px;"> 
+                                                                <img :src="item.ART_IMG" style="width: 100% ;border-radius:20px ;margin-bottom:20px" alt="">
+                                                                <p>{{item.ART_CONTENT}} </p>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="./js/bootstrapMin.js"></script>
+
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="./js/metisMenuMin.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="./js/startmin.js"></script>
+    <script src="./js/usercenterForum.js"></script>
+</body>
+
+</html>

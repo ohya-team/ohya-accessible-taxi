@@ -13,7 +13,8 @@ section.bookingInfo,
   display: none;
 }
 
-.deskTable table span.day{
+.deskTable table span.day,
+.mobileTable table span.day{
   margin-bottom: 0;
 }
 
@@ -32,6 +33,7 @@ section.bookingInfo,
   @extend %black;
 }
 
+//可預約
 @include btn(button, bookingTime, 100%, '%black', '%bg-white');
 button.btn-bookingTime{
   border: 2px solid $yellow-first;
@@ -40,6 +42,27 @@ button.btn-bookingTime{
   &:hover{
     border: 2px solid $black;
   }
+}
+//不可預約
+@include btn(button, bookingFull, 100%, '%gray-first', '%bg-gray-second');
+button.btn-bookingFull{
+  border: 2px solid $gray-second;
+  @extend %block, %cursor-def;
+
+  &:hover{
+    color: $gray-first;
+    background-color: $gray-second;
+    border: 2px solid $gray-second;
+  }
+}
+
+.mobileTable table td.btn-bookingTime{
+  padding: $ele-ele;
+  @extend %bg-white;
+}
+
+.mobileTable table td.btn-bookingFull{
+  @extend %gray-first, %bg-gray-second;
 }
 
 .calenderDes{
@@ -97,9 +120,10 @@ ul.booking-detail{
   margin-bottom: $ele-ele*1.5;
 }  
 
-ul.booking-detail input{
+ul.booking-info .dis,
+ul.booking-detail .dis{
   border: none;
-  background-color: $gray-second;
+  background-color: lighten($yellow-second, 5%);
 }
 
 label.booking-notice{
@@ -213,13 +237,5 @@ button.btn-cancel{
   ul.booking-detail h3{
     width: 100%;
     display: block;
-  }
-
-  ul.booking-detail h3{
-    margin-bottom: $text-text+2;
-  }
-
-  label.booking-notice{
-    padding: $ele-ele;
   }
 }

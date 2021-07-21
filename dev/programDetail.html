@@ -21,7 +21,7 @@
 
     <div id="app">
         <section class="program-detail">
-            <div class="container">
+            <div class="container" v-if='DetailInfo !=  undefined && DetailInfo.length > 0'>
                 <div class="title">
                     <h2>{{DetailInfo[0].PROGRAM_NAME}}</h2>
                 </div>
@@ -33,14 +33,15 @@
                                 <span>最多人數</span>
                                 <p>{{DetailInfo[0].CAR_MAXNUM}}</p>
                             </div>
-                            <div class="location-and-star">
-                                <div class="location">
-                                    <span>搭乘車種</span>
-                                    <p>{{DetailInfo[0].CAR_TYPE}}</p>
-                                </div>
-                                <star-rating :rating="DetailInfo[0].PROGRAM_RATING" :read-only="true" :increment="0.01"
+                            <div class="location">
+                                <span>搭乘車種</span>
+                                <p>{{DetailInfo[0].CAR_TYPE}}</p>
+                            </div>
+                            <div class="star-wrap">
+                                <span>精選評分</span>
+                                <star-rating :rating="parseFloat( DetailInfo[0].PROGRAM_RATING)" :read-only="true" :increment="0.01"
                                     active-color="#ffd900" inactive-color="#9f9f9f" :show-rating=false :star-size="25">
-                                </star-rating>
+                                </star-rating>   
                             </div>
                             <div class="price">
                                 <span>價格</span>
@@ -59,7 +60,7 @@
                             <div class="remarks">
                                 <span>備註</span>
                                 <p class="text"> {{DetailInfo[0].PROGRAM_REMARKS}}</p>
-                                <button class="btn-main" onclick="location.href='./travelFormOne.html'">立即下單</button>
+                                <button class="btn-main" @click="this.order">立即下單</button>
                             </div>
                         </div>
                     </div>
@@ -69,8 +70,7 @@
         <section class="program-spot">
             <div class="container">
                 <h3 class="title">行程介紹</h3>
-                <div class="spot-group">
-
+                <div class="spot-group" >
                     <div class="spot" v-for="(item,index) in spotDetailInfo" :key="item.id">
                         <div class="order">
                             <p>{{index+1}}</p>
@@ -81,6 +81,11 @@
                             </h3>
                             <p class="spot-text">
                                 {{item.SPOT_MIN_INFO}}
+                            </p>
+                            <p class="spot-time">
+                                {{item.PROGRAM_INFO_1}}
+                                <br>
+                                {{item.PROGRAM_INFO_2}}
                             </p>
                         </div>
                         <div class="spot-img">

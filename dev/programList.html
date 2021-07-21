@@ -33,36 +33,45 @@
             <div class="container">
                 <div class="box">
                     <ul class="word-menu">
-                        <li>排序</li>
-                        <li class="active">
-                            精選評分
-                            <ul class="dropdown">
-                                <li>最高評分</li>
-                                <li>最低評分</li>
+                        <li><span> 排序</span> </li>
+                        <li :class='this.type == "精選評分" ? "active": "" ' @click='selectType'><span> 精選評分</span> </li>
+                        <li :class='this.type == "價格由高到低" || this.type == "價格由低到高" ? "active ": "" '><span>
+                                {{priceSort}}</span>
+                            <ul>
+                                <li @click='selectPriceSort'>價格由高到低</li>
+                                <li @click='selectPriceSort'>價格由低到高</li>
                             </ul>
                         </li>
-                        <li>
-                            價格
-                            <ul class="dropdown">
-                                <li>最高價格</li>
-                                <li>最低價格</li>
-                            </ul>
-                        </li>
-                        <li>
-                            人數
-                            <ul class="dropdown">
-                                <li>最多人數</li>
-                                <li>最少人數</li>
+                        <li :class='this.type == this.personSort ? "active ": "" '><span> {{personSort}}</span>
+                            <ul>
+                                <li @click='selectPersonSort'>人數由少到多</li>
+                                <li @click='selectPersonSort'>人數由多到少</li>
                             </ul>
                         </li>
                     </ul>
                 </div>
+                <ul class="mb-box " @click='toShowMbfilter'>
+                    <li> <span> 目前排序 : {{this.showmbFilter?type + '▲':type +'▼'}}</span></li>
+                    <li :class="showmbFilter ==true ?'mb-filter active' : 'mb-filter' ">
+                        <ul>
+                            <li v-for='(item,index) in typeList'>
+                                <label :for="'typeList'+ index">
+                                    <input class="radio" type="radio" :value='item' v-model="type"
+                                        :id="'typeList'+ index">{{item}}
+                                </label>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+
             </div>
+
         </section>
 
         <section class="list-block">
-            <div class="container">
-                <div class="card-item" v-for="item in info">
+            <div class="container" v-if="filterData">
+                <div class="card-item"
+                    v-for="item in  filterData.slice((targetPageId - 1 ) * perPage , targetPageId * perPage)">
                     <div class="card-image">
                         <a :href="'./programDetail.html?program_no=' + item.PROGRAM_NO">
                             <img :src=item.PROGRAM_PIC alt="">
@@ -75,7 +84,7 @@
                             </a>
                         </div>
                         <div class="star">
-                            <star-rating :rating="item.PROGRAM_RATING" :read-only="true" :increment="0.01"
+                            <star-rating :rating="parseFloat( item.PROGRAM_RATING)" :read-only="true" :increment="0.01"
                                 :show-rating=false active-color="#ffd900" inactive-color="#9f9f9f" :star-size="25">
                             </star-rating>
                         </div>
@@ -84,7 +93,7 @@
                                 最多{{item.CAR_MAXNUM}}人
                             </div>
                             <div class="tag">
-                           {{item.CAR_TYPE}}
+                                {{item.CAR_TYPE}}
                             </div>
                         </div>
 
@@ -95,11 +104,10 @@
                 </div>
             </div>
         </section>
-        <div class="pagination">
-            <a href="#" class="page-main">1</a>
-            <a href="#" class="page-else">2</a>
-            <a href="#" class="page-else">3</a>
-        </div>
+        <ul class="pagination">
+            <li @click='changePage(n)' :class=" n == targetPageId? 'page-main' : 'page-else' " v-for='n in totalPage'>
+                {{n}}</li>
+        </ul>
     </div>
     @@include('layout/footer.html')
 

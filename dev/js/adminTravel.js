@@ -1,5 +1,9 @@
 import Vue from "vue";
 import axios from "axios";
+/*模式設定*/
+const isDebug_mode = process.env.NODE_ENV !== 'production';
+Vue.config.debug = isDebug_mode;
+Vue.config.devtools = isDebug_mode;
 let vue = new Vue({
     el: "#app",
     data() {
@@ -34,9 +38,10 @@ let vue = new Vue({
             spot_no.disabled = false;
         },
         deleteSpot(e) {
-            e.preventDefault();
-            window.confirm('確定要刪除此筆資料?')
-            document.getElementById(`delete${e.target.id}`).submit();
+            let deleteThisData = (confirm('確定要刪除此筆資料?'))
+            if (deleteThisData == true) {
+                document.getElementById(`delete${e.target.id}`).submit();
+            }
         }
     },
 })

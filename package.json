@@ -6,8 +6,9 @@
   "scripts": {
     "安裝套件": "npm install",
     "開發": "gulp",
-    "webpack 編譯js": "webpack --watch",
-    "打包上線": "gulp prod"
+    "webpack 編譯js development版": "cross-env NODE_ENV=development webpack --watch ",
+    "打包上線": "gulp prod",
+    "webpack 編譯js production版": "cross-env NODE_ENV=production webpack"
   },
   "repository": {
     "type": "git",
@@ -42,6 +43,7 @@
   "devDependencies": {
     "@babel/core": "^7.14.6",
     "@babel/preset-env": "^7.14.5",
+    "cross-env": "^7.0.3",
     "gulp-babel": "^8.0.0",
     "webpack": "^4.46.0"
   }

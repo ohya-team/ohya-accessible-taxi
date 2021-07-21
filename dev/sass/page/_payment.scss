@@ -1,0 +1,97 @@
+.program-information {
+
+  h3 {
+    margin-top: $text-text;
+  }
+
+  .box {
+    background-color: $gray-second;
+    padding         : 5%;
+    margin-top      : $text-text;
+    display: grid;
+    grid-template-columns: 1fr;
+
+    @include rwd_each(desktop) {
+      grid-template-columns: repeat(3,5fr) 1fr;
+    }
+
+    .program-img {
+      margin: auto;
+      width: 60%;
+
+      img {
+        width: 100%;
+      }
+    }
+
+    p {
+      text-align: center;
+      margin: auto;
+    }
+  }
+}
+
+.data-confirmation {
+
+  .title {
+    background-color: $black;
+
+    h3 {
+      margin: auto;
+      text-align: center;
+      padding: 1.5%;
+      margin-top: $text-text;
+      color: $white;
+    }
+  }
+
+  .box {
+    background-color: $gray-second;
+    padding         : 5%;
+
+    ul {
+      margin: 0 3%;
+
+      @include rwd_each(desktop) {
+        margin: 0 30%;
+      }
+    }
+    
+  }
+}
+
+.payment-methods {
+
+  h3 {
+    margin-top: $text-text;
+  }
+
+  .box {
+    background-color: $gray-second;
+    padding         : 5%;
+    margin-top      : $text-text;
+
+    .item {
+      margin-top: $text-text;
+      display: grid;
+      grid-template-columns: 1fr;
+
+      @include rwd_each(desktop) {
+        grid-template-columns: 7fr 1fr;
+        grid-column-gap: 30px;
+      }
+    }
+    
+  }
+  .btn-p {
+    text-align: center;
+
+    .btn-main {
+      margin-top: $text-text;
+  
+      @include rwd_each(desktop) {
+        float     : right;
+      }
+    }
+  }
+}

@@ -1,10 +1,11 @@
-// let heart = document.querySelectorAll('.heart');
-// heart.forEach(e => e.addEventListener('click', ()=>{
-//     e.classList.toggle('active');
-// }))
 import Vue from "vue";
 import axios from "axios";
 import StarRating from 'vue-star-rating'
+
+/*模式設定*/
+const isDebug_mode = process.env.NODE_ENV !== 'production';
+Vue.config.debug = isDebug_mode;
+Vue.config.devtools = isDebug_mode;
 let vue = new Vue({
     el: "#app",
     components: {
@@ -13,6 +14,13 @@ let vue = new Vue({
     data() {
         return {
             info: null,
+            type: '精選評分',
+            perPage: 5,
+            targetPageId: 1,
+            priceSort: '價格',
+            personSort: '人數',
+            typeList: ['精選評分', '價格由高到低', '價格由低到高', '人數由少到多', '人數由多到少'],
+            showmbFilter: false
         }
     },
     mounted() {
@@ -22,4 +30,57 @@ let vue = new Vue({
                 console.log(error);
             });
     },
+    computed: {
+        filterData() {
+            if (this.info != null) {
+                if (this.type == '精選評分') {
+                    console.log(this.info.sort((a, b) => b.PROGRAM_RATING - a.PROGRAM_RATING));
+                    return this.info.sort((a, b) => b.PROGRAM_RATING - a.PROGRAM_RATING)
+                }
+                if (this.type == '價格由高到低') {
+                    return this.info.sort((a, b) => b.PROGRAM_PRICE - a.PROGRAM_PRICE)
+                }
+                if (this.type == '價格由低到高') {
+                    return this.info.sort((a, b) => a.PROGRAM_PRICE - b.PROGRAM_PRICE)
+                }
+                if (this.type == '人數由多到少') {
+                    return this.info.sort((a, b) => b.CAR_MAXNUM - a.CAR_MAXNUM)
+                }
+                if (this.type == '人數由少到多') {
+                    return this.info.sort((a, b) => a.CAR_MAXNUM - b.CAR_MAXNUM)
+                }
+            }
+        },
+        totalPage() {
+            return parseInt(this.filterData.length / this.perPage) + 1;
+        }
+    },
+    methods: {
+        selectType(e) {
+            this.type = e.target.innerText;
+            this.priceSort = '價格';
+            this.personSort = '人數';
+        },
+        selectPriceSort(e) {
+            this.priceSort = e.target.innerText;
+            this.type = e.target.innerText;
+            this.personSort = '人數';
+        },
+        selectPersonSort(e) {
+            this.personSort = e.target.innerText;
+            this.type = e.target.innerText;
+            this.priceSort = '價格';
+        },
+        changePage(item) {
+            this.targetPageId = item;
+            window.scrollTo({
+                top: 0,
+                left: 0,
+                behavior: 'smooth'
+            });
+        },
+        toShowMbfilter() {
+            this.showmbFilter = ! this.showmbFilter
+        }
+    }
 })

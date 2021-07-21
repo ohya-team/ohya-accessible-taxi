@@ -34,202 +34,240 @@
        早上時段為 08:00 ~ 12:00，
        下午時段為 13:00 ~ 17:00，
        晚上時段為 18:00 ~ 22:00，
+       <br>
+       每時段服務費用為2000元。
     </p>
   </section>
 
-  <div class="booking">
-    <div class="calender" id="step1">
-      <ul class="pills">
-        <li class="pills-main">確認時間</li>
-        <li class="pills-else">確認車種</li>
-        <li class="pills-else">確認司機</li>
-        <li class="pills-else">訂單確認</li>
-      </ul>
-
-      <div class="deskTable">
-        <div class="weekdays">
-          <span></span>
-        </div>
-
-        <table>
-          <tr>
-            <th></th>
-          </tr>
-          <tr>
-            <td>上午</td>
-          </tr>
-          <tr>
-            <td>下午</td>
-          </tr>
-          <tr>
-            <td>晚上</td>
-          </tr>
-        </table>
-        <div class="calenderDes">
-          <span class="okay">可預約</span>
-          <span class="full">已額滿</span>
-        </div>
-      </div>
-
-      <div class="mobileTable">
-        <div class="weekdays">
-          <span></span>
-        </div>
-
-        <table>
-          <tr>
-          </tr>
-          <tr>
-          </tr>
-        </table>
-        
-        <button class="btn-third">早上</button>
-        <button class="btn-third">下午</button>
-        <button class="btn-third">晚上</button>
-      </div>
+  <div id="app">
+    <div class="booking"  v-if="memInfo == null">
+      <p>請先登入會員：<a href="login.html">登入</a></p>
     </div>
-
-    <div class="carChoosing" id="step2">
-      <ul class="pills">
-        <li class="pills-main">確認時間</li>
-        <li class="pills-main">確認車種</li>
-        <li class="pills-else">確認司機</li>
-        <li class="pills-else">訂單確認</li>
-      </ul>
-      <div class="cards">
-      </div>
-    </div>
-
-    <div class="driverChoosing" id="step3">
-      <ul class="pills">
-        <li class="pills-main">確認時間</li>
-        <li class="pills-main">確認車種</li>
-        <li class="pills-main">確認司機</li>
-        <li class="pills-else">訂單確認</li>
-      </ul>
-      <div class="cards">
-      </div>
-    </div>
-
-    <div class="formChecking" id="step4">
-      <ul class="pills">
-        <li class="pills-main">確認時間</li>
-        <li class="pills-main">確認車種</li>
-        <li class="pills-main">確認司機</li>
-        <li class="pills-main">訂單確認</li>
-      </ul>
-      <form class="booking-form" action="">
-        <ul class="booking-info">
-          <h3>請填寫訂單明細</h3>
-          <li class="full">
-            <label for="memId" class="def">
-              <input type="checkbox" name="memId" id="memId">同會員資料
-            </label>
-          </li>
-          <li class="sbs">
-            <label class="def" for="b-lastName">姓氏</label>
-            <input class="def" type="text" name="b-lastName" id="b-lastName">
-          </li>
-          <li class="sbs">
-            <label class="def" for="b-FirstName">名字</label>
-            <input class="def" type="text" name="b-FirstName" id="b-FirstName">
-          </li>
-          <li class="sbs">
-            <label class="def" for="b-email">信箱</label>
-            <input class="def" type="email" name="b-email" id="b-email">
-          </li>
-          <li class="sbs">
-            <label class="def" for="b-phone">連絡電話</label>
-            <input class="def" type="text" name="b-phone" id="b-phone">
-          </li>
-          <li class="sbs">
-            <label class="def" for="b-startLoa">上車地點</label>
-            <input class="def" type="text" name="b-startLoa" id="b-startLoa">
-          </li>
-          <li class="sbs">
-            <label class="def" for="b-endLoa">下車地點</label>
-            <input class="def" type="text" name="b-endLoa" id="b-endLoa">
-          </li>
-          <li class="sbs">
-            <label class="def" for="b-passenger">乘坐人數</label>
-            <select class="def" name="b-passenger" id="b-passenger">
-              <option value="">1位</option>
-              <option value="">2位</option>
-              <option value="">3位</option>
-              <option value="">4位</option>
-            </select>
-          </li>
-          <li class="sbs">
-            <label class="def" for="b-paying">付款方式</label>
-            <select class="def" name="b-paying" id="b-paying">
-              <option value="">請選擇</option>
-              <option value="">現金</option>
-              <option value="">匯款</option>
-            </select>
-          </li>
-          <li class="sbs">
-            <label class="def" for="b-coopon">使用優惠券</label>
-            <select class="def" name="b-coopon" id="">
-              <option value="b-coopon">請選擇</option>
-            </select>
-          </li>
-          <li class="full">
-            <label class="def" for="b-else">其他需求</label>
-            <textarea name="b-else" id="b-else" style="width: 100%; height: 100px;"></textarea>
-          </li>                                      
+    <div class="booking" v-else>
+      <div class="calender" id="step1" v-show="stepLoading[0]">
+        <ul class="pills">
+          <li class="pills-main">{{pilltext[0]}}</li>
+          <li class="pills-else">{{pilltext[1]}}</li>
+          <li class="pills-else">{{pilltext[2]}}</li>
+          <li class="pills-else">{{pilltext[3]}}</li>
         </ul>
-
-        <ul class="booking-detail">
-          <h3>請確認此次訂車資訊</h3>
-          <li class="sbs">
-            <label class="def" for="">確認車種</label>
-            <input type="text" class="def" name="" id="" value="Test" disabled>
-          </li>
-          <li class="sbs">
-            <label class="def" for="">車號</label>
-            <input type="text" class="def" name="" id="" value="Test" disabled>
-          </li>
-          <li class="sbs">
-            <label class="def" for="">確認司機</label>
-            <input type="text" class="def" name="" id="" value="Test" disabled>
-          </li>
-          <li class="sbs">
-            <label class="def" for="">確認預約時段</label>
-            <input type="text" class="def" name="" id="" value="Test" disabled>
-          </li>
-          <li class="full">
-            <label class="def" for="">應付金額</label>
-            <input type="text" class="def" name="" id="" value="Test" disabled>
-          </li>
-          <li class="full">
-            <label class="def" for="">優惠券折扣金額</label>
-            <input type="text" class="def" name="" id="" value="Test" disabled>
-          </li>
-          <li class="full">
-            <label class="def" for="">實付金額</label>
-            <input type="text" class="def" name="" id="" value="Test" disabled>
-          </li>
-        </ul>
-        <input type="button" value="確認預約" class="btn-main" id="bookingSub">
-        <a href="index.html" class="btn-cancel">取消預約</a>
-      </form>
-
-      <div class="pop-up-box">
-        <div class="item">
-          <div class="icon">
-            <i class="far fa-check-circle" aria-hidden="true"></i>
+        <div class="deskTable">
+          <div class="weekdays">
+            <span>{{curYear}}-{{leftMonth+1}}-{{leftDay}} ~ {{curYear}}-{{rightMonth+1}}-{{rightDay}}</span>
           </div>
-          <h2>預約完成</h2>
-          <button class="btn-cancel" id="goGame">確定</button>
+          <table>
+            <tr>
+              <th></th>
+              <th v-for="day in tableTh">
+                <span>{{day.deskWeek}}</span>
+                <span class="day">{{day.month}}-{{day.day}}</span>
+              </th>
+            </tr>
+            <tr>
+              <td>上午</td>
+              <td v-for="(i, index) in tableTh">
+                <button :class="driverCountMorning[index]" 
+                @click="btnBookingTime(tableTh[index].year,tableTh[index].month,tableTh[index].day,'BOOKING_MORNING')" :disabled="driverCountMorning[index]=='btn-bookingFull'">預約</button>
+              </td>
+            </tr>
+            <tr>
+              <td>下午</td>
+              <td v-for="(i, index) in tableTh">
+                <button :class="driverCountAfternoon[index]" 
+                @click="btnBookingTime(tableTh[index].year,tableTh[index].month,tableTh[index].day,'BOOKING_AFTERNOON')" :disabled="driverCountMorning[index]=='btn-bookingFull'">預約</button>
+              </td>
+            </tr>
+            <tr>
+              <td>晚上</td>
+              <td v-for="(i, index) in tableTh">
+                <button :class="driverCountEvening[index]" 
+                @click="btnBookingTime(tableTh[index].year,tableTh[index].month,tableTh[index].day,'BOOKING_EVENING')" :disabled="driverCountMorning[index]=='btn-bookingFull'">預約</button>
+              </td>
+            </tr>
+          </table>
+          <div class="calenderDes">
+            <span class="okay">可預約</span>
+            <span class="full">已額滿</span>
+          </div>
         </div>
+        <div class="mobileTable">
+          <div class="weekdays">
+            <span>{{curYear}}-{{leftMonth+1}}-{{leftDay}} 至 {{curYear}}-{{rightMonth+1}}-{{rightDay}}</span>
+          </div>
+          <table>
+            <tr>
+              <th v-for="day in tableTh">
+                <span class="day">{{day.MobileWeek}}</span>
+                <span class="day">{{day.day}}</span>
+              </th>
+            </tr>
+            <tr>
+              <td v-for="(i, index) in tableTh" :class="driverCountMorning[index]">
+                <div  
+                @click="btnBookingTime(tableTh[index].year,tableTh[index].month,tableTh[index].day,'BOOKING_MORNING')" :disabled="driverCountMorning[index]=='btn-bookingFull'">上午</div>
+              </td>
+            </tr>
+            <tr>
+              <td v-for="(i, index) in tableTh" :class="driverCountAfternoon[index]">
+                <div
+                @click="btnBookingTime(tableTh[index].year,tableTh[index].month,tableTh[index].day,'BOOKING_AFTERNOON')" :disabled="driverCountMorning[index]=='btn-bookingFull'">下午</div>
+              </td>
+            </tr>
+            <tr>
+              <td v-for="(i, index) in tableTh" :class="driverCountEvening[index]">
+                <div 
+                @click="btnBookingTime(tableTh[index].year,tableTh[index].month,tableTh[index].day,'BOOKING_EVENING')" :disabled="driverCountMorning[index]=='btn-bookingFull'">晚上</div>
+              </td>
+            </tr>
+          </table>
+          <div class="calenderDes">
+            <span class="okay">可預約</span>
+            <span class="full">已額滿</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="carChoosing" id="step2" v-show="stepLoading[1]">
+        <ul class="pills">
+          <li class="pills-main" @click="backToStep1">{{pilltext[0]}} <i class="far fa-check-circle" aria-hidden="true"></i></li>          
+          <li class="pills-main">{{pilltext[1]}}</li>
+          <li class="pills-else">{{pilltext[2]}}</li>
+          <li class="pills-else">{{pilltext[3]}}</li>
+        </ul>
+        <div class="cards">
+          <div class="card" v-for="info in carInfo">
+            <img :src="info.carPic" alt="carPic">
+            <section>
+              <h4>{{info.carType}}</h4>
+              <p>{{info.cardes}}</p>
+            </section>
+        
+            <button class="btn-third" @click="btnBookingCar(info.carType)">選擇</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="driverChoosing" id="step3" v-show="stepLoading[2]">
+        <ul class="pills">
+          <li class="pills-main" @click="backToStep1">{{pilltext[0]}} <i class="far fa-check-circle" aria-hidden="true"></i></li>
+          <li class="pills-main" @click="backToStep2">{{pilltext[1]}} <i class="far fa-check-circle" aria-hidden="true"></i></li>
+          <li class="pills-main">{{pilltext[2]}}</li>
+          <li class="pills-else">{{pilltext[3]}}</li>
+        </ul>
+        <div class="cards">
+          <div class="card" v-for="info in driverInfo">
+            <div class="avatar">
+              <div class="avatar-bookingDriver">
+                <img :src="info.driverPic" alt="">
+              </div>
+              <h4>{{info.driverName}}</h4>
+            </div>
+            <button class="btn-third" @click="btnBookingDriver(info.driverName, info.driverNo)">選擇</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="formChecking" id="step4" v-show="stepLoading[3]">
+        <ul class="pills">
+          <li class="pills-main" @click="backToStep1">{{pilltext[0]}} <i class="far fa-check-circle" aria-hidden="true"></i></li>
+          <li class="pills-main" @click="backToStep2">{{pilltext[1]}} <i class="far fa-check-circle" aria-hidden="true"></i></li>
+          <li class="pills-main" @click="backToStep3">{{pilltext[2]}} <i class="far fa-check-circle" aria-hidden="true"></i></li>
+          <li class="pills-main">{{pilltext[3]}}</li>
+        </ul>
+        <form class="booking-form" form role="form">
+          <ul class="booking-info">
+            <h3>請填寫訂單明細</h3>
+            <input type="hidden" name="b_memNo" :value="memInfo[0].MEM_NO">
+            <input type="hidden" name="b_driverNo" :value="finalInfo[4]">
+            <li class="sbs">
+              <label class="def" for="b_lastName">姓氏</label>
+              <input class="def dis" type="text" name="b_lastName" :value="memInfo[0].MEM_LASTNAME" readonly>
+            </li>
+            <li class="sbs">
+              <label class="def" for="b_FirstName">名字</label>
+              <input class="def dis" type="text" name="b_FirstName" :value="memInfo[0].MEM_FIRSTNAME" readonly>
+            </li>
+            <li class="sbs">
+              <label class="def" for="b_email">信箱</label>
+              <input class="def dis" type="email" name="b_email" :value="memInfo[0].MEM_ACCOUNT" readonly>
+            </li>
+            <li class="sbs">
+              <label class="def" for="b_phone">連絡電話</label>
+              <input class="def dis" type="text" name="b_phone" :value="memInfo[0].MEM_PHONE" readonly>
+            </li>
+            <li class="sbs">
+              <label class="def" for="b_startLoa" :style="isNoText">上車地點</label>
+              <input class="def" v-model="startLoa" name="b_startLoa" placeholder="必填">
+            </li>
+            <li class="sbs">
+              <label class="def" for="b_endLoa" :style="isNoText">下車地點</label>
+              <input class="def" v-model="endLoa" name="b_endLoa" placeholder="必填">
+            </li>
+            <li class="sbs">
+              <label class="def" for="b_coopon">使用優惠券</label>
+              <select class="def" name="b_coopon" v-model="hasCoopn">
+                <option>無</option>
+                <option v-for="coopon in memCoopon" :value="coopon.DISCOUNT_NUM+'+'+coopon.DISCOUNT_PER">{{coopon.DISCOUNT_NUM}} {{coopon.DISCOUNT_INFO}}</option>
+              </select>
+            </li>
+            <li class="full">
+              <label class="def" for="b_else">其他需求</label>
+              <textarea v-model="elseText" name="b_else" id="b_else" style="width: 100%; height: 100px;"></textarea>
+            </li>
+          </ul>
+
+          <ul class="booking-detail">
+            <h3>請確認此次訂車資訊</h3>
+            <li class="sbs">
+              <label class="def" for="b_date">確認預約日期</label>
+              <input type="text" class="def dis" name="b_date" :value="finalInfo[0]" readonly>
+            </li>
+            <li class="sbs">
+              <label class="def" for="b_timing">確認預約時段</label>
+              <input type="text" class="def dis" name="b_timing" :value="finalInfo[1]" readonly>
+            </li>
+            <li class="sbs">
+              <label class="def" for="b_car">確認預約車種</label>
+              <input type="text" class="def dis" name="b_car" :value="finalInfo[2]" readonly>
+            </li>
+            <li class="sbs">
+              <label class="def" for="b_driver">確認預約司機</label>
+              <input type="text" class="def dis" name="b_driver" :value="finalInfo[3]" readonly>
+            </li>
+            <li class="full">
+              <label class="def" for="b_amount">應付金額</label>
+              <input type="text" class="def dis" name="b_amount" :value="finalAmount" readonly>
+            </li>
+            <li class="full">
+              <label class="def" for="b_discount">優惠券折扣金額</label>
+              <input type="text" class="def dis" name="b_discount" :value="finalDiscount" readonly>
+            </li>
+            <li class="full">
+              <label class="def" for="b_total">實付金額</label>
+              <input type="text" class="def dis" name="b_total" :value="finalAmount-finalDiscount" readonly>
+            </li>
+          </ul>
+          <button class="btn-main" type="button" id="bookingSub" @click="submitForm">確認預約</button>
+          <a href="index.html" class="btn-cancel">取消預約</a>
+        </form>
+
+        <div :class="this.showPopUpBox == true ? 'pop-up-box active' : 'pop-up-box'">
+          <div class="item">
+            <div class="icon">
+              <i class="far fa-check-circle" aria-hidden="true"></i>
+            </div>
+            <h2>預約完成</h2>
+            <button class="btn-main" @click='closePopUpBox' type="submit">確定</button>
+          </div>
+        </div>       
       </div>
     </div>
   </div>
   
   @@include('layout/footer.html')
-  @@include('layout/slotmachine2.html')
-  
-  <script src="js/booking.js"></script>
+  @@include('./layout/slotmachine.html')
+
+  <script src="js/booking2.js"></script>
 
 </body>
 </html>

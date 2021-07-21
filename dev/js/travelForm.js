@@ -1,45 +1,75 @@
-let same = document.getElementById('same');
-let last_name = document.getElementById('last-name');
-let first_name = document.getElementById('first-name');
-let email = document.getElementById('email');
-let phone = document.getElementById('phone');
+import Vue from "vue";
+import axios from "axios";
 
-same.addEventListener('click', showAccountInfo)
-function showAccountInfo() {
-    if (same.checked == true) {
-        first_name.value = '家輝';
-        first_name.disabled = true;
-        last_name.value = '林';
-        last_name.disabled = true;
-        email.value = '123@gmail.com';
-        email.disabled = true;
-        phone.value = '0912345678';
-        phone.disabled = true;
-    } else {
-        first_name.value = '';
-        first_name.disabled = false;
-        last_name.value = '';
-        last_name.disabled = false;
-        email.value = '';
-        email.disabled = false;
-        phone.value = '';
-        phone.disabled = false;
-    }
-}
-let subtraction = document.getElementById('subtraction');
-let people_num = document.getElementById('people-num');
-let add = document.getElementById('add');
-subtraction.addEventListener('click', () => {
-    people_num.value = parseInt(people_num.value);
-    if (people_num.value > 1) {
-        people_num.value--;
-    }
-})
-add.addEventListener('click', () => {
-    people_num.value = parseInt(people_num.value);
-    if (people_num.value < 6) {
-        people_num.value++;
-        add.disabled = false;
-    }
-})
+/*模式設定*/
+const isDebug_mode = process.env.NODE_ENV !== 'production';
+Vue.config.debug = isDebug_mode;
+Vue.config.devtools = isDebug_mode;
 
+let vue = new Vue({
+    el: "#app",
+    data() {
+        return {
+            info: null,
+            program: null,
+            defaultMeminfo: false,
+            memNum: 1,
+            thisProgram: '1',
+            menInfo: null,
+            discount: null,
+        }
+    },
+    mounted() {
+        axios.get('./php/member.php')
+            .then(response => (this.info = response.data))
+            .catch(function (error) { // 请求失败处理
+                console.log(error);
+            });
+        axios.get('./php/program.php')
+            .then(response => (this.program = response.data))
+            .catch(function (error) { // 请求失败处理
+                console.log(error);
+            });
+        axios.get('./php/getDiscount.php')
+            .then(response => (this.discount = response.data))
+            .catch(function (error) { // 请求失败处理
+                console.log(error);
+            });
+    },
+    computed: {
+        thisProgramInfo() {
+            if (this.program != null) {
+                return this.program.filter(item => item.PROGRAM_NO == this.thisProgram)
+            }
+        },
+        thisMemDiscount() {
+            if (this.discount != null && this.info != null) {
+                return this.discount.filter(item => item.MEMBER_NO == this.info[0].MEM_NO)
+            }
+        }
+    },
+    methods: {
+        toggleUser() {
+            this.defaultMeminfo = !this.defaultMeminfo
+        },
+        add() {
+            let peopleNum = document.getElementById('people_num');
+            if (this.memNum < peopleNum.max) {
+                this.memNum++;
+            }
+        },
+        subtraction() {
+            if (this.memNum > 1) {
+                this.memNum--;
+            }
+        },
+        storageValue(e) {
+            let storageArr = ['first_name', 'last_name', 'email', 'address', 'phone', 'program', 'dep_time', 'pickup_place', 'people_num', 'remarks', 'discount']
+            let storage = window.sessionStorage;
+            storageArr.forEach(e => {
+                storage.setItem(e, document.getElementById(e).value)
+            });
+        }
+    }
+
+})

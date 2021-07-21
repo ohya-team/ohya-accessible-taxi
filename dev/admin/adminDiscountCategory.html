@@ -38,7 +38,7 @@
 </head>
 
 <body>
-
+<div id="app">
   <div id="wrapper">
     @@include('../layout/adminSideBar.html');
     <!-- Page Content -->
@@ -64,11 +64,16 @@
                 <thead>
                   <tr>
                     <th>拉霸機結果</th>
-                    <th>優惠折數數值</th>
-                    <th>動作</th>
+                    <th>優惠折數</th>
+                    <th>優惠數值</th>
                   </tr>
                 </thead>
                 <tbody>
+                  <tr v-for = "item in  discountInfos">
+                    <td>{{carType[item.DISCOUNT_RES.split('')[0]] + ',' + carType[item.DISCOUNT_RES.split('')[1]] + ',' + carType[item.DISCOUNT_RES.split('')[2]]}}</td>
+                    <td>{{item.DISCOUNT_INFO}}</td>
+                    <td>{{item.DISCOUNT_PER}}</td>
+                  </tr>
 
                 </tbody>
 
@@ -81,6 +86,7 @@
     </div>
 
   </div>
+</div>
 
 
   <!-- jQuery -->
@@ -94,6 +100,7 @@
 
   <!-- Custom Theme JavaScript -->
   <script src="../js/startmin.js"></script>
+  <script src="../js/adminDiscountCategory.js"></script>
 
 </body>
 

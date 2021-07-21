@@ -1,5 +1,10 @@
 import Vue from "vue";
 import axios from "axios";
+
+/*模式設定*/
+const isDebug_mode = process.env.NODE_ENV !== 'production';
+Vue.config.debug = isDebug_mode;
+Vue.config.devtools = isDebug_mode;
 let vue = new Vue({
     el: "#app",
     data() {
@@ -8,7 +13,7 @@ let vue = new Vue({
             type: '所有景點',
             perPage: 12,
             typeList: ['所有景點', '風景區', '商圈', '藝文區'],
-            targetPageId: null,            
+            targetPageId: 1,
         }
     },
     mounted() {
@@ -17,29 +22,31 @@ let vue = new Vue({
             .catch(function (error) { // 请求失败处理
                 console.log(error);
             });
-        this.get_href();
     },
     computed: {
         filterData() {
             if (this.type === '所有景點') {
-                return this.info
+                return this.info//後台的所有資料
             } else {
                 return this.info.filter(item => item.SPOT_CAT == this.type)
             }
         },
-        totalPage(){
-          return  parseInt(this.filterData.length / this.perPage)+1 ;
+        totalPage() {
+            return parseInt(this.filterData.length / this.perPage) + 1;
         }
     },
     methods: {
         changeList(item) {
             this.type = item;
+            console.log(this.filterData.length);
         },
-        get_href() {
-            let nowUrl = window.location.href;
-            let targetPageId = nowUrl.split("=")[1];
-            console.log(targetPageId);
-            this.targetPageId = parseInt(targetPageId);
-        }        
+        changePage(item) {
+            this.targetPageId = item;
+            window.scrollTo({
+                top: 0,
+                left: 0,
+                behavior: 'smooth'
+            });
+        }
     }
 })

@@ -31,17 +31,12 @@
 </head>
 <body>
 
-    <div id="wrapper">
+    <div id="app">
         @@include('../layout/adminSideBar.html')
         <!-- Page Content -->
         <div id="page-wrapper">
           <div class="container-fluid">
     
-            <!-- <div class="row">
-              <div class="col-lg-12">
-                <h1 class="page-header">管理員</h1>
-              </div>
-            </div> -->
             <div class="container-lg">
               <div class="table-responsive">
                 <div class="table-wrapper">
@@ -66,116 +61,18 @@
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
-                        <td>1</td>
-                        <td>郭阿明</td>
-                        <td>PAA230</td>
-                        <td>啟用</td>
+                      <tr v-for = "driver in driverInfo " :key = "driver.DRIVER_NO">
+                        <td>{{driver.DRIVER_NO}}</td>
+                        <td>{{driver.DRIVER_NAME}}</td>
+                        <td>{{driver.TAXI_LICENCENO}}</td>
+                        <td>{{driver.DRIVER_STATUS == 1 ? '啟用' : '關閉'}}</td>
                         <td>
-                          <a class="add" title="Add" data-toggle="tooltip"><i class="fas fa-plus"></i></a>
-                          <a class="edit" title="Edit" data-toggle="tooltip"><i class="fas fa-edit"></i></a>
-                          <a class="delete" title="Delete" data-toggle="tooltip"><i class="fas fa-trash-alt"></i></a>
+                          <p class="text-center">
+                          <a class="edit" title="Edit" data-toggle="tooltip" :href="'./adminUpdateDriver.html?driver_no=' + driver.DRIVER_NO"><i class="fas fa-edit"></i></a>
+                          </p>
                         </td>
                       </tr>
-                      <tr>
-                        <td>2</td>
-                        <td>黃小霆</td>
-                        <td>PAA231</td>
-                        <td>啟用</td>
-                        <td>
-                          <a class="add" title="Add" data-toggle="tooltip"><i class="fas fa-plus"></i></a>
-                          <a class="edit" title="Edit" data-toggle="tooltip"><i class="fas fa-edit"></i></a>
-                          <a class="delete" title="Delete" data-toggle="tooltip"><i class="fas fa-trash-alt"></i></a>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>3</td>
-                        <td>董小蕙</td>
-                        <td>PAA232</td>
-                        <td>啟用</td>    
-                        <td>
-                          <a class="add" title="Add" data-toggle="tooltip"><i class="fas fa-plus"></i></a>
-                          <a class="edit" title="Edit" data-toggle="tooltip"><i class="fas fa-edit"></i></a>
-                          <a class="delete" title="Delete" data-toggle="tooltip"><i class="fas fa-trash-alt"></i></a>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>4</td>
-                        <td>黃小昕</td>
-                        <td>PAA233</td>
-                        <td>啟用</td>
-                        <td>
-                          <a class="add" title="Add" data-toggle="tooltip"><i class="fas fa-plus"></i></a>
-                          <a class="edit" title="Edit" data-toggle="tooltip"><i class="fas fa-edit"></i></a>
-                          <a class="delete" title="Delete" data-toggle="tooltip"><i class="fas fa-trash-alt"></i></a>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>5</td>
-                        <td>阿莫斯</td>
-                        <td>PAA234</td>
-                        <td>啟用</td>
-                        <td>
-                          <a class="add" title="Add" data-toggle="tooltip"><i class="fas fa-plus"></i></a>
-                          <a class="edit" title="Edit" data-toggle="tooltip"><i class="fas fa-edit"></i></a>
-                          <a class="delete" title="Delete" data-toggle="tooltip"><i class="fas fa-trash-alt"></i></a>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>6</td>
-                        <td>沈阿華</td>
-                        <td>PAA235</td>
-                        <td>啟用</td>
-                        <td>
-                          <a class="add" title="Add" data-toggle="tooltip"><i class="fas fa-plus"></i></a>
-                          <a class="edit" title="Edit" data-toggle="tooltip"><i class="fas fa-edit"></i></a>
-                          <a class="delete" title="Delete" data-toggle="tooltip"><i class="fas fa-trash-alt"></i></a>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>7</td>
-                        <td>黃嘟嘟</td>
-                        <td>PAA236</td>
-                        <td>啟用</td>
-                        <td>
-                          <a class="add" title="Add" data-toggle="tooltip"><i class="fas fa-plus"></i></a>
-                          <a class="edit" title="Edit" data-toggle="tooltip"><i class="fas fa-edit"></i></a>
-                          <a class="delete" title="Delete" data-toggle="tooltip"><i class="fas fa-trash-alt"></i></a>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>8</td>
-                        <td>安東尼</td>
-                        <td>PAA237</td>
-                        <td>啟用</td>
-                        <td>
-                          <a class="add" title="Add" data-toggle="tooltip"><i class="fas fa-plus"></i></a>
-                          <a class="edit" title="Edit" data-toggle="tooltip"><i class="fas fa-edit"></i></a>
-                          <a class="delete" title="Delete" data-toggle="tooltip"><i class="fas fa-trash-alt"></i></a>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>9</td>
-                        <td>亞伯特</td>
-                        <td>PAA238</td>
-                        <td>啟用</td>
-                        <td>
-                          <a class="add" title="Add" data-toggle="tooltip"><i class="fas fa-plus"></i></a>
-                          <a class="edit" title="Edit" data-toggle="tooltip"><i class="fas fa-edit"></i></a>
-                          <a class="delete" title="Delete" data-toggle="tooltip"><i class="fas fa-trash-alt"></i></a>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>10</td>
-                        <td>安卓</td>
-                        <td>PAA239</td>
-                        <td>啟用</td>
-                        <td>
-                          <a class="add" title="Add" data-toggle="tooltip"><i class="fas fa-plus"></i></a>
-                          <a class="edit" title="Edit" data-toggle="tooltip"><i class="fas fa-edit"></i></a>
-                          <a class="delete" title="Delete" data-toggle="tooltip"><i class="fas fa-trash-alt"></i></a>
-                        </td>
-                      </tr>
+                      
                     </tbody>
                   </table>
                 </div>
@@ -187,8 +84,6 @@
     
       </div>
 
-    <!-- jQuery -->
-    <script src="../js/jqueryMin.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
     <script src="../js/bootstrapMin.js"></script>
@@ -198,5 +93,6 @@
 
     <!-- Custom Theme JavaScript -->
     <script src="../js/startmin.js"></script>
+    <script src="../js/adminDriver.js"></script>
 </body>
 </html>
