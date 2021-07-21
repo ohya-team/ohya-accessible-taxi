@@ -46,6 +46,61 @@ if (!isset($_SESSION['is_login']) || !$_SESSION['is_login']) {
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 
+    <script>
+      $(document).ready(function () {
+        $('[data-toggle="tooltip"]').tooltip();
+        var actions = $("table td:last-child").html();
+        // Append table with add row form on add new button click
+        $(".add-new").click(function () {
+          $(this).attr("disabled", "disabled");
+          var index = $("table tbody tr:last-child").index();
+          var row = '<tr>' +
+            '<td><input type="text" class="form-control" name="name" id="name"></td>' +
+            '<td><input type="text" class="form-control" name="department" id="department"></td>' +
+            '<td><input type="text" class="form-control" name="phone" id="phone"></td>' +
+            '<td>' + actions + '</td>' +
+            '</tr>';
+          $("table").append(row);
+          $("table tbody tr").eq(index + 1).find(".add, .edit").toggle();
+          $('[data-toggle="tooltip"]').tooltip();
+        });
+        // Add row on add button click
+        $(document).on("click", ".add", function () {
+          var empty = false;
+          var input = $(this).parents("tr").find('input[type="text"]');
+          input.each(function () {
+            if (!$(this).val()) {
+              $(this).addClass("error");
+              empty = true;
+            } else {
+              $(this).removeClass("error");
+            }
+          });
+          $(this).parents("tr").find(".error").first().focus();
+          if (!empty) {
+            input.each(function () {
+              $(this).parent("td").html($(this).val());
+            });
+            $(this).parents("tr").find(".add, .edit").toggle();
+            $(".add-new").removeAttr("disabled");
+          }
+        });
+        // Edit row on edit button click
+        $(document).on("click", ".edit", function () {
+          $(this).parents("tr").find("td:not(:last-child)").each(function () {
+            $(this).html('<input type="text" class="form-control" value="' + $(this).text() + '">');
+          });
+          $(this).parents("tr").find(".add, .edit").toggle();
+          $(".add-new").attr("disabled", "disabled");
+        });
+        // Delete row on delete button click
+        $(document).on("click", ".delete", function () {
+          $(this).parents("tr").remove();
+          $(".add-new").removeAttr("disabled");
+        });
+      });
+    </script>
+
 </head>
 
 <body>
@@ -69,10 +124,7 @@ if (!isset($_SESSION['is_login']) || !$_SESSION['is_login']) {
   <div class="container">
     <!-- 建立第一個 row 空間，裡面準備放格線系統 -->
     <div class="row">
-      <!-- 在 xs 尺寸，佔12格，可參考 http://getbootstrap.com/css/#grid 說明-->
       <div class="col-xs-12">
-        <!--網站標題-->
-
         <!-- 選單 -->
         <ul class="nav nav-pills">
           <li role="presentation"><a href="adminLogout.php">登出</a></li>
@@ -233,7 +285,9 @@ if (!isset($_SESSION['is_login']) || !$_SESSION['is_login']) {
 
                 function endChildren()
                 {
-                  echo "</tr>" . "\n";
+                  echo '<td> <a class="add" title="Add" data-toggle="tooltip"><i class="fas fa-plus"></i></a>
+                  <a class="edit" title="Edit" data-toggle="tooltip"><i class="fas fa-edit"></i></a>
+                  <a class="delete" title="Delete" data-toggle="tooltip"><i class="fas fa-trash-alt"></i></a></td> </tr>' . "\n";
                 }
               }
 
@@ -245,9 +299,7 @@ if (!isset($_SESSION['is_login']) || !$_SESSION['is_login']) {
               try {
                 $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
                 $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-                $stmt = $conn->prepare("SELECT admin_id, admin_name, creat_date, update_date
-                
-                FROM admin");
+                $stmt = $conn->prepare("SELECT admin_id, admin_name, creat_date, update_date FROM `admin`");
                 $stmt->execute();
 
                 // set the resulting array to associative
@@ -271,11 +323,8 @@ if (!isset($_SESSION['is_login']) || !$_SESSION['is_login']) {
 
     </div>
 
-    <!-- table2 -->
 
-
-
-  </div>F
+  </div>
 
 
   <!-- jQuery -->
