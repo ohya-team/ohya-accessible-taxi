@@ -67,8 +67,9 @@
             v-for="item in filterData.slice((this.targetPageId - 1)* this.perPage,this.targetPageId * this.perPage)"
             :name="item.ART_NO">
             <div class="forum-avatar">
-              <img src="images/forum/member.jpg" alt="">
-              <span>董董</span>
+              <img :src="item.MEM_PIC" v-if="item.MEM_PIC != null" >
+              <img src="./images/user/default.jpg" alt="" v-else>
+              <span>{{item.MEM_FIRSTNAME}}</span>
             </div>
             <div class="card-group">
               <img :src="item.ART_IMG" alt="">

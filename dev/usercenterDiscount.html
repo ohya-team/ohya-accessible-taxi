@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>會員專區-文章管理</title>
+    <title>會員專區-優惠卷</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="./css/bootstrap.css" rel="stylesheet">
@@ -31,14 +31,13 @@
 </head>
 
 <body>
-    @@include('./layout/usercenterSidebar.html')
-    <div id="app">
-      <div id="wrapper">
-        
+      <div id="wrapper"> 
+        @@include('./layout/usercenterSidebar.html')        
         <!-- Page Content -->
         <div id="page-wrapper">
           <div class="container-fluid">
             <div class="container-lg">
+              <div id="app">
               <div class="table-responsive">
                 <div class="table-wrapper">
                   <div class="table-title">
@@ -53,12 +52,14 @@
                       <tr>
                         <th>優惠卷編號</th>
                         <th>折數</th>
+                        <th>使用狀態</th>
                       </tr>
                     </thead>
                     <tbody>
                       <tr v-for = "item in detailInfo">
                         <td id="discount">{{item.DISCOUNT_NUM}}</td>
                         <td>{{item.DISCOUNT_INFO}}</td>
+                        <td>{{item.DISCOUNT_STATUS == 0 ? "未使用" : "已使用"}}</td>
                       </tr>   
                     </tbody>
                   </table>
@@ -74,13 +75,13 @@
     
     
       <!-- Bootstrap Core JavaScript -->
-      <script src="../js/bootstrapMin.js"></script>
+      <script src="./js/bootstrapMin.js"></script>
     
       <!-- Metis Menu Plugin JavaScript -->
-      <script src="../js/metisMenuMin.js"></script>
+      <script src="./js/metisMenuMin.js"></script>
     
       <!-- Custom Theme JavaScript -->
-      <script src="../js/startmin.js"></script>
+      <script src="./js/startmin.js"></script>
       <script src="./js/usercenterDiscount.js"></script>
     
     </body>

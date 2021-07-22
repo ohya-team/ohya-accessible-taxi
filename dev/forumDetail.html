@@ -12,7 +12,7 @@
     rel="stylesheet">
   <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
     integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
-  <title>討論區-耶喜歡這個旅遊行程</title>
+  <title>討論區-細節頁</title>
 </head>
 
 <body class="animate-background">
@@ -52,68 +52,70 @@
     </article>
     <section class="article-recommended">
       <h3>推薦文章</h3>
-      <form action="./php/click.php" method="GET">
+
       <div class="forum-content">
-        <div class="forum-card"  v-for="item in randomArticle">
-          <div class="forum-avatar">
-            <img src="images/forum/member.jpg" alt="">
-            <span>董董</span>
-          </div>
-          <div class="card-group">
-            <img :src="item.ART_IMG" alt="">
-            <span class="card-sort">{{item.ART_CAT}}</span>
-            <section class="card-content">
-              <h4 class="card-topic">{{item.ART_TITLE}}</h4>
-              <div class="card-info">
-                <div class="people-amount">
-                  <i class="fa fa-eye" aria-hidden="true"></i>
-                  <span class="mini ">{{item.ART_CLICK}}</span>
+        <div class="forum-card" v-for="item in randomArticle">
+          <form action="./php/click.php" method="GET">
+            <div class="forum-avatar">
+              <img src="images/forum/member.jpg" alt="">
+              <span>董董</span>
+            </div>
+            <div class="card-group">
+              <img :src="item.ART_IMG" alt="">
+              <span class="card-sort">{{item.ART_CAT}}</span>
+              <section class="card-content">
+                <h4 class="card-topic">{{item.ART_TITLE}}</h4>
+                <div class="card-info">
+                  <div class="people-amount">
+                    <i class="fa fa-eye" aria-hidden="true"></i>
+                    <span class="mini ">{{item.ART_CLICK}}</span>
+                  </div>
+                  <span class="mini">{{item.ART_UPDATED}}</span>
                 </div>
-                <span class="mini">{{item.ART_UPDATED}}</span>
-              </div>
-              <p>{{item.ART_CONTENT |ellipsis}}</p>
-              <a :href="'./forumDetail.html?ART_NO=' + item.ART_NO">
+                <p>{{item.ART_CONTENT |ellipsis}}</p>
+                <!-- <a :href="'./forumDetail.html?ART_NO=' + "> -->
                 <button @click="uploadclick(item.ART_NO)" class="btn-second">MORE</button>
-              </a>
-            </section>
-          </div>
-          <input type="text" :value="item.ART_NO" name="ART_NO" hidden>
+                <input type="text" name="ART_NO" :value="item.ART_NO" hidden>
+                <!-- </a> -->
+              </section>
+            </div>
+          </form>
         </div>
       </div>
     </section>
-   
-  </form>
 
 
 
-      <div class="pop-up" v-show = "showPopUpBox" id="pop-up">
-        <section class="alert-detail">
-          <i class="fa fa-times" aria-hidden="true" @click="cancelReport"></i>
-          <h2>請選取檢舉理由</h2>
-          <div class="alert-content"  id="reportText">
-            <p><input class="radio" type="radio" name="alert" value="惡意中傷" @click="getRadioVal">惡意中傷</p>
-            <p><input class="radio" type="radio" name="alert" value="散佈廣告" @click="getRadioVal" >散佈廣告</p>
-            <p><input class="radio" type="radio" name="alert" value="色情資訊" @click="getRadioVal" >色情資訊</p>
-            <p><input class="radio" type="radio" name="alert" value="不雅字眼" @click="getRadioVal">不雅字眼</p>
-            <p><input type="text" value="" id="report" hidden></p>
-            <button class="btn-main"  @click="submitReport">送出</button>
-          </div>
-        </section>
 
-      </div>
-      <div class="pop-up-box "  v-show = "showPopupSuccess" id="pop-up-box">
-        <div class="item">
-          <div class="icon">
-            <i class="far fa-check-circle" aria-hidden="true"></i>
-          </div>
-          <h2>檢舉成功</h2>
-          <p>待管理員審核完，將會進行處理</p>
-          <a href="./forum.html"><button class="btn-main change-margin">確定</button></a>
+
+    <div class="pop-up" v-show="showPopUpBox" id="pop-up">
+      <section class="alert-detail">
+        <i class="fa fa-times" aria-hidden="true" @click="cancelReport"></i>
+        <h2>請選取檢舉理由</h2>
+        <div class="alert-content" id="reportText">
+          <p><input class="radio" type="radio" name="alert" value="惡意中傷" @click="getRadioVal">惡意中傷</p>
+          <p><input class="radio" type="radio" name="alert" value="散佈廣告" @click="getRadioVal">散佈廣告</p>
+          <p><input class="radio" type="radio" name="alert" value="色情資訊" @click="getRadioVal">色情資訊</p>
+          <p><input class="radio" type="radio" name="alert" value="不雅字眼" @click="getRadioVal">不雅字眼</p>
+          <p><input type="text" value="" id="report" hidden></p>
+          <button class="btn-main" @click="submitReport">送出</button>
         </div>
-      </div> 
+      </section>
+
+    </div>
+    <div class="pop-up-box " v-show="showPopupSuccess" id="pop-up-box">
+      <div class="item">
+        <div class="icon">
+          <i class="far fa-check-circle" aria-hidden="true"></i>
+        </div>
+        <h2>檢舉成功</h2>
+        <p>待管理員審核完，將會進行處理</p>
+        <a href="./forum.html"><button class="btn-main change-margin">確定</button></a>
+      </div>
+    </div>
   </div>
 
-  
+
   <script src="./js/forumDetail.js"></script>
 
 </body>

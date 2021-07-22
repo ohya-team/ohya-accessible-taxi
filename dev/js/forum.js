@@ -132,9 +132,6 @@ let vue = new Vue({
             this.art_no = e;
         }
 
-       
-
-
     },
 })
 
