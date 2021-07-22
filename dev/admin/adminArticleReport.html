@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>後台-文章檢舉管理</title>
+    <title>文章檢舉管理</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="../css/bootstrap.css" rel="stylesheet">
@@ -72,7 +72,6 @@
                                                         :key="info.REP_NO">
                                                         <div class="panel-heading"
                                                             style="display: grid ; grid-template-columns: repeat(3,5fr) 1fr 0.5fr;">
-<<<<<<< Updated upstream
                                                             <p style="margin-top: 7px; " id="rep">{{info.REP_NO}}</p>
                                                             <h4 class="panel-title" style="margin-top: 2px;">
                                                                 <a data-toggle="collapse" data-parent="#accordion"
@@ -80,23 +79,10 @@
                                                                     class="collapsed">{{info.ART_TITLE}}</a>
                                                             </h4>
                                                             <p style="margin-top: 8px;">{{info.REP_REASON}}</p>
-                                                            <input type="text" id="artStatus">
+                                                            <input type="text" id="artStatus" hidden>
                                                             <select @change ="changeStatus"  :id="'status_' + info.REP_NO" style="margin-top: -5px;" v-model='info.REP_STATUS'>
                                                                 <option value="0" selected>審核中 </option>
                                                                 <option id="test" value="1">未通過 </option>
-=======
-                                                            <p style="margin: 0;" id="rep">{{info.REP_NO}}</p>
-                                                            <h4 class="panel-title">
-                                                                <a data-toggle="collapse" data-parent="#accordion"
-                                                                    :href="'#' + info.REP_NO" aria-expanded="false"
-                                                                    class="collapsed">{{info.ART_TITLE}}</a>
-                                                            </h4>
-
-                                                            <p style="margin: 0;">{{info.REP_REASON}}</p>
-                                                            <select @change ="changeStatus"  v-model='info.REP_STATUS' :id="'status_' + info.REP_NO">
-                                                                <option value="0">審核中 </option>
-                                                                <option value="1">未通過 </option>
->>>>>>> Stashed changes
                                                                 <option value="2">已通過 </option>
                                                             </select>
                                                         </div>
@@ -106,10 +92,7 @@
                                                                 <ul style=" overflow-x: auto;">
                                                                     <li class="list-unstyled" style="margin-top: 20px;">
                                                                         <p>{{info.ART_CONTENT}}</p>
-<<<<<<< Updated upstream
                                                                         <input type="text" :value = info.ART_NO hidden id="artNo">
-=======
->>>>>>> Stashed changes
                                                                     </li>
                                                                 </ul>
                                                             </div>
