@@ -101,9 +101,9 @@ function showLightBox() {
       url: './php/driverLightbox.php',
       data: { DRIVER_NO: e.target.id },
       success: function (res) {
-        if (driverInfo.DRIVER_STATUS == 1) {
           let driverInfo = JSON.parse(res);
           console.log('res:', driverInfo);
+        if (driverInfo.DRIVER_STATUS == 1) {
           $('#driverName').text(driverInfo.DRIVER_NAME);
           $('#driverPhone').text(driverInfo.DRIVER_PHONE);
           $('#driverContext').text(driverInfo.DRIVER_DESCRIBE);
