@@ -254,7 +254,7 @@ let vm = new Vue({
         },
         memCoopon(){
             if (this.discount != null && this.memInfo != null) {
-                return this.discount.filter(item => item.MEMBER_NO == this.memInfo[0].MEM_NO)
+                return this.discount.filter(item => item.MEM_NO == this.memInfo[0].MEM_NO)
             }
         },
         finalDiscount(){
