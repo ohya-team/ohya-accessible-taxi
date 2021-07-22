@@ -1,7 +1,7 @@
 <?php
 try {
 	require_once "../connect_cfd101g2.php";
-	$sql = "UPDATE `driver`set `DRIVER_NAME`=:DRIVER_NAME , `DRIVER_PHONE` = :DRIVER_PHONE , `DRIVER_DESCRIBE` = :DRIVER_DESCRIBE, `DRIVER_PIC` = :DRIVER_PIC , `DRIVER_STATUS` = :DRIVER_STATUS , `TAXI_LICENCENO` = :TAXI_LICENCENO , `TAXI_DESCRIBE` = :TAXI_DESCRIBE , `TAXI_PIC` = :TAXI_PIC where `DRIVER_NO`= :DRIVER_NO";
+	$sql = "UPDATE `driver`set `DRIVER_NAME`=:DRIVER_NAME , `DRIVER_PHONE` = :DRIVER_PHONE , `DRIVER_DESCRIBE` = :DRIVER_DESCRIBE, `DRIVER_PIC` = :DRIVER_PIC ,  `TAXI_LICENCENO` = :TAXI_LICENCENO , `TAXI_DESCRIBE` = :TAXI_DESCRIBE , `TAXI_PIC` = :TAXI_PIC where `DRIVER_NO`= :DRIVER_NO";
 	$driverEd = $pdo->prepare($sql);
 
 	$uploadArr = [];
@@ -54,7 +54,6 @@ try {
 	$driverEd->bindValue(":DRIVER_PHONE", $_POST["DRIVER_PHONE"]);  
 	$driverEd->bindValue(":DRIVER_DESCRIBE", $_POST["DRIVER_DESCRIBE"]);  
 	$driverEd->bindValue(":DRIVER_PIC", $_POST["DRIVER_PIC"]);
-	$driverEd->bindValue(":DRIVER_STATUS", $_POST["DRIVER_STATUS"]);
 	$driverEd->bindValue(":TAXI_LICENCENO", $_POST["TAXI_LICENCENO"]);
 	$driverEd->bindValue(":TAXI_DESCRIBE", $_POST["TAXI_DESCRIBE"]);
 	$driverEd->bindValue(":TAXI_PIC", $_POST["TAXI_PIC"]);
