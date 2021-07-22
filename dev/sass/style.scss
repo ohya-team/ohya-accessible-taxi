@@ -48,7 +48,9 @@
     @extend %black;
   }
 }
-
+[v-cloak] {
+  display: none;
+}
 //Font style
 body {
   font-family: 'Noto Sans TC', sans-serif;

@@ -139,6 +139,8 @@
                                                     :key=item.SPOT_NO>
                                                     {{item.SPOT_NAME}}</option>
                                             </select>
+                                            <input type="text" name="program_info_1[]" :value="n.PROGRAM_INFO_1">
+                                            <input type="text" name="program_info_2[]" :value="n.PROGRAM_INFO_2">
                                             <div @click='deleteSpot' style="cursor: pointer;font-size:30px; margin: 0 10px;">-</div>
                                         </div>
                                     </div>
@@ -157,6 +159,8 @@
                                                     {{item.SPOT_NAME}}</option>
                                             </select>
                                         </div>
+                                        <input type="text" name="new_program_info_1[]">
+                                        <input type="text" name="new_program_info_2[]">
                                     </div>
 
                                     <div class="btn-group" style="display:flex ;justify-content:flex-end">
