@@ -2,7 +2,7 @@
 require_once "../connect_cfd101g2.php";
 
 for($days=1; $days<=$_GET["insertDates"]; $days++){
-    for($i=1; $i<12; $i++){//i是司機人數
+    for($i=1; $i<12; $i++){
         $sql = "INSERT INTO `booking_timing`(`DRIVER_NO`, `BOOKING_DATE`, `BOOKING_MORNING`, `BOOKING_AFTERNOON`, `BOOKING_EVENING`)\n"
 
     . "VALUES ($i,adddate((SELECT c.BOOKING_DATE\n"
