@@ -139,28 +139,28 @@
                                                     :key=item.SPOT_NO>
                                                     {{item.SPOT_NAME}}</option>
                                             </select>
-                                            <input type="text" name="program_info_1[]" :value="n.PROGRAM_INFO_1">
-                                            <input type="text" name="program_info_2[]" :value="n.PROGRAM_INFO_2">
-                                            <div @click='deleteSpot' style="cursor: pointer;font-size:30px; margin: 0 10px;">-</div>
+                                            <input class="form-control" style="margin: 0 10px; width: 30%;" type="text" name="program_info_1[]" :value="n.PROGRAM_INFO_1">
+                                            <input class="form-control" style="width: 30%;" type="text" name="program_info_2[]" :value="n.PROGRAM_INFO_2">
+                                            <div @click='deleteSpot' style="cursor: pointer;font-size:20px; margin: 0 10px;">-</div>
                                         </div>
                                     </div>
-                                    <label>增加景點</label>
+                                    <label style="margin-bottom: 15px;">增加景點</label>
                                     <input type="button"
-                                        style="border: none; background: none; font-size:30px; margin: 0 10px;"
-                                        @click='subNewtractSpot' value="-"></input>
-                                    <input type="button"
-                                        style="border: none; background: none; font-size:30px; margin: 0 10px;"
+                                        style="border: none; background: none; font-size:20px; margin: 0 10px;"
                                         @click='addNewSpot' value="+"></input>
                                     <div class="form-group" v-for="n in newSpotNum" :key="n.id">
                                         <div style="display: flex;">
-                                            <select class="form-control" name="newSpot[]">
+                                            <select class="form-control" style="width: 102%;" name="newSpot[]">
                                                 <option :value="item.SPOT_NO" v-for="item in spotInfo"
                                                     :key=item.SPOT_NO>
                                                     {{item.SPOT_NAME}}</option>
                                             </select>
+                                            <input class="form-control" style="margin: 0 10px; width: 30%;" type="text" name="new_program_info_1[]">
+                                            <input class="form-control" style="width: 30%;" type="text" name="new_program_info_2[]">
+                                            <input type="button"
+                                            style="border: none; background: none; font-size:20px; margin: 0 10px;"
+                                            @click='subNewtractSpot' value="-"></input>
                                         </div>
-                                        <input type="text" name="new_program_info_1[]">
-                                        <input type="text" name="new_program_info_2[]">
                                     </div>
 
                                     <div class="btn-group" style="display:flex ;justify-content:flex-end">

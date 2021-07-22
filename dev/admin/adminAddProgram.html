@@ -61,37 +61,37 @@
                                     </div>
                                     <div class="form-check">
                                         <input class="form-check-input" type="radio" name="program_status"
-                                            id="statusClose" value="0" checked>
-                                        <label class="form-check-label" for="statusClose">
+                                            id="statusClose1" value="0" checked>
+                                        <label class="form-check-label" for="statusClose1">
                                             方案列表狀態關閉
                                         </label>
                                         <input class="form-check-input" type="radio" name="program_status"
-                                            id="statusOpen" value="1">
-                                        <label class="form-check-label" for="statusOpen">
+                                            id="statusOpen1" value="1">
+                                        <label class="form-check-label" for="statusOpen1">
                                             方案列表狀態開啟
                                         </label>
                                     </div>
                                     <div class="form-check">
                                         <input class="form-check-input" type="radio" name="program_status_s"
-                                            id="statusClose" value="0" checked>
-                                        <label class="form-check-label" for="statusClose">
+                                            id="statusClose2" value="0" checked>
+                                        <label class="form-check-label" for="statusClose2">
                                             精選方案狀態關閉
                                         </label>
                                         <input class="form-check-input" type="radio" name="program_status_s"
-                                            id="statusOpen" value="1">
-                                        <label class="form-check-label" for="statusOpen">
+                                            id="statusOpen2" value="1">
+                                        <label class="form-check-label" for="statusOpen2">
                                             精選方案狀態開啟
                                         </label>
                                     </div>
                                     <div class="form-check">
                                         <input class="form-check-input" type="radio" name="program_status_s_m"
-                                            id="statusSClose" value="0" checked>
-                                        <label class="form-check-label" for="statusSClose">
+                                            id="statusSClose3" value="0" checked>
+                                        <label class="form-check-label" for="statusSClose3">
                                             主要精選方案狀態關閉
                                         </label>
                                         <input class="form-check-input" type="radio" name="program_status_s_m"
-                                            id="statusSOpen" value="1">
-                                        <label class="form-check-label" for="statusSOpen">
+                                            id="statusSOpen3" value="1">
+                                        <label class="form-check-label" for="statusSOpen3">
                                             主要精選方案狀態開啟
                                         </label>
                                     </div>
@@ -135,8 +135,10 @@
                                             <input type="button" style="border: none; background: none; font-size:30px; margin: 0 10px;" @click='subtractSpot' value="-"></input>
                                             <input type="button" style="border: none; background: none; font-size:30px; margin: 0 10px;" @click='addSpot' value="+"></input>
                                         </div>
-                                        <input type="text" name="program_info_1[]">
-                                        <input type="text" name="program_info_2[]">
+                                        <div style="display: flex;">
+                                            <input type="text" style="width: 20%;" class="form-control" name="program_info_1[]">
+                                            <input type="text" style="margin: 0 10px; width: 20%;" class="form-control" name="program_info_2[]">
+                                        </div>
                                     </div>
                                     <div class="btn-group" style="display:flex ;justify-content:flex-end">
                                         <button type="submit" class="btn btn-success">新增完成</button>
