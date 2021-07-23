@@ -1,0 +1,35 @@
+
+
+.front-door-wrap{
+  height: 100vh;
+  display: flex;
+  padding: 20px;
+}
+
+.front-door-g{
+  max-width: 760px;
+  margin: auto;
+  align-items: center;
+  position: relative;
+}
+
+.front-door-g img{
+  width: 100%;
+}
+
+.front-door-link-g{
+  display: flex;
+  z-index: 1;
+  position: absolute;
+  left: 10%;
+  top: 36%;
+}
+
+.front-door-link{
+  display: flex;
+  margin: auto;
+}
+
+.client-link, .admin-link{
+  padding: 15px;
+}

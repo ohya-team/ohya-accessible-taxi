@@ -557,6 +557,16 @@ body #coidea {
 .chat01, .chat02, .chat03{
   width: 33.3333%;
 }
+
+@media screen and (max-width: 596px) {
+  .chat01, .chat03{
+    display: none;
+  }
+  .chat02{
+    width: 100%;
+  }
+} 
+
 .chat01 img, .chat02 img, .chat03 img{
   width: 100%;
 }
