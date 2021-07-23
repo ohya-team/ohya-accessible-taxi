@@ -47,48 +47,45 @@
                     <div class="col-sm-8">
                       <h2>車種管理 </h2>
                     </div>
-                    <div class="col-sm-4">
-                      <button type="button" class="btn btn-info add-new"><i class="fa fa-plus"></i> Add New</button>
-                    </div>
                   </div>
                 </div>
                 <form action="../php/updateCar.php" method="POST" enctype="multipart/form-data">
                   <div class="form-group">
                     <input class="form-control" id="car_no" name="CAR_NO" type="hidden"
-                      :value="carInfo[0].CAR_NO">
+                      :value="detailInfo[0].CAR_NO">
                   </div>
                   <div class="form-group">
                     <input class="form-control" id="driver_status" name="CAR_STATUS" type="hidden"
-                      :value="carInfo[0].CAR_STATUS">
+                      :value="detailInfo[0].CAR_STATUS">
                   </div>
                   <div class="form-group">
                     <label for="CAR_TYPE">車種</label>
                     <input class="form-control" id="carName" name="CAR_TYPE" type="text"
-                      :value="carInfo[0].CAR_TYPE" required>
+                      :value="detailInfo[0].CAR_TYPE" required>
                   </div>
                   <div class="form-group">
                     <label for="CAR_MAXNUM">車輛最大載客數</label>
                     <textarea class="form-control" id="phone" name="CAR_MAXNUM" rows="3"
-                      :value="carInfo[0].CAR_MAXNUM" required></textarea>
+                      :value="detailInfo[0].CAR_MAXNUM" required></textarea>
                   </div>
                   <div class="form-group">
                     <label for="CAR_DESCRIBE">車種介紹</label>
                     <textarea class="form-control" id="info" name="CAR_DESCRIBE" rows="8"
-                      :value="carInfo[0].CAR_DESCRIBE" required></textarea>
+                      :value="detailInfo[0].CAR_DESCRIBE" required></textarea>
                   </div>
                   <div class="panel-body">
                     <div class="alert alert-warning col-xs-12">
                       <div class="driverPic " id="driverPicEdit">
                         <div class="hero-widget well well-sm ">
                           <label for="carInp">
-                            <img id="uploadCarpic" :src="image" style="max-width:300px;max-height: 300px;"
+                            <img id="uploadCarpic" :src="'.'+detailInfo[0].CAR_PIC" style="max-width:300px;max-height: 300px;"
                               alt="">
                           </label>
                         </div>
                         <p class="text-center">
                           <dd>
                             <div class="panel-heading">編輯個人照片<div><br>
-                                <input type="hidden" name="CAR_PIC" :value="image">
+                                <input type="hidden" name="CAR_PIC" :value="detailInfo[0].CAR_PIC">
                                 <input class="form-control" id="imgInp" name="CAR_PIC" type="file"
                                   @change="fileChange">
                           </dd>
@@ -97,7 +94,7 @@
                     </div>
                   </div>
                   <div class="btn" style="display: flex;justify-content: space-evenly;">
-                    <a href="./adminServiceDriver.html"><button type="button" class="btn btn-info add-new finishBtn"
+                    <a href="./adminServiceCar.html"><button type="button" class="btn btn-info add-new finishBtn"
                         id="cancelBtn">取消</button></a>
                     <button type="submit" class="btn btn-info add-new finishBtn" id="finishBtn">完成</button>
                   </div>

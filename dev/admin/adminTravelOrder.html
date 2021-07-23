@@ -80,7 +80,7 @@
                                                                     class="collapsed">{{info.ORDER_NO}}</a>
                                                             </h4>
                                                             <p style="margin: 0;">{{info.PROGRAM_NAME}}</p>
-                                                            <p style="margin: 0;">{{info.ORDER_AT}}</p>
+                                                            <p style="margin: 0;">{{info.UPDATED_AT}}</p>
                                                             <select :id="'status_' + info.ORDER_NO"
                                                                 v-model='info.ORDER_STATUS' @change='changeStatus'>
                                                                 <option value="0">審核中 </option>
@@ -192,27 +192,6 @@
                                                                         style="line-height: 2em; margin-top: 20px;">
                                                                         <p>訂購人地址 : {{info.ORDER_ADD}}</p>
                                                                     </li>
-                                                                    <li class="list-unstyled"
-                                                                        style="line-height: 2em; margin-top: 20px;">
-                                                                        <p>接送地點 : {{info.PICK_UP_PLACE}}</p>
-                                                                    </li>
-                                                                    <li class="list-unstyled"
-                                                                        style="line-height: 2em; margin-top: 20px;">
-                                                                        <p>車號 : {{info.CAR_TYPE}}</p>
-                                                                    </li>
-                                                                    <li class="list-unstyled"
-                                                                        style="line-height: 2em; margin-top: 20px;">
-                                                                        <p>人數 : {{info.NUMBER_OF_PEOPLE}}</p>
-                                                                    </li>
-                                                                    <li class="list-unstyled"
-                                                                        style="line-height: 2em; margin-top: 20px;">
-                                                                        <p>備註 : {{info.PURCHASE_ADDITIONAL}}</p>
-                                                                    </li>
-                                                                    <li class="list-unstyled"
-                                                                        style="line-height: 2em; margin-top: 20px;"
-                                                                        v-if="info.DISCOUNT_NUM != 0">
-                                                                        <p>優惠卷編號 : {{info.DISCOUNT_NUM}}</p>
-                                                                    </li>
                                                                 </ul>
                                                             </div>
                                                         </div>
@@ -226,7 +205,25 @@
                                                         v-for="info in info.filter(item=>item.ORDER_STATUS == 2)"
                                                         :key="info.ORDER_NO">
                                                         <div class="panel-heading"
-                                                            style="display: grid ; align-items: center;grid-template-columns: repeat(3,5fr) 1fr 1fr;">
+                                                            style="display: grid ; align-items: center;grid-template-columns: repeat(3,5fr) 1fr 1fr; "
+                                                            v-if='info.PAYWAY_INSP != null'>
+                                                            <h4 class="panel-title">
+                                                                <a data-toggle="collapse" data-parent="#accordion"
+                                                                    :href="'#' + info.ORDER_NO + info.ORDER_STATUS"
+                                                                    aria-expanded="false"
+                                                                    class="collapsed" style="color: blue;">{{info.ORDER_NO}}</a>
+                                                            </h4>
+                                                            <p style="margin: 0;color: blue;">{{info.PROGRAM_NAME}}</p>
+                                                            <p style="margin: 0; color: blue;">{{info.ORDER_AT}}</p>
+                                                            <select v-model='info.ORDER_STATUS'
+                                                                :id="'status_' + info.ORDER_NO" @change='changeStatus'>
+                                                                <option value="2">待付款 </option>
+                                                                <option value="3">已付款 </option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="panel-heading"
+                                                            style="display: grid ;align-items: center;grid-template-columns: repeat(3,5fr) 1fr 1fr;"
+                                                            v-else>
                                                             <h4 class="panel-title">
                                                                 <a data-toggle="collapse" data-parent="#accordion"
                                                                     :href="'#' + info.ORDER_NO + info.ORDER_STATUS"
@@ -290,7 +287,11 @@
                                                                     </li>
                                                                     <li class="list-unstyled"
                                                                         style="line-height: 2em; margin-top: 20px;">
-                                                                        <p>總金額 : {{info.TOTAL_PRICE}}</p>
+                                                                        <p>方案總額 : {{info.TOTAL_PRICE}}</p>
+                                                                    </li>
+                                                                    <li class="list-unstyled"
+                                                                        style="line-height: 2em; margin-top: 20px;">
+                                                                        <p>應付金額 : {{info.FINAL_PRICE}}</p>
                                                                     </li>
 
                                                                 </ul>
@@ -367,7 +368,11 @@
                                                                     </li>
                                                                     <li class="list-unstyled"
                                                                         style="line-height: 2em; margin-top: 20px;">
-                                                                        <p>總金額 : {{info.TOTAL_PRICE}}</p>
+                                                                        <p>方案金額 : {{info.TOTAL_PRICE}}</p>
+                                                                    </li>
+                                                                    <li class="list-unstyled"
+                                                                        style="line-height: 2em; margin-top: 20px;">
+                                                                        <p>應付金額 : {{info.FINAL_PRICE}}</p>
                                                                     </li>
                                                                     <li class="list-unstyled"
                                                                         style="line-height: 2em; margin-top: 20px;">

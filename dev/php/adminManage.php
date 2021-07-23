@@ -1,13 +1,15 @@
 <?php
 //載入 db.php 檔案，讓我們可以透過它連接資料庫，另外後台都會用 session 判別暫存資料，所以要請求 db.php 因為該檔案最上方有啟動session_start()。
 require_once 'adminDb.php';
+require_once '../connect_cfd101g2.php';
+
 //print_r($_SESSION); //查看目前session內容
 
 //如過沒有 $_SESSION['is_login'] 這個值，或者 $_SESSION['is_login'] 為 false 都代表沒登入
-if (!isset($_SESSION['is_login']) || !$_SESSION['is_login']) {
+//if (!isset($_SESSION['is_login']) || !$_SESSION['is_login']) {
   //直接轉跳到 login.php
-  header("Location: adminLogin.php");
-}
+  //header("Location: adminLogin.php");
+//}
 ?>
 
 <!DOCTYPE html>
@@ -121,17 +123,17 @@ if (!isset($_SESSION['is_login']) || !$_SESSION['is_login']) {
   }
   ?>
 
-  <div class="container">
-    <!-- 建立第一個 row 空間，裡面準備放格線系統 -->
+  <!-- <div class="container">
+    建立第一個 row 空間，裡面準備放格線系統
     <div class="row">
       <div class="col-xs-12">
-        <!-- 選單 -->
+        選單
         <ul class="nav nav-pills">
           <li role="presentation"><a href="adminLogout.php">登出</a></li>
         </ul>
       </div>
     </div>
-  </div>
+  </div> -->
 
   <!-- 網站內容 -->
   <div id="wrapper">
@@ -328,7 +330,7 @@ if (!isset($_SESSION['is_login']) || !$_SESSION['is_login']) {
 
 
   <!-- jQuery -->
-  <script src="../js/jqueryMin.js"></script>
+  <!-- <script src="../js/jqueryMin.js"></script> -->
 
   <!-- Bootstrap Core JavaScript -->
   <script src="../js/bootstrapMin.js"></script>

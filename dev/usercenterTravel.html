@@ -55,13 +55,19 @@
                                         <div class="panel-group" id="accordion">
                                             <div class="panel panel-primary" v-for="info in test" :key="info.ORDER_NO">
                                                 <div class="panel-heading">
-                                                    <h4 class="panel-title" style="font-weight: 600;">
+                                                    <h4 class="panel-title" style="font-weight: 600;"
+                                                        v-if="info.ORDER_STATUS != 1">
                                                         <a data-toggle="collapse" data-parent="#accordion"
                                                             :href="'#' + info.ORDER_NO" aria-expanded="false"
                                                             class="collapsed">{{info.PROGRAM_NAME}}</a>
                                                     </h4>
+                                                    <h4 v-else class="panel-title" style="font-weight: 600;">
+                                                        {{info.PROGRAM_NAME}}</h4>
                                                     <p style="margin: 0;">{{info.ORDER_AT}}</p>
-                                                    <p style="margin: 0; justify-content:flex-end">
+                                                    <p style="margin: 0; justify-content:flex-end"
+                                                        v-if='info.ORDER_STATUS != 1'>
+                                                        {{trans[info.ORDER_STATUS]}}</p>
+                                                    <p style="margin: 0; color:red;justify-content:flex-end" v-else>
                                                         {{trans[info.ORDER_STATUS]}}</p>
                                                     <div v-if="info.ORDER_STATUS == 2">
                                                         <a :href="'payment.html?order=' + info.ORDER_NO"
@@ -69,7 +75,8 @@
                                                     </div>
                                                 </div>
                                                 <div :id="info.ORDER_NO" class="panel-collapse collapse"
-                                                    aria-expanded="false" style="height: 0px;">
+                                                    aria-expanded="false" style="height: 0px;"
+                                                    v-if="info.ORDER_STATUS != 1">
                                                     <div class="panel-body" style="margin: 0 6%; border: none;">
                                                         <ul style=" overflow-x: auto;">
                                                             <li class="list-unstyled" style="margin-top: 20px;">
@@ -110,12 +117,17 @@
                                                                 <p>備註 : {{info.PURCHASE_ADDITIONAL}}</p>
                                                             </li>
                                                             <li class="list-unstyled"
-                                                                style="line-height: 2em; margin-top: 20px;">
+                                                                style="line-height: 2em; margin-top: 20px;"
+                                                                v-if="info.DISCOUNT_NUM !=0">
                                                                 <p>優惠卷編號 : {{info.DISCOUNT_NUM}}</p>
                                                             </li>
-                                                            <li class="list-unstyled"
+                                                            <li class="list-unstyled" v-if="info.ORDER_STATUS > 1"
                                                                 style="line-height: 2em; margin-top: 20px;">
-                                                                <p>總金額 : {{info.TOTAL_PRICE}}</p>
+                                                                <p>方案總額 : {{info.TOTAL_PRICE}}</p>
+                                                            </li>
+                                                            <li class="list-unstyled" v-if="info.ORDER_STATUS > 1"
+                                                                style="line-height: 2em; margin-top: 20px;">
+                                                                <p>應付金額 : {{info.FINAL_PRICE}}</p>
                                                             </li>
                                                             <div v-if="info.ORDER_STATUS == 3">
                                                                 <li class="list-unstyled"

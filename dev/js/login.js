@@ -18,7 +18,7 @@ function change(){
 }
 //返回至註冊
 function returnTo(){
-  $('.loginSpan span').on('click', function(){
+  $('.loginSpan a').on('click', function(){
     signUp.style.display = "block";
     logIn.style.display = "none";
     $('.selector span')[0].style.color = "#313131";
@@ -91,7 +91,7 @@ function sendLoginForm(){
       alert("系統異常");
     }
   }
-  xhr.open("post", "../dist/php/login.php",true);
+  xhr.open("post", "./php/login.php",true);
   let loginFormData = new FormData(document.getElementById('LoginDetail'));
   xhr.send(loginFormData);
 }
@@ -119,7 +119,7 @@ function checkId(){
         alert(xhr.status);
       }
   }
-  xhr.open("post","../dist/php/signInCheck.php",true);
+  xhr.open("post","./php/signInCheck.php",true);
   xhr.setRequestHeader("content-type" , "application/x-www-form-urlencoded");
   let member = "mem_account=" + document.getElementById("mem_account").value;
   

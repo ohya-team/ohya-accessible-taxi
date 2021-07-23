@@ -45,9 +45,6 @@
                       <div class="col-sm-8">
                         <h2>司機管理 </h2>
                       </div>
-                      <div class="col-sm-4">
-                        <button type="button" class="btn btn-info add-new"><i class="fa fa-plus"></i> Add New</button>
-                      </div>
                     </div>
                   </div>
                   <table class="table table-bordered">
@@ -57,7 +54,8 @@
                         <th>姓名</th>
                         <th>車牌編號</th>
                         <th>權限狀態</th>
-                        <th>動作</th>
+                        <th>權限</th>
+                        <th>編輯</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -66,6 +64,11 @@
                         <td>{{driver.DRIVER_NAME}}</td>
                         <td>{{driver.TAXI_LICENCENO}}</td>
                         <td>{{driver.DRIVER_STATUS == 1 ? '啟用' : '關閉'}}</td>
+                        <td>
+                          <p class="text-center">
+                          <input id="changeStatus" type="submit" name="DRIVER_STATUS" class="edit"  data-toggle="tooltip" value="變更" @click="changeStatus(driver)">
+                          </p>
+                        </td>
                         <td>
                           <p class="text-center">
                           <a class="edit" title="Edit" data-toggle="tooltip" :href="'./adminUpdateDriver.html?driver_no=' + driver.DRIVER_NO"><i class="fas fa-edit"></i></a>

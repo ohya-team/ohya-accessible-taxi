@@ -28,8 +28,10 @@ function showCar() {
   for (let i = 0; i < smallCar.length; i++) {
     if (bigPic.childNodes[1].src == smallCar[i].childNodes[1].src) {
       carContent[i].style.display = "block";
+      console.log(carContent[i]);
     } else {
       carContent[i].style.display = "none";
+      console.log(carContent[i]);
     }
   }
 }
@@ -91,40 +93,12 @@ $('.carSlider #narLeft').on('click', function () {
 })
 
 
-//driver slider narrow move
-// function moveLeft(){
-//   $("#driverSlider").animate({
-//     left: 0
-//   })
-// }
-// function moveRight(){
-//   $("#driverSlider").animate({
-//     left: $('.image').width() * -0.5
-//   })
-// }
-//driver slider auto move
-// function autoMove() {
-//   let imgCount = $('.image').length;
-//   let i = 0;
-
-//   setInterval(function () {
-//       if (i == imgCount) {
-//         i = 0;
-//       };
-//       $("#driverSlider").animate({
-//           left: $('.image').width() * -0.5 *i,
-//       });
-//       i++;
-//   }, 4000);
-// };
-
-
 //driver lightBox資料連結
 function showLightBox() {
   $('.image li').on('click', function (e) {
     $.ajax({
       type: 'POST',
-      url: '../dist/php/driverLightbox.php',
+      url: './php/driverLightbox.php',
       data: { DRIVER_NO: e.target.id },
       success: function (res) {
         let driverInfo = JSON.parse(res);
@@ -165,7 +139,7 @@ function sendServiceForm() {
       alert("系統異常");
     }
   }
-  xhr.open("post", "../dist/php/service.php", true);
+  xhr.open("post", "./php/service.php", true);
   let serviceFormData = new FormData(document.getElementById('serviceInfo'));
   xhr.send(serviceFormData);
 }
@@ -176,6 +150,7 @@ function sendCarForm() {
   xhr.onload = function () {
     if (xhr.status == 200) {
       let carInfos = JSON.parse(xhr.responseText);
+      console.log(carInfos);
       document.getElementById('bigPic').children[0].src = carInfos[0].CAR_PIC;
       for (let i = 0; i < carInfos.length; i++) {
         document.getElementsByClassName('smallWrap')[0].children[i].children[0].src = carInfos[i].CAR_PIC;
@@ -189,7 +164,7 @@ function sendCarForm() {
       alert("系統異常");
     }
   }
-  xhr.open("post", "../dist/php/car.php", true);
+  xhr.open("post", "./php/car.php", true);
   let carFormData = new FormData(document.getElementById('carInfos'));
   xhr.send(carFormData);
 }
@@ -199,8 +174,8 @@ function sendDriverForm() {
   xhr.onload = function () {
     if (xhr.status == 200) {
       let driverInfos = JSON.parse(xhr.responseText);
-      console.log('into');
-      console.log(driverInfos[0].DRIVER_PIC);
+      // console.log('into');
+      // console.log(driverInfos[0].DRIVER_PIC);
       for (let i = 0; i < driverInfos.length; i++) {
         console.log(document.getElementsByClassName('driverContentPic')[i]);
         document.getElementsByClassName('driverContentPic')[i].src = driverInfos[i].DRIVER_PIC;
@@ -214,7 +189,7 @@ function sendDriverForm() {
       alert("系統異常");
     }
   }
-  xhr.open("post", "../dist/php/driver.php", true);
+  xhr.open("post", "./php/driver.php", true);
   let driverFormData = new FormData(document.getElementById('driverInfos'));
   xhr.send(driverFormData);
 }

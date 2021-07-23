@@ -1,5 +1,31 @@
 .confirm-the-contents-of-the-travel-order {
 
+  .breadcrumbs {
+    padding-top: $ele-ele;
+    display    : flex;
+    align-items: center;
+    flex-wrap  : wrap;
+
+    li {
+      display    : flex;
+      line-height: 2rem;
+
+      a {
+        margin-right: 0;
+      }
+
+      i {
+        margin     : 0 5px;
+        line-height: 2rem;
+      }
+
+      span {
+        margin-bottom: 0;
+      }
+    }
+
+  }
+
   .btn-out {
     text-align: center;
 
@@ -7,11 +33,11 @@
       margin-top: $text-text;
 
       @include rwd_each(desktop) {
-        float     : right;
+        float: right;
       }
     }
   }
-  
+
 
   .box {
     background-color: $gray-second;
@@ -38,29 +64,29 @@
   height    : 100vh;
   background: rgba(0, 0, 0, 0.7);
   visibility: hidden;
-  z-index: 1002;
+  z-index   : 1002;
 
   &.active {
     visibility: visible;
 
     .item {
-      transition      : .5s;
-      transform: scale(1);
+      transition: .5s;
+      transform : scale(1);
     }
   }
-  
+
   @include rwd_each(desktop) {}
-  
+
   .item {
     @extend %border-box;
     width           : 90%;
     margin          : auto;
     background-color: $white;
     transform       : scale(0);
-    transition:none;
+    transition      : none;
     text-align      : center;
     padding         : 10% 3%;
-    border-radius: $card-radius;
+    border-radius   : $card-radius;
 
     @include rwd_each(desktop) {
       width  : 35%;

@@ -8,15 +8,16 @@ let vue = new Vue({
     el: "#app",
     methods:{
         changeStatus(member) {
-            let confirmThisChange = (confirm('確定要停權嗎?'))
+            let confirmThisChange = (confirm('確定要變更權限嗎?'))
             // console.log(member);
             // debugger;
             if ( member.MEM_STATUS == '1' ){
                 member.MEM_STATUS = '0';
-                document.getElementById('changeStatus').value = "復權";
+                console.log(this);
+                // this.value = "復權";
             }else{
                 member.MEM_STATUS = '1'
-                document.getElementById('changeStatus').value = "停權";
+                // document.getElementById('changeStatus').value = "停權";
             };
             if (confirmThisChange == true) {
                 axios.post('../php/memberStatus.php', {

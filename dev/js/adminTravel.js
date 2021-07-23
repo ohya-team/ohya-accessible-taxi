@@ -28,7 +28,7 @@ let vue = new Vue({
         },
     },
     methods: {
-        get_href() {
+        get_href() {debugger;
             let nowUrl = window.location.href;
             let targetPageId = nowUrl.split("=")[1];
             this.targetPageId = parseInt(targetPageId);
