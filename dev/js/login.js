@@ -22,13 +22,14 @@ function returnTo(){
     logIn.style.display = "none";
     $('.selector span')[0].style.color = "#313131";
     $('.selector span')[1].style.color = "#9f9f9f";
+    closeLightBox();
   })
 }
 //關閉燈箱，返回上一頁
 function closeLightBox(){
   $('.closeIcon').on('click', function(){
     $('#LoginLightBox').css("display","none");
-    window.history.back(-1);
+    window.history.back(-2);
   })
 }
 
@@ -68,7 +69,7 @@ function checkSignup(e){
     psw.focus();
     e.preventDefault();
     return;
-  }else if(psw.value.trim().length < 10 || !pswEntry.test(psw.value.trim())){
+  }else if(psw.value.trim().length < 6 || !pswEntry.test(psw.value.trim())){
     alert("密碼不得低於6碼，且須包含中英文數字");
     psw.select();
     e.preventDefault();
@@ -78,13 +79,12 @@ function checkSignup(e){
 
 
 //登入
-function sendLoginForm(){
+function sendLoginForm(){debugger;
   let xhr = new XMLHttpRequest(); 
   xhr.onload = function(){
-    debugger;
     if(xhr.status == 200){
       let member = JSON.parse(xhr.responseText);
-      if(member.mem_account){
+      if(member.mem_account){debugger;
         //將燈箱中的表單上的資料清空，並隱藏起來
         $('#LoginLightBox').style.display = 'none';
         $('#memAccount').value = '';
@@ -98,7 +98,7 @@ function sendLoginForm(){
     }
   }
   xhr.open("post", "./php/login.php",true);
-  let loginFormData = new FormData(document.getElementById('LoginDetail'));
+  let loginFormData = new FormData(document.getElementById("LoginDetail"));
   xhr.send(loginFormData);
 }
 
@@ -139,8 +139,8 @@ function init(){
   closeLightBox();
   clear();
   document.getElementById('mem_account').onblur = checkId;
-  document.querySelector('#signupDetail').onsubmit = checkSignup;debugger;
-  document.getElementById('LoginDetail').onsubmit = sendLoginForm;
+  document.getElementById('signupDetail').onsubmit = checkSignup;
+  document.getElementById('loginBtn').onclick = sendLoginForm;
 }
 
 window.onload = init;
