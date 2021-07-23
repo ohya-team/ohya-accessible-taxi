@@ -1,5 +1,4 @@
 <?php
-//新增訂單
 require_once "../connect_cfd101g2.php";
 
 $data = json_decode(file_get_contents("php://input"), true);
@@ -35,7 +34,6 @@ $booking->bindValue("b_amount", $data["b_amount"]);
 $booking->bindValue("b_total", $data["b_total"]);
 $booking->execute();
 
-//修改時段
 require_once "../connect_cfd101g2.php";
 
 $b_timing = $data["b_timing"];
@@ -59,7 +57,6 @@ $booking = $pdo->prepare($sql);
 $booking->bindValue("b_driverNo", $data["b_driverNo"]);
 $booking->execute();
 
-//修改優惠券使用狀態
 $sql = "UPDATE `discount` SET `DISCOUNT_STATUS`=1 WHERE discount_num = :discount_num";
 $discount = $pdo->prepare($sql);
 $discount->bindValue(":discount_num", $data['b_coopon']);

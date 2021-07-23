@@ -19,7 +19,7 @@ let vm =  new Vue({
     methods: {
         findName(){
             for(let i=0; i<this.driverTable.length; i++){
-                //每一筆比對輸入的內容是否有吻合
+
                 if(this.driverName == this.driverTable[i].DRIVER_NAME || this.driverPhone == this.driverTable[i].DRIVER_PHONE){
                     this.driverTable = [{
                         DRIVER_NO:this.driverTable[i].DRIVER_NO,
@@ -32,7 +32,7 @@ let vm =  new Vue({
             this.driverPhone = '';
         },
         showAll(){
-            this.$mount('#app');//回到mounted前
+            this.$mount('#app');
         }
     },
 })

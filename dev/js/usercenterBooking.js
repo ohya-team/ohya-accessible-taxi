@@ -26,7 +26,6 @@ let vm = new Vue({
     methods: {
         findForm(){
             for(let i=0; i<this.bookingFormInfoAll.length; i++){
-                //每一筆比對輸入的內容是否有吻合
                 if(this.checkFormNo == this.bookingFormInfoAll[i].ORDER_NO){
                     this.bookingFormInfoAll = [{
                         CAR_TYPE:this.bookingFormInfoAll[i].CAR_TYPE,
@@ -56,7 +55,7 @@ let vm = new Vue({
             this.checkFormNo=''
         },
         showAll(){
-            this.$mount('#app');//回到mounted前
+            this.$mount('#app');
         }
     },
     computed: {

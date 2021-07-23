@@ -101,15 +101,17 @@ function showLightBox() {
       url: './php/driverLightbox.php',
       data: { DRIVER_NO: e.target.id },
       success: function (res) {
-        let driverInfo = JSON.parse(res);
-        console.log('res:', driverInfo);
-        $('#driverName').text(driverInfo.DRIVER_NAME);
-        $('#driverPhone').text(driverInfo.DRIVER_PHONE);
-        $('#driverContext').text(driverInfo.DRIVER_DESCRIBE);
-        $('#driverPic').html(`<img src="${driverInfo.DRIVER_PIC}" alt="">`);
-        $('#carLisence').text('車牌號碼:' + driverInfo.TAXI_LICENCENO);
-        $('#carDes').html(driverInfo.TAXI_DESCRIBE);
-        $('#driverCarPic').html(`<img src="${driverInfo.TAXI_PIC}" alt="">`);
+          let driverInfo = JSON.parse(res);
+          console.log('res:', driverInfo);
+        if (driverInfo.DRIVER_STATUS == 1) {
+          $('#driverName').text(driverInfo.DRIVER_NAME);
+          $('#driverPhone').text(driverInfo.DRIVER_PHONE);
+          $('#driverContext').text(driverInfo.DRIVER_DESCRIBE);
+          $('#driverPic').html(`<img src="${driverInfo.DRIVER_PIC}" alt="">`);
+          $('#carLisence').text('車牌號碼:' + driverInfo.TAXI_LICENCENO);
+          $('#carDes').html(driverInfo.TAXI_DESCRIBE);
+          $('#driverCarPic').html(`<img src="${driverInfo.TAXI_PIC}" alt="">`);
+        }
       },
       error: () => {
         alert("error");
@@ -177,12 +179,15 @@ function sendDriverForm() {
       // console.log('into');
       // console.log(driverInfos[0].DRIVER_PIC);
       for (let i = 0; i < driverInfos.length; i++) {
-        console.log(document.getElementsByClassName('driverContentPic')[i]);
-        document.getElementsByClassName('driverContentPic')[i].src = driverInfos[i].DRIVER_PIC;
-        document.getElementsByClassName('driverContentPic')[i].nextElementSibling.innerText = driverInfos[i].DRIVER_NAME;
-        // document.getElementsByClassName('driverContentPic')[i].previousElementSibling.innerText = driverInfos[i].DRIVER_NO;
-        // console.log(document.getElementsByClassName('driverContentPic')[i]);
-        document.getElementsByClassName('driverContentPic')[i].id = driverInfos[i].DRIVER_NO;
+        if (driverInfos[i].DRIVER_STATUS == 1) {
+          document.getElementsByClassName('driverContentPic')[i].src = driverInfos[i].DRIVER_PIC;
+          document.getElementsByClassName('driverContentPic')[i].nextElementSibling.innerText = driverInfos[i].DRIVER_NAME;
+          // document.getElementsByClassName('driverContentPic')[i].previousElementSibling.innerText = driverInfos[i].DRIVER_NO;
+          // console.log(document.getElementsByClassName('driverContentPic')[i]);
+          document.getElementsByClassName('driverContentPic')[i].id = driverInfos[i].DRIVER_NO;
+        }else{
+          document.getElementsByClassName('driverContentPic')[i].parentElement.style.display = 'none';
+        }
       }
     } else {
       alert(xhr.status);

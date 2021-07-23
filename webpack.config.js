@@ -53,6 +53,7 @@ module.exports = {
         adminDiscount:'./dev/js/adminDiscount.js',
         adminMember: './dev/js/adminMember.js',
         adminDiscountCategory: './dev/js/adminDiscountCategory.js',
+        adminArticleReport:'./dev/js/adminArticleReport.js',
     },// 入口文件
     output: {
         path: path.resolve(__dirname, 'dist/js'),

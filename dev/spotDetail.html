@@ -16,7 +16,7 @@
 
     @@include('layout/header.html')
 
-    <div id="app">
+    <div id="app" v-cloak>
         <section class="spot-d-hero" v-if="detailInfo">
             <img :src=detailInfo[0].SPOT_PIC_B alt="">
             <div class="title">

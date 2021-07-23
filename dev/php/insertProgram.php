@@ -42,10 +42,12 @@ $program->execute();
 $last = $pdo->lastInsertId();
 
 for ($i = 0; $i < count($_POST["spot"]); $i++) {
-    $sql = "INSERT INTO `program_item`(PROGRAM_NO,SPOT_NO) values (:program_no,:spot)";
+    $sql = "INSERT INTO `program_item`(PROGRAM_NO,SPOT_NO,PROGRAM_INFO_1,PROGRAM_INFO_2) values (:program_no,:spot,:program_info_1,:program_info_2)";
     $spot = $pdo->prepare($sql);
     $spot->bindValue(":program_no", $last);
     $spot->bindValue(":spot", $_POST["spot"][$i]);
+    $spot->bindValue(":program_info_1", $_POST["program_info_1"][$i]);
+    $spot->bindValue(":program_info_2", $_POST["program_info_2"][$i]);
     $spot->execute();
 }
 

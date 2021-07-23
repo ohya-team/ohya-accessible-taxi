@@ -6,6 +6,5 @@ try{
 	$bookingTiming = $tbInfo->fetchAll(PDO::FETCH_ASSOC);
 	echo json_encode($bookingTiming);
 }catch(PDOException $e){
-	//echo $e->getMessage();
 	exit("系統暫時不能提供服務");}
 ?>

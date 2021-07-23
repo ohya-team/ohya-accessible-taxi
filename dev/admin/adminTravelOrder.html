@@ -211,10 +211,10 @@
                                                                 <a data-toggle="collapse" data-parent="#accordion"
                                                                     :href="'#' + info.ORDER_NO + info.ORDER_STATUS"
                                                                     aria-expanded="false"
-                                                                    class="collapsed" style="color: blue;">{{info.ORDER_NO}}</a>
+                                                                    class="collapsed" style="color: #59c3e1;">{{info.ORDER_NO}}</a>
                                                             </h4>
-                                                            <p style="margin: 0;color: blue;">{{info.PROGRAM_NAME}}</p>
-                                                            <p style="margin: 0; color: blue;">{{info.ORDER_AT}}</p>
+                                                            <p style="margin: 0;color: #59c3e1;">{{info.PROGRAM_NAME}}</p>
+                                                            <p style="margin: 0; color: #59c3e1;">{{info.ORDER_AT}}</p>
                                                             <select v-model='info.ORDER_STATUS'
                                                                 :id="'status_' + info.ORDER_NO" @change='changeStatus'>
                                                                 <option value="2">待付款 </option>

@@ -1,34 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="">
-        <meta name="author" content="">
-    
-        <title>文章管理</title>
-    
-        <!-- Bootstrap Core CSS -->
-        <link href="./css/bootstrap.css" rel="stylesheet">
-    
-        <!-- MetisMenu CSS -->
-        <link href="./css/metisMenuMin.css" rel="stylesheet">
-    
-        <!-- Timeline CSS -->
-        <link href="./css/timeline.css" rel="stylesheet">
-    
-        <!-- Custom CSS -->
-        <link href="./css/startmin.css" rel="stylesheet">
-    
-        <!-- Morris Charts CSS -->
-        <link href="./css/morris.css" rel="stylesheet">
-    
-        <!-- Custom Fonts -->
-        <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
-            integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
-    </head>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>會員專區-文章管理</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="./css/bootstrap.css" rel="stylesheet">
+
+    <!-- MetisMenu CSS -->
+    <link href="./css/metisMenuMin.css" rel="stylesheet">
+
+    <!-- Timeline CSS -->
+    <link href="./css/timeline.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="./css/startmin.css" rel="stylesheet">
+
+    <!-- Morris Charts CSS -->
+    <link href="./css/morris.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/usercenterForum.css">
+
+    <!-- Custom Fonts -->
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+
+    <style>
+        .panel-heading {
+            display: grid ;
+            grid-template-columns: repeat(2,7fr) 1fr;
+        }
+
+        @media (max-width: 700px) {
+            .panel-heading {
+               display: block;
+
+            }
+            h4{
+               padding-bottom: 5px;
+            }
+            .edit-article{
+                margin: -35px 0 0 -20px;
+            }
+
+        }
+    </style>
+</head>
 
 <body>
 
@@ -55,38 +77,32 @@
                                     <!-- .panel-heading -->
                                     <div class="panel-body">
                                         <div class="panel-group" id="accordion">
-                                            <div class="panel panel-primary" v-for="item in detailInfo" :key="item.ART_NO">
+                                            <div class="panel panel-primary" v-for="item in detailInfo"
+                                                :key="item.ART_NO">
                                                 <div class="panel-heading"
-                                                    style="display: grid ; grid-template-columns: repeat(2,6fr) 1fr;">
-                                                    <h4 class="panel-title">
+                                                    >
+                                                    <h4 class="panel-title" style="font-weight: bolder">
                                                         <a data-toggle="collapse" data-parent="#accordion"
                                                             :href="'#' + item.ART_NO" aria-expanded="false"
                                                             class="collapsed">{{item.ART_TITLE}}</a>
                                                     </h4>
                                                     <p style="margin: 0; font-size: 16px;">文章類別 : {{item.ART_CAT}}</p>
-                                                    <div style="justify-content:flex-end;display:flex">
-                                                        <a class="edit"
+                                                    <div style="justify-content:flex-end;display:flex" >
+                                                        <a class="edit-article"
                                                             style="color: #ffc107; font-size: 19px; margin-right: 10px;"
                                                             title="Edit" data-toggle="tooltip"
                                                             :href="'./editArticle.html?art_no=' + item.ART_NO"><i
                                                                 class="fas fa-edit"></i></a>
-                                                        <span @click='deleteForum '
-                                                            style="cursor: pointer;color: #e34724; font-size: 19px;"
-                                                            title="Delete" data-toggle="tooltip">
-                                                            <i :id="'data' +item.ART_NO"
-                                                                class="fas fa-trash-alt"></i></span>
-                                                        <form action="./php/deleteArticle.php"
-                                                            :id="'deletedata' + item.ART_NO" method="post">
-                                                            <input name="art_no" :value="item.ART_NO" hidden>
-                                                        </form>
                                                     </div>
                                                 </div>
                                                 <div :id="item.ART_NO" class="panel-collapse collapse"
                                                     aria-expanded="false" style="height: 0px;">
                                                     <div class="panel-body" style="margin: 0 6%; border: none;">
                                                         <ul style=" overflow-x: auto;">
-                                                            <li class="list-unstyled" style="margin-top: 20px;"> 
-                                                                <img :src="item.ART_IMG" style="width: 100% ;border-radius:20px ;margin-bottom:20px" alt="">
+                                                            <li class="list-unstyled" style="margin-top: 20px;">
+                                                                <img :src="item.ART_IMG"
+                                                                    style="width: 100% ;border-radius:20px ;margin-bottom:20px"
+                                                                    alt="">
                                                                 <p>{{item.ART_CONTENT}} </p>
                                                             </li>
                                                         </ul>
