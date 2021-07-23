@@ -9,11 +9,9 @@ let vue = new Vue({
     methods: {
       fileChange(e){
         let file = e.target.files[0];
-        console.log(e.target.files[0]);
         let readFile = new FileReader();
         readFile.readAsDataURL(file);
         readFile.addEventListener('load',(e) => this.image = e.target.result);
-        console.log(readFile);
       },
     },
     data() {

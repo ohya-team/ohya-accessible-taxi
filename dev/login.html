@@ -25,17 +25,17 @@
     
         <form id="signupDetail" action="./php/signIn.php" method="POST" enctype="multipart/form-data" style="display: none;">
           <div class="name">
-           <div id="last"><label for="lastName">姓<br></label><input id="lastName" type="text" name="mem_lastname" placeholder="ex,林" required></div>
-            <div id="first"><label for="firstName">名<br></label><input id="firstName" type="text" name="mem_firstname" placeholder="ex,大明" required></div>
+           <div id="last"><label for="lastName">姓<br></label><input id="lastName" type="text" name="mem_lastname" placeholder="林" required></div>
+            <div id="first"><label for="firstName">名<br></label><input id="firstName" type="text" name="mem_firstname" placeholder="大明" required></div>
           </div>
           <div class="account">
-            <label for="mem_account">帳號</label><br><input id="mem_account" type="email" name="mem_account" placeholder="ex,acb@mail.com" required><span style="color: red;font-size: 14px;" id="idMsg"></span>
+            <label for="mem_account">帳號</label><br><input id="mem_account" type="email" name="mem_account" placeholder="acb@mail.com" required><span style="color: red;font-size: 14px;" id="idMsg"></span>
           </div>
           <div class="passward">
-            <label for="signPsw">密碼</label><br><input id="signPsw" placeholder="ex,a123456789" type="password" name="mem_password" required>
+            <div id="psw"><label for="signPsw">密碼</label><br><input id="signPsw" placeholder="a123456789" type="password" name="mem_password" required></div>
           </div>
           <div class="phone">
-            <label for="signPhone">電話</label><br><input id="signPhone" placeholder="ex,0911XXXXXX" type="text" name="mem_phone" required>
+            <label for="signPhone">電話</label><br><input id="signPhone" placeholder="0911XXXXXX" type="text" name="mem_phone" required>
           </div>
           <div class="checkInfo">
             <input id="checkInfoBtn" type="checkBox" required><label>註冊即代表您同意使用者及隱私權政策</label>
