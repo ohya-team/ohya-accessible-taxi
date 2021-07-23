@@ -7,8 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
+    <link rel="icon" href="images/favicon.png">
 
-    <title>會員專區-文章管理</title>
+    <title>文章管理</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="./css/bootstrap.css" rel="stylesheet">
@@ -35,6 +36,13 @@
             display: grid ;
             grid-template-columns: repeat(2,7fr) 1fr;
         }
+        .delete-btn{
+            cursor: pointer;
+            color: #e34724;
+            font-size: 19px;
+            margin: 0;
+
+        }
 
         @media (max-width: 700px) {
             .panel-heading {
@@ -47,6 +55,10 @@
             .edit-article{
                 margin: -35px 0 0 -20px;
             }
+            .delete-btn{
+            margin-top:-35px;
+
+        }
 
         }
     </style>
@@ -93,6 +105,14 @@
                                                             title="Edit" data-toggle="tooltip"
                                                             :href="'./editArticle.html?art_no=' + item.ART_NO"><i
                                                                 class="fas fa-edit"></i></a>
+                                                                <span @click='deleteForum '
+                                                                title="Delete" data-toggle="tooltip" class="delete-btn">
+                                                                <i :id="'data' +item.ART_NO"
+                                                                    class="fas fa-trash-alt"></i></span>
+                                                            <form action="./php/deleteArticle.php"
+                                                                :id="'deletedata' + item.ART_NO" method="post">
+                                                                <input name="art_no" :value="item.ART_NO" hidden>
+                                                            </form>
                                                     </div>
                                                 </div>
                                                 <div :id="item.ART_NO" class="panel-collapse collapse"

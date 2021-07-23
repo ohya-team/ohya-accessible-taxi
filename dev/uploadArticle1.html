@@ -10,6 +10,7 @@
         <title>新增文章</title>
         <link rel="stylesheet" href="./css/style.css">
         <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@700&display=swap" rel="stylesheet">
+        <link rel="icon" href="images/favicon.png">
     </head>
 </head>
 
@@ -62,7 +63,7 @@
                         <button class="btn-third">取消</button>
                     </a>
                 </div>
-                <div id="app">
+                <div id="app" v-cloak>
                 <input type="text" :value="detailInfo[0].MEM_NO" name="mem_no" hidden>
                 </div>
             </div>
