@@ -26,12 +26,16 @@ let vue = new Vue({
 
     },
     methods:{
+
         changeStatus(e){
-            if(e.target.value == 0 && e.target.value == 1){
+            if(e.target.value == 0 || e.target.value == 1){
                 document.getElementById("artStatus").value = 0
             }else {
                 document.getElementById("artStatus").value =1 
             }
+
+            console.log(  document.getElementById("artStatus").value )
+
             axios.post('../php/adminReportStatus.php', {
                 rep_no: e.target.id.split('_')[1],
                 rep_status: e.target.value,

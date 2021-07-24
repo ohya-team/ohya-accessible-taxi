@@ -73,13 +73,45 @@
                                                         v-for="info in info.filter(item=>item.ORDER_STATUS == 0)"
                                                         :key="info.ORDER_NO">
                                                         <div class="panel-heading"
-                                                            style="display: grid ; grid-template-columns: repeat(3,5fr) 1fr 1fr;">
+                                                            style="display: grid ; grid-template-columns:2fr repeat(3,5fr) 1fr 1fr;"
+                                                            v-if="info.TOTAL_PRICE>0">
+                                                            <h4 class="panel-title">
+                                                                <a data-toggle="collapse" data-parent="#accordion"
+                                                                    :href="'#' + info.ORDER_NO + info.ORDER_STATUS"
+                                                                    aria-expanded="false" class="collapsed"
+                                                                    style="color: #59c3e1;">{{info.ORDER_NO}}</a>
+                                                            </h4>
+                                                            <p style="margin: 0;color: #59c3e1;" >
+                                                                訂購人姓名:{{info.ORDER_L_NAME}}{{info.ORDER_F_NAME}}</p>
+                                                            <p style="margin: 0; color: #59c3e1;" >
+                                                                {{info.PROGRAM_NAME}}</p>
+                                                            <p style="margin: 0; color: #59c3e1;">
+                                                                {{info.UPDATED_AT}}</p>
+                                                            <select :id="'status_' + info.ORDER_NO"
+                                                                v-model='info.ORDER_STATUS' @change='changeStatus'>
+                                                                <option value="0">審核中 </option>
+                                                                <option value="1">未通過 </option>
+                                                                <option value="2">待付款 </option>
+                                                            </select>
+                                                            <div style="justify-content:flex-end;display:flex">
+                                                                <a class="edit"
+                                                                    style="color: #ffc107; font-size: 19px; margin-right: 10px;"
+                                                                    title="Edit" data-toggle="tooltip"
+                                                                    :href="'./adminUpdateTravelOrder.html?order_no=' + info.ORDER_NO"><i
+                                                                        class="fas fa-edit"></i></a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="panel-heading"
+                                                            style="display: grid ; grid-template-columns:2fr repeat(3,5fr) 1fr 1fr;"
+                                                            v-else>
                                                             <h4 class="panel-title">
                                                                 <a data-toggle="collapse" data-parent="#accordion"
                                                                     :href="'#' + info.ORDER_NO + info.ORDER_STATUS"
                                                                     aria-expanded="false"
                                                                     class="collapsed">{{info.ORDER_NO}}</a>
                                                             </h4>
+                                                            <p style="margin: 0;">
+                                                                訂購人姓名:{{info.ORDER_L_NAME}}{{info.ORDER_F_NAME}}</p>
                                                             <p style="margin: 0;">{{info.PROGRAM_NAME}}</p>
                                                             <p style="margin: 0;">{{info.UPDATED_AT}}</p>
                                                             <select :id="'status_' + info.ORDER_NO"
@@ -156,15 +188,17 @@
                                                         v-for="info in info.filter(item=>item.ORDER_STATUS == 1)"
                                                         :key="info.ORDER_NO">
                                                         <div class="panel-heading"
-                                                            style="display: grid ; grid-template-columns: repeat(3,5fr) 1fr 1fr;">
+                                                            style="display: grid ; grid-template-columns:2fr repeat(3,5fr) 1fr 1fr;">
                                                             <h4 class="panel-title">
                                                                 <a data-toggle="collapse" data-parent="#accordion"
                                                                     :href="'#' + info.ORDER_NO + info.ORDER_STATUS"
                                                                     aria-expanded="false"
                                                                     class="collapsed">{{info.ORDER_NO}}</a>
                                                             </h4>
+                                                            <p style="margin: 0;">
+                                                                訂購人姓名:{{info.ORDER_L_NAME}}{{info.ORDER_F_NAME}}</p>
                                                             <p style="margin: 0;">{{info.PROGRAM_NAME}}</p>
-                                                            <p style="margin: 0;">{{info.ORDER_AT}}</p>
+                                                            <p style="margin: 0;">{{info.UPDATED_AT}}</p>
                                                             <p style="margin: 0;">未通過</p>
                                                         </div>
                                                         <div :id="info.ORDER_NO + info.ORDER_STATUS"
@@ -211,11 +245,13 @@
                                                             <h4 class="panel-title">
                                                                 <a data-toggle="collapse" data-parent="#accordion"
                                                                     :href="'#' + info.ORDER_NO + info.ORDER_STATUS"
-                                                                    aria-expanded="false"
-                                                                    class="collapsed" style="color: #59c3e1;">{{info.ORDER_NO}}</a>
+                                                                    aria-expanded="false" class="collapsed"
+                                                                    style="color: #59c3e1;">{{info.ORDER_NO}}</a>
                                                             </h4>
-                                                            <p style="margin: 0;color: #59c3e1;">{{info.PROGRAM_NAME}}</p>
-                                                            <p style="margin: 0; color: #59c3e1;">{{info.ORDER_AT}}</p>
+                                                            <p style="margin: 0;color: #59c3e1;">{{info.PROGRAM_NAME}}
+                                                            </p>
+                                                            <p style="margin: 0; color: #59c3e1;">{{info.UPDATED_AT}}
+                                                            </p>
                                                             <select v-model='info.ORDER_STATUS'
                                                                 :id="'status_' + info.ORDER_NO" @change='changeStatus'>
                                                                 <option value="2">待付款 </option>
@@ -223,7 +259,7 @@
                                                             </select>
                                                         </div>
                                                         <div class="panel-heading"
-                                                            style="display: grid ;align-items: center;grid-template-columns: repeat(3,5fr) 1fr 1fr;"
+                                                            style="display: grid ;align-items: center;grid-template-columns:2fr repeat(3,5fr) 1fr 1fr;"
                                                             v-else>
                                                             <h4 class="panel-title">
                                                                 <a data-toggle="collapse" data-parent="#accordion"
@@ -231,8 +267,10 @@
                                                                     aria-expanded="false"
                                                                     class="collapsed">{{info.ORDER_NO}}</a>
                                                             </h4>
+                                                            <p style="margin: 0;">
+                                                                訂購人姓名:{{info.ORDER_L_NAME}}{{info.ORDER_F_NAME}}</p>
                                                             <p style="margin: 0;">{{info.PROGRAM_NAME}}</p>
-                                                            <p style="margin: 0;">{{info.ORDER_AT}}</p>
+                                                            <p style="margin: 0;">{{info.UPDATED_AT}}</p>
                                                             <select v-model='info.ORDER_STATUS'
                                                                 :id="'status_' + info.ORDER_NO" @change='changeStatus'>
                                                                 <option value="2">待付款 </option>
@@ -309,15 +347,17 @@
                                                         v-for="info in info.filter(item=>item.ORDER_STATUS == 3)"
                                                         :key="info.ORDER_NO">
                                                         <div class="panel-heading"
-                                                            style="display: grid ; grid-template-columns: repeat(3,5fr) 1fr 1fr;">
+                                                            style="display: grid ; grid-template-columns:2fr repeat(3,5fr) 1fr 1fr;">
                                                             <h4 class="panel-title">
                                                                 <a data-toggle="collapse" data-parent="#accordion"
                                                                     :href="'#' + info.ORDER_NO + info.ORDER_STATUS"
                                                                     aria-expanded="false"
                                                                     class="collapsed">{{info.ORDER_NO}}</a>
                                                             </h4>
+                                                            <p style="margin: 0;">
+                                                                訂購人姓名:{{info.ORDER_L_NAME}}{{info.ORDER_F_NAME}}</p>
                                                             <p style="margin: 0;">{{info.PROGRAM_NAME}}</p>
-                                                            <p style="margin: 0;">{{info.ORDER_AT}}</p>
+                                                            <p style="margin: 0;">{{info.UPDATED_AT}}</p>
                                                             <p style="margin: 0;">已付款</p>
                                                         </div>
                                                         <div :id="info.ORDER_NO + info.ORDER_STATUS"
