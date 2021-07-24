@@ -1,7 +1,7 @@
 <?php
 try{
 	require_once("../connect_cfd101g2.php");
-	$sql = "SELECT * FROM art ";
+	$sql = "SELECT * FROM art ORDER BY ART_STATUS";
 	$products = $pdo->query($sql);
 	$artInfos = $products->fetchAll(PDO::FETCH_ASSOC);
 	echo json_encode($artInfos);
