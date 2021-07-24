@@ -1,3 +1,4 @@
+
 import Vue from "vue";
 import axios from "axios";
 /*模式設定*/

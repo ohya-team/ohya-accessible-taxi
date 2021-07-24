@@ -39,7 +39,6 @@ let vue = new Vue({
             e.preventDefault();
             let r = window.confirm('確定要刪除這篇文章嗎?');
             if (r==true){
-                console.log( document.getElementById(`delete${e.target.id}`))
                 document.getElementById(`delete${e.target.id}`).submit();    
             } 
         }

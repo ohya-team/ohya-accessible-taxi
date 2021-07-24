@@ -13,6 +13,7 @@ let vue = new Vue({
             targetPageId: null,
             showPopUpBox: false,
             randomArticle: null,
+            art_no:"",
         }
     },
     mounted() {
@@ -56,7 +57,6 @@ let vue = new Vue({
             let nowUrl = window.location.href;
             let targetPageId = nowUrl.split("=")[1];
             this.targetPageId = targetPageId;
-            console.log(targetPageId)
         },
         showReport() {
             this.showPopUpBox = true;
@@ -66,7 +66,6 @@ let vue = new Vue({
         },
         getRadioVal(event){
             document.getElementById("report").value = event.target.value;
-            console.log(document.getElementById("report").value)
         },
 
           submitReport(){
@@ -89,7 +88,7 @@ let vue = new Vue({
               })
             },
             uploadclick(e){
-                document.getElementById("art_no").value = e ;
+                this.art_no = e;
             }
     }
 

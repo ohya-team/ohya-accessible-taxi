@@ -9,7 +9,6 @@ try{
 	echo json_encode($formInfo);
 
 }catch(PDOException $e){
-	//echo $e->getMessage();
 	exit("系統暫時不能提供服務");
 }
 ?>
