@@ -12,7 +12,7 @@ let vue = new Vue({
         }
     },
     mounted(){
-        axios.get('../php/forum.php')
+        axios.get('../php/forum1.php')
             .then(response => (this.artInfos = response.data))
             .catch(function (error) { // 请求失败处理
                 console.log(error);

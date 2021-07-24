@@ -9,6 +9,7 @@
   <meta name="author" content="">
 
   <title>文章管理</title>
+  
 
   <!-- Bootstrap Core CSS -->
   <link href="../css/bootstrap.css" rel="stylesheet">
@@ -28,12 +29,7 @@
   <!-- Custom Fonts -->
   <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
     integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
-  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-  <!--[if lt IE 9]>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+    <link rel="icon" href="../images/favicon.png">
 
 </head>
 
@@ -61,7 +57,7 @@
                       <th>文章編號</th>
                       <th>會員編號</th>
                       <th>文章類別</th>
-                      <th>文章最新更新時間</th>
+                      <th>文章標題</th>
                       <th>文章狀態</th>
                       <th>操作</th>
                     </tr>
@@ -71,7 +67,7 @@
                       <td>{{art.ART_NO}}</td>
                       <td>{{art.MEM_NO}}</td>
                       <td>{{art.ART_CAT}}</td>
-                      <td>{{art.ART_UPDATED}}</td>
+                      <td>{{art.ART_TITLE}}</td>
                       <td>{{art.ART_STATUS == 0 ?'顯示':'隱藏'}}</td>
                       <td><a class="edit" title="Edit" data-toggle="tooltip" :href="'./showArticle.html?ART_NO='+art.ART_NO"><i class="fas fa-search"></i></a></td>
                     </tr>

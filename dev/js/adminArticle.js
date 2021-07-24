@@ -8,7 +8,7 @@ let vue = new Vue({
         }
     },
     mounted(){
-        axios.get('../php/forum.php')
+        axios.get('../php/forum1.php')
             .then((res)=>{
                 this.artInfos = res.data;
                 console.log(res.data)

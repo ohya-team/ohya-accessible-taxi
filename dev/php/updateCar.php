@@ -49,8 +49,8 @@ try {
 
 	$carEd->execute();
 
-	echo "<script>alert('異動成功~');</script>";
-  header('Location:../admin/adminServiceCar.html');
+	echo "<script>alert('異動成功~');history.go(-2);</script>";
+
 
 
 } catch (PDOException $e) {
@@ -59,5 +59,5 @@ try {
 	echo "<script>alert('系統暫時不能正常運行，請稍後再試')</script>";	
 	//exit("end---"); //php停止執行, 並輸出訊息
 }
- 
+// header('Location:../admin/adminServiceCar.html');
  ?>

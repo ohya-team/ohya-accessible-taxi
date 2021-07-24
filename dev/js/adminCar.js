@@ -9,11 +9,9 @@ let vue = new Vue({
     methods: {
         fileChange(e){
           let file = e.target.files[0];
-          console.log(e.target.files[0]);
           let readFile = new FileReader();
           readFile.readAsDataURL(file);
           readFile.addEventListener('load',(e) => this.image = e.target.result);
-          console.log(readFile);
         },
         get_href() {
             let nowUrl = window.location.href;
@@ -42,7 +40,6 @@ let vue = new Vue({
                 this.carInfo = res.data;
                 this.image = '.'+res.data[0].CAR_PIC;
                 this.file = res.data[0].CAR_PIC;
-                console.log(res.data[0].CAR_PIC);
             })
             .catch( (error) => console.log(error));
     },

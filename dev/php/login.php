@@ -10,7 +10,7 @@ try{
   $member -> execute();
 
   if( $member -> rowCount() == 0){
-    echo "<script>alert('帳號密碼錯誤~');history.go(-1)</script>";
+    echo "<script>alert('帳號密碼錯誤或已被停權~');history.go(-1)</script>";
   }else{
     $memRow = $member->fetch(PDO::FETCH_ASSOC);
     $_SESSION["mem_account"] = $memRow["MEM_ACCOUNT"];

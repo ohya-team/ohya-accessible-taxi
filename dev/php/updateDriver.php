@@ -59,8 +59,8 @@ try {
 	$driverEd->bindValue(":TAXI_PIC", $_POST["TAXI_PIC"]);
 
 	$driverEd->execute();
-	echo "<script>alert('異動成功~');</script>";
-	header('Location:../admin/adminServiceDriver.html');
+	echo "<script>alert('異動成功~');history.go(-2);</script>";
+	// header('Location:../admin/adminServiceDriver.html');
 
 
 } catch (PDOException $e) {

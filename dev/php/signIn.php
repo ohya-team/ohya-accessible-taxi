@@ -3,7 +3,7 @@ ob_start();
 session_start();
 try{
 	require_once("../connect_cfd101g2.php");
-	$sql = "INSERT INTO `MEMBER`( `MEM_LASTNAME`, `MEM_FIRSTNAME`, `MEM_ACCOUNT`, `MEM_PASSWORD`,`MEM_PHONE`, `MEM_STATUS`) VALUES (:mem_lastname,:mem_firstname,:mem_account,:mem_password,:mem_phone,1)";
+	$sql = "INSERT INTO member ( `MEM_LASTNAME`, `MEM_FIRSTNAME`, `MEM_ACCOUNT`, `MEM_PASSWORD`,`MEM_PHONE`, `MEM_STATUS`) VALUES (:mem_lastname,:mem_firstname,:mem_account,:mem_password,:mem_phone,1)";
 	$member = $pdo->prepare($sql);
   $memArr = ['mem_lastname', 'mem_firstname', 'mem_account', 'mem_password','mem_phone'];
   foreach ($memArr as  $value) {

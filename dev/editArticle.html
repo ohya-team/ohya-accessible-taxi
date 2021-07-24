@@ -8,6 +8,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>修改文章</title>
+        <link rel="icon" href="images/favicon.png">
         <link rel="stylesheet" href="./css/style.css">
         <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@700&display=swap" rel="stylesheet">
     </head>
@@ -15,7 +16,7 @@
 
 <body class="animate-background">
     @@include('layout/header.html')
-    <div id="app">
+    <div id="app" v-cloak>
         <div class="uploadArticle-container">
 
             <form action="./php/updateArticle.php" method="POST" enctype="multipart/form-data"

@@ -26,8 +26,11 @@
 @import 'page/travelFormTwo';
 @import 'page/login';
 @import 'page/payment';
+<<<<<<< HEAD
 @import 'page/front_door';
 
+=======
+>>>>>>> 53804ee118ba898fe84f4475484831fc30930372
 
 //import noto sans from google font
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap');
@@ -47,9 +50,11 @@
     @extend %black;
   }
 }
+
 [v-cloak] {
   display: none;
 }
+
 //Font style
 body {
   font-family: 'Noto Sans TC', sans-serif;

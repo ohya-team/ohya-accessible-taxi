@@ -9,15 +9,10 @@ let vue = new Vue({
     methods:{
         changeStatus(member) {
             let confirmThisChange = (confirm('確定要變更權限嗎?'))
-            // console.log(member);
-            // debugger;
             if ( member.MEM_STATUS == '1' ){
                 member.MEM_STATUS = '0';
-                console.log(this);
-                // this.value = "復權";
             }else{
                 member.MEM_STATUS = '1'
-                // document.getElementById('changeStatus').value = "停權";
             };
             if (confirmThisChange == true) {
                 axios.post('../php/memberStatus.php', {
@@ -42,7 +37,6 @@ let vue = new Vue({
         axios.post('../php/adminMember.php')
             .then((res) => {
                 this.memInfo = res.data;
-                console.log(res.data);
             })
             .catch( (error) => console.log(error));
     },
