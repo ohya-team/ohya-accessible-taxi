@@ -5,6 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>一般預約</title>
+  <link rel="icon" href="images/favicon.png">
   <link rel="stylesheet" href="./css/style.css">
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
@@ -39,7 +40,7 @@
     </p>
   </section>
 
-  <div id="app">
+  <div id="app" v-cloak>
     <div class="booking"  v-if="memInfo == null">
       <p>請先登入會員：<a href="login.html">登入</a></p>
     </div>
