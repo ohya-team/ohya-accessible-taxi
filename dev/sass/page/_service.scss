@@ -256,7 +256,7 @@ a {
             border: 3px solid $black;
           }
           span {
-            width: 100px;
+            width: 80px;
             padding: 5px 10px;
             margin: auto;
             color: white;
@@ -264,8 +264,8 @@ a {
             border-radius: 5px;
             position: relative;
             top: -15px;
-            @include rwd_each(tablet) {
-              width: 15vh;
+            @include rwd_each(desktop) {
+              width: 100px;
             }
           }
         }
@@ -276,7 +276,6 @@ a {
 
 //司機燈箱
 #driverLightBox {
-  overflow: hidden;
   position: fixed;
   z-index: 1001;
   width: 100%;
@@ -284,7 +283,7 @@ a {
   background: rgba(66, 66, 66, 0.6);
   .driverContent {
     width: 350px;
-    margin: 50px 2.5%;
+    margin: 50px auto;
     background-color: #fff;
     border-radius: 10px;
     position: relative;
