@@ -50,10 +50,10 @@
 
                                 <div class="panel tabbed-panel panel-default">
                                     <div class="panel-heading clearfix">
-                                        <form action="../php/artstatusRecover.php">
+                                        <form action="../php/artstatusRecover.php" style="display: none;">
                                             <button type="submit">recoverArticle</button>
                                         </form>
-                                        <form action="../php/deleteReport.php">
+                                        <form action="../php/deleteReport.php" style="display: none;">
                                             <button type="submit">deletereport</button>
                                         </form>
                                         <div class="panel-title pull-left">文章檢舉管理</div>
@@ -148,7 +148,7 @@
                                                         <div class="panel-heading"
                                                             style="display: grid ; grid-template-columns: repeat(3,5fr) 1fr 0.5fr;">
                                                             <p style="margin: 0;">{{info.REP_NO}}</p>
-                                                            <h4 class="panel-title">
+                                                            <h4 class="panel-title" style="margin-top:-6px;">
                                                                 <a data-toggle="collapse" data-parent="#accordion"
                                                                     :href="'#' + info.REP_NO" aria-expanded="false"
                                                                     class="collapsed">{{info.ART_TITLE}}</a>

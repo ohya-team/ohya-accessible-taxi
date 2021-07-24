@@ -43,7 +43,7 @@ let vue = new Vue({
     },
     filters: {
         ellipsis(value) {
-            const len = 27;
+            const len = 23;
             if (value.length > len) {
                 return value.slice(0, len) + '...'
             } else {

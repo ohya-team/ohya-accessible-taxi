@@ -7,7 +7,7 @@ $art->bindValue(":art_content", $_POST["art_content"]);
 $art->bindValue(":art_title", $_POST["art_title"]);
 $art->bindValue(":art_cat", $_POST["art_cat"]);
 $pic="art_img";
-if ($_FILES['program_pic']['error'] == 0){
+if ($_FILES[$pic]['error'] == 0){
 switch ($_FILES[$pic]['error']) {
     case 0:
         $dir='../images/forum';
