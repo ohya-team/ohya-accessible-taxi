@@ -6819,3 +6819,12 @@ button.close {
     display: none!important
   }
 }
+
+.coyeright-admin{
+  color: #454545;
+  text-align: center;
+  padding: 15px;
+  font-size: 12px;
+  max-width: 760px;
+  margin: auto;
+}

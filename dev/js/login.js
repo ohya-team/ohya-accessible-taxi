@@ -79,12 +79,12 @@ function checkSignup(e){
 
 
 //登入
-function sendLoginForm(){debugger;
+function sendLoginForm(){
   let xhr = new XMLHttpRequest(); 
   xhr.onload = function(){
     if(xhr.status == 200){
       let member = JSON.parse(xhr.responseText);
-      if(member.mem_account){debugger;
+      if(member.mem_account){
         //將燈箱中的表單上的資料清空，並隱藏起來
         $('#LoginLightBox').style.display = 'none';
         $('#memAccount').value = '';
