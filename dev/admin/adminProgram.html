@@ -29,7 +29,7 @@
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
         integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <link rel="icon" href="../images/favicon.png">
-</head> 
+</head>
 
 <body>
 
@@ -44,7 +44,22 @@
                             <div class="table-wrapper">
                                 <div class="table-title">
                                     <div class="row">
-                                        <div class="col-sm-8"></div>
+                                        <div class="col-sm-8" style="display: flex;">
+                                            <input type="text" v-model='search' class="form-control"
+                                                style="width: 30%; margin-right: 10px;">
+                                            <input type="button"
+                                                :class=" statusOn == false && mainStatusOn ==false && regularStatusOn ==false?  'btn btn-success':'btn btn-default'"
+                                                style="margin-right: 10px;" @click='statusAll' value="檢視全部">
+                                            <input type="button" @click='changeRegularStatus'
+                                                :class=" regularStatusOn ==true?  'btn btn-success':'btn btn-default'"
+                                                value="檢視上架方案列表" style="margin-right: 10px;">
+                                            <input type="button" @click='changeStatus'
+                                                :class="statusOn ==true?  'btn btn-success':'btn btn-default'"
+                                                value="檢視精選方案狀態開放" style="margin-right: 10px;">
+                                            <input type="button" @click='changeMainStatus'
+                                                :class="mainStatusOn == true?  'btn btn-success':'btn btn-default'"
+                                                value="檢視主要精選方案狀態開放" style="margin-right: 10px;">
+                                        </div>
                                         <div class="col-sm-4">
                                             <a href="./adminAddProgram.html">
                                                 <button type="button" class="btn btn-info add-new"><i
@@ -62,14 +77,15 @@
                                     <!-- .panel-heading -->
                                     <div class="panel-body">
                                         <div class="panel-group" id="accordion">
-                                            <div class="panel panel-primary" v-for="info in info"
+                                            <div class="panel panel-primary" v-for="info in listInfo"
                                                 :key="info.PROGRAM_NO">
                                                 <div class="panel-heading"
                                                     style="display: grid ; grid-template-columns: repeat(4,5fr) 1fr;">
                                                     <h4 class="panel-title">
                                                         <a data-toggle="collapse" data-parent="#accordion"
                                                             :href="'#' + info.PROGRAM_NO" aria-expanded="false"
-                                                            class="collapsed">{{info.PROGRAM_NAME}}</a>
+                                                            class="collapsed"
+                                                            v-html='keywordHighlight(info.PROGRAM_NAME)'></a>
                                                     </h4>
                                                     <p style="margin: 0;">方案列表狀態: {{info.PROGRAM_STATUS == 1 ?
                                                         '開啟':'關閉'}}</p>
@@ -120,11 +136,14 @@
                                                                 style="line-height: 2em; margin-top: 20px;">
                                                                 <p>方案金額: {{info.PROGRAM_PRICE}}</p>
                                                             </li>
-                                                            <li class="list-unstyled" v-for="(spot,index) in spotInProgramInfo.filter(item=>item.PROGRAM_NO == info.PROGRAM_NO )"
+                                                            <li class="list-unstyled"
+                                                                v-for="(spot,index) in spotInProgramInfo.filter(item=>item.PROGRAM_NO == info.PROGRAM_NO )"
                                                                 style="line-height: 2em; margin-top: 20px;">
                                                                 <p>包含景點{{index+1}}:{{spot.SPOT_NAME}}</p>
-                                                                <p style="color: #59c3e1;">包含景點{{index+1}}:{{spot.PROGRAM_INFO_1}}</p>
-                                                                <p style="color: #59c3e1;">包含景點{{index+1}}:{{spot.PROGRAM_INFO_2}}</p>
+                                                                <p style="color: #59c3e1;">
+                                                                    包含景點{{index+1}}:{{spot.PROGRAM_INFO_1}}</p>
+                                                                <p style="color: #59c3e1;">
+                                                                    包含景點{{index+1}}:{{spot.PROGRAM_INFO_2}}</p>
                                                             </li>
                                                             <li class="list-unstyled" style="margin-top: 20px;">
                                                                 <table class="table table-bordered">
@@ -145,7 +164,7 @@
                                                                     </tbody>
                                                                 </table>
                                                             </li>
-                                                         
+
                                                         </ul>
                                                     </div>
                                                 </div>

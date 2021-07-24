@@ -15,8 +15,13 @@ let vue = new Vue({
             targetPageId: null,
             spotInProgramInfo: null,
             newSpotNum: 0,
+            search: '',
+            regularStatusOn: false,
+            statusOn: false,
+            mainStatusOn: false,
         }
     },
+
     mounted() {
         axios.get('../php/program.php')
             .then(response => (this.info = response.data))
@@ -50,9 +55,52 @@ let vue = new Vue({
             if (this.spotInProgramInfo != null) {
                 return this.spotInProgramInfo.filter(item => item.PROGRAM_NO == this.targetPageId)
             }
+        },
+        listInfo() {
+            if (this.info != null) {
+                if (this.info != null) {
+                    let listInfo = [...this.info]
+                    if (this.search != '') {
+                        listInfo = listInfo.filter(item => item.PROGRAM_NAME.includes(this.search))
+                    }
+                    if (this.regularStatusOn == true) {
+                        listInfo = listInfo.filter(item => item.PROGRAM_STATUS == 1)
+                    }
+                    if (this.statusOn == true) {
+                        listInfo = listInfo.filter(item => item.PROGRAM_STATUS_S == 1)
+                    }
+                    if (this.mainStatusOn == true) {
+                        listInfo = listInfo.filter(item => item.PROGRAM_STATUS_S_M == 1)
+                    }
+                    return listInfo
+                }
+            }
         }
     },
     methods: {
+        statusAll() {
+            this.regularStatusOn = false;
+            this.statusOn = false;
+            this.mainStatusOn = false;
+        },
+        changeRegularStatus() {
+            this.regularStatusOn = true;
+            this.statusOn = false;
+            this.mainStatusOn = false;
+        },
+        changeStatus() {
+            this.regularStatusOn = false;
+            this.statusOn = true;
+            this.mainStatusOn = false;
+        },
+        changeMainStatus() {
+            this.mainStatusOn = true;
+            this.regularStatusOn = false;
+            this.statusOn = false;
+        },
+        keywordHighlight(val) {
+            return val.replace(new RegExp(this.search, 'g'), `<span style="color:white;background:#59c3e1;border-radius:3px ;overflow:hidden">${this.search}</span>`)
+        },
         addSpot() {
             this.spotNum++;
         },

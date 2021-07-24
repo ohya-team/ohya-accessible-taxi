@@ -10,6 +10,9 @@ let vue = new Vue({
         return {
             info: null,
             targetPageId: null,
+            search: '',
+            statusOn: false,
+            mainStatusOn: false,
         }
     },
     mounted() {
@@ -26,9 +29,24 @@ let vue = new Vue({
                 return this.info.filter(item => item.SPOT_NO == this.targetPageId)
             }
         },
+        listInfo() {
+            if (this.info != null) {
+                let listInfo = [...this.info]
+                if (this.search != '') {
+                    listInfo = listInfo.filter(item => item.SPOT_NAME.includes(this.search))
+                }
+                if (this.statusOn == true) {
+                    listInfo = listInfo.filter(item => item.SPOT_STATUS == 1)
+                }
+                if (this.mainStatusOn == true) {
+                    listInfo = listInfo.filter(item => item.SPOT_STATUS_S == 1)
+                }
+                return listInfo
+            }
+        }
     },
     methods: {
-        get_href() {debugger;
+        get_href() {
             let nowUrl = window.location.href;
             let targetPageId = nowUrl.split("=")[1];
             this.targetPageId = parseInt(targetPageId);
@@ -42,6 +60,21 @@ let vue = new Vue({
             if (deleteThisData == true) {
                 document.getElementById(`delete${e.target.id}`).submit();
             }
+        },
+        keywordHighlight(val) {
+            return val.replace(new RegExp(this.search, 'g'), `<span style="color:#59c3e1">${this.search}</span>`)
+        },
+        statusAll() {
+            this.statusOn = false;
+            this.mainStatusOn = false
+        },
+        changeStatus() {
+            this.statusOn = true;
+            this.mainStatusOn = false
+        },
+        changeMainStatus() {
+            this.mainStatusOn = true
+            this.statusOn = false;
         }
     },
 })

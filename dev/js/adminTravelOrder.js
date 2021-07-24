@@ -11,6 +11,7 @@ let vue = new Vue({
         return {
             info: null,
             targetId: null,
+            statusList: ['審核中', '未通過', '待付款', '已付款']
         }
     },
     mounted() {
