@@ -62,7 +62,7 @@ a {
   background-color: #fff;
   border-radius: 10px;
   margin: auto;
-  width: 375px;
+  width: 350px;
   @include rwd_each(tablet) {
     width: 596px;
     h4 {
@@ -276,6 +276,7 @@ a {
 
 //司機燈箱
 #driverLightBox {
+  overflow: hidden;
   position: fixed;
   z-index: 1001;
   width: 100%;
@@ -283,12 +284,13 @@ a {
   background: rgba(66, 66, 66, 0.6);
   .driverContent {
     width: 350px;
-    margin: 50px auto;
+    margin: 50px 2.5%;
     background-color: #fff;
     border-radius: 10px;
     position: relative;
     @include rwd_each(tablet) {
       width: 700px;
+      margin: 50px auto;
     }
     .closeIcon {
       position: absolute;
