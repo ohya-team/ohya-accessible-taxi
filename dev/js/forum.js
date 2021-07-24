@@ -13,7 +13,7 @@ let vue = new Vue({
             memInfos: null,
             type: '所有文章',
             order: '熱門',
-            perPage: 8,
+            perPage: 12,
             typeList: ['所有文章', '包車旅遊', '一般預約', '優良司機', '精選車種'],
             orderList: ['熱門', '最新'],
             openTypeList: false,
