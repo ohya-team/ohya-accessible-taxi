@@ -1,3 +1,5 @@
+
+
 import Vue from "vue";
 import axios from "axios";
 const isDebug_mode = process.env.NODE_ENV !== 'production';
@@ -9,6 +11,8 @@ let vue = new Vue({
         return {
             artInfos:null,
             targetPageId: null, 
+            word:500,
+            wordLength:false,
         }
     },
     mounted(){
@@ -40,7 +44,13 @@ let vue = new Vue({
         },
         imageLoaded(e){
             document.getElementById("uploadImg").src =  e.target.result;
+        },
+        decsInput(){
+            this.wordLength = true;
+            let texLength = document.querySelector(".upload-txt").value.length;
+            this.word = 500 - texLength;
         }
+
 
     }
 })

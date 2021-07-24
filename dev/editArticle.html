@@ -54,11 +54,9 @@
                         </div>
                     </div>
                     <label class="def" for="art_content">文章內容</label>
-                    <textarea name="art_content" cols="30" rows="10" class="upload-txt"
-                        onKeyUp="textCounter(art_content,remLen,500)" onKeyDown="textCounter(art_content,remLen,500)"
-                        id="art_content" required>{{detailInfo[0].ART_CONTENT}}</textarea>
-                    <div class="word-left">
-                        剩餘字數 :<input name="remLen" type="text" value="500" size="5" readonly="readonly">
+                    <textarea name="art_content" cols="30" rows="10" class="upload-txt" id="art_content" maxlength="500" @keyup = "decsInput"  required>{{detailInfo[0].ART_CONTENT}}</textarea>
+                    <div class="word-left"  v-show = "wordLength">
+                        剩餘字數 :<input name="remLen" type="text" :value="word" size="5" readonly="readonly">
                     </div>
                     <div class="upload-btn">
                         <input class="btn-main" type="submit" id="popbox-btn" value="送出">
@@ -66,7 +64,6 @@
                             <button class="btn-third">取消</button>
                         </a>
                     </div>
-
                     <input type="text" name="art_no" :value="detailInfo[0].ART_NO" hidden>
                     <input type="text" :value="detailInfo[0].ART_IMG" name="art_img" hidden>
 
@@ -75,28 +72,18 @@
         </div>
     </div>
     @@include('layout/footer.html')
+    <script src="./js/editArticle1.js"></script>
     <script src="./js/editArticle.js"></script>
     <script>
         function textCounter(field, countfield, maxlimit) {
-            // 函數，3個參數，表單名字，表單域元素名，限制字符；  
-            if (field.value.length > maxlimit)
-                //如果元素區字符數大於最大字符數，按照最大字符數截斷；  
-                field.value = field.value.substring(0, maxlimit);
-            else
-                countfield.value = maxlimit - field.value.length
-        }
-
-        var x = new FileReader;
-        let uploadImg = document.getElementById("uploadImg")
-        document.forms[0].elements[0].onchange = function () {
-            x.readAsDataURL(this.files[0]);
-            document.querySelector(".upload-picture-btn").style.opacity = "0";
-        }
-        x.onloadend = function () {
-            uploadImg.src = this.result
-            uploadImg.style.opacity = "1"
-            console.log(this.result);
-        }
+    document.getElementById()
+    // 函數，3個參數，表單名字，表單域元素名，限制字符；  
+    if (field.value.length > maxlimit)
+        //如果元素區字符數大於最大字符數，按照最大字符數截斷；  
+        field.value = field.value.substring(0, maxlimit);
+    else
+        countfield.value = maxlimit - field.value.length
+}
     </script>
 
 </body>

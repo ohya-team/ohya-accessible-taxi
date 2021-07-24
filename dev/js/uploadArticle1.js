@@ -1,11 +1,4 @@
-function textCounter(field, countfield, maxlimit) {
-    // 函數，3個參數，表單名字，表單域元素名，限制字符；  
-    if (field.value.length > maxlimit)
-        //如果元素區字符數大於最大字符數，按照最大字符數截斷；  
-        field.value = field.value.substring(0, maxlimit);
-    else
-        countfield.value = maxlimit - field.value.length
-}
+
 
 var x = new FileReader;
 let uploadImg = document.getElementById("uploadImg")
@@ -21,12 +14,15 @@ x.onloadend = function () {
 
 import Vue from "vue";
 import axios from "axios";
+const isDebug_mode = process.env.NODE_ENV !== 'production';
+Vue.config.debug = isDebug_mode;
+Vue.config.devtools = isDebug_mode;
 let vue = new Vue({
     el: "#app",
     data() {
         return {
             memInfos: null,
-            // file: '',
+            word:500,
         }
 
     },
@@ -50,4 +46,11 @@ let vue = new Vue({
         },
 
     },
+    methods: {
+        decsInput(){
+            let texLength = this.desc.length;
+            this.word = 500 - texLength;
+        }
+        
+    }
 })
