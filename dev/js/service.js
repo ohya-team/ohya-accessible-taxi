@@ -28,10 +28,8 @@ function showCar() {
   for (let i = 0; i < smallCar.length; i++) {
     if (bigPic.childNodes[1].src == smallCar[i].childNodes[1].src) {
       carContent[i].style.display = "block";
-      console.log(carContent[i]);
     } else {
       carContent[i].style.display = "none";
-      console.log(carContent[i]);
     }
   }
 }
@@ -52,15 +50,12 @@ $('.carSlider #narRight').on('click', function () {
   } else {
     carContent[j].style.display = "block";
     carContent[j - 1].style.display = "none";
-    console.log(carContent[j]);
   }
   j += 1;
   $('#carImage img')[0].src = `./images/car/car${j}.png`
-  console.log(`./images/car/car${j}.png`);
 })
 $('.carSlider #narLeft').on('click', function () {
   j -= 1;
-  console.log(j);
   if (j == 1) {
     carContent[0].style.display = "block";
     carContent[1].style.display = "none";
@@ -83,13 +78,11 @@ $('.carSlider #narLeft').on('click', function () {
     $('#carImage img')[0].src = `./images/car/car${4}.png`
   } else {
     j = 1;
-    console.log(j);
     carContent[0].style.display = "block";
     carContent[1].style.display = "none";
     carContent[3].style.display = "none";
     $('#carImage img')[0].src = `./images/car/car${1}.png`
   }
-  console.log(`./images/car/car${j}.png`);
 })
 
 
@@ -102,7 +95,6 @@ function showLightBox() {
       data: { DRIVER_NO: e.target.id },
       success: function (res) {
           let driverInfo = JSON.parse(res);
-          console.log('res:', driverInfo);
         if (driverInfo.DRIVER_STATUS == 1) {
           $('#driverName').text(driverInfo.DRIVER_NAME);
           $('#driverPhone').text(driverInfo.DRIVER_PHONE);
@@ -152,7 +144,6 @@ function sendCarForm() {
   xhr.onload = function () {
     if (xhr.status == 200) {
       let carInfos = JSON.parse(xhr.responseText);
-      console.log(carInfos);
       document.getElementById('bigPic').children[0].src = carInfos[0].CAR_PIC;
       for (let i = 0; i < carInfos.length; i++) {
         document.getElementsByClassName('smallWrap')[0].children[i].children[0].src = carInfos[i].CAR_PIC;
@@ -176,14 +167,10 @@ function sendDriverForm() {
   xhr.onload = function () {
     if (xhr.status == 200) {
       let driverInfos = JSON.parse(xhr.responseText);
-      // console.log('into');
-      // console.log(driverInfos[0].DRIVER_PIC);
       for (let i = 0; i < driverInfos.length; i++) {
         if (driverInfos[i].DRIVER_STATUS == 1) {
           document.getElementsByClassName('driverContentPic')[i].src = driverInfos[i].DRIVER_PIC;
           document.getElementsByClassName('driverContentPic')[i].nextElementSibling.innerText = driverInfos[i].DRIVER_NAME;
-          // document.getElementsByClassName('driverContentPic')[i].previousElementSibling.innerText = driverInfos[i].DRIVER_NO;
-          // console.log(document.getElementsByClassName('driverContentPic')[i]);
           document.getElementsByClassName('driverContentPic')[i].id = driverInfos[i].DRIVER_NO;
         }else{
           document.getElementsByClassName('driverContentPic')[i].parentElement.style.display = 'none';

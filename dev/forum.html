@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>討論區</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="css/style.css">
   <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -12,13 +13,16 @@
     rel="stylesheet">
   <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
     integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
-  <title>討論區</title>
+  <link rel="icon" href="images/favicon.png">
+  
 </head>
 
 <body class="animate-background">
-  @@include('layout/header.html')
+  <div class="wrapper header-s">
+    @@include('layout/header.html')
+  </div>
 
-  <div id="app">
+  <div id="app" v-cloak>
     <div class="forum-topic">
       <h4 class="topic">
         <span><img src="images/icon/Icon simple-hipchat.svg" alt=""></span>

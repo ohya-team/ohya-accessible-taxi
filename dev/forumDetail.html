@@ -13,10 +13,13 @@
   <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
     integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
   <title>討論區-細節頁</title>
+  <link rel="icon" href="images/favicon.png">
 </head>
 
 <body class="animate-background">
-  @@include('layout/header.html')
+  <div class="wrapper header-s">
+    @@include('layout/header.html')
+  </div>)
   <div class="forum-topic">
     <h4 class="topic">
       <span><img src="images/icon/Icon simple-hipchat.svg" alt=""></span>
@@ -28,7 +31,7 @@
     </h4>
     <h2 class="chinese-topic">討論區</h2>
   </div>
-  <div id="app">
+  <div id="app" v-cloak>
     <article class="forum-detail-container">
       <div class="forum-detail-topic">
         <p class="forum-sort">{{detailInfo[0].ART_CAT}}</p>
@@ -57,8 +60,9 @@
         <div class="forum-card" v-for="item in randomArticle">
           <form action="./php/click.php" method="GET">
             <div class="forum-avatar">
-              <img src="images/forum/member.jpg" alt="">
-              <span>董董</span>
+              <img :src="item.MEM_PIC" v-if="item.MEM_PIC != null" >
+              <img src="./images/user/default.jpg" alt="" v-else>
+              <span>{{item.MEM_FIRSTNAME}}</span>
             </div>
             <div class="card-group">
               <img :src="item.ART_IMG" alt="">
@@ -68,7 +72,7 @@
                 <div class="card-info">
                   <div class="people-amount">
                     <i class="fa fa-eye" aria-hidden="true"></i>
-                    <span class="mini ">{{item.ART_CLICK}}</span>
+                    <span class="mini" id="add">{{item.ART_CLICK}}</span>
                   </div>
                   <span class="mini">{{item.ART_UPDATED}}</span>
                 </div>

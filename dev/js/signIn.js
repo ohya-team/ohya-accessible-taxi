@@ -12,7 +12,7 @@ let vue = new Vue({
         }
     },
     mounted() {
-        axios.post('./php/signInCheck.php')
+        axios.post('../php/signInCheck.php')
             .then((res) => {
                 this.signInfo = res.data;
                 console.log(res.data);

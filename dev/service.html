@@ -5,41 +5,43 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css">
   <link rel="stylesheet" href="./css/style.css">
   <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
     integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+  <link rel="icon" href="./images/favicon.png" type="image/x-icon">
   <title>無障礙服務</title>
 </head>
 
-<div id="driverLightBox" style="display: none;">
-  <div class="driverContent">
-    <div class="closeIcon">
-      <img src="./images/icon/Icon material-close.svg" alt="">
-    </div>
-    <div class="driverDetail">
-      <div class="driverDescribe">
-        <h3 id="driverName"></h3><br>
-        司機電話：<span id="driverPhone"></span><br>
-        <p id="driverContext"></p>
+
+
+<body class="animate-background" class="wrapper header-s">
+  <div id="driverLightBox" style="display: none;">
+    <div class="driverContent">
+      <div class="closeIcon">
+        <img src="./images/icon/Icon material-close.svg" alt="">
       </div>
-      <div id="driverPic">
+      <div class="driverDetail">
+        <div class="driverDescribe">
+          <h3 id="driverName"></h3><br>
+          司機電話：<span id="driverPhone"></span><br>
+          <p id="driverContext"></p>
+        </div>
+        <div id="driverPic">
+        </div>
       </div>
-    </div>
-    <div class="driverCar">
-      <div id="driverCarPic">
-      </div>
-      <div class="carDescribe">
-        <span id="carLisence"></span>
-        <ol id="carDes">
-        </ol>
+      <div class="driverCar">
+        <div id="driverCarPic">
+        </div>
+        <div class="carDescribe">
+          <span id="carLisence"></span>
+          <ol id="carDes">
+          </ol>
+        </div>
       </div>
     </div>
   </div>
-</div>
-
-<body class="animate-background">
   @@include('layout/header.html')
   <br>
   <div class="container pt-65">
@@ -182,7 +184,7 @@
 
 
   <div class="container driver-detail content" id="driver-content">
-    <form action="../dist/php/driver.php" id="driverInfos" enctype="multipart/form-data" method="post">
+    <form action="../php/driver.php" id="driverInfos" enctype="multipart/form-data" method="post">
       <div id="driverWrap">
         <div class="image">
           <ul>
