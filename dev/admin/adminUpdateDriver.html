@@ -81,7 +81,7 @@
                         <p class="text-center">
                           <dd>
                             <div class="panel-heading">編輯個人照片<div><br>
-                                <input type="hidden" name="DRIVER_PIC" :value="detailInfo[0].DRIVER_PIC">
+                                <input type="hidden" name="DRIVER_PIC" :value="driverImage">
                                 <input class="form-control" id="driverInp" name="DRIVER_PIC" type="file"
                                   @change="driverfileChange">
                           </dd>
@@ -110,7 +110,7 @@
                         <p class="text-center">
                           <dd>
                             <div class="panel-heading">編輯計程車照片<div><br>
-                                <input type="hidden" name="TAXI_PIC" :value="detailInfo[0].TAXI_PIC">
+                                <input type="hidden" name="TAXI_PIC" :value="taxiImage">
                                 <input class="form-control" id="taxiInp" name="TAXI_PIC" type="file"
                                   @change="taxifileChange">
                           </dd>
