@@ -76,7 +76,7 @@
 
         .def {
           display: block;
-          margin : 0 .5rem 0 0;
+          margin : 0 .5rem;
         }
 
         #people_num {
@@ -91,6 +91,7 @@
           background: none;
           border    : none;
           cursor    : pointer;
+          margin: 0 10px;
         }
 
       }
