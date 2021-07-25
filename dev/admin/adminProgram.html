@@ -48,16 +48,16 @@
                                             <input type="text" v-model='search' class="form-control"
                                                 style="width: 30%; margin-right: 10px;">
                                             <input type="button"
-                                                :class=" statusOn == false && mainStatusOn ==false && regularStatusOn ==false?  'btn btn-success':'btn btn-default'"
+                                                :class=" statusOn == false && mainStatusOn ==false && regularStatusOn ==false?  'btn btn-primary':'btn btn-default'"
                                                 style="margin-right: 10px;" @click='statusAll' value="檢視全部">
                                             <input type="button" @click='changeRegularStatus'
-                                                :class=" regularStatusOn ==true?  'btn btn-success':'btn btn-default'"
+                                                :class=" regularStatusOn ==true?  'btn btn-primary':'btn btn-default'"
                                                 value="檢視上架方案列表" style="margin-right: 10px;">
                                             <input type="button" @click='changeStatus'
-                                                :class="statusOn ==true?  'btn btn-success':'btn btn-default'"
+                                                :class="statusOn ==true?  'btn btn-primary':'btn btn-default'"
                                                 value="檢視精選方案狀態開放" style="margin-right: 10px;">
                                             <input type="button" @click='changeMainStatus'
-                                                :class="mainStatusOn == true?  'btn btn-success':'btn btn-default'"
+                                                :class="mainStatusOn == true?  'btn btn-primary':'btn btn-default'"
                                                 value="檢視主要精選方案狀態開放" style="margin-right: 10px;">
                                         </div>
                                         <div class="col-sm-4">

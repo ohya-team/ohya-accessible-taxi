@@ -47,14 +47,14 @@
                     <div class="col-sm-8" style="display: flex;">
                       <input type="text" v-model='search' class="form-control" style="width: 30%; margin-right: 10px;">
                       <input type="button"
-                        :class=" statusOn == false && mainStatusOn ==false?  'btn btn-success':'btn btn-default'"
+                        :class=" statusOn == false && mainStatusOn ==false?  'btn btn-primary':'btn btn-default'"
                         style="margin-right: 10px;" @click='statusAll' value="檢視全部">
                       <input type="button"
-                        :class=" statusOn == true && mainStatusOn ==false?  'btn btn-success':'btn btn-default'"
+                        :class=" statusOn == true && mainStatusOn ==false?  'btn btn-primary':'btn btn-default'"
                         style="margin-right: 10px;" @click='changeStatus' value="檢視景點狀態開放">
                       <input type="button"
-                        :class=" statusOn == false && mainStatusOn ==true?  'btn btn-success':'btn btn-default'"
-                        style="margin-right: 10px;" @click='changeMainStatus' value="檢視精選景點狀態開放'">
+                        :class=" statusOn == false && mainStatusOn ==true?  'btn btn-primary':'btn btn-default'"
+                        style="margin-right: 10px;" @click='changeMainStatus' value="檢視精選景點狀態開放">
                     </div>
                     <div class="col-sm-4">
                       <a href="./adminAddSpot.html">
