@@ -53,13 +53,13 @@
             <h3 class="panel-title">管理員登入</h3>
           </div>
           <div class="panel-body">
-            <form role="form">
+            <form role="form" action="../php/adminLogin.php" method="POST">
               <fieldset>
                 <div class="form-group">
-                  <input class="form-control" placeholder="E-mail" name="email" type="email" autofocus>
+                  <input class="form-control" name="admin_id" type="text" autofocus>
                 </div>
                 <div class="form-group">
-                  <input class="form-control" placeholder="Password" name="password" type="password" value="">
+                  <input class="form-control" placeholder="Password" name="admin_pw" type="password" >
                 </div>
                 <div class="checkbox">
                   <label>
@@ -67,7 +67,7 @@
                   </label>
                 </div>
                 <!-- Change this to a button or input when using this as a form -->
-                <a href="adminManage.html" class="btn btn-lg btn-success btn-block">登入</a>
+                <input type="submit" value="登入" class="btn btn-lg btn-success btn-block">
               </fieldset>
             </form>
           </div>
@@ -96,6 +96,7 @@
 
   <!-- Custom Theme JavaScript -->
   <script src="../js/startmin.js"></script>
+
 
 </body>
 

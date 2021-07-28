@@ -55,6 +55,7 @@ module.exports = {
         adminDiscountCategory: './dev/js/adminDiscountCategory.js',
         adminArticleReport:'./dev/js/adminArticleReport.js',
         homePage:'./dev/js/homePage.js',
+        adminUser:'./dev/js/adminUser.js',
     },// 入口文件
     output: {
         path: path.resolve(__dirname, 'dist/js'),
