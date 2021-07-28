@@ -56,6 +56,7 @@ module.exports = {
         adminArticleReport:'./dev/js/adminArticleReport.js',
         homePage:'./dev/js/homePage.js',
         adminUser:'./dev/js/adminUser.js',
+        adminManage:'./dev/js/adminManage.js',
     },// 入口文件
     output: {
         path: path.resolve(__dirname, 'dist/js'),
